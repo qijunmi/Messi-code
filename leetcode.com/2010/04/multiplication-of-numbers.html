@@ -1,0 +1,782 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html
+xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head
+profile="http://gmpg.org/xfn/11"><link
+rel="stylesheet" type="text/css" href="http://leetcode.com/wp-content/cache/minify/000000/fY7BDgIhDER_aBE9-EEFKpAssGm7Ufx6uyzxpodmmubNdK6Wpa-43C2EkqtxQBfV5WbdHkLfCJmt24xvhNbr_sUU8TtLK_mNwRB6rKJYKao80DP5eZir6NXGYFiADIHkGgdzrkcWQW_VcK8CL5NyTKuOIA1Mf05itvuNS8KCbGOWtLspfw2PNgq3ym0F_gA.css" media="all" /><link
+rel="stylesheet" type="text/css" href="http://leetcode.com/wp-content/cache/minify/000000/M9Qvzy9KKShKLS7WLcgvKM1JLALSxSXF-sUllTmp-uUFBQA.css" media="all" /><script type="text/javascript" src="http://leetcode.com/wp-content/cache/minify/000000/LYtrDsMgDIMvRBZN632m8BBQQeiSVBu3H532w3LsfH7g_jqTTHfHHEGNBISscsZdV6OyHkFoDgadbPSBUnNpS5bkYnrlP3Bbp3sfEAZbYkMrqSdFf8Y4_VDFZ-WAuQ1PzW0YRu8LA0lHm7_thhSXgye58hc.js"></script><meta
+http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta
+name="viewport" content="width=device-width, initial-scale=1.0" /><title>Multiplication of numbers | LeetCode</title><link
+rel="pingback" href="http://leetcode.com/xmlrpc.php" /><link
+rel="shortcut icon" href="http://leetcode.com/wp-content/themes/buddyboss-child/_inc/images/favicon.ico" type="image/x-icon"><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; Feed" href="http://leetcode.com/feed" /><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; Comments Feed" href="http://leetcode.com/comments/feed" /><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; Multiplication of numbers Comments Feed" href="http://leetcode.com/2010/04/multiplication-of-numbers.html/feed" /><link
+rel='stylesheet' id='gdsr_style_main-css'  href='http://leetcode.com/wp-content/plugins/gd-star-rating/css/gdsr.css.php?t=1366376824&#038;s=a05i05m20k20c05r05%23121620243046%23121620243240%23s1pchristmas%23s1pcrystal%23s1pdarkness%23s1poxygen%23s1goxygen_gif%23s1pplain%23s1ppumpkin%23s1psoft%23s1pstarrating%23s1pstarscape%23t1pclassical%23t1pstarrating%23t1gstarrating_gif%23lsgflower%23lsgradar&#038;o=off&#038;ver=1.9.22' type='text/css' media='all' /><script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"2.2.0","is_admin":"0","ajaxurl":"http:\/\/leetcode.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script><script type='text/javascript'>
+/* <![CDATA[ */
+var BP_DTheme = {"my_favs":"My Likes","accepted":"Accepted","rejected":"Rejected","show_all_comments":"Show all comments for this thread","show_all":"Show all","comments":"comments","close":"Close","view":"View","mark_as_fav":"Like","remove_fav":"Unlike","add_photo":"Add Photo","cancel":"Cancel","failed":"Failed","person":"person","people":"people","like":"like","likes":"likes","this_1":"this"};
+/* ]]> */
+</script><link
+rel='prev' title='Hacking a Google interview (From MIT)' href='http://leetcode.com/2010/04/hacking-google-interview-from-mit.html' /><link
+rel='next' title='Binary Search Tree In-Order Traversal Iterative Solution' href='http://leetcode.com/2010/04/binary-search-tree-in-order-traversal.html' /><link
+rel='canonical' href='http://leetcode.com/2010/04/multiplication-of-numbers.html' /><link
+rel='shortlink' href='http://leetcode.com/?p=17' /><script type="text/javascript">var ajaxurl = 'http://leetcode.com/wp-admin/admin-ajax.php';</script><style type='text/css'>#sidebar span.collapsing.archives {
+        border:0;
+        padding:0; 
+        margin:0; 
+        cursor:pointer;
+} 
+
+#sidebar span.monthCount, span.yearCount {text-decoration:none; color:#333}
+#sidebar li.collapsing.archives a.self {font-weight:bold}
+#sidebar ul.collapsing.archives.list ul.collapsing.archives.list:before {content:\'\';} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives:before {content:\'\';} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives {list-style-type:none}
+#sidebar ul.collapsing.archives.list li {
+       margin:0 0 0 .8em;
+       text-indent:-1em}
+#sidebar ul.collapsing.archives.list li.collapsing.archives.item:before {content: \'\\00BB \\00A0\' !important;} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives .sym {
+   font-size:1.2em;
+   font-family:Monaco, \'Andale Mono\', \'FreeMono\', \'Courier new\', \'Courier\', monospace;
+   cursor:pointer;
+    padding-right:15px;}
+#sidebar ul.collapsing.archives.list span.collapsing.archives.collapse .sym {
+    background-image: url(/wp-content/plugins/collapsing-archives/img/list-collapse.gif);
+}
+#sidebar ul.collapsing.archives.list span.collapsing.archives.expand .sym {
+    background-image: url(/wp-content/plugins/collapsing-archives/img/list-expand.gif);
+}</style><script type="text/javascript">
+//<![CDATA[
+var gdsr_cnst_nonce = "344a153a23";
+var gdsr_cnst_ajax = "http://leetcode.com/wp-content/plugins/gd-star-rating/ajax.php";
+var gdsr_cnst_button = 1;
+var gdsr_cnst_cache = 0;
+// ]]>
+</script><!--[if IE]><style type="text/css">.ratemulti .starsbar .gdcurrent { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter: alpha(opacity=70); }</style><![endif]--> <script type="text/javascript">
+    /* <![CDATA[ */				
+	jQuery.post('http://leetcode.com/wp-admin/admin-ajax.php', {action: 'wpp_update', token: '6117d36efc', id: 17}, function(data){/*alert(data);*/});
+    /* ]]> */
+</script><style type="text/css" media="print">#wpadminbar { display:none; }</style><style type="text/css" media="screen">
+	html { margin-top: 28px !important; }
+	* html body { margin-top: 28px !important; }
+</style><script type="text/javascript"> jQuery(document).ready( function() { jQuery("a.confirm").click( function() { if ( confirm( 'Are you sure?' ) ) return true; else return false; }); });</script></head><body
+class="single single-post postid-17 single-format-standard admin-bar no-customize-support no-js buddyboss-active-pics buddyboss-active-wall admin-bar" id="bp-default"> <!--[if lte IE 6]><script src="http://leetcode.com/wp-content/themes/buddyboss/_inc/js/ie6/warning.js"></script><script>window.onload=function(){e("http://leetcode.com/wp-content/themes/buddyboss-child/_inc/js/ie6/")}</script><![endif]--><script type="text/javascript">//<![CDATA[
+(function(){var c=document.body.className;c=c.replace(/no-js/,'js');document.body.className=c;})();
+//]]></script><div
+id="top-hdr-bg"></div><div
+class="menu-bg"></div><div
+id="wrapper"><div
+id="header"><div
+class="padder"><div
+id="logo"> <a
+href="http://leetcode.com" title="Home"><img
+src="http://leetcode.com/wp-content/uploads/2012/12/leetcodelogo.png"/></a></div><div
+class="menu-bg"></div><ul
+class="sf-menu"><li
+class="page_item page-item-2"><a
+href="http://leetcode.com/about">About</a></li><li
+class="page_item page-item-908"><a
+href="http://leetcode.com/activity">Activity</a></li><li
+class="page_item page-item-1466"><a
+href="http://leetcode.com/discuss">Discuss</a></li><li
+class="page_item page-item-1658"><a
+href="http://leetcode.com/donate">Donate</a></li><li
+class="page_item page-item-907"><a
+href="http://leetcode.com/members">Members</a></li><li
+class="page_item page-item-370"><a
+href="http://leetcode.com/onlinejudge">Online Judge</a></li></ul></div></div><div
+id="container"><div
+id="content" class="two_column"><div
+class="padder"><div
+class="page" id="blog-single" role="main"><div
+id="post-17" class="post-17 post type-post status-publish format-standard hentry category-dynamic-programming"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+rel="author" href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle">Multiplication of numbers</h2><p
+class="date"> April 16, 2010 <span>in <a
+href="http://leetcode.com/category/dynamic-programming" title="View all posts in dynamic programming" rel="category tag">dynamic programming</a></span> <span
+class="post-utility alignright"></span></p><div
+class="entry"><blockquote><p>There is an array A[N] of N numbers. You have to compose an array Output[N] such that Output[i] will be equal to multiplication of all the elements of A[N] except A[i]. Solve it without division operator and in O(n).<span
+id="more-17"></span></p><p>For example Output[0] will be multiplication of A[1] to A[N-1] and Output[1] will be multiplication of A[0] and from A[2] to A[N-1].</p><p>Example:<br
+/>A:      {4, 3, 2, 1, 2}<br
+/>OUTPUT: {12, 16, 24, 48, 24}</p></blockquote><p>Since the complexity required is O(n), the obvious O(n^2) brute force solution is not good enough here. Since the brute force solution recompute the multiplication each time again and again, we can avoid this by storing the results temporarily in an array.</p><p>Let&#8217;s define array B where element B[i] = multiplication of numbers from A[0] to A[i]. For example, if A = {4, 3, 2, 1, 2}, then B = {4, 12, 24, 24, 48}. Then, we scan the array A from right to left, and have a temporary variable called product which stores the multiplication from right to left so far. Calculating OUTPUT[i] is straight forward, as OUTPUT[i] = B[i-1] * product.</p><p>The above method requires only O(n) time but uses O(n) space. We have to trade memory for speed. Is there a better way? (i.e., runs in O(n) time but without extra space?)</p><p>Yes, actually the temporary table is not required. We can have two variables called left and right, each keeping track of the product of numbers multiplied from left->right and right->left. Could you see why this works without extra space?</p><p></p><div
+id="crayon-52a3f4b0d952e" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+void array_multiplication(int A[], int OUTPUT[], int n) {
+ int left = 1;
+  int right = 1;
+  for (int i = 0; i &lt; n; i++)
+  OUTPUT[i] = 1;
+  for (int i = 0; i &lt; n; i++) {
+    OUTPUT[i] *= left;
+    OUTPUT[n - 1 - i] *= right;
+    left *= A[i];
+    right *= A[n - 1 - i];
+  }
+}</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3f4b0d952e-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4b0d952e-2">2</div><div
+class="crayon-num" data-line="crayon-52a3f4b0d952e-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4b0d952e-4">4</div><div
+class="crayon-num" data-line="crayon-52a3f4b0d952e-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4b0d952e-6">6</div><div
+class="crayon-num" data-line="crayon-52a3f4b0d952e-7">7</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4b0d952e-8">8</div><div
+class="crayon-num" data-line="crayon-52a3f4b0d952e-9">9</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4b0d952e-10">10</div><div
+class="crayon-num" data-line="crayon-52a3f4b0d952e-11">11</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4b0d952e-12">12</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3f4b0d952e-1"><span
+class="t">void</span><span
+class="h"> </span><span
+class="e">array_multiplication</span><span
+class="sy">(</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">A</span><span
+class="sy">[</span><span
+class="sy">]</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">OUTPUT</span><span
+class="sy">[</span><span
+class="sy">]</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">n</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4b0d952e-2"><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">left</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4b0d952e-3"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">right</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4b0d952e-4"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">for</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">i</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="h"> </span><span
+class="o">&lt;</span><span
+class="h"> </span><span
+class="i">n</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="o">++</span><span
+class="sy">)</span></div><div
+class="crayon-line" id="crayon-52a3f4b0d952e-5"><span
+class="h">&nbsp;&nbsp;</span><span
+class="v">OUTPUT</span><span
+class="sy">[</span><span
+class="i">i</span><span
+class="sy">]</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4b0d952e-6"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">for</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">i</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="h"> </span><span
+class="o">&lt;</span><span
+class="h"> </span><span
+class="i">n</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="o">++</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line" id="crayon-52a3f4b0d952e-7"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">OUTPUT</span><span
+class="sy">[</span><span
+class="i">i</span><span
+class="sy">]</span><span
+class="h"> </span><span
+class="o">*=</span><span
+class="h"> </span><span
+class="i">left</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4b0d952e-8"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">OUTPUT</span><span
+class="sy">[</span><span
+class="i">n</span><span
+class="h"> </span><span
+class="o">-</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="h"> </span><span
+class="o">-</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="sy">]</span><span
+class="h"> </span><span
+class="o">*=</span><span
+class="h"> </span><span
+class="i">right</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4b0d952e-9"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="e ">left *</span><span
+class="o">=</span><span
+class="h"> </span><span
+class="v">A</span><span
+class="sy">[</span><span
+class="i">i</span><span
+class="sy">]</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4b0d952e-10"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="e ">right *</span><span
+class="o">=</span><span
+class="h"> </span><span
+class="v">A</span><span
+class="sy">[</span><span
+class="i">n</span><span
+class="h"> </span><span
+class="o">-</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="h"> </span><span
+class="o">-</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="sy">]</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4b0d952e-11"><span
+class="h">&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4b0d952e-12"><span
+class="sy">}</span></div></div></td></tr></table></div></div><p></p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="ratingblock "><div
+class="ratingheader "></div><div
+class="ratingstars "><div
+id="article_rater_17" class="ratepost gdsr-oxygen_gif gdsr-size-24"><div
+class="starsbar gdsr-size-24"><div
+class="gdouter gdheight"><div
+id="gdr_vote_a17" style="width: 101.45454545455px;" class="gdinner gdheight"></div><div
+id="gdr_stars_a17" class="gdsr_rating_as"><a
+id="gdsrX17X5X0XaXarticle_rater_17Xarticle_loader_17X10X24" title="5 / 5" class="s5" rel="nofollow"></a><a
+id="gdsrX17X4X0XaXarticle_rater_17Xarticle_loader_17X10X24" title="4 / 5" class="s4" rel="nofollow"></a><a
+id="gdsrX17X3X0XaXarticle_rater_17Xarticle_loader_17X10X24" title="3 / 5" class="s3" rel="nofollow"></a><a
+id="gdsrX17X2X0XaXarticle_rater_17Xarticle_loader_17X10X24" title="2 / 5" class="s2" rel="nofollow"></a><a
+id="gdsrX17X1X0XaXarticle_rater_17Xarticle_loader_17X10X24" title="1 / 5" class="s1" rel="nofollow"></a></div></div></div></div><div
+id="article_loader_17" style="display: none; width: 120px " class="ratingloaderarticle"><div
+class="loader radar " style="height: 24px"><div
+class="loaderinner" style="padding-top: 2px">please wait...</div></div></div></div><div
+class="ratingtext "><div
+id="gdr_text_a17">Rating: 4.2/<strong>5</strong> (22 votes cast)</div></div></div><span
+class="hreview-aggregate"><span
+class="item"><span
+class="fn">Multiplication of numbers</span></span>, <span
+class="rating"><span
+class="average">4.2</span> out of <span
+class="best">5</span> based on <span
+class="votes">22</span> ratings <span
+class="summary"></span></span></span></div><p
+class="postmetadata">&nbsp;</p><div
+class="alignleft"><a
+href="http://leetcode.com/2010/04/hacking-google-interview-from-mit.html" rel="prev"><span
+class="meta-nav">&larr;</span> Hacking a Google interview (From MIT)</a></div><div
+class="alignright"><a
+href="http://leetcode.com/2010/04/binary-search-tree-in-order-traversal.html" rel="next">Binary Search Tree In-Order Traversal Iterative Solution <span
+class="meta-nav">&rarr;</span></a></div></div></div><div
+id="comments"><h3> 11 responses to <em>Multiplication of numbers</em></h3><ol
+class="commentlist"><li
+class="comment even thread-even depth-1" id="comment-3"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">leinad</a> said on <a
+href="http://leetcode.com/2010/04/multiplication-of-numbers.html#comment-3"><span
+class="time-since">April 21, 2010</span></a></p></div><div
+class="comment-entry"><p>OMG, why didn&#39;t you use the solution as simple as following:<br
+/>ALL = A[0] *A[1] *&#8230;A[n-1];<br
+/>OUTPUT[i] = ALL/A[i];</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_3_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 4 down">-4</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_3_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX3XupXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_3_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_3_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX3XdwXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_3_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/multiplication-of-numbers.html?replytocom=3#respond' onclick='return addComment.moveForm("comment-3", "3", "respond", "17")'>Reply</a></div></div><ul
+class='children'><li
+class="comment odd alt depth-2" id="comment-2618"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/ad102c3007d4eb66c43e7f6d7d3f328a?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">flystax</a> said on <a
+href="http://leetcode.com/2010/04/multiplication-of-numbers.html#comment-2618"><span
+class="time-since">September 8, 2011</span></a></p></div><div
+class="comment-entry"><p>Have you read the question carefully? Division is not allowed.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_2618_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 1 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_2618_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX2618XupXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_2618_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_2618_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX2618XdwXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_2618_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/multiplication-of-numbers.html?replytocom=2618#respond' onclick='return addComment.moveForm("comment-2618", "2618", "respond", "17")'>Reply</a></div></div></li><li
+class="comment even depth-2" id="comment-11214"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/7cccf285506f269968a14f3cd00c43df?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Omar Mohammad Othman</a> said on <a
+href="http://leetcode.com/2010/04/multiplication-of-numbers.html#comment-11214"><span
+class="time-since">January 3, 2012</span></a></p></div><div
+class="comment-entry"><p>Even if this is allowed, leinad, your solution is not correct. If a single zero exists in the array, all the outputs will be zeroes in your solution (besides &#8211; worse &#8211; you&#8217;ll actually attempt to divide by zero). 1337c0d3r&#8217;s solution works in this case, I&#8217;ve tested it!</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_11214_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 1 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_11214_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX11214XupXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_11214_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_11214_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX11214XdwXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_11214_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/multiplication-of-numbers.html?replytocom=11214#respond' onclick='return addComment.moveForm("comment-11214", "11214", "respond", "17")'>Reply</a></div></div></li></ul></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-4"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">1337c0d3r</a> said on <a
+href="http://leetcode.com/2010/04/multiplication-of-numbers.html#comment-4"><span
+class="time-since">April 21, 2010</span></a></p></div><div
+class="comment-entry"><p>leinad, good observation. Unfortunately, you are not allowed to use division.</p><p>The question statement mentioned &quot;Solve it without division operator and in O(n).&quot;</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_4_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 1 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_4_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX4XupXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_4_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_4_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX4XdwXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_4_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/multiplication-of-numbers.html?replytocom=4#respond' onclick='return addComment.moveForm("comment-4", "4", "respond", "17")'>Reply</a></div></div></li><li
+class="comment even thread-even depth-1" id="comment-70"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Anonymous</a> said on <a
+href="http://leetcode.com/2010/04/multiplication-of-numbers.html#comment-70"><span
+class="time-since">October 5, 2010</span></a></p></div><div
+class="comment-entry"><p>Exactly, no division!<br
+/>Plus, you may get overflowed if multiple all of them!</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_70_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 1 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_70_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX70XupXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_70_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_70_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX70XdwXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_70_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/multiplication-of-numbers.html?replytocom=70#respond' onclick='return addComment.moveForm("comment-70", "70", "respond", "17")'>Reply</a></div></div></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-79"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Vols</a> said on <a
+href="http://leetcode.com/2010/04/multiplication-of-numbers.html#comment-79"><span
+class="time-since">October 12, 2010</span></a></p></div><div
+class="comment-entry"><p>what do you think of following solution, similar but maybe easier to understand: [mitbbs]</p><p>int p=1;<br
+/>for(int i=0;i=0;&#8211;i){ <br
+/> OUTPUT[i]*=p; <br
+/> p*=A[i];<br
+/>}</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_79_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_79_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX79XupXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_79_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_79_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX79XdwXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_79_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/multiplication-of-numbers.html?replytocom=79#respond' onclick='return addComment.moveForm("comment-79", "79", "respond", "17")'>Reply</a></div></div></li><li
+class="comment even thread-even depth-1" id="comment-80"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Vols</a> said on <a
+href="http://leetcode.com/2010/04/multiplication-of-numbers.html#comment-80"><span
+class="time-since">October 12, 2010</span></a></p></div><div
+class="comment-entry"><p>above codes were cut half after &#39;posting&#39;</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_80_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_80_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX80XupXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_80_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_80_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX80XdwXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_80_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/multiplication-of-numbers.html?replytocom=80#respond' onclick='return addComment.moveForm("comment-80", "80", "respond", "17")'>Reply</a></div></div></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-8955"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://anujdhamija.com" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/84fac1918e00dbd598f6b8dda06be0bb?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://anujdhamija.com" rel="nofollow">Anuj Dhamija</a> said on <a
+href="http://leetcode.com/2010/04/multiplication-of-numbers.html#comment-8955"><span
+class="time-since">December 16, 2011</span></a></p></div><div
+class="comment-entry"><p>hey nice work. ur website is vey informative.<br
+/> i see problem with the solution presented above with left and right pointers. doesnt really do the intended operation. For example Output[0] and Output[n-1] are always 1. Output[1] = A[n-2] and Output[n-2] = A[2]</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_8955_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_8955_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX8955XupXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_8955_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_8955_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX8955XdwXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_8955_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/multiplication-of-numbers.html?replytocom=8955#respond' onclick='return addComment.moveForm("comment-8955", "8955", "respond", "17")'>Reply</a></div></div><ul
+class='children'><li
+class="comment byuser comment-author-hyfella even depth-2" id="comment-19737"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/hyfella/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/3d607f32d0ce1cf910c801f1122b39b3?d=identicon&amp;s=25&amp;r=G" alt="Avatar Image" class="avatar user-1698-avatar" width="25" height="25" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/hyfella/" rel="nofollow">S F</a> said on <a
+href="http://leetcode.com/2010/04/multiplication-of-numbers.html#comment-19737"><span
+class="time-since">May 16, 2012</span></a></p></div><div
+class="comment-entry"><p>Output[0]=1 only until i=n-1.  at that point, &#8220;right&#8221; will be carried all the way through to Output[0].</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_19737_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_19737_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX19737XupXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_19737_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_19737_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX19737XdwXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_19737_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/multiplication-of-numbers.html?replytocom=19737#respond' onclick='return addComment.moveForm("comment-19737", "19737", "respond", "17")'>Reply</a></div></div></li></ul></li><li
+class="comment byuser comment-author-jester odd alt thread-even depth-1" id="comment-15932"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/jester/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/1395c5cd2ca31a65539c5a7c848dfb31?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-842-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/jester/" rel="nofollow">jester</a> said on <a
+href="http://leetcode.com/2010/04/multiplication-of-numbers.html#comment-15932"><span
+class="time-since">March 5, 2012</span></a></p></div><div
+class="comment-entry"><p>if n == 0, the above code would just give us 1 as answer..</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_15932_c" class="gdt-size-20 gdthumbtext"> <strong
+title="2 up, 0 down">+2</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_15932_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX15932XupXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_15932_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_15932_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX15932XdwXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_15932_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/multiplication-of-numbers.html?replytocom=15932#respond' onclick='return addComment.moveForm("comment-15932", "15932", "respond", "17")'>Reply</a></div></div></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-91661"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/0c4a392344de4c2e7971461ac436da9d?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">carl</a> said on <a
+href="http://leetcode.com/2010/04/multiplication-of-numbers.html#comment-91661"><span
+class="time-since">December 7, 2013</span></a></p></div><div
+class="comment-entry"><p>nice work! However, your solution is still o(n) space. You just save a copy of o(n) temp array by using the output array. How about just print the result without an output array?</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_91661_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_91661_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX91661XupXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_91661_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_91661_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX91661XdwXcX46X20XY" class="gdt-starrating_gif" rel="nofollow"></a></div><div
+id="gdsr_thumb_91661_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/multiplication-of-numbers.html?replytocom=91661#respond' onclick='return addComment.moveForm("comment-91661", "91661", "respond", "17")'>Reply</a></div></div></li></ol></div><div
+id="respond"><h3 id="reply-title">Leave a reply <small><a
+rel="nofollow" id="cancel-comment-reply-link" href="/2010/04/multiplication-of-numbers.html#respond" style="display:none;">Cancel reply</a></small></h3><form
+action="http://leetcode.com/wp-comments-post.php" method="post" id="commentform"><div
+class="comment-avatar-box"><div
+class="avb"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /></div></div><div
+class="comment-content standard-form"><p
+class="comment-notes">Your email address will not be published. Required fields are marked <span
+class="required">*</span></p><p
+class="comment-form-author"><label
+for="author">Name<span
+class="required"> *</span></label> <input
+id="author" name="author" type="text" value="" size="30" aria-required='true' /></p><p
+class="comment-form-email"><label
+for="email">Email<span
+class="required"> *</span></label> <input
+id="email" name="email" type="text" value="" size="30" aria-required='true' /></p><p
+class="comment-form-url"><label
+for="url">Website</label><input
+id="url" name="url" type="text" value="" size="30" /></p><p
+class="form-textarea"><textarea name="comment" id="comment" cols="60" rows="10" aria-required="true"></textarea></p><p
+class="form-allowed-tags">You may use the <code>&lt;code&gt;</code> tag to embed your code.</p><p
+class="form-submit"> <input
+name="submit" type="submit" id="submit" value="Post Comment" /> <input
+type='hidden' name='comment_post_ID' value='17' id='comment_post_ID' /> <input
+type='hidden' name='comment_parent' id='comment_parent' value='0' /></p><p
+style="display: none;"><input
+type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="4a0fb4fa6e" /></p></div></form></div><div
+id="trackbacks"><h3>1 trackback</h3><ul
+id="trackbacklist"><li><h5><a
+href='http://tanliboy.wordpress.com/2011/05/01/some-interesting-google-interview-problems/' rel='external nofollow' class='url'>Some interesting Google interview problems | tanliboy</a></h5> <em>on May 1, 2011</em></li></ul></div></div></div></div><div
+id="post-dir-search" class="dir-search"><form
+role="search" method="get" id="searchform" action="http://leetcode.com/"> <input
+type="text" value="" name="s" id="s" /> <input
+type="submit" id="searchsubmit" value="Search" /></form></div><div
+id="sidebar"><div
+class="padder"></div></div></div><div
+id="push"></div></div><div
+id="footer"><div
+id="colophon"><div
+class="footer-widget"></div><div
+class="footer-widget"></div><div
+class="footer-widget"></div><div
+class="footer-widget last"></div><div
+class="clear"></div><div
+id="footer-links"><ul
+class="footer-menu"><li
+class="page_item page-item-2"><a
+href="http://leetcode.com/about">About</a></li><li
+class="page_item page-item-908"><a
+href="http://leetcode.com/activity">Activity</a></li><li
+class="page_item page-item-1466"><a
+href="http://leetcode.com/discuss">Discuss</a></li><li
+class="page_item page-item-1658"><a
+href="http://leetcode.com/donate">Donate</a></li><li
+class="page_item page-item-907"><a
+href="http://leetcode.com/members">Members</a></li><li
+class="page_item page-item-370"><a
+href="http://leetcode.com/onlinejudge">Online Judge</a></li></ul></div><div
+id="credits"><p>Copyright &copy; 2013 LeetCode &nbsp;&middot;&nbsp; <a
+href="http://leetcode.com/wp-login.php">Log in</a></p></div></div></div><div
+id="wpadminbar" class="nojq nojs" role="navigation"> <a
+class="screen-reader-shortcut" href="#wp-toolbar" tabindex="1">Skip to toolbar</a><div
+class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Top navigation toolbar." tabindex="0"><ul
+id="wp-admin-bar-root-default" class="ab-top-menu"><li
+id="wp-admin-bar-bp-login"><a
+class="ab-item"  href="http://leetcode.com/wp-login.php">Log in</a></li><li
+id="wp-admin-bar-bp-register"><a
+class="ab-item"  href="http://leetcode.com/register/">Register</a></li><li
+id="wp-admin-bar-my-account"><div
+class="ab-item ab-empty-item" ></div></li></ul></div> <a
+class="screen-reader-shortcut" href="http://leetcode.com/wp-login.php?action=logout&#038;_wpnonce=d79c4035be">Log Out</a></div><div
+class="buddyboss_log"></div> <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6849839-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script><style type="text/css">
+    .defaultCommentText { color: #a1a1a1; font-style: italic; }
+  </style><script type="text/javascript">
+    jQuery("textarea#comment, textarea#reply_text").focus(function(srcc) {
+      if (jQuery(this).val() == jQuery(this)[0].title) {
+        jQuery(this).val("");
+        jQuery(this).removeClass("defaultCommentText");
+      }
+    });
+    jQuery("textarea#comment, textarea#reply_text").blur(function() {
+      if (jQuery(this).val() == "") {
+        jQuery(this).val(jQuery(this)[0].title);
+        jQuery(this).addClass("defaultCommentText");
+      }
+    });
+    jQuery("textarea#comment, textarea#reply_text").attr('title', 'To embed your code, please use <code>your code here</code>.');
+    jQuery("textarea#comment, textarea#reply_text").blur();
+  </script></body></html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Minified using disk: basic
+Page Caching using disk: enhanced
+
+ Served from: leetcode.com @ 2013-12-07 20:25:21 by W3 Total Cache -->

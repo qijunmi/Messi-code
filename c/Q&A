@@ -1,0 +1,9 @@
+[Q]How to use >> to redirect the output stream of gcc into a log file?
+[I]
+Date:2013-12-08
+[A]gcc 2&>filename ,2 means stderr,1 means stdout
+
+[Q]How to get the ouput of an coreutils command into a modifying file with vim?
+[I]
+Date:2013-12-08
+[A]Using ':r !date'-like skill.

@@ -1,0 +1,1920 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html
+xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head
+profile="http://gmpg.org/xfn/11"><link
+rel="stylesheet" type="text/css" href="http://leetcode.com/wp-content/cache/minify/000000/fY7BDgIhDER_aBE9-EEFKpAssGm7Ufx6uyzxpodmmubNdK6Wpa-43C2EkqtxQBfV5WbdHkLfCJmt24xvhNbr_sUU8TtLK_mNwRB6rKJYKao80DP5eZir6NXGYFiADIHkGgdzrkcWQW_VcK8CL5NyTKuOIA1Mf05itvuNS8KCbGOWtLspfw2PNgq3ym0F_gA.css" media="all" /><link
+rel="stylesheet" type="text/css" href="http://leetcode.com/wp-content/cache/minify/000000/M9Qvzy9KKShKLS7WLcgvKM1JLALSxSXF-sUllTmp-uUFBQA.css" media="all" /><script type="text/javascript" src="http://leetcode.com/wp-content/cache/minify/000000/LYtrDsMgDIMvRBZN632m8BBQQeiSVBu3H532w3LsfH7g_jqTTHfHHEGNBISscsZdV6OyHkFoDgadbPSBUnNpS5bkYnrlP3Bbp3sfEAZbYkMrqSdFf8Y4_VDFZ-WAuQ1PzW0YRu8LA0lHm7_thhSXgye58hc.js"></script><meta
+http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta
+name="viewport" content="width=device-width, initial-scale=1.0" /><title>Maximum Height (Depth) of a Binary Tree | LeetCode</title><link
+rel="pingback" href="http://leetcode.com/xmlrpc.php" /><link
+rel="shortcut icon" href="http://leetcode.com/wp-content/themes/buddyboss-child/_inc/images/favicon.ico" type="image/x-icon"><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; Feed" href="http://leetcode.com/feed" /><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; Comments Feed" href="http://leetcode.com/comments/feed" /><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; Maximum Height (Depth) of a Binary Tree Comments Feed" href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html/feed" /><link
+rel='stylesheet' id='gdsr_style_main-css'  href='http://leetcode.com/wp-content/plugins/gd-star-rating/css/gdsr.css.php?t=1366376824&#038;s=a05i05m20k20c05r05%23121620243046%23121620243240%23s1pchristmas%23s1pcrystal%23s1pdarkness%23s1poxygen%23s1goxygen_gif%23s1pplain%23s1ppumpkin%23s1psoft%23s1pstarrating%23s1pstarscape%23t1pclassical%23t1pstarrating%23t1gstarrating_gif%23lsgflower%23lsgradar&#038;o=off&#038;ver=1.9.22' type='text/css' media='all' /><script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"2.2.0","is_admin":"0","ajaxurl":"http:\/\/leetcode.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script><script type='text/javascript'>
+/* <![CDATA[ */
+var BP_DTheme = {"my_favs":"My Likes","accepted":"Accepted","rejected":"Rejected","show_all_comments":"Show all comments for this thread","show_all":"Show all","comments":"comments","close":"Close","view":"View","mark_as_fav":"Like","remove_fav":"Unlike","add_photo":"Add Photo","cancel":"Cancel","failed":"Failed","person":"person","people":"people","like":"like","likes":"likes","this_1":"this"};
+/* ]]> */
+</script><link
+rel='prev' title='Binary Search Tree In-Order Traversal Iterative Solution' href='http://leetcode.com/2010/04/binary-search-tree-in-order-traversal.html' /><link
+rel='next' title='Finding prime numbers' href='http://leetcode.com/2010/04/finding-prime-numbers.html' /><link
+rel='canonical' href='http://leetcode.com/2010/04/maximum-height-of-binary-tree.html' /><link
+rel='shortlink' href='http://leetcode.com/?p=19' /><script type="text/javascript">var ajaxurl = 'http://leetcode.com/wp-admin/admin-ajax.php';</script><style type='text/css'>#sidebar span.collapsing.archives {
+        border:0;
+        padding:0; 
+        margin:0; 
+        cursor:pointer;
+} 
+
+#sidebar span.monthCount, span.yearCount {text-decoration:none; color:#333}
+#sidebar li.collapsing.archives a.self {font-weight:bold}
+#sidebar ul.collapsing.archives.list ul.collapsing.archives.list:before {content:\'\';} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives:before {content:\'\';} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives {list-style-type:none}
+#sidebar ul.collapsing.archives.list li {
+       margin:0 0 0 .8em;
+       text-indent:-1em}
+#sidebar ul.collapsing.archives.list li.collapsing.archives.item:before {content: \'\\00BB \\00A0\' !important;} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives .sym {
+   font-size:1.2em;
+   font-family:Monaco, \'Andale Mono\', \'FreeMono\', \'Courier new\', \'Courier\', monospace;
+   cursor:pointer;
+    padding-right:15px;}
+#sidebar ul.collapsing.archives.list span.collapsing.archives.collapse .sym {
+    background-image: url(/wp-content/plugins/collapsing-archives/img/list-collapse.gif);
+}
+#sidebar ul.collapsing.archives.list span.collapsing.archives.expand .sym {
+    background-image: url(/wp-content/plugins/collapsing-archives/img/list-expand.gif);
+}</style><script type="text/javascript">
+//<![CDATA[
+var gdsr_cnst_nonce = "344a153a23";
+var gdsr_cnst_ajax = "http://leetcode.com/wp-content/plugins/gd-star-rating/ajax.php";
+var gdsr_cnst_button = 1;
+var gdsr_cnst_cache = 0;
+// ]]>
+</script><!--[if IE]><style type="text/css">.ratemulti .starsbar .gdcurrent { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter: alpha(opacity=70); }</style><![endif]--> <script type="text/javascript">
+    /* <![CDATA[ */				
+	jQuery.post('http://leetcode.com/wp-admin/admin-ajax.php', {action: 'wpp_update', token: '6117d36efc', id: 19}, function(data){/*alert(data);*/});
+    /* ]]> */
+</script><style type="text/css" media="print">#wpadminbar { display:none; }</style><style type="text/css" media="screen">
+	html { margin-top: 28px !important; }
+	* html body { margin-top: 28px !important; }
+</style><script type="text/javascript"> jQuery(document).ready( function() { jQuery("a.confirm").click( function() { if ( confirm( 'Are you sure?' ) ) return true; else return false; }); });</script></head><body
+class="single single-post postid-19 single-format-standard admin-bar no-customize-support no-js buddyboss-active-pics buddyboss-active-wall admin-bar" id="bp-default"> <!--[if lte IE 6]><script src="http://leetcode.com/wp-content/themes/buddyboss/_inc/js/ie6/warning.js"></script><script>window.onload=function(){e("http://leetcode.com/wp-content/themes/buddyboss-child/_inc/js/ie6/")}</script><![endif]--><script type="text/javascript">//<![CDATA[
+(function(){var c=document.body.className;c=c.replace(/no-js/,'js');document.body.className=c;})();
+//]]></script><div
+id="top-hdr-bg"></div><div
+class="menu-bg"></div><div
+id="wrapper"><div
+id="header"><div
+class="padder"><div
+id="logo"> <a
+href="http://leetcode.com" title="Home"><img
+src="http://leetcode.com/wp-content/uploads/2012/12/leetcodelogo.png"/></a></div><div
+class="menu-bg"></div><ul
+class="sf-menu"><li
+class="page_item page-item-2"><a
+href="http://leetcode.com/about">About</a></li><li
+class="page_item page-item-908"><a
+href="http://leetcode.com/activity">Activity</a></li><li
+class="page_item page-item-1466"><a
+href="http://leetcode.com/discuss">Discuss</a></li><li
+class="page_item page-item-1658"><a
+href="http://leetcode.com/donate">Donate</a></li><li
+class="page_item page-item-907"><a
+href="http://leetcode.com/members">Members</a></li><li
+class="page_item page-item-370"><a
+href="http://leetcode.com/onlinejudge">Online Judge</a></li></ul></div></div><div
+id="container"><div
+id="content" class="two_column"><div
+class="padder"><div
+class="page" id="blog-single" role="main"><div
+id="post-19" class="post-19 post type-post status-publish format-standard hentry category-binary-tree"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+rel="author" href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle">Maximum Height (Depth) of a Binary Tree</h2><p
+class="date"> April 21, 2010 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a></span> <span
+class="post-utility alignright"></span></p><div
+class="entry"><blockquote><p>Given a binary tree, find its maximum height.</p></blockquote><p><span
+id="more-19"></span><br
+/>The maximum height of a binary tree is defined as the number of nodes along the path from the root node to the deepest leaf node. Note that the maximum height of an empty tree is 0.</p><p><b>Recursive Solution:</b><br
+/>We can solve this easily using recursion. Why? Because each of the leftChild and rightChild of a node is a sub-tree itself. We first compute the max height of left sub-tree, then compute the max height of right sub-tree. Therefore, the max height of the current node is the greater of the two max heights + 1. For the base case, the current node is NULL, we return zero. NULL signifies there is no tree, therefore its max height is zero.</p><p></p><div
+id="crayon-52a3f4136e9a9" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-mac print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+int maxHeight(BinaryTree *p) {
+  if (!p) return 0;
+  int left_height = maxHeight(p-&gt;left);
+  int right_height = maxHeight(p-&gt;right);
+  return (left_height &gt; right_height) ? left_height + 1 : right_height + 1;
+}</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3f4136e9a9-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4136e9a9-2">2</div><div
+class="crayon-num" data-line="crayon-52a3f4136e9a9-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4136e9a9-4">4</div><div
+class="crayon-num" data-line="crayon-52a3f4136e9a9-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4136e9a9-6">6</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3f4136e9a9-1"><span
+class="t">int</span><span
+class="h"> </span><span
+class="e">maxHeight</span><span
+class="sy">(</span><span
+class="e ">BinaryTree *</span><span
+class="i">p</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4136e9a9-2"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="o">!</span><span
+class="i">p</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="st">return</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4136e9a9-3"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">left_height</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="e">maxHeight</span><span
+class="sy">(</span><span
+class="i">p</span><span
+class="o">-&gt;</span><span
+class="i">left</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4136e9a9-4"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">right_height</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="e">maxHeight</span><span
+class="sy">(</span><span
+class="i">p</span><span
+class="o">-&gt;</span><span
+class="i">right</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4136e9a9-5"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">left_height</span><span
+class="h"> </span><span
+class="o">&gt;</span><span
+class="h"> </span><span
+class="i">right_height</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">?</span><span
+class="h"> </span><span
+class="i">left_height</span><span
+class="h"> </span><span
+class="o">+</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="h"> </span><span
+class="o">:</span><span
+class="h"> </span><span
+class="i">right_height</span><span
+class="h"> </span><span
+class="o">+</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4136e9a9-6"><span
+class="sy">}</span></div></div></td></tr></table></div></div><p><b>Further Thoughts:</b><br
+/>The recursive solution is pretty neat, right? Here&#8217;s a challenge: How about finding an iterative solution for maxHeight()? How would you approach this problem?</p><p><div
+class="separator" style="clear: both; text-align: center;"><a
+href="http://4.bp.blogspot.com/_UElib2WLeDE/TK0MjC3-MKI/AAAAAAAACWc/u_JaQ0YhoU4/s1600/yahoo_small.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img
+border="0" ex="true" height="287" src="http://4.bp.blogspot.com/_UElib2WLeDE/TK0MjC3-MKI/AAAAAAAACWc/u_JaQ0YhoU4/s400/yahoo_small.png" width="400" /></a></div><div
+style="text-align: center;"><small>Binary-tree visualization of the Yahoo search engine bot crawling the experimental website. The total number of nodes grow with an exponential rate as the tree deepens. The animated version showing the tree growing over the year can be found <a
+href="http://drunkmenworkhere.org/219.php?a=yahoo">here</a> (<span
+style="color: black;">Warning</span>: large file size, <span
+style="color: red;">13MB</span>).</small></div><p><b>Hint:</b><br
+/>Read my post: <a
+href="http://www.leetcode.com/2010/04/binary-search-tree-in-order-traversal.html">Binary Search Tree In-Order Traversal Iterative Solution</a>. This should give you enough hints to get started.</p><p><b>Iterative Solution:</b><br
+/>We could apply the same <a
+href="http://www.leetcode.com/2010/04/binary-search-tree-in-order-traversal.html">in-order traversal</a> of a BST in the binary tree. By saying &#8220;in-order&#8221; traversal I mean traversing the tree such that it reaches the leaf first (deepest). In other words, we are doing a <a
+href="http://en.wikipedia.org/wiki/Depth-first_search">Depth-first Search</a> (DFS). In fact, all three kinds of tree traversal (pre-order, in-order, and post-order) are doing DFS. Therefore, we could modify any existing iterative solution of tree traversals to solve this problem.</p><p>As pre-order and in-order iterative traversals are easier to implement, your best bet is to code either one of them during an interview session. As we traverse the tree, we would keep track of the current depth and record each node&#8217;s depth, so that we know which depth we are in when we return to the node at a later time. (In pre-order or in-order traversals, it might return several levels above the current level when a node is popped off the stack).</p><p>On the other hand, <a
+href="http://www.leetcode.com/2010/10/binary-tree-post-order-traversal.html">post-order traversal</a> guarantees to return exactly one level above a node that is popped off the stack. Therefore, we could devise a solution utilizing post-order traversal without modifying the existing tree structure. We keep track of the current depth and update the maximum depth as we traverse the tree.</p><p>Another solution is to utilize <a
+href="http://en.wikipedia.org/wiki/Breadth-first_search">Breadth-first Search</a> (BFS). Unlike DFS, we traverse the tree level by level, thus we are able to obtain the max depth in a direct manner. Read my post: <a
+href="http://www.leetcode.com/2010/09/printing-binary-tree-in-level-order.html">Printing a Binary Tree in Level Order</a> for more information.</p><p>Below is the code for finding the maximum depth of a binary tree using <a
+href="http://www.leetcode.com/2010/10/binary-tree-post-order-traversal.html">post-order traversal</a>, without recursion.</p><p></p><div
+id="crayon-52a3f4136ea7d" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-mac print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+int maxDepthIterative(BinaryTree *root) {
+  if (!root) return 0;
+  stack&lt;BinaryTree*&gt; s;
+  s.push(root);
+  int maxDepth = 0;
+  BinaryTree *prev = NULL;
+  while (!s.empty()) {
+    BinaryTree *curr = s.top();
+    if (!prev || prev-&gt;left == curr || prev-&gt;right == curr) {
+      if (curr-&gt;left)
+        s.push(curr-&gt;left);
+      else if (curr-&gt;right)
+        s.push(curr-&gt;right);
+    } else if (curr-&gt;left == prev) {
+      if (curr-&gt;right)
+        s.push(curr-&gt;right);
+    } else {
+      s.pop();
+    }
+    prev = curr;
+    if (s.size() &gt; maxDepth)
+      maxDepth = s.size();
+  }
+  return maxDepth;
+}</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3f4136ea7d-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4136ea7d-2">2</div><div
+class="crayon-num" data-line="crayon-52a3f4136ea7d-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4136ea7d-4">4</div><div
+class="crayon-num" data-line="crayon-52a3f4136ea7d-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4136ea7d-6">6</div><div
+class="crayon-num" data-line="crayon-52a3f4136ea7d-7">7</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4136ea7d-8">8</div><div
+class="crayon-num" data-line="crayon-52a3f4136ea7d-9">9</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4136ea7d-10">10</div><div
+class="crayon-num" data-line="crayon-52a3f4136ea7d-11">11</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4136ea7d-12">12</div><div
+class="crayon-num" data-line="crayon-52a3f4136ea7d-13">13</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4136ea7d-14">14</div><div
+class="crayon-num" data-line="crayon-52a3f4136ea7d-15">15</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4136ea7d-16">16</div><div
+class="crayon-num" data-line="crayon-52a3f4136ea7d-17">17</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4136ea7d-18">18</div><div
+class="crayon-num" data-line="crayon-52a3f4136ea7d-19">19</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4136ea7d-20">20</div><div
+class="crayon-num" data-line="crayon-52a3f4136ea7d-21">21</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4136ea7d-22">22</div><div
+class="crayon-num" data-line="crayon-52a3f4136ea7d-23">23</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4136ea7d-24">24</div><div
+class="crayon-num" data-line="crayon-52a3f4136ea7d-25">25</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3f4136ea7d-1"><span
+class="t">int</span><span
+class="h"> </span><span
+class="e">maxDepthIterative</span><span
+class="sy">(</span><span
+class="e ">BinaryTree *</span><span
+class="i">root</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4136ea7d-2"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="o">!</span><span
+class="i">root</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="st">return</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4136ea7d-3"><span
+class="h">&nbsp;&nbsp;</span><span
+class="i">stack</span><span
+class="o">&lt;</span><span
+class="e ">BinaryTree*</span><span
+class="o">&gt;</span><span
+class="h"> </span><span
+class="i">s</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4136ea7d-4"><span
+class="h">&nbsp;&nbsp;</span><span
+class="v">s</span><span
+class="sy">.</span><span
+class="e">push</span><span
+class="sy">(</span><span
+class="i">root</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4136ea7d-5"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">maxDepth</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4136ea7d-6"><span
+class="h">&nbsp;&nbsp;</span><span
+class="e ">BinaryTree *</span><span
+class="v">prev</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="t">NULL</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4136ea7d-7"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">while</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="o">!</span><span
+class="v">s</span><span
+class="sy">.</span><span
+class="e">empty</span><span
+class="sy">(</span><span
+class="sy">)</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4136ea7d-8"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="e ">BinaryTree *</span><span
+class="v">curr</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="v">s</span><span
+class="sy">.</span><span
+class="e">top</span><span
+class="sy">(</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4136ea7d-9"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="o">!</span><span
+class="i">prev</span><span
+class="h"> </span><span
+class="o">||</span><span
+class="h"> </span><span
+class="i">prev</span><span
+class="o">-&gt;</span><span
+class="v">left</span><span
+class="h"> </span><span
+class="o">==</span><span
+class="h"> </span><span
+class="i">curr</span><span
+class="h"> </span><span
+class="o">||</span><span
+class="h"> </span><span
+class="i">prev</span><span
+class="o">-&gt;</span><span
+class="v">right</span><span
+class="h"> </span><span
+class="o">==</span><span
+class="h"> </span><span
+class="i">curr</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4136ea7d-10"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">curr</span><span
+class="o">-&gt;</span><span
+class="i">left</span><span
+class="sy">)</span></div><div
+class="crayon-line" id="crayon-52a3f4136ea7d-11"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">s</span><span
+class="sy">.</span><span
+class="e">push</span><span
+class="sy">(</span><span
+class="i">curr</span><span
+class="o">-&gt;</span><span
+class="i">left</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4136ea7d-12"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">else</span><span
+class="h"> </span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">curr</span><span
+class="o">-&gt;</span><span
+class="i">right</span><span
+class="sy">)</span></div><div
+class="crayon-line" id="crayon-52a3f4136ea7d-13"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">s</span><span
+class="sy">.</span><span
+class="e">push</span><span
+class="sy">(</span><span
+class="i">curr</span><span
+class="o">-&gt;</span><span
+class="i">right</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4136ea7d-14"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span><span
+class="h"> </span><span
+class="st">else</span><span
+class="h"> </span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">curr</span><span
+class="o">-&gt;</span><span
+class="v">left</span><span
+class="h"> </span><span
+class="o">==</span><span
+class="h"> </span><span
+class="i">prev</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line" id="crayon-52a3f4136ea7d-15"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">curr</span><span
+class="o">-&gt;</span><span
+class="i">right</span><span
+class="sy">)</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4136ea7d-16"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">s</span><span
+class="sy">.</span><span
+class="e">push</span><span
+class="sy">(</span><span
+class="i">curr</span><span
+class="o">-&gt;</span><span
+class="i">right</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4136ea7d-17"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span><span
+class="h"> </span><span
+class="st">else</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4136ea7d-18"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">s</span><span
+class="sy">.</span><span
+class="e">pop</span><span
+class="sy">(</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4136ea7d-19"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4136ea7d-20"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">prev</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="i">curr</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4136ea7d-21"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="v">s</span><span
+class="sy">.</span><span
+class="e">size</span><span
+class="sy">(</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&gt;</span><span
+class="h"> </span><span
+class="i">maxDepth</span><span
+class="sy">)</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4136ea7d-22"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">maxDepth</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="v">s</span><span
+class="sy">.</span><span
+class="e">size</span><span
+class="sy">(</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4136ea7d-23"><span
+class="h">&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4136ea7d-24"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">maxDepth</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4136ea7d-25"><span
+class="sy">}</span></div></div></td></tr></table></div></div><p></p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="ratingblock "><div
+class="ratingheader "></div><div
+class="ratingstars "><div
+id="article_rater_19" class="ratepost gdsr-oxygen gdsr-size-24"><div
+class="starsbar gdsr-size-24"><div
+class="gdouter gdheight"><div
+id="gdr_vote_a19" style="width: 94.08px;" class="gdinner gdheight"></div><div
+id="gdr_stars_a19" class="gdsr_rating_as"><a
+id="gdsrX19X5X0XaXarticle_rater_19Xarticle_loader_19X10X24" title="5 / 5" class="s5" rel="nofollow"></a><a
+id="gdsrX19X4X0XaXarticle_rater_19Xarticle_loader_19X10X24" title="4 / 5" class="s4" rel="nofollow"></a><a
+id="gdsrX19X3X0XaXarticle_rater_19Xarticle_loader_19X10X24" title="3 / 5" class="s3" rel="nofollow"></a><a
+id="gdsrX19X2X0XaXarticle_rater_19Xarticle_loader_19X10X24" title="2 / 5" class="s2" rel="nofollow"></a><a
+id="gdsrX19X1X0XaXarticle_rater_19Xarticle_loader_19X10X24" title="1 / 5" class="s1" rel="nofollow"></a></div></div></div></div><div
+id="article_loader_19" style="display: none; width: 120px " class="ratingloaderarticle"><div
+class="loader radar " style="height: 24px"><div
+class="loaderinner" style="padding-top: 2px">please wait...</div></div></div></div><div
+class="ratingtext "><div
+id="gdr_text_a19">Rating: 3.9/<strong>5</strong> (25 votes cast)</div></div></div><span
+class="hreview-aggregate"><span
+class="item"><span
+class="fn">Maximum Height (Depth) of a Binary Tree</span></span>, <span
+class="rating"><span
+class="average">3.9</span> out of <span
+class="best">5</span> based on <span
+class="votes">25</span> ratings <span
+class="summary"></span></span></span></div><p
+class="postmetadata">&nbsp;</p><div
+class="alignleft"><a
+href="http://leetcode.com/2010/04/binary-search-tree-in-order-traversal.html" rel="prev"><span
+class="meta-nav">&larr;</span> Binary Search Tree In-Order Traversal Iterative Solution</a></div><div
+class="alignright"><a
+href="http://leetcode.com/2010/04/finding-prime-numbers.html" rel="next">Finding prime numbers <span
+class="meta-nav">&rarr;</span></a></div></div></div><div
+id="comments"><h3> 23 responses to <em>Maximum Height (Depth) of a Binary Tree</em></h3><ol
+class="commentlist"><li
+class="comment even thread-even depth-1" id="comment-74"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">1337c0d3r</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-74"><span
+class="time-since">October 6, 2010</span></a></p></div><div
+class="comment-entry"><p>Updated: Iterative solution of finding the maximum height of a binary tree.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_74_c" class="gdt-size-20 gdthumbtext"> <strong
+title="5 up, 0 down">+5</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_74_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX74XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_74_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_74_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX74XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_74_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=74#respond' onclick='return addComment.moveForm("comment-74", "74", "respond", "19")'>Reply</a></div></div></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-112"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Anonymous</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-112"><span
+class="time-since">October 31, 2010</span></a></p></div><div
+class="comment-entry"><p>why don&#39;t you use pre-order iterative traversal for computing height?</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_112_c" class="gdt-size-20 gdthumbtext"> <strong
+title="3 up, 2 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_112_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX112XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_112_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_112_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX112XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_112_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=112#respond' onclick='return addComment.moveForm("comment-112", "112", "respond", "19")'>Reply</a></div></div></li><li
+class="comment even thread-even depth-1" id="comment-113"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">1337c0d3r</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-113"><span
+class="time-since">October 31, 2010</span></a></p></div><div
+class="comment-entry"><p>Yes you are right. Pre-order iterative traversal would be easier.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_113_c" class="gdt-size-20 gdthumbtext"> <strong
+title="2 up, 0 down">+2</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_113_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX113XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_113_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_113_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX113XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_113_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=113#respond' onclick='return addComment.moveForm("comment-113", "113", "respond", "19")'>Reply</a></div></div></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-114"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">1337c0d3r</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-114"><span
+class="time-since">November 1, 2010</span></a></p></div><div
+class="comment-entry"><p>Updated: Added post-order traversal solution which does not the addition of depth field. Deleted in-order solution as pre-order would be easier.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_114_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_114_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX114XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_114_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_114_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX114XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_114_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=114#respond' onclick='return addComment.moveForm("comment-114", "114", "respond", "19")'>Reply</a></div></div></li><li
+class="comment even thread-even depth-1" id="comment-297"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">spongebob</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-297"><span
+class="time-since">January 4, 2011</span></a></p></div><div
+class="comment-entry"><p>Can you give the code of &quot;Pre-order iterative traversal&quot; method?</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_297_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_297_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX297XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_297_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_297_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX297XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_297_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=297#respond' onclick='return addComment.moveForm("comment-297", "297", "respond", "19")'>Reply</a></div></div></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-298"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">1337c0d3r</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-298"><span
+class="time-since">January 4, 2011</span></a></p></div><div
+class="comment-entry"><p>See here:<br
+/><a
+href="http://en.wikipedia.org/wiki/Tree_traversal#Iterative_Traversal" rel="nofollow">http://en.wikipedia.org/wiki/Tree_traversal#Iterative_Traversal</a></p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_298_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_298_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX298XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_298_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_298_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX298XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_298_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=298#respond' onclick='return addComment.moveForm("comment-298", "298", "respond", "19")'>Reply</a></div></div></li><li
+class="comment even thread-even depth-1" id="comment-303"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">spongebob</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-303"><span
+class="time-since">January 5, 2011</span></a></p></div><div
+class="comment-entry"><p>The &quot;Pre-order iterative&quot; way will push both left and right sub-trees into the stack. So counting the stack size will definitely not work. How do you calculate the depth?</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_303_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_303_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX303XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_303_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_303_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX303XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_303_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=303#respond' onclick='return addComment.moveForm("comment-303", "303", "respond", "19")'>Reply</a></div></div></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-304"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">1337c0d3r</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-304"><span
+class="time-since">January 5, 2011</span></a></p></div><div
+class="comment-entry"><p>You would need to modify the tree structure to add a &#39;depth&#39; field. When you push a node, you would need to set the depth field too.</p><p>Therefore, when you pop off a node later, you would get the new depth too by reading the depth field.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_304_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_304_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX304XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_304_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_304_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX304XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_304_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=304#respond' onclick='return addComment.moveForm("comment-304", "304", "respond", "19")'>Reply</a></div></div></li><li
+class="comment even thread-even depth-1" id="comment-398"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Tracy</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-398"><span
+class="time-since">January 25, 2011</span></a></p></div><div
+class="comment-entry"><p>这个版本的非递归后序遍历是不是精简一些:</p><p>int maxHeightNoR(Node *root)<br
+/>{<br
+/> stack s;<br
+/> const Node* itr = root;<br
+/> int h = 0;<br
+/> int maxH = 0;</p><p> while (itr || !s.empty())<br
+/> {<br
+/> if (!itr)<br
+/> {<br
+/> while (!s.empty() &amp;&amp; itr == s.top()-&gt;right)<br
+/> {<br
+/> itr = s.top();<br
+/> s.pop();<br
+/> h&#8211;;<br
+/> }</p><p> itr = s.empty() ? NULL : s.top()-&gt;right;<br
+/> }<br
+/> else<br
+/> {<br
+/> s.push(itr); <br
+/> h++;<br
+/> if (h &gt; maxH)<br
+/> maxH = h;</p><p> itr = itr-&gt;left;<br
+/> }<br
+/> }<br
+/> return maxH;<br
+/>}</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_398_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_398_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX398XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_398_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_398_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX398XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_398_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=398#respond' onclick='return addComment.moveForm("comment-398", "398", "respond", "19")'>Reply</a></div></div></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-402"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">1337c0d3r</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-402"><span
+class="time-since">January 25, 2011</span></a></p></div><div
+class="comment-entry"><p>@Tracy:<br
+/>Are you sure you are able to do postorder traversal iterative using a single stack? Please see here: <a
+href="http://www.ihas1337code.com/2010/10/binary-tree-post-order-traversal.html" rel="nofollow">http://www.ihas1337code.com/2010/10/binary-tree-post-order-traversal.html</a></p><p>I have the two-stack solution, but I have yet to see a one-stack solution for post-order traversal. Please enlighten me <img
+src='http://leetcode.com/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' /></p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_402_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 1 down">-1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_402_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX402XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_402_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_402_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX402XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_402_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=402#respond' onclick='return addComment.moveForm("comment-402", "402", "respond", "19")'>Reply</a></div></div></li><li
+class="comment even thread-even depth-1" id="comment-408"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Tracy</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-408"><span
+class="time-since">January 26, 2011</span></a></p></div><div
+class="comment-entry"><p>@1337c0d3r:<br
+/>OK. I&#39;ll read that post and get back to you in that thread.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_408_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_408_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX408XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_408_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_408_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX408XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_408_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=408#respond' onclick='return addComment.moveForm("comment-408", "408", "respond", "19")'>Reply</a></div></div></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-1676"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/139e2ebdd00e221a381b3ccdddf320ea?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">www</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-1676"><span
+class="time-since">July 17, 2011</span></a></p></div><div
+class="comment-entry"><p>according to <a
+href="http://en.wikipedia.org/wiki/Binary_tree.The" rel="nofollow">http://en.wikipedia.org/wiki/Binary_tree.The</a> definition of tree height is diff than what you mentioned &#8220;Note that the maximum height of an empty tree is 0.&#8221;</p><p>&#8220;The depth of a node n is the length of the path from the root to the node. The set of all nodes at a given depth is sometimes called a level of the tree. The root node is at depth zero.&#8221;<br
+/> &#8220;The height of a tree is the length of the path from the root to the deepest node in the tree. A (rooted) tree with only one node (the root) has a height of zero.&#8221;</p><p>Basically, it means at the root node, the depth is 0.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1676_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1676_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1676XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1676_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1676_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1676XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1676_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=1676#respond' onclick='return addComment.moveForm("comment-1676", "1676", "respond", "19")'>Reply</a></div></div></li><li
+class="comment even thread-even depth-1" id="comment-1677"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/139e2ebdd00e221a381b3ccdddf320ea?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">www</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-1677"><span
+class="time-since">July 17, 2011</span></a></p></div><div
+class="comment-entry"><p>and according to your algorithm, the height of root node, will be 1</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1677_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1677_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1677XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1677_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1677_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1677XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1677_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=1677#respond' onclick='return addComment.moveForm("comment-1677", "1677", "respond", "19")'>Reply</a></div></div></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-2191"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/b697304152afefa280fe3ed094d3fe20?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Shravan</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-2191"><span
+class="time-since">August 24, 2011</span></a></p></div><div
+class="comment-entry"><p>public int heightIterative() {<br
+/> Queue q = new LinkedList();<br
+/> BTreeNode node;<br
+/> int currentLevelNodes, nextLevelNodes,depth;<br
+/> if (root == null)<br
+/> return 0;<br
+/> q.add(root);<br
+/> currentLevelNodes = 1;depth=0;<br
+/> nextLevelNodes = 0;<br
+/> while (!q.isEmpty()) {<br
+/> node = q.remove();<br
+/> currentLevelNodes&#8211;;<br
+/> if (node.left != null) {<br
+/> q.add(node.left);<br
+/> nextLevelNodes++;<br
+/> }<br
+/> if (node.right != null) {<br
+/> q.add(node.right);<br
+/> nextLevelNodes++;<br
+/> }<br
+/> if (currentLevelNodes == 0) {<br
+/> depth++;<br
+/> currentLevelNodes = nextLevelNodes;<br
+/> nextLevelNodes = 0;<br
+/> }<br
+/> }<br
+/> return depth;<br
+/> }</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_2191_c" class="gdt-size-20 gdthumbtext"> <strong
+title="3 up, 0 down">+3</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_2191_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX2191XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_2191_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_2191_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX2191XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_2191_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=2191#respond' onclick='return addComment.moveForm("comment-2191", "2191", "respond", "19")'>Reply</a></div></div><ul
+class='children'><li
+class="comment byuser comment-author-binfeng even depth-2" id="comment-84398"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/binfeng/" rel="nofollow"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/3540/bcdb3c31475295781d587f7444ec111a-bpthumb.jpg" alt="Avatar Image" class="avatar user-3540-avatar" width="25" height="25" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/binfeng/" rel="nofollow">Bin Feng</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-84398"><span
+class="time-since">November 17, 2013</span></a></p></div><div
+class="comment-entry"><p>LevelOrderTraversal, Really easy to understand, thank you!</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_84398_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_84398_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX84398XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_84398_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_84398_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX84398XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_84398_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=84398#respond' onclick='return addComment.moveForm("comment-84398", "84398", "respond", "19")'>Reply</a></div></div></li></ul></li><li
+class="comment odd alt thread-even depth-1" id="comment-3774"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/22a85644c71905432e374c60fbd6c015?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Yunzhao</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-3774"><span
+class="time-since">October 17, 2011</span></a></p></div><div
+class="comment-entry"><p>To calculate the maxHight via pre-order/in-order iterative traversal, is it necessary for each node to add an additional data field to record its level?</p><p>Thanks in advance!</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_3774_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_3774_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX3774XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_3774_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_3774_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX3774XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_3774_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=3774#respond' onclick='return addComment.moveForm("comment-3774", "3774", "respond", "19")'>Reply</a></div></div><ul
+class='children'><li
+class="comment byuser comment-author-undermonkey even depth-2" id="comment-12428"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/undermonkey/" rel="nofollow"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/543/9202cd7792372e2cb29fc8094ef7768a-bpthumb.jpg" alt="Avatar Image" class="avatar user-543-avatar" width="25" height="25" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/undermonkey/" rel="nofollow">UnderMonkey</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-12428"><span
+class="time-since">January 14, 2012</span></a></p></div><div
+class="comment-entry"><p>As spongebob pointed out:<br
+/> &#8220;The &#8220;Pre-order iterative&#8221; way will push both left and right sub-trees into the stack. So counting the stack size will definitely not work. How do you calculate the depth?&#8221;<br
+/> Though I believe there&#8217;s a simple walk-around based on the pre/in-order traversal:<br
+/> if(cur-&gt;left ^ cur-&gt;right) depth++; //increment the depth when only 1 of the children is true</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_12428_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_12428_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX12428XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_12428_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_12428_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX12428XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_12428_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=12428#respond' onclick='return addComment.moveForm("comment-12428", "12428", "respond", "19")'>Reply</a></div></div></li></ul></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-16907"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/4d4c5200e64564047976e390fa9ed1cc?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">reader</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-16907"><span
+class="time-since">March 26, 2012</span></a></p></div><div
+class="comment-entry"><p>I don&#8217;t undestand the statement &#8220;all three kinds of tree traversal (pre-order, in-order, and post-order) are doing DFS&#8221;. Why is pre-order traversal DFS? Could you please explain?</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_16907_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_16907_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX16907XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_16907_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_16907_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX16907XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_16907_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=16907#respond' onclick='return addComment.moveForm("comment-16907", "16907", "respond", "19")'>Reply</a></div></div></li><li
+class="comment even thread-even depth-1" id="comment-24660"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/3fc29e46718cdc535083e6978402d059?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">sukkhim</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-24660"><span
+class="time-since">September 1, 2012</span></a></p></div><div
+class="comment-entry"><p>#include<br
+/> #include<br
+/> #include&#8221;malloc.h&#8221;</p><p>struct node<br
+/> {<br
+/> int data;<br
+/> struct node* left;<br
+/> struct node* right;<br
+/> };<br
+/> int size(struct node* n)<br
+/> {<br
+/> if(n==NULL)<br
+/> return 0;<br
+/> else<br
+/> return (size(n-&gt;left)+1+size(n-&gt;right));<br
+/> }<br
+/> int maxdepth(struct node* n)<br
+/> {<br
+/> int ldepth,rdepth;<br
+/> if(n==NULL)<br
+/> {<br
+/> return 0;<br
+/> }<br
+/> else<br
+/> {<br
+/> ldepth=maxdepth(n-&gt;left);<br
+/> rdepth=maxdepth(n-&gt;right);<br
+/> if(ldepth&gt;rdepth)<br
+/> return (ldepth+1);<br
+/> else<br
+/> return (rdepth+1);<br
+/> }<br
+/> }<br
+/> int lookup(struct node* node,int target)<br
+/> {<br
+/> if(node==NULL)<br
+/> return 0;<br
+/> else if(target==node-&gt;data)<br
+/> return 1;<br
+/> else if(targetdata)<br
+/> return(lookup(node-&gt;left,target));<br
+/> else<br
+/> return(lookup(node-&gt;right,target));<br
+/> }<br
+/> struct node* newnode(int data)<br
+/> {<br
+/> struct node* newnod=(struct node*)malloc(sizeof(struct node));<br
+/> newnod-&gt;data=data;<br
+/> newnod-&gt;left=NULL;<br
+/> newnod-&gt;right=NULL;<br
+/> return newnod;<br
+/> }<br
+/> struct node* insert(struct node* root,int target)<br
+/> {<br
+/> if(root==NULL)<br
+/> return(newnode(target));<br
+/> else if(targetdata)root-&gt;left=insert(root-&gt;left,target);<br
+/> else root-&gt;right=insert(root-&gt;right,target);<br
+/> return root;<br
+/> }</p><p>void main()<br
+/> {<br
+/> int result,s,max;<br
+/> struct node* newnode=NULL;<br
+/> clrscr();<br
+/> newnode=insert(newnode,2);<br
+/> newnode=insert(newnode,3);<br
+/> newnode=insert(newnode,4);<br
+/> max=maxdepth(newnode);<br
+/> printf(&#8220;maxdepth %d\n&#8221;,max);<br
+/> s=size(newnode);<br
+/> result=lookup(newnode,3);<br
+/> printf(&#8220;size %d\n&#8221;,s);<br
+/> printf(&#8220;%d&#8221;,result);<br
+/> getch();<br
+/> }</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_24660_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_24660_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX24660XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_24660_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_24660_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX24660XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_24660_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=24660#respond' onclick='return addComment.moveForm("comment-24660", "24660", "respond", "19")'>Reply</a></div></div></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-26159"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/5b3e47a1628d1e6882f9662cda2be518?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">naveen</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-26159"><span
+class="time-since">September 28, 2012</span></a></p></div><div
+class="comment-entry"><p>private int height;<br
+/> public void Height(node n){</p><p> if(n!=null &amp;&amp; n.getLeft()==null &amp;&amp; n.getRight()==null){</p><p> int H = getH(n);<br
+/> if(H&gt;this.height) height = H;<br
+/> }<br
+/> if(n==null) return;<br
+/> else {<br
+/> Height(n.getLeft());<br
+/> Height(n.getRight());<br
+/> }</p><p> }<br
+/> public int getH(node n){<br
+/> int temp = 0;<br
+/> while(n.getParent()!=null){<br
+/> temp++;<br
+/> n =n.getParent();<br
+/> }<br
+/> return temp;<br
+/> }<br
+/> public int getHeight(){</p><p> Height(this.getRoot());</p><p> return height+1;<br
+/> }</p><p>// soln with bad complexity&#8230;</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_26159_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_26159_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX26159XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_26159_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_26159_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX26159XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_26159_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=26159#respond' onclick='return addComment.moveForm("comment-26159", "26159", "respond", "19")'>Reply</a></div></div></li><li
+class="comment even thread-even depth-1" id="comment-26874"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/98ad8abb4ada941531d4a911b09e7b2c?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">anjana</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-26874"><span
+class="time-since">October 10, 2012</span></a></p></div><div
+class="comment-entry"><p>Why can&#8217;t you just do an iterative inorder traversal and measure the size of the stack when you hit a leaf node?</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_26874_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_26874_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX26874XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_26874_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_26874_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX26874XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_26874_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=26874#respond' onclick='return addComment.moveForm("comment-26874", "26874", "respond", "19")'>Reply</a></div></div><ul
+class='children'><li
+class="comment odd alt depth-2" id="comment-28367"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/ff2813d569a22648e7e6e33305309b61?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">shuais</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-28367"><span
+class="time-since">October 29, 2012</span></a></p></div><div
+class="comment-entry"><p>The author has stated that reason in the post, and I&#8217;ve also tried in order, it just doesn&#8217;t work, you can&#8217;t track the height easily by a counter or the size of the stack. Do it and you&#8217;ll know.</p><p>I have a post order version that passes the judge, it&#8217;s simpler than the version in the post so I&#8217;d like to share. Let me know if you got question or find out my code is wrong.</p><p> int maxDepth(TreeNode *root) {<br
+/> // Start typing your C/C++ solution below<br
+/> // DO NOT write int main() function<br
+/> int height = 0;<br
+/> vector stack;<br
+/> TreeNode* previous = NULL;</p><p> while (root || stack.size())<br
+/> {<br
+/> if (root)<br
+/> {<br
+/> stack.push_back(root);<br
+/> root = root-&gt;left;<br
+/> if (stack.size() &gt; height)<br
+/> height = stack.size();<br
+/> continue;<br
+/> }</p><p> if (stack.back()-&gt;right == NULL || previous == stack.back()-&gt;right)<br
+/> {<br
+/> previous = stack.back();<br
+/> stack.pop_back();<br
+/> }<br
+/> else<br
+/> root = stack.back()-&gt;right;<br
+/> }</p><p> return height;<br
+/> }</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_28367_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_28367_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX28367XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_28367_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_28367_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX28367XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_28367_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=28367#respond' onclick='return addComment.moveForm("comment-28367", "28367", "respond", "19")'>Reply</a></div></div></li></ul></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-53333"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/621169e3d1f5dc3079c555fcb8b4688e?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Laiq Ahmed</a> said on <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comment-53333"><span
+class="time-since">April 5, 2013</span></a></p></div><div
+class="comment-entry"><p>Following is a little easy to understand version of iterative post order traversal, calculating the height. I tried to keep the logic simple as possible.</p><p>Feel free to ask question if anything wrong with the code.</p><p></p><div
+id="crayon-52a3f4137443a" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-mac print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+int postOrderIter(Node root) {
+		
+		if (root == null)
+			return 0;
+
+		Stack&lt;Node&gt; st = new Stack&lt;Node&gt;();
+		boolean leftTraversed = false;
+		
+		int h = 0;
+		while (true) {
+			
+			while (root != null &amp;&amp; leftTraversed == false) {
+				st.push(root);
+				root = root.left;
+			}
+			
+			if (h &lt; st.size())
+				h = st.size();
+			
+			if (st.isEmpty())
+				break;
+			
+			Node temp = st.peek();	
+
+			if (temp.right != null &amp;&amp; temp.right != root) {
+				
+				root = temp.right;
+				leftTraversed = false;
+			}
+			else {
+				root = st.pop();
+				System.out.print(", " + root.item);
+				leftTraversed = true;
+			}
+		}
+		
+		return h;
+	}</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3f4137443a-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4137443a-2">2</div><div
+class="crayon-num" data-line="crayon-52a3f4137443a-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4137443a-4">4</div><div
+class="crayon-num" data-line="crayon-52a3f4137443a-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4137443a-6">6</div><div
+class="crayon-num" data-line="crayon-52a3f4137443a-7">7</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4137443a-8">8</div><div
+class="crayon-num" data-line="crayon-52a3f4137443a-9">9</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4137443a-10">10</div><div
+class="crayon-num" data-line="crayon-52a3f4137443a-11">11</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4137443a-12">12</div><div
+class="crayon-num" data-line="crayon-52a3f4137443a-13">13</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4137443a-14">14</div><div
+class="crayon-num" data-line="crayon-52a3f4137443a-15">15</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4137443a-16">16</div><div
+class="crayon-num" data-line="crayon-52a3f4137443a-17">17</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4137443a-18">18</div><div
+class="crayon-num" data-line="crayon-52a3f4137443a-19">19</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4137443a-20">20</div><div
+class="crayon-num" data-line="crayon-52a3f4137443a-21">21</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4137443a-22">22</div><div
+class="crayon-num" data-line="crayon-52a3f4137443a-23">23</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4137443a-24">24</div><div
+class="crayon-num" data-line="crayon-52a3f4137443a-25">25</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4137443a-26">26</div><div
+class="crayon-num" data-line="crayon-52a3f4137443a-27">27</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4137443a-28">28</div><div
+class="crayon-num" data-line="crayon-52a3f4137443a-29">29</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4137443a-30">30</div><div
+class="crayon-num" data-line="crayon-52a3f4137443a-31">31</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4137443a-32">32</div><div
+class="crayon-num" data-line="crayon-52a3f4137443a-33">33</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4137443a-34">34</div><div
+class="crayon-num" data-line="crayon-52a3f4137443a-35">35</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4137443a-36">36</div><div
+class="crayon-num" data-line="crayon-52a3f4137443a-37">37</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f4137443a-38">38</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3f4137443a-1"><span
+class="t">int</span><span
+class="h"> </span><span
+class="e">postOrderIter</span><span
+class="sy">(</span><span
+class="e">Node </span><span
+class="i">root</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4137443a-2"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div
+class="crayon-line" id="crayon-52a3f4137443a-3"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="v">root</span><span
+class="h"> </span><span
+class="o">==</span><span
+class="h"> </span><span
+class="t">null</span><span
+class="sy">)</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4137443a-4"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4137443a-5">&nbsp;</div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4137443a-6"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">Stack</span><span
+class="o">&lt;</span><span
+class="i">Node</span><span
+class="o">&gt;</span><span
+class="h"> </span><span
+class="v">st</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="r">new</span><span
+class="h"> </span><span
+class="i">Stack</span><span
+class="o">&lt;</span><span
+class="i">Node</span><span
+class="o">&gt;</span><span
+class="sy">(</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4137443a-7"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="t">boolean</span><span
+class="h"> </span><span
+class="v">leftTraversed</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="t">false</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4137443a-8"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div
+class="crayon-line" id="crayon-52a3f4137443a-9"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">h</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4137443a-10"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">while</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="t">true</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line" id="crayon-52a3f4137443a-11"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4137443a-12"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">while</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">root</span><span
+class="h"> </span><span
+class="o">!=</span><span
+class="h"> </span><span
+class="t">null</span><span
+class="h"> </span><span
+class="o">&amp;&amp;</span><span
+class="h"> </span><span
+class="v">leftTraversed</span><span
+class="h"> </span><span
+class="o">==</span><span
+class="h"> </span><span
+class="t">false</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line" id="crayon-52a3f4137443a-13"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">st</span><span
+class="sy">.</span><span
+class="e">push</span><span
+class="sy">(</span><span
+class="i">root</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4137443a-14"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">root</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="v">root</span><span
+class="sy">.</span><span
+class="i">left</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4137443a-15"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4137443a-16"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div
+class="crayon-line" id="crayon-52a3f4137443a-17"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">h</span><span
+class="h"> </span><span
+class="o">&lt;</span><span
+class="h"> </span><span
+class="v">st</span><span
+class="sy">.</span><span
+class="e">size</span><span
+class="sy">(</span><span
+class="sy">)</span><span
+class="sy">)</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4137443a-18"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">h</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="v">st</span><span
+class="sy">.</span><span
+class="e">size</span><span
+class="sy">(</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4137443a-19"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4137443a-20"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="v">st</span><span
+class="sy">.</span><span
+class="e">isEmpty</span><span
+class="sy">(</span><span
+class="sy">)</span><span
+class="sy">)</span></div><div
+class="crayon-line" id="crayon-52a3f4137443a-21"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">break</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4137443a-22"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div
+class="crayon-line" id="crayon-52a3f4137443a-23"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="e">Node </span><span
+class="v">temp</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="v">st</span><span
+class="sy">.</span><span
+class="e">peek</span><span
+class="sy">(</span><span
+class="sy">)</span><span
+class="sy">;</span><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4137443a-24">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3f4137443a-25"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="v">temp</span><span
+class="sy">.</span><span
+class="i">right</span><span
+class="h"> </span><span
+class="o">!=</span><span
+class="h"> </span><span
+class="t">null</span><span
+class="h"> </span><span
+class="o">&amp;&amp;</span><span
+class="h"> </span><span
+class="v">temp</span><span
+class="sy">.</span><span
+class="i">right</span><span
+class="h"> </span><span
+class="o">!=</span><span
+class="h"> </span><span
+class="i">root</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4137443a-26"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div
+class="crayon-line" id="crayon-52a3f4137443a-27"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">root</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="v">temp</span><span
+class="sy">.</span><span
+class="i">right</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4137443a-28"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">leftTraversed</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="t">false</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4137443a-29"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4137443a-30"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">else</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line" id="crayon-52a3f4137443a-31"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">root</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="v">st</span><span
+class="sy">.</span><span
+class="e">pop</span><span
+class="sy">(</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4137443a-32"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">System</span><span
+class="sy">.</span><span
+class="v">out</span><span
+class="sy">.</span><span
+class="e">print</span><span
+class="sy">(</span><span
+class="s">", "</span><span
+class="h"> </span><span
+class="o">+</span><span
+class="h"> </span><span
+class="v">root</span><span
+class="sy">.</span><span
+class="i">item</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f4137443a-33"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">leftTraversed</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="t">true</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4137443a-34"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3f4137443a-35"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4137443a-36"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div
+class="crayon-line" id="crayon-52a3f4137443a-37"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">h</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f4137443a-38"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div></div></td></tr></table></div></div><p></p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_53333_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_53333_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX53333XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_53333_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_53333_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX53333XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_53333_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2010/04/maximum-height-of-binary-tree.html?replytocom=53333#respond' onclick='return addComment.moveForm("comment-53333", "53333", "respond", "19")'>Reply</a></div></div></li></ol></div><div
+id="respond"><h3 id="reply-title">Leave a reply <small><a
+rel="nofollow" id="cancel-comment-reply-link" href="/2010/04/maximum-height-of-binary-tree.html#respond" style="display:none;">Cancel reply</a></small></h3><form
+action="http://leetcode.com/wp-comments-post.php" method="post" id="commentform"><div
+class="comment-avatar-box"><div
+class="avb"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /></div></div><div
+class="comment-content standard-form"><p
+class="comment-notes">Your email address will not be published. Required fields are marked <span
+class="required">*</span></p><p
+class="comment-form-author"><label
+for="author">Name<span
+class="required"> *</span></label> <input
+id="author" name="author" type="text" value="" size="30" aria-required='true' /></p><p
+class="comment-form-email"><label
+for="email">Email<span
+class="required"> *</span></label> <input
+id="email" name="email" type="text" value="" size="30" aria-required='true' /></p><p
+class="comment-form-url"><label
+for="url">Website</label><input
+id="url" name="url" type="text" value="" size="30" /></p><p
+class="form-textarea"><textarea name="comment" id="comment" cols="60" rows="10" aria-required="true"></textarea></p><p
+class="form-allowed-tags">You may use the <code>&lt;code&gt;</code> tag to embed your code.</p><p
+class="form-submit"> <input
+name="submit" type="submit" id="submit" value="Post Comment" /> <input
+type='hidden' name='comment_post_ID' value='19' id='comment_post_ID' /> <input
+type='hidden' name='comment_parent' id='comment_parent' value='0' /></p><p
+style="display: none;"><input
+type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="7fa8039269" /></p></div></form></div><div
+id="trackbacks"><h3>1 trackback</h3><ul
+id="trackbacklist"><li><h5><a
+href='http://ziangwei.com/wordpress/?p=146' rel='external nofollow' class='url'>[Leetcode]Maximum Depth of Binary Tree | Wei&#039;s blog</a></h5> <em>on November 5, 2013</em></li></ul></div></div></div></div><div
+id="post-dir-search" class="dir-search"><form
+role="search" method="get" id="searchform" action="http://leetcode.com/"> <input
+type="text" value="" name="s" id="s" /> <input
+type="submit" id="searchsubmit" value="Search" /></form></div><div
+id="sidebar"><div
+class="padder"></div></div></div><div
+id="push"></div></div><div
+id="footer"><div
+id="colophon"><div
+class="footer-widget"></div><div
+class="footer-widget"></div><div
+class="footer-widget"></div><div
+class="footer-widget last"></div><div
+class="clear"></div><div
+id="footer-links"><ul
+class="footer-menu"><li
+class="page_item page-item-2"><a
+href="http://leetcode.com/about">About</a></li><li
+class="page_item page-item-908"><a
+href="http://leetcode.com/activity">Activity</a></li><li
+class="page_item page-item-1466"><a
+href="http://leetcode.com/discuss">Discuss</a></li><li
+class="page_item page-item-1658"><a
+href="http://leetcode.com/donate">Donate</a></li><li
+class="page_item page-item-907"><a
+href="http://leetcode.com/members">Members</a></li><li
+class="page_item page-item-370"><a
+href="http://leetcode.com/onlinejudge">Online Judge</a></li></ul></div><div
+id="credits"><p>Copyright &copy; 2013 LeetCode &nbsp;&middot;&nbsp; <a
+href="http://leetcode.com/wp-login.php">Log in</a></p></div></div></div><div
+id="wpadminbar" class="nojq nojs" role="navigation"> <a
+class="screen-reader-shortcut" href="#wp-toolbar" tabindex="1">Skip to toolbar</a><div
+class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Top navigation toolbar." tabindex="0"><ul
+id="wp-admin-bar-root-default" class="ab-top-menu"><li
+id="wp-admin-bar-bp-login"><a
+class="ab-item"  href="http://leetcode.com/wp-login.php">Log in</a></li><li
+id="wp-admin-bar-bp-register"><a
+class="ab-item"  href="http://leetcode.com/register/">Register</a></li><li
+id="wp-admin-bar-my-account"><div
+class="ab-item ab-empty-item" ></div></li></ul></div> <a
+class="screen-reader-shortcut" href="http://leetcode.com/wp-login.php?action=logout&#038;_wpnonce=d79c4035be">Log Out</a></div><div
+class="buddyboss_log"></div> <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6849839-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script><style type="text/css">
+    .defaultCommentText { color: #a1a1a1; font-style: italic; }
+  </style><script type="text/javascript">
+    jQuery("textarea#comment, textarea#reply_text").focus(function(srcc) {
+      if (jQuery(this).val() == jQuery(this)[0].title) {
+        jQuery(this).val("");
+        jQuery(this).removeClass("defaultCommentText");
+      }
+    });
+    jQuery("textarea#comment, textarea#reply_text").blur(function() {
+      if (jQuery(this).val() == "") {
+        jQuery(this).val(jQuery(this)[0].title);
+        jQuery(this).addClass("defaultCommentText");
+      }
+    });
+    jQuery("textarea#comment, textarea#reply_text").attr('title', 'To embed your code, please use <code>your code here</code>.');
+    jQuery("textarea#comment, textarea#reply_text").blur();
+  </script></body></html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Minified using disk: basic
+Page Caching using disk: enhanced
+
+ Served from: leetcode.com @ 2013-12-07 20:22:43 by W3 Total Cache -->

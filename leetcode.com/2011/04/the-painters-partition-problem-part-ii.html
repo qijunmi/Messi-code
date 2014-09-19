@@ -1,0 +1,1558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html
+xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head
+profile="http://gmpg.org/xfn/11"><link
+rel="stylesheet" type="text/css" href="http://leetcode.com/wp-content/cache/minify/000000/fY7BDgIhDER_aBE9-EEFKpAssGm7Ufx6uyzxpodmmubNdK6Wpa-43C2EkqtxQBfV5WbdHkLfCJmt24xvhNbr_sUU8TtLK_mNwRB6rKJYKao80DP5eZir6NXGYFiADIHkGgdzrkcWQW_VcK8CL5NyTKuOIA1Mf05itvuNS8KCbGOWtLspfw2PNgq3ym0F_gA.css" media="all" /><link
+rel="stylesheet" type="text/css" href="http://leetcode.com/wp-content/cache/minify/000000/M9Qvzy9KKShKLS7WLcgvKM1JLALSxSXF-sUllTmp-uUFBQA.css" media="all" /><script type="text/javascript" src="http://leetcode.com/wp-content/cache/minify/000000/LYtrDsMgDIMvRBZN632m8BBQQeiSVBu3H532w3LsfH7g_jqTTHfHHEGNBISscsZdV6OyHkFoDgadbPSBUnNpS5bkYnrlP3Bbp3sfEAZbYkMrqSdFf8Y4_VDFZ-WAuQ1PzW0YRu8LA0lHm7_thhSXgye58hc.js"></script><meta
+http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta
+name="viewport" content="width=device-width, initial-scale=1.0" /><title>The Painter&#8217;s Partition Problem Part II | LeetCode</title><link
+rel="pingback" href="http://leetcode.com/xmlrpc.php" /><link
+rel="shortcut icon" href="http://leetcode.com/wp-content/themes/buddyboss-child/_inc/images/favicon.ico" type="image/x-icon"><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; Feed" href="http://leetcode.com/feed" /><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; Comments Feed" href="http://leetcode.com/comments/feed" /><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; The Painter&#8217;s Partition Problem Part II Comments Feed" href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html/feed" /><link
+rel='stylesheet' id='gdsr_style_main-css'  href='http://leetcode.com/wp-content/plugins/gd-star-rating/css/gdsr.css.php?t=1366376824&#038;s=a05i05m20k20c05r05%23121620243046%23121620243240%23s1pchristmas%23s1pcrystal%23s1pdarkness%23s1poxygen%23s1goxygen_gif%23s1pplain%23s1ppumpkin%23s1psoft%23s1pstarrating%23s1pstarscape%23t1pclassical%23t1pstarrating%23t1gstarrating_gif%23lsgflower%23lsgradar&#038;o=off&#038;ver=1.9.22' type='text/css' media='all' /><script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"2.2.0","is_admin":"0","ajaxurl":"http:\/\/leetcode.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script><script type='text/javascript'>
+/* <![CDATA[ */
+var BP_DTheme = {"my_favs":"My Likes","accepted":"Accepted","rejected":"Rejected","show_all_comments":"Show all comments for this thread","show_all":"Show all","comments":"comments","close":"Close","view":"View","mark_as_fav":"Like","remove_fav":"Unlike","add_photo":"Add Photo","cancel":"Cancel","failed":"Failed","person":"person","people":"people","like":"like","likes":"likes","this_1":"this"};
+/* ]]> */
+</script><link
+rel='prev' title='The Painter&#8217;s Partition Problem Part I' href='http://leetcode.com/2011/04/the-painters-partition-problem.html' /><link
+rel='next' title='Construct Binary Tree From Inorder and Preorder/Postorder Traversal' href='http://leetcode.com/2011/04/construct-binary-tree-from-inorder-and-preorder-postorder-traversal.html' /><link
+rel='canonical' href='http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html' /><link
+rel='shortlink' href='http://leetcode.com/?p=538' /><script type="text/javascript">var ajaxurl = 'http://leetcode.com/wp-admin/admin-ajax.php';</script><style type='text/css'>#sidebar span.collapsing.archives {
+        border:0;
+        padding:0; 
+        margin:0; 
+        cursor:pointer;
+} 
+
+#sidebar span.monthCount, span.yearCount {text-decoration:none; color:#333}
+#sidebar li.collapsing.archives a.self {font-weight:bold}
+#sidebar ul.collapsing.archives.list ul.collapsing.archives.list:before {content:\'\';} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives:before {content:\'\';} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives {list-style-type:none}
+#sidebar ul.collapsing.archives.list li {
+       margin:0 0 0 .8em;
+       text-indent:-1em}
+#sidebar ul.collapsing.archives.list li.collapsing.archives.item:before {content: \'\\00BB \\00A0\' !important;} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives .sym {
+   font-size:1.2em;
+   font-family:Monaco, \'Andale Mono\', \'FreeMono\', \'Courier new\', \'Courier\', monospace;
+   cursor:pointer;
+    padding-right:15px;}
+#sidebar ul.collapsing.archives.list span.collapsing.archives.collapse .sym {
+    background-image: url(/wp-content/plugins/collapsing-archives/img/list-collapse.gif);
+}
+#sidebar ul.collapsing.archives.list span.collapsing.archives.expand .sym {
+    background-image: url(/wp-content/plugins/collapsing-archives/img/list-expand.gif);
+}</style><script type="text/javascript">
+//<![CDATA[
+var gdsr_cnst_nonce = "344a153a23";
+var gdsr_cnst_ajax = "http://leetcode.com/wp-content/plugins/gd-star-rating/ajax.php";
+var gdsr_cnst_button = 1;
+var gdsr_cnst_cache = 0;
+// ]]>
+</script><!--[if IE]><style type="text/css">.ratemulti .starsbar .gdcurrent { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter: alpha(opacity=70); }</style><![endif]--> <script type="text/javascript">
+    /* <![CDATA[ */				
+	jQuery.post('http://leetcode.com/wp-admin/admin-ajax.php', {action: 'wpp_update', token: '6117d36efc', id: 538}, function(data){/*alert(data);*/});
+    /* ]]> */
+</script><style type="text/css" media="print">#wpadminbar { display:none; }</style><style type="text/css" media="screen">
+	html { margin-top: 28px !important; }
+	* html body { margin-top: 28px !important; }
+</style><script type="text/javascript"> jQuery(document).ready( function() { jQuery("a.confirm").click( function() { if ( confirm( 'Are you sure?' ) ) return true; else return false; }); });</script></head><body
+class="single single-post postid-538 single-format-standard admin-bar no-customize-support no-js buddyboss-active-pics buddyboss-active-wall admin-bar" id="bp-default"> <!--[if lte IE 6]><script src="http://leetcode.com/wp-content/themes/buddyboss/_inc/js/ie6/warning.js"></script><script>window.onload=function(){e("http://leetcode.com/wp-content/themes/buddyboss-child/_inc/js/ie6/")}</script><![endif]--><script type="text/javascript">//<![CDATA[
+(function(){var c=document.body.className;c=c.replace(/no-js/,'js');document.body.className=c;})();
+//]]></script><div
+id="top-hdr-bg"></div><div
+class="menu-bg"></div><div
+id="wrapper"><div
+id="header"><div
+class="padder"><div
+id="logo"> <a
+href="http://leetcode.com" title="Home"><img
+src="http://leetcode.com/wp-content/uploads/2012/12/leetcodelogo.png"/></a></div><div
+class="menu-bg"></div><ul
+class="sf-menu"><li
+class="page_item page-item-2"><a
+href="http://leetcode.com/about">About</a></li><li
+class="page_item page-item-908"><a
+href="http://leetcode.com/activity">Activity</a></li><li
+class="page_item page-item-1466"><a
+href="http://leetcode.com/discuss">Discuss</a></li><li
+class="page_item page-item-1658"><a
+href="http://leetcode.com/donate">Donate</a></li><li
+class="page_item page-item-907"><a
+href="http://leetcode.com/members">Members</a></li><li
+class="page_item page-item-370"><a
+href="http://leetcode.com/onlinejudge">Online Judge</a></li></ul></div></div><div
+id="container"><div
+id="content" class="two_column"><div
+class="padder"><div
+class="page" id="blog-single" role="main"><div
+id="post-538" class="post-538 post type-post status-publish format-standard hentry category-binary-search"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+rel="author" href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle">The Painter&#8217;s Partition Problem Part II</h2><p
+class="date"> April 6, 2011 <span>in <a
+href="http://leetcode.com/category/binary-search" title="View all posts in binary search" rel="category tag">binary search</a></span> <span
+class="post-utility alignright"></span></p><div
+class="entry"><p><span
+style="color: red"><strong>Note:</strong></span><br
+/> This is Part II of the article: <a
+href="http://www.leetcode.com/2011/04/the-painters-partition-problem.html">The Painter&#8217;s Partition Problem</a>. Please read <a
+href="http://www.leetcode.com/2011/04/the-painters-partition-problem.html">Part I</a> for more background information.<br
+/> <span
+id="more-538"></span></p><blockquote><p>You have to paint N boards of length {A<sub>0</sub>, A<sub>1</sub>, A<sub>2</sub> … A<sub>N-1</sub>}. There are <em>K</em> painters available and you are also given how much time a painter takes to paint 1 unit of board. You have to get this job done as soon as possible under the constraints that any painter will only paint continuous sections of board, say board {2, 3, 4} or only board {1} or nothing but not board {2, 4, 5}.</p></blockquote><p>In my <a
+href="http://www.leetcode.com/2011/04/the-painters-partition-problem.html">previous post</a> we talked about how to use the power of <a
+href="http://www.leetcode.com/category/dynamic-programming">Dynamic Programming</a> (DP) to solve a fairly difficult problem. Although the DP approach is pretty neat, it uses an extra O(<em>kN</em>) space. In this post, we introduce an algorithm without extra space and runs in the order of O(<em>N</em> log <em>c</em>) time, where <em>c</em> is the sum of all elements in A.</p><p><strong>Hint:</strong><br
+/> Try to think how to apply Binary Search indirectly to solve this problem. First, it does not require A to be sorted in any way. Second, if you sort A, the constraint that the painter must paint continuous sections of board does not necessarily hold anymore. Think carefully: What if you have a maximum board length in mind such that no painter can exceed this value?</p><p><strong>Solution:</strong><br
+/> Assume that you are assigning continuous section of board to each painter such that its total length must not exceed a predefined maximum, cost<sub>max</sub>. Then, you are able to find the number of painters that is required, <em>x</em>. Following are some key observations:</p><div
+class="hiblock"><ol><li>The lowest possible value for cost<sub>max</sub> must be the maximum element in A (name this as <strong>lo</strong>).</li><li>The highest possible value for cost<sub>max</sub> must be the entire sum of A, (name this as <strong>hi</strong>).</li><li>As cost<sub>max</sub> increases, <em>x</em> decreases. The opposite also holds true.</li></ol></div><p>Now, the question translates directly into:</p><div
+class="hiblock">How do we use binary search to find the minimum of cost<sub>max</sub> while satisfying the condition <em>x</em> = <em>k</em>? The search space will be the range of [<strong>lo</strong>, <strong>hi</strong>].</div><p>Let us study using the example below to understand how this works:</p><pre>Assume that A = { 100, 200, 300, 400, 500, 600, 700, 800, 900 }, 
+and k = 3.</pre><p>Since <em>k</em> is positive, we know that the highest possible cost<sub>max </sub>must be the sum of A, 4500. (ie, assigning all boards to one painter).</p><p>The lowest possible cost<sub>max</sub> must be the largest element in A, 900. This requires a total of six painters &#8212; The first painter paints {100, 200, 300}, second painter paints {400, 500} while the rest of them paints one board each).</p><p>Below is a simple conceptual illustration of how the search space looks like, with its corresponding <em>x</em> value (the required number of painters) pointing to cost<sub>max</sub>.</p><pre>900        ...       4500
+ &uarr;                     &uarr;
+x=6                   x=1</pre><p>Note that <em>x</em> decreases while cost<sub>max</sub> increases.<br
+/> We want to find the minimum of cost<sub>max</sub> under the constraint of <em>x</em> = <em>k</em>.</p><pre>900  ...  2700  ...  4500
+ &uarr;          &uarr;          &uarr;
+x=6        x=2        x=1</pre><p>We choose the middle element, 2700, and find its corresponding <em>x</em>, which is 2.<br
+/> Since <em>x</em> = <em>k</em> (which equals to 3), we can find a better minimum (ie, the real solution) in the lower half.<br
+/> Therefore, we discard the upper half and continue searching in the lower half.</p><pre>900  ...  1800  ...  2700
+ &uarr;          &uarr;          &uarr;
+x=6        x=3        x=2</pre><p>The middle element now is 1800 and its corresponding <em>x</em> is 3, which is still = <em>k</em>.<br
+/> We discard the upper half again and continue searching in the lower half.</p><pre>900  ...  1350  ...  1800
+ &uarr;          &uarr;          &uarr;
+x=6        x=5        x=3</pre><p>This time, the middle element is 1350 and its corresponding <em>x</em> is 5, which is > <em>k</em>.<br
+/> We have to discard the lower half <strong>including the middle element itself</strong>, since <em>x</em> > <em>k</em> in that region (ie, no valid solution).<br
+/> Here, read the phrase in bold <strong>&#8220;</strong><strong>including the middle element itself</strong><strong>&#8220;</strong> again, as this is extremely important to maintain the invariant. Why?<br
+/> Yes, that means the lower half <strong>including </strong>the value 1350 would be discarded.<br
+/> We continue searching in the upper half (ie, in the range of [1351, 1800]).</p><p>&#8230;</p><p>After multiple successions of halving the search space, the final answer is 1700, and its corresponding <em>x</em> is 3. This is also the minimum of cost<sub>max</sub> while maintaining the requirement <em>x</em> = <em>k</em>.</p><p>The complexity of this algorithm is <em>O</em>(<em>N</em> log (<strong> &sum; </strong>A<sub>i</sub> )), which is quite efficient. Furthermore, it does not require any extra space, unlike the DP solution which requires <em>O</em>(<em>kN</em>) space. This solution is also easier to code. Just be very careful while writing code for any variation of binary search, and think through all the corner cases while you code.</p><div
+id="crayon-52a3fc3f1e5b7" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+int getMax(int A[], int n) {
+  int max = INT_MIN;
+  for (int i = 0; i &lt; n; i++) {
+     if (A[i] &gt; max) max = A[i];
+  }
+  return max;
+}
+
+int getSum(int A[], int n) {
+  int total = 0;
+  for (int i = 0; i &lt; n; i++)
+    total += A[i];
+  return total;
+}
+
+int getRequiredPainters(int A[], int n, int maxLengthPerPainter) {
+  int total = 0, numPainters = 1;
+  for (int i = 0; i &lt; n; i++) {
+    total += A[i];
+    if (total &gt; maxLengthPerPainter) {
+      total = A[i];
+      numPainters++;
+    }
+  }
+  return numPainters;
+}
+
+int partition(int A[], int n, int k) {
+  int lo = getMax(A, n);
+  int hi = getSum(A, n);
+
+  while (lo &lt; hi) {
+    int mid = lo + (hi-lo)/2;
+    int requiredPainters = getRequiredPainters(A, n, mid);
+    if (requiredPainters &lt;= k)
+      hi = mid;
+    else
+      lo = mid+1;
+  }
+  return lo;
+}</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-2">2</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-4">4</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-6">6</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-7">7</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-8">8</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-9">9</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-10">10</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-11">11</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-12">12</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-13">13</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-14">14</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-15">15</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-16">16</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-17">17</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-18">18</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-19">19</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-20">20</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-21">21</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-22">22</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-23">23</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-24">24</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-25">25</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-26">26</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-27">27</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-28">28</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-29">29</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-30">30</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-31">31</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-32">32</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-33">33</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-34">34</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-35">35</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-36">36</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-37">37</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-38">38</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-39">39</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc3f1e5b7-40">40</div><div
+class="crayon-num" data-line="crayon-52a3fc3f1e5b7-41">41</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-1"><span
+class="t">int</span><span
+class="h"> </span><span
+class="e">getMax</span><span
+class="sy">(</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">A</span><span
+class="sy">[</span><span
+class="sy">]</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">n</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-2"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">max</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="i">INT_MIN</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-3"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">for</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">i</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="h"> </span><span
+class="o">&lt;</span><span
+class="h"> </span><span
+class="i">n</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="o">++</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-4"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="v">A</span><span
+class="sy">[</span><span
+class="i">i</span><span
+class="sy">]</span><span
+class="h"> </span><span
+class="o">&gt;</span><span
+class="h"> </span><span
+class="i">max</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="v">max</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="v">A</span><span
+class="sy">[</span><span
+class="i">i</span><span
+class="sy">]</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-5"><span
+class="h">&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-6"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">max</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-7"><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-8">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-9"><span
+class="t">int</span><span
+class="h"> </span><span
+class="e">getSum</span><span
+class="sy">(</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">A</span><span
+class="sy">[</span><span
+class="sy">]</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">n</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-10"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">total</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-11"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">for</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">i</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="h"> </span><span
+class="o">&lt;</span><span
+class="h"> </span><span
+class="i">n</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="o">++</span><span
+class="sy">)</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-12"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">total</span><span
+class="h"> </span><span
+class="o">+</span><span
+class="o">=</span><span
+class="h"> </span><span
+class="v">A</span><span
+class="sy">[</span><span
+class="i">i</span><span
+class="sy">]</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-13"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">total</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-14"><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-15">&nbsp;</div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-16"><span
+class="t">int</span><span
+class="h"> </span><span
+class="e">getRequiredPainters</span><span
+class="sy">(</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">A</span><span
+class="sy">[</span><span
+class="sy">]</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">n</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">maxLengthPerPainter</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-17"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">total</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="v">numPainters</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-18"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">for</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">i</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="h"> </span><span
+class="o">&lt;</span><span
+class="h"> </span><span
+class="i">n</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="o">++</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-19"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">total</span><span
+class="h"> </span><span
+class="o">+</span><span
+class="o">=</span><span
+class="h"> </span><span
+class="v">A</span><span
+class="sy">[</span><span
+class="i">i</span><span
+class="sy">]</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-20"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">total</span><span
+class="h"> </span><span
+class="o">&gt;</span><span
+class="h"> </span><span
+class="i">maxLengthPerPainter</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-21"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">total</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="v">A</span><span
+class="sy">[</span><span
+class="i">i</span><span
+class="sy">]</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-22"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">numPainters</span><span
+class="o">++</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-23"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-24"><span
+class="h">&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-25"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">numPainters</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-26"><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-27">&nbsp;</div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-28"><span
+class="t">int</span><span
+class="h"> </span><span
+class="e">partition</span><span
+class="sy">(</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">A</span><span
+class="sy">[</span><span
+class="sy">]</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">n</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">k</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-29"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">lo</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="e">getMax</span><span
+class="sy">(</span><span
+class="i">A</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">n</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-30"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">hi</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="e">getSum</span><span
+class="sy">(</span><span
+class="i">A</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">n</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-31">&nbsp;</div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-32"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">while</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">lo</span><span
+class="h"> </span><span
+class="o">&lt;</span><span
+class="h"> </span><span
+class="i">hi</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-33"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">mid</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="i">lo</span><span
+class="h"> </span><span
+class="o">+</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">hi</span><span
+class="o">-</span><span
+class="i">lo</span><span
+class="sy">)</span><span
+class="o">/</span><span
+class="cn">2</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-34"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">requiredPainters</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="e">getRequiredPainters</span><span
+class="sy">(</span><span
+class="i">A</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">n</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">mid</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-35"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">requiredPainters</span><span
+class="h"> </span><span
+class="o">&lt;=</span><span
+class="h"> </span><span
+class="i">k</span><span
+class="sy">)</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-36"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">hi</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="i">mid</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-37"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">else</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-38"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">lo</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="i">mid</span><span
+class="o">+</span><span
+class="cn">1</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-39"><span
+class="h">&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc3f1e5b7-40"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">lo</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3fc3f1e5b7-41"><span
+class="sy">}</span></div></div></td></tr></table></div></div><p><strong>Additional Reference:</strong><br
+/> <a
+href="http://www.topcoder.com/tc?module=Static&#038;d1=tutorials&#038;d2=binarySearch">TopCoder&#8217;s Tutorial on Binary Search</a></p><p><span
+style="color: red"><strong>Further Thoughts:</strong></span><br
+/> The above binary search solution has a run time complexity of O(N log ( &sum; Ai )). What impact would the term ? Ai (ie, the search space) have over the run time itself? What if the search space is extremely large?</p><p>As you may have known, binary search is extremely fast. For example, binary search in a range of one million elements requires no more than 20 iterations. Here, we explore an alternative solution which reduces the search space even further. (Thanks to an id grass for the idea)</p><p>The idea is to first build a cumulative sum array B, where B[j] = &sum;{i=0..j} Ai. We know that we must allocate one of the amount found in B[j] to the first painter. Since the elements in B is in increasing order, we can apply binary search in B to answer the following question:</p><div
+class="hiblock">Find the index j such that B[j] fails to satisfy the condition while B[j+1] satisfy.</div><p>Finally, we can set lo = B[j] and hi = B[j+1], and apply the same binary search from method 1 from above.</p><p>Using the above example:</p><pre>A = { 100, 200, 300, 400, 500, 600, 700, 800, 900 }, and k = 3.</pre><p>We build the cumulative array B:</p><pre>B = { 100, 300, 600, 1000, 1500, 2100, 2800, 3600, 4500 }</pre><p>After we apply binary search, we are able to find that B[4] = 1500, B[5] = 2100, because for costmax = 1500, x = 4; while costmax = 2100, x =3.</p><p>Time required: O(N log N)</p><p>Then, we set lo = 1500 and hi = 2100, then apply binary search to find in that range.</p><p>Time required: O(N log (B[j+1]-B[j]) ) = O(N log A[j+1]).</p><p>Therefore, the worst case run time complexity = O(N log N + N log max(A) )</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="ratingblock "><div
+class="ratingheader "></div><div
+class="ratingstars "><div
+id="article_rater_538" class="ratepost gdsr-oxygen gdsr-size-24"><div
+class="starsbar gdsr-size-24"><div
+class="gdouter gdheight"><div
+id="gdr_vote_a538" style="width: 108.8px;" class="gdinner gdheight"></div><div
+id="gdr_stars_a538" class="gdsr_rating_as"><a
+id="gdsrX538X5X0XaXarticle_rater_538Xarticle_loader_538X10X24" title="5 / 5" class="s5" rel="nofollow"></a><a
+id="gdsrX538X4X0XaXarticle_rater_538Xarticle_loader_538X10X24" title="4 / 5" class="s4" rel="nofollow"></a><a
+id="gdsrX538X3X0XaXarticle_rater_538Xarticle_loader_538X10X24" title="3 / 5" class="s3" rel="nofollow"></a><a
+id="gdsrX538X2X0XaXarticle_rater_538Xarticle_loader_538X10X24" title="2 / 5" class="s2" rel="nofollow"></a><a
+id="gdsrX538X1X0XaXarticle_rater_538Xarticle_loader_538X10X24" title="1 / 5" class="s1" rel="nofollow"></a></div></div></div></div><div
+id="article_loader_538" style="display: none; width: 120px " class="ratingloaderarticle"><div
+class="loader radar " style="height: 24px"><div
+class="loaderinner" style="padding-top: 2px">please wait...</div></div></div></div><div
+class="ratingtext "><div
+id="gdr_text_a538">Rating: 4.5/<strong>5</strong> (15 votes cast)</div></div></div><span
+class="hreview-aggregate"><span
+class="item"><span
+class="fn">The Painter's Partition Problem Part II</span></span>, <span
+class="rating"><span
+class="average">4.5</span> out of <span
+class="best">5</span> based on <span
+class="votes">15</span> ratings <span
+class="summary"></span></span></span></div><p
+class="postmetadata">&nbsp;</p><div
+class="alignleft"><a
+href="http://leetcode.com/2011/04/the-painters-partition-problem.html" rel="prev"><span
+class="meta-nav">&larr;</span> The Painter&#8217;s Partition Problem Part I</a></div><div
+class="alignright"><a
+href="http://leetcode.com/2011/04/construct-binary-tree-from-inorder-and-preorder-postorder-traversal.html" rel="next">Construct Binary Tree From Inorder and Preorder/Postorder Traversal <span
+class="meta-nav">&rarr;</span></a></div></div></div><div
+id="comments"><h3> 24 responses to <em>The Painter&#8217;s Partition Problem Part II</em></h3><ol
+class="commentlist"><li
+class="comment even thread-even depth-1" id="comment-753"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/eec4f5e47c59ecf670da4e7d08df33df?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">speeddy</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-753"><span
+class="time-since">April 7, 2011</span></a></p></div><div
+class="comment-entry"><p>Hi, I still can not quite get this part:</p><p>We have to discard the lower half including the middle element itself, since x &gt; k in that region (ie, no valid solution).<br
+/> Here, read the phrase in bold “including the middle element itself“ again, as this is extremely important to maintain the invariant. Why?<br
+/> Yes, that means the lower half including the value 1350 would be discarded.<br
+/> We continue searching in the upper half (ie, in the range of [1351, 1800]).</p><p>Why we must use the 1351. Why it is so important to add the 1 here?</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_753_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_753_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX753XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_753_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_753_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX753XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_753_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=753#respond' onclick='return addComment.moveForm("comment-753", "753", "respond", "538")'>Reply</a></div></div><ul
+class='children'><li
+class="comment byuser comment-author-admin bypostauthor odd alt depth-2" id="comment-756"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/admin/" rel="nofollow"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar Image" class="avatar user-8268-avatar" width="25" height="25" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/admin/" rel="nofollow">1337c0d3r</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-756"><span
+class="time-since">April 7, 2011</span></a></p></div><div
+class="comment-entry"><p>This is because costmax = 1350 is not a valid solution (due to x &gt; k) and thus must be discarded.<br
+/> If you don&#8217;t discard it, the invariant of binary search is no longer maintained.<br
+/> You can try this on an array with just two elements. If you chose not to discard the element in the border of lower half (when x &gt; k), then you will be stuck in an infinite loop (ie, the search space stays at two elements).</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_756_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_756_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX756XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_756_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_756_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX756XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_756_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=756#respond' onclick='return addComment.moveForm("comment-756", "756", "respond", "538")'>Reply</a></div></div><ul
+class='children'><li
+class="comment even depth-3" id="comment-759"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/eec4f5e47c59ecf670da4e7d08df33df?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">speeddy</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-759"><span
+class="time-since">April 7, 2011</span></a></p></div><div
+class="comment-entry"><p>Thanks very much. Let me try.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_759_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_759_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX759XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_759_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_759_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX759XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_759_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=759#respond' onclick='return addComment.moveForm("comment-759", "759", "respond", "538")'>Reply</a></div></div></li><li
+class="comment odd alt depth-3" id="comment-764"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/eec4f5e47c59ecf670da4e7d08df33df?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">speeddy</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-764"><span
+class="time-since">April 8, 2011</span></a></p></div><div
+class="comment-entry"><p>Hi, so why lo = mid +1 ;</p><p>But hi doesn&#8217;t need hi = mid-1?</p><p>900  &#8230;  1800  &#8230;  2700<br
+/> ↑          ↑          ↑<br
+/> x=6        x=3        x=2</p><p>The middle element now is 1800 and its corresponding x is 3, which is still ≤ k.<br
+/> We discard the upper half again and continue searching in the lower half.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_764_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_764_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX764XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_764_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_764_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX764XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_764_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=764#respond' onclick='return addComment.moveForm("comment-764", "764", "respond", "538")'>Reply</a></div></div><ul
+class='children'><li
+class="comment even depth-4" id="comment-1754"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/08b10714cc9e4403d9080594edc2c927?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">maxq</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-1754"><span
+class="time-since">July 23, 2011</span></a></p></div><div
+class="comment-entry"><p>I think he tries to maintain the invariant such that<br
+/> the value will only exist in the specified range, if<br
+/> it exists.</p><p>It can be made that in each iteration,  lo or hi is<br
+/> set to mid instead of mid+1, but it will need a<br
+/> different loop invariant and a different loop<br
+/> ending criteria.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1754_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1754_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1754XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1754_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1754_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1754XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1754_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=1754#respond' onclick='return addComment.moveForm("comment-1754", "1754", "respond", "538")'>Reply</a></div></div></li></ul></li></ul></li><li
+class="comment odd alt depth-2" id="comment-1921"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/52c9c1ad5a4721d50297cf984896ead7?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">lipingwu</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-1921"><span
+class="time-since">August 3, 2011</span></a></p></div><div
+class="comment-entry"><p>Invariant of binary search here, I think, meas two parts: one part is that the target value would be in the searching range always, and another part is that the searching range will decrease in each loop so that the termination can be reached. Then mid+1 aims to satisfy the second part while meet the first part. For the meaning of invariant, you can refer to following post: <a
+href="http://reprog.wordpress.com/2010/04/25/writing-correct-code-part-1-invariants-binary-search-part-4a/" rel="nofollow">http://reprog.wordpress.com/2010/04/25/writing-correct-code-part-1-invariants-binary-search-part-4a/</a></p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1921_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1921_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1921XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1921_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1921_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1921XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1921_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=1921#respond' onclick='return addComment.moveForm("comment-1921", "1921", "respond", "538")'>Reply</a></div></div></li></ul></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-1029"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/21c6eb1f07edff5f0cd248b96932646f?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">klds</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-1029"><span
+class="time-since">May 12, 2011</span></a></p></div><div
+class="comment-entry"><p>What is an id grass?</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1029_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1029_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1029XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1029_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1029_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1029XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1029_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=1029#respond' onclick='return addComment.moveForm("comment-1029", "1029", "respond", "538")'>Reply</a></div></div><ul
+class='children'><li
+class="comment odd alt depth-2" id="comment-1748"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/08b10714cc9e4403d9080594edc2c927?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">maxq</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-1748"><span
+class="time-since">July 22, 2011</span></a></p></div><div
+class="comment-entry"><p>An ID from mitbbs, I think.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1748_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1748_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1748XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1748_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1748_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1748XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1748_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=1748#respond' onclick='return addComment.moveForm("comment-1748", "1748", "respond", "538")'>Reply</a></div></div></li></ul></li><li
+class="comment even thread-even depth-1" id="comment-1074"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/9f3a5c0bae49b2869a0afd4da4ea9edf?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Haitao</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-1074"><span
+class="time-since">May 18, 2011</span></a></p></div><div
+class="comment-entry"><p>How about this part of the problem &#8220;you are also given how much time a painter takes to paint 1 unit of board&#8221;, which implies that each painter may paint the same section of boards with different time?  In other words, painter j (0&lt;=j&lt;k) can paint at Tj hours / unit.  I think the solution here and the DP solution in part I only solve the special case of the original problem where all Tj&#039;s are equal.</p><p>When Tj&#039;s are different, the binary search may still apply, but now<br
+/> . lo = max(Ai) * min(Tj)<br
+/> . hi = sum(Ai) * max(Tj)<br
+/> However finding x is much more difficult.  I think we can safely sort Tj&#039;s and use the smallest ones, and reduce finding x to a different sub problem.  I haven&#039;t thought through and get the complexity though.</p><p>Adapting the DP solutioin as it is to accont for differnt Tj&#039;s may be more difficult though.</p><p>What do you think?  Did I miss something?</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1074_c" class="gdt-size-20 gdthumbtext"> <strong
+title="2 up, 0 down">+2</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1074_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1074XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1074_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1074_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1074XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1074_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=1074#respond' onclick='return addComment.moveForm("comment-1074", "1074", "respond", "538")'>Reply</a></div></div><ul
+class='children'><li
+class="comment odd alt depth-2" id="comment-1924"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/52c9c1ad5a4721d50297cf984896ead7?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">lipingwu</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-1924"><span
+class="time-since">August 3, 2011</span></a></p></div><div
+class="comment-entry"><p>The binary search would be fine, I think. Just we need to consider the order of painters when get the required painters. I still don&#8217;t quite understand how it will work by using the smallest ones. For the DP, I think the sub problems would be more complex, and We can change the sub problem into the optimal solution for a set of k different painters instead of just k painters. Time complexity may be big, though.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1924_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1924_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1924XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1924_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1924_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1924XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1924_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=1924#respond' onclick='return addComment.moveForm("comment-1924", "1924", "respond", "538")'>Reply</a></div></div></li></ul></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-1135"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/086d03b749a7ebed92e08e4fb07c4da4?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">bluesun</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-1135"><span
+class="time-since">May 24, 2011</span></a></p></div><div
+class="comment-entry"><p>Good post! I enjoyed reading it.</p><p>You may need to be careful with grass&#8217;s modified low and high limits for binary search. If you are going to go that route, then there is a small problem with this function: getRequiredPainters(int A[], int n, int maxLengthPerPainter). If maxLengthPerPainter is less than max(a[]), it still returns a positive number, while in fact, it shall return an error instead. In the case of the algorithm your code is listed above, this function shall work because the low limit is set to the max(a[]). So you wouldn&#8217;t fall into the error scenario. However, if you use grass&#8217;s method, sum(a[0]&#8230;.a[i]) can be less than the max(a[]). That way, you would end up with a pair of wrong low and high limits.</p><p>For example, if a[] = { 10, 60, 200, 210, 220 }, and k=4.<br
+/> when maxLengthPerPainter = a[0] = 10, calling getRequiredPainters will return 5<br
+/> when maxLengthPerPainter = a[0] + a[1] = 10 + 60 = 70, calling getRequiredPainters will return 4.<br
+/> So here lo=10 and hi = 70, and the final answer will be 70. While the correct answer shall be 220, which is the max(a[]).</p><p>There are two ways to resolve this issue. One is to modify getRequiredPainters to let it return -1 when maxLengthPerPainter is less than max(a[]) and do some error check inside the calling function; The other is to set lo to max(a[]), and get hi with two restraints: getRequiredPainters=lo. Then you can continue with the binary search to get the correct answer.</p><p>It seems to me that such reducing of the limits would not give too much improvement to the binary search method. It however, can avoid the scenario that the sum of a[] may overflow.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1135_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1135_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1135XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1135_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1135_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1135XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1135_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=1135#respond' onclick='return addComment.moveForm("comment-1135", "1135", "respond", "538")'>Reply</a></div></div><ul
+class='children'><li
+class="comment odd alt depth-2" id="comment-1923"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/52c9c1ad5a4721d50297cf984896ead7?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">lipingwu</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-1923"><span
+class="time-since">August 3, 2011</span></a></p></div><div
+class="comment-entry"><p>I had the same concern, and following is my code for it:</p><p>int getK(int arr[], int n, int max){<br
+/> int k = 0;<br
+/> int sum = 0;<br
+/> for(int i = 0; i  max){<br
+/> k ++;<br
+/> if(sum == arr[i]) return INT_MAX;//There is only one element in the partition, which is greater than the max cost.<br
+/> sum = arr[i];<br
+/> }<br
+/> }</p><p> return k;<br
+/> }</p><p>Returning INT_MAX can imply the invalid partitions, since INT_MAX always is used as an infinite integer in c++, and the additional detection is not needed.</p><p>I agree that this way doesn&#8217;t have too much improvement in running time, and avoiding the overflow of the sum of a[] is a good point.:)</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1923_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1923_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1923XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1923_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1923_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1923XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1923_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=1923#respond' onclick='return addComment.moveForm("comment-1923", "1923", "respond", "538")'>Reply</a></div></div></li></ul></li><li
+class="comment even thread-even depth-1" id="comment-1243"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/4e9ad13678b59d61889f8fb478ad5131?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">sunder</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-1243"><span
+class="time-since">June 8, 2011</span></a></p></div><div
+class="comment-entry"><p>binary search in B and then binary serach in B[j]&#8212;B[j+1] cannot reduce the complexity, since it is binary search</p><p>log(size of array B) + log(B[j+1] &#8211; B[j]) = log((size of array B) x (B[j+1]- B[j])) = log(B[n] &#8211; B[1])</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1243_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1243_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1243XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1243_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1243_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1243XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1243_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=1243#respond' onclick='return addComment.moveForm("comment-1243", "1243", "respond", "538")'>Reply</a></div></div><ul
+class='children'><li
+class="comment odd alt depth-2" id="comment-1922"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/52c9c1ad5a4721d50297cf984896ead7?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">lipingwu</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-1922"><span
+class="time-since">August 3, 2011</span></a></p></div><div
+class="comment-entry"><p>I agree about this. Can any body else have a double check?</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1922_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1922_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1922XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1922_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1922_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1922XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1922_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=1922#respond' onclick='return addComment.moveForm("comment-1922", "1922", "respond", "538")'>Reply</a></div></div></li></ul></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-1824"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/1ee7eb65867799b51fc2c672ee09d3ee?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">surender</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-1824"><span
+class="time-since">July 27, 2011</span></a></p></div><div
+class="comment-entry"><p>HI,<br
+/> very nice explaination,<br
+/> for this solution, what if i take  (sum of N)/K as average(Avg) of any painter. linearly  adding each N[i] until my absolyte difference of Avg and {N[0..i]} is decreasing.  As soon as it moves from decreasing to increasing phase, i&#8217;ll stop it and assign those boards to one of the kth painter, and it continues till kth painter.<br
+/> will this give me feasible solution??</p><p>surender</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1824_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1824_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1824XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1824_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1824_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1824XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1824_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=1824#respond' onclick='return addComment.moveForm("comment-1824", "1824", "respond", "538")'>Reply</a></div></div><ul
+class='children'><li
+class="comment odd alt depth-2" id="comment-1914"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/52c9c1ad5a4721d50297cf984896ead7?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">lipingwu</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-1914"><span
+class="time-since">August 3, 2011</span></a></p></div><div
+class="comment-entry"><p>Surrender,</p><p>I think we can&#8217;t get feasible solution always. For example, assume the array is {1, 2, 1, 2, 2} and k = 3. Then the Avg would be 2. So your solution will partition the array into {1}, {2}, {1, 2, 2}, which gets the result of 5. However, the best solution is {1,2}, {1, 2} and {2}, which gets the result of 3.</p><p>Liping</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1914_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1914_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1914XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1914_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1914_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1914XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1914_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=1914#respond' onclick='return addComment.moveForm("comment-1914", "1914", "respond", "538")'>Reply</a></div></div></li></ul></li><li
+class="comment even thread-even depth-1" id="comment-1913"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/52c9c1ad5a4721d50297cf984896ead7?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">lipingwu</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-1913"><span
+class="time-since">August 3, 2011</span></a></p></div><div
+class="comment-entry"><p>Hi,</p><p>Although it is obvious that the optimal solution can be got by this way. But should we still provide proof for it? For example, is it possible that the interviewer will ask us to prove it? Given a max cost, we feed as many continuous blocks as possible into a partition. and then we minimize the max cost. How can we prove this can get the optimal solution?</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1913_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1913_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1913XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1913_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1913_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1913XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1913_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=1913#respond' onclick='return addComment.moveForm("comment-1913", "1913", "respond", "538")'>Reply</a></div></div></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-7024"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/e8271bd6c884d8a357549b58d9aa792f?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Abhishek</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-7024"><span
+class="time-since">November 22, 2011</span></a></p></div><div
+class="comment-entry"><p>If we use array B[] as suggested , worst case time run time for  getRequiredPainters will be O(NlogN) and the while loop which calls  getRequiredPainters will be executed at the most O(log maxA)  then worst case run time for whole algo should be O(log maxA) * O(NlogN).  Please  suggest.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_7024_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_7024_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX7024XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_7024_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_7024_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX7024XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_7024_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=7024#respond' onclick='return addComment.moveForm("comment-7024", "7024", "respond", "538")'>Reply</a></div></div></li><li
+class="comment even thread-even depth-1" id="comment-10391"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/52afad81b48503717c7548225a0f42c6?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Topcoder99</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-10391"><span
+class="time-since">December 26, 2011</span></a></p></div><div
+class="comment-entry"><p>Hi</p><p>Your solution provides an answer to the average value. I believe the exact question is to divide the array into partitions and the output should be</p><p>Partition 1: a, b, c<br
+/> Partition 2: d, e</p><p>&#8230;&#8230;&#8230;&#8230;&#8230;&#8230;..<br
+/> Partition k: x,y</p><p>Something like above</p><p>Using 1700 in the above example how does the parttions can be arrived</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_10391_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_10391_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX10391XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_10391_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_10391_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX10391XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_10391_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=10391#respond' onclick='return addComment.moveForm("comment-10391", "10391", "respond", "538")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-vimabc odd alt thread-odd thread-alt depth-1" id="comment-16768"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/vimabc/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/5b511ee77139089d90f6dfdebdefd0fa?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-887-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/vimabc/" rel="nofollow">Priyanka</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-16768"><span
+class="time-since">March 24, 2012</span></a></p></div><div
+class="comment-entry"><p>Let A = max_i {A_i}, and B = \sum_i {A_i}.<br
+/> Note that B is at most nA.<br
+/> So we can simply do bisect the interval [A, B], which gives O(n logn) time algorithm.<br
+/> (The number of iterations needed is log(B/A) &lt;= logn.)</p><p>This is a standard trick in this kind of algorithm to drop the dependencies on the input size.</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_16768_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_16768_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX16768XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_16768_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_16768_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX16768XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_16768_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=16768#respond' onclick='return addComment.moveForm("comment-16768", "16768", "respond", "538")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-michaelwu even thread-even depth-1" id="comment-27490"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/michaelwu/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/af3ed95ce821ebea19f4e1b8cc4baeb4?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-3931-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/michaelwu/" rel="nofollow">michael</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-27490"><span
+class="time-since">October 21, 2012</span></a></p></div><div
+class="comment-entry"><p>!!!!!!!!!!!!!  THIS IS A K STEPS SHORTEST PATH PROBLEM !!!!!!!!!!!!!!!!<br
+/> Correct me if I am wrong.</p><p>Here is the DAG:<br
+/> B0, A0, B1, A1, &#8230;. , A(N-1), BN<br
+/> V =<br
+/> E = {(Bi, Bj) where 0&lt;=i&lt;j&lt;=N}, and length(Bi, Bj) = sqr((Ai+&#8230;+A(j-1)))</p><p>The problem is to find a K step shortest path from B0 to BN.</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_27490_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_27490_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX27490XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_27490_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_27490_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX27490XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_27490_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=27490#respond' onclick='return addComment.moveForm("comment-27490", "27490", "respond", "538")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-michaelwu odd alt thread-odd thread-alt depth-1" id="comment-27491"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/michaelwu/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/af3ed95ce821ebea19f4e1b8cc4baeb4?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-3931-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/michaelwu/" rel="nofollow">michael</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-27491"><span
+class="time-since">October 21, 2012</span></a></p></div><div
+class="comment-entry"><p>The nodes set is xml-ed.<br
+/> V={B0, B1, B2, … BN}</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_27491_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_27491_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX27491XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_27491_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_27491_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX27491XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_27491_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=27491#respond' onclick='return addComment.moveForm("comment-27491", "27491", "respond", "538")'>Reply</a></div></div></li><li
+class="comment even thread-even depth-1" id="comment-65717"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/522cfe0f3f3c90854067a62da3b6982c?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">subu</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-65717"><span
+class="time-since">June 30, 2013</span></a></p></div><div
+class="comment-entry"><p>this seems to assume that all painters paint in the same speed. The solution breaks if apainter is &gt; twice as fast as the painter adjacent to them.</p><p>I think DP would work for that case&#8230;.</p><p>Having said that, this is an elegant solution and has numerous applications in resource or job allocations for smp machines.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_65717_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_65717_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX65717XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_65717_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_65717_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX65717XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_65717_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=65717#respond' onclick='return addComment.moveForm("comment-65717", "65717", "respond", "538")'>Reply</a></div></div><ul
+class='children'><li
+class="comment byuser comment-author-sshlyk odd alt depth-2" id="comment-66424"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/sshlyk/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/891bc71c5d7dda39d9f4fe042712d2b0?d=identicon&amp;s=25&amp;r=G" alt="Avatar Image" class="avatar user-15488-avatar" width="25" height="25" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/sshlyk/" rel="nofollow">sshlyk</a> said on <a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comment-66424"><span
+class="time-since">July 5, 2013</span></a></p></div><div
+class="comment-entry"><p>I think author should clarify his assumptions (like all painter have the same speed)</p><p>Nevertheless, I like the approach and would like to apply it in this way.</p><p>First, you can sort painter by productivity. Most productive painter is P1, less productive is Pk</p><p>Next assume that you have time constrain. It is possible to check if all boards can be painted by group of painters within this time period.<br
+/> This can be done by computing ideal maximum board length each painter can handle within given period. Next, for each painter, starting from the most productive one, find longest continuous subarray with maximum cumulative board length the painter can handle (can be done in O(n) for each painter).<br
+/> If you have unassigned boards left, that means it can not be done.</p><p>Once you have this step, you can do binary search on time-to-complete. Basically assume maximum time painters can spend working is one year. Then, check if they complete the job in 365 days, if yes, check 180 if no, check 270 and so on.</p><p>The complexity would be O(k*n*log(365)) where k is number of painters and n is number of boards.</p><p>I am just throwing an idea and not sure if it works.</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_66424_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_66424_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX66424XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_66424_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_66424_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX66424XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_66424_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/04/the-painters-partition-problem-part-ii.html?replytocom=66424#respond' onclick='return addComment.moveForm("comment-66424", "66424", "respond", "538")'>Reply</a></div></div></li></ul></li></ol></div><div
+id="respond"><h3 id="reply-title">Leave a reply <small><a
+rel="nofollow" id="cancel-comment-reply-link" href="/2011/04/the-painters-partition-problem-part-ii.html#respond" style="display:none;">Cancel reply</a></small></h3><form
+action="http://leetcode.com/wp-comments-post.php" method="post" id="commentform"><div
+class="comment-avatar-box"><div
+class="avb"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /></div></div><div
+class="comment-content standard-form"><p
+class="comment-notes">Your email address will not be published. Required fields are marked <span
+class="required">*</span></p><p
+class="comment-form-author"><label
+for="author">Name<span
+class="required"> *</span></label> <input
+id="author" name="author" type="text" value="" size="30" aria-required='true' /></p><p
+class="comment-form-email"><label
+for="email">Email<span
+class="required"> *</span></label> <input
+id="email" name="email" type="text" value="" size="30" aria-required='true' /></p><p
+class="comment-form-url"><label
+for="url">Website</label><input
+id="url" name="url" type="text" value="" size="30" /></p><p
+class="form-textarea"><textarea name="comment" id="comment" cols="60" rows="10" aria-required="true"></textarea></p><p
+class="form-allowed-tags">You may use the <code>&lt;code&gt;</code> tag to embed your code.</p><p
+class="form-submit"> <input
+name="submit" type="submit" id="submit" value="Post Comment" /> <input
+type='hidden' name='comment_post_ID' value='538' id='comment_post_ID' /> <input
+type='hidden' name='comment_parent' id='comment_parent' value='0' /></p><p
+style="display: none;"><input
+type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="e640cfdcf0" /></p></div></form></div><div
+id="trackbacks"><h3>1 trackback</h3><ul
+id="trackbacklist"><li><h5><a
+href='http://www.mashengjun.info/?p=260' rel='external nofollow' class='url'>The Painter&#8217;s Partition Problem Part II | 口├人人│의 Blog</a></h5> <em>on July 26, 2011</em></li></ul></div></div></div></div><div
+id="post-dir-search" class="dir-search"><form
+role="search" method="get" id="searchform" action="http://leetcode.com/"> <input
+type="text" value="" name="s" id="s" /> <input
+type="submit" id="searchsubmit" value="Search" /></form></div><div
+id="sidebar"><div
+class="padder"></div></div></div><div
+id="push"></div></div><div
+id="footer"><div
+id="colophon"><div
+class="footer-widget"></div><div
+class="footer-widget"></div><div
+class="footer-widget"></div><div
+class="footer-widget last"></div><div
+class="clear"></div><div
+id="footer-links"><ul
+class="footer-menu"><li
+class="page_item page-item-2"><a
+href="http://leetcode.com/about">About</a></li><li
+class="page_item page-item-908"><a
+href="http://leetcode.com/activity">Activity</a></li><li
+class="page_item page-item-1466"><a
+href="http://leetcode.com/discuss">Discuss</a></li><li
+class="page_item page-item-1658"><a
+href="http://leetcode.com/donate">Donate</a></li><li
+class="page_item page-item-907"><a
+href="http://leetcode.com/members">Members</a></li><li
+class="page_item page-item-370"><a
+href="http://leetcode.com/onlinejudge">Online Judge</a></li></ul></div><div
+id="credits"><p>Copyright &copy; 2013 LeetCode &nbsp;&middot;&nbsp; <a
+href="http://leetcode.com/wp-login.php">Log in</a></p></div></div></div><div
+id="wpadminbar" class="nojq nojs" role="navigation"> <a
+class="screen-reader-shortcut" href="#wp-toolbar" tabindex="1">Skip to toolbar</a><div
+class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Top navigation toolbar." tabindex="0"><ul
+id="wp-admin-bar-root-default" class="ab-top-menu"><li
+id="wp-admin-bar-bp-login"><a
+class="ab-item"  href="http://leetcode.com/wp-login.php">Log in</a></li><li
+id="wp-admin-bar-bp-register"><a
+class="ab-item"  href="http://leetcode.com/register/">Register</a></li><li
+id="wp-admin-bar-my-account"><div
+class="ab-item ab-empty-item" ></div></li></ul></div> <a
+class="screen-reader-shortcut" href="http://leetcode.com/wp-login.php?action=logout&#038;_wpnonce=d79c4035be">Log Out</a></div><div
+class="buddyboss_log"></div> <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6849839-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script><style type="text/css">
+    .defaultCommentText { color: #a1a1a1; font-style: italic; }
+  </style><script type="text/javascript">
+    jQuery("textarea#comment, textarea#reply_text").focus(function(srcc) {
+      if (jQuery(this).val() == jQuery(this)[0].title) {
+        jQuery(this).val("");
+        jQuery(this).removeClass("defaultCommentText");
+      }
+    });
+    jQuery("textarea#comment, textarea#reply_text").blur(function() {
+      if (jQuery(this).val() == "") {
+        jQuery(this).val(jQuery(this)[0].title);
+        jQuery(this).addClass("defaultCommentText");
+      }
+    });
+    jQuery("textarea#comment, textarea#reply_text").attr('title', 'To embed your code, please use <code>your code here</code>.');
+    jQuery("textarea#comment, textarea#reply_text").blur();
+  </script></body></html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Minified using disk: basic
+Page Caching using disk: enhanced
+
+ Served from: leetcode.com @ 2013-12-07 20:57:35 by W3 Total Cache -->

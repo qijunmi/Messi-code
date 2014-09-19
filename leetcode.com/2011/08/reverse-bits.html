@@ -1,0 +1,3855 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html
+xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head
+profile="http://gmpg.org/xfn/11"><link
+rel="stylesheet" type="text/css" href="http://leetcode.com/wp-content/cache/minify/000000/fY7BDgIhDER_aBE9-EEFKpAssGm7Ufx6uyzxpodmmubNdK6Wpa-43C2EkqtxQBfV5WbdHkLfCJmt24xvhNbr_sUU8TtLK_mNwRB6rKJYKao80DP5eZir6NXGYFiADIHkGgdzrkcWQW_VcK8CL5NyTKuOIA1Mf05itvuNS8KCbGOWtLspfw2PNgq3ym0F_gA.css" media="all" /><link
+rel="stylesheet" type="text/css" href="http://leetcode.com/wp-content/cache/minify/000000/M9Qvzy9KKShKLS7WLcgvKM1JLALSxSXF-sUllTmp-uUFBQA.css" media="all" /><script type="text/javascript" src="http://leetcode.com/wp-content/cache/minify/000000/LYtrDsMgDIMvRBZN632m8BBQQeiSVBu3H532w3LsfH7g_jqTTHfHHEGNBISscsZdV6OyHkFoDgadbPSBUnNpS5bkYnrlP3Bbp3sfEAZbYkMrqSdFf8Y4_VDFZ-WAuQ1PzW0YRu8LA0lHm7_thhSXgye58hc.js"></script><meta
+http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta
+name="viewport" content="width=device-width, initial-scale=1.0" /><title>Reverse Bits | LeetCode</title><link
+rel="pingback" href="http://leetcode.com/xmlrpc.php" /><link
+rel="shortcut icon" href="http://leetcode.com/wp-content/themes/buddyboss-child/_inc/images/favicon.ico" type="image/x-icon"><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; Feed" href="http://leetcode.com/feed" /><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; Comments Feed" href="http://leetcode.com/comments/feed" /><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; Reverse Bits Comments Feed" href="http://leetcode.com/2011/08/reverse-bits.html/feed" /><link
+rel='stylesheet' id='gdsr_style_main-css'  href='http://leetcode.com/wp-content/plugins/gd-star-rating/css/gdsr.css.php?t=1366376824&#038;s=a05i05m20k20c05r05%23121620243046%23121620243240%23s1pchristmas%23s1pcrystal%23s1pdarkness%23s1poxygen%23s1goxygen_gif%23s1pplain%23s1ppumpkin%23s1psoft%23s1pstarrating%23s1pstarscape%23t1pclassical%23t1pstarrating%23t1gstarrating_gif%23lsgflower%23lsgradar&#038;o=off&#038;ver=1.9.22' type='text/css' media='all' /><script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"2.2.0","is_admin":"0","ajaxurl":"http:\/\/leetcode.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script><script type='text/javascript'>
+/* <![CDATA[ */
+var BP_DTheme = {"my_favs":"My Likes","accepted":"Accepted","rejected":"Rejected","show_all_comments":"Show all comments for this thread","show_all":"Show all","comments":"comments","close":"Close","view":"View","mark_as_fav":"Like","remove_fav":"Unlike","add_photo":"Add Photo","cancel":"Cancel","failed":"Failed","person":"person","people":"people","like":"like","likes":"likes","this_1":"this"};
+/* ]]> */
+</script><link
+rel='prev' title='Lowest Common Ancestor of a Binary Tree Part II' href='http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html' /><link
+rel='next' title='Insert into a Cyclic Sorted List' href='http://leetcode.com/2011/08/insert-into-a-cyclic-sorted-list.html' /><link
+rel='canonical' href='http://leetcode.com/2011/08/reverse-bits.html' /><link
+rel='shortlink' href='http://leetcode.com/?p=813' /><script type="text/javascript">var ajaxurl = 'http://leetcode.com/wp-admin/admin-ajax.php';</script><style type='text/css'>#sidebar span.collapsing.archives {
+        border:0;
+        padding:0; 
+        margin:0; 
+        cursor:pointer;
+} 
+
+#sidebar span.monthCount, span.yearCount {text-decoration:none; color:#333}
+#sidebar li.collapsing.archives a.self {font-weight:bold}
+#sidebar ul.collapsing.archives.list ul.collapsing.archives.list:before {content:\'\';} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives:before {content:\'\';} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives {list-style-type:none}
+#sidebar ul.collapsing.archives.list li {
+       margin:0 0 0 .8em;
+       text-indent:-1em}
+#sidebar ul.collapsing.archives.list li.collapsing.archives.item:before {content: \'\\00BB \\00A0\' !important;} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives .sym {
+   font-size:1.2em;
+   font-family:Monaco, \'Andale Mono\', \'FreeMono\', \'Courier new\', \'Courier\', monospace;
+   cursor:pointer;
+    padding-right:15px;}
+#sidebar ul.collapsing.archives.list span.collapsing.archives.collapse .sym {
+    background-image: url(/wp-content/plugins/collapsing-archives/img/list-collapse.gif);
+}
+#sidebar ul.collapsing.archives.list span.collapsing.archives.expand .sym {
+    background-image: url(/wp-content/plugins/collapsing-archives/img/list-expand.gif);
+}</style><script type="text/javascript">
+//<![CDATA[
+var gdsr_cnst_nonce = "344a153a23";
+var gdsr_cnst_ajax = "http://leetcode.com/wp-content/plugins/gd-star-rating/ajax.php";
+var gdsr_cnst_button = 1;
+var gdsr_cnst_cache = 0;
+// ]]>
+</script><!--[if IE]><style type="text/css">.ratemulti .starsbar .gdcurrent { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter: alpha(opacity=70); }</style><![endif]--> <script type="text/javascript">
+    /* <![CDATA[ */				
+	jQuery.post('http://leetcode.com/wp-admin/admin-ajax.php', {action: 'wpp_update', token: '6117d36efc', id: 813}, function(data){/*alert(data);*/});
+    /* ]]> */
+</script><style type="text/css" media="print">#wpadminbar { display:none; }</style><style type="text/css" media="screen">
+	html { margin-top: 28px !important; }
+	* html body { margin-top: 28px !important; }
+</style><script type="text/javascript"> jQuery(document).ready( function() { jQuery("a.confirm").click( function() { if ( confirm( 'Are you sure?' ) ) return true; else return false; }); });</script></head><body
+class="single single-post postid-813 single-format-standard admin-bar no-customize-support no-js buddyboss-active-pics buddyboss-active-wall admin-bar" id="bp-default"> <!--[if lte IE 6]><script src="http://leetcode.com/wp-content/themes/buddyboss/_inc/js/ie6/warning.js"></script><script>window.onload=function(){e("http://leetcode.com/wp-content/themes/buddyboss-child/_inc/js/ie6/")}</script><![endif]--><script type="text/javascript">//<![CDATA[
+(function(){var c=document.body.className;c=c.replace(/no-js/,'js');document.body.className=c;})();
+//]]></script><div
+id="top-hdr-bg"></div><div
+class="menu-bg"></div><div
+id="wrapper"><div
+id="header"><div
+class="padder"><div
+id="logo"> <a
+href="http://leetcode.com" title="Home"><img
+src="http://leetcode.com/wp-content/uploads/2012/12/leetcodelogo.png"/></a></div><div
+class="menu-bg"></div><ul
+class="sf-menu"><li
+class="page_item page-item-2"><a
+href="http://leetcode.com/about">About</a></li><li
+class="page_item page-item-908"><a
+href="http://leetcode.com/activity">Activity</a></li><li
+class="page_item page-item-1466"><a
+href="http://leetcode.com/discuss">Discuss</a></li><li
+class="page_item page-item-1658"><a
+href="http://leetcode.com/donate">Donate</a></li><li
+class="page_item page-item-907"><a
+href="http://leetcode.com/members">Members</a></li><li
+class="page_item page-item-370"><a
+href="http://leetcode.com/onlinejudge">Online Judge</a></li></ul></div></div><div
+id="container"><div
+id="content" class="two_column"><div
+class="padder"><div
+class="page" id="blog-single" role="main"><div
+id="post-813" class="post-813 post type-post status-publish format-standard hentry category-bit-operations"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+rel="author" href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle">Reverse Bits</h2><p
+class="date"> August 6, 2011 <span>in <a
+href="http://leetcode.com/category/bit-operations" title="View all posts in bit operations" rel="category tag">bit operations</a></span> <span
+class="post-utility alignright"></span></p><div
+class="entry"><blockquote><p>Reverse bits of an unsigned integer.</p></blockquote><p><span
+id="more-813"></span><br
+/> There are several methods of reversing the bits of an unsigned integer. Here, we devise an algorithm using the XOR swap trick, and then optimize it using a divide and conquer methodology.</p><p><strong>Hint:</strong><br
+/> How do you swap the i<sup>th</sup> bit with the j<sup>th</sup> bit? Try to figure out if you could use the XOR operation to do it.</p><p><strong>The XOR swap trick:</strong><br
+/> Reversing bits could be done by swapping the n/2 least significant bits with its most significant bits. The trick is to implement a function called swapBits(i, j), which swaps the i<sup>th</sup> bit with the j<sup>th</sup> bit. If you still remember how XOR operation works: 0 ^ 0 == 0, 1 ^ 1 == 0, 0 ^ 1 == 1, and 1 ^ 0 == 1.</p><p>We only need to perform the swap when the i<sup>th</sup> bit and the j<sup>th</sup> bit are different. To test if two bits are different, we could use the XOR operation. Then, we need to toggle both i<sup>th</sup> and j<sup>th</sup> bits. We could apply the XOR operation again. By XOR-ing the i<sup>th</sup> and j<sup>th</sup> bit with 1, both bits are toggled.</p><div
+id="crayon-52a3f3eac48f2" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+typedef unsigned int uint;
+uint swapBits(uint x, uint i, uint j) {
+  uint lo = ((x &gt;&gt; i) &amp; 1);
+  uint hi = ((x &gt;&gt; j) &amp; 1);
+  if (lo ^ hi) {
+    x ^= ((1U &lt;&lt; i) | (1U &lt;&lt; j));
+  }
+  return x;
+}
+
+uint reverseXor(uint x) {
+  uint n = sizeof(x) * 8;
+  for (uint i = 0; i &lt; n/2; i++) {
+    x = swapBits(x, i, n-i-1);
+  }
+  return x;
+}</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3f3eac48f2-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac48f2-2">2</div><div
+class="crayon-num" data-line="crayon-52a3f3eac48f2-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac48f2-4">4</div><div
+class="crayon-num" data-line="crayon-52a3f3eac48f2-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac48f2-6">6</div><div
+class="crayon-num" data-line="crayon-52a3f3eac48f2-7">7</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac48f2-8">8</div><div
+class="crayon-num" data-line="crayon-52a3f3eac48f2-9">9</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac48f2-10">10</div><div
+class="crayon-num" data-line="crayon-52a3f3eac48f2-11">11</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac48f2-12">12</div><div
+class="crayon-num" data-line="crayon-52a3f3eac48f2-13">13</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac48f2-14">14</div><div
+class="crayon-num" data-line="crayon-52a3f3eac48f2-15">15</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac48f2-16">16</div><div
+class="crayon-num" data-line="crayon-52a3f3eac48f2-17">17</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3f3eac48f2-1"><span
+class="r">typedef</span><span
+class="h"> </span><span
+class="t">unsigned</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">uint</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac48f2-2"><span
+class="e">uint </span><span
+class="e">swapBits</span><span
+class="sy">(</span><span
+class="i">uint</span><span
+class="h"> </span><span
+class="i">x</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">uint</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">uint</span><span
+class="h"> </span><span
+class="i">j</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line" id="crayon-52a3f3eac48f2-3"><span
+class="h">&nbsp;&nbsp;</span><span
+class="e">uint </span><span
+class="v">lo</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="sy">(</span><span
+class="i">x</span><span
+class="h"> </span><span
+class="o">&gt;&gt;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac48f2-4"><span
+class="h">&nbsp;&nbsp;</span><span
+class="e">uint </span><span
+class="v">hi</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="sy">(</span><span
+class="i">x</span><span
+class="h"> </span><span
+class="o">&gt;&gt;</span><span
+class="h"> </span><span
+class="i">j</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac48f2-5"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">lo</span><span
+class="h"> </span><span
+class="o">^</span><span
+class="h"> </span><span
+class="i">hi</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac48f2-6"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">x</span><span
+class="h"> </span><span
+class="o">^=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="sy">(</span><span
+class="cn">1U</span><span
+class="h"> </span><span
+class="o">&lt;&lt;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">|</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="cn">1U</span><span
+class="h"> </span><span
+class="o">&lt;&lt;</span><span
+class="h"> </span><span
+class="i">j</span><span
+class="sy">)</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac48f2-7"><span
+class="h">&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac48f2-8"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">x</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac48f2-9"><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac48f2-10">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3f3eac48f2-11"><span
+class="e">uint </span><span
+class="e">reverseXor</span><span
+class="sy">(</span><span
+class="i">uint</span><span
+class="h"> </span><span
+class="i">x</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac48f2-12"><span
+class="h">&nbsp;&nbsp;</span><span
+class="i">uint</span><span
+class="h"> </span><span
+class="v">n</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="e">sizeof</span><span
+class="sy">(</span><span
+class="i">x</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">*</span><span
+class="h"> </span><span
+class="cn">8</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac48f2-13"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">for</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">uint</span><span
+class="h"> </span><span
+class="v">i</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="h"> </span><span
+class="o">&lt;</span><span
+class="h"> </span><span
+class="i">n</span><span
+class="o">/</span><span
+class="cn">2</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="o">++</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac48f2-14"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">x</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="e">swapBits</span><span
+class="sy">(</span><span
+class="i">x</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">n</span><span
+class="o">-</span><span
+class="i">i</span><span
+class="o">-</span><span
+class="cn">1</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac48f2-15"><span
+class="h">&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac48f2-16"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">x</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac48f2-17"><span
+class="sy">}</span></div></div></td></tr></table></div></div><p>The run time complexity using the XOR trick to reverse bits is O(<em>n</em>), where <em>n</em> is the total number of bits in an unsigned integer.</p><p><strong>The divide and conquer approach:<br
+/> </strong>Remember how merge sort works? Let us use an example of <em>n</em> == 8 (one byte) to see how this works:</p><pre>      01101001
+    /         \
+   0110      1001
+  /   \     /   \
+ 01   10   10   01
+ /\   /\   /\   /\
+0 1  1 0  1 0  0 1</pre><p>The first step is to swap all odd and even bits. After that swap consecutive pairs of bits, and so on&#8230;</p><p>Therefore, only a total of log(n) operations are necessary.</p><p>The below code shows a specific case where <em>n</em> == 32, but it could be easily adapted to larger <em>n</em>&#8216;s as well.</p><div
+id="crayon-52a3f3eac49b3" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+uint reverseMask(uint x) {
+  assert(sizeof(x) == 4); // special case: only works for 4 bytes (32 bits).
+  x = ((x &amp; 0x55555555) &lt;&lt; 1) | ((x &amp; 0xAAAAAAAA) &gt;&gt; 1);
+  x = ((x &amp; 0x33333333) &lt;&lt; 2) | ((x &amp; 0xCCCCCCCC) &gt;&gt; 2);
+  x = ((x &amp; 0x0F0F0F0F) &lt;&lt; 4) | ((x &amp; 0xF0F0F0F0) &gt;&gt; 4);
+  x = ((x &amp; 0x00FF00FF) &lt;&lt; 8) | ((x &amp; 0xFF00FF00) &gt;&gt; 8);
+  x = ((x &amp; 0x0000FFFF) &lt;&lt; 16) | ((x &amp; 0xFFFF0000) &gt;&gt; 16);
+  return x;
+}</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3f3eac49b3-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac49b3-2">2</div><div
+class="crayon-num" data-line="crayon-52a3f3eac49b3-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac49b3-4">4</div><div
+class="crayon-num" data-line="crayon-52a3f3eac49b3-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac49b3-6">6</div><div
+class="crayon-num" data-line="crayon-52a3f3eac49b3-7">7</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac49b3-8">8</div><div
+class="crayon-num" data-line="crayon-52a3f3eac49b3-9">9</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3f3eac49b3-1"><span
+class="e">uint </span><span
+class="e">reverseMask</span><span
+class="sy">(</span><span
+class="i">uint</span><span
+class="h"> </span><span
+class="i">x</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac49b3-2"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">assert</span><span
+class="sy">(</span><span
+class="e">sizeof</span><span
+class="sy">(</span><span
+class="i">x</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">==</span><span
+class="h"> </span><span
+class="cn">4</span><span
+class="sy">)</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="c">// special case: only works for 4 bytes (32 bits).</span></div><div
+class="crayon-line" id="crayon-52a3f3eac49b3-3"><span
+class="h">&nbsp;&nbsp;</span><span
+class="v">x</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="sy">(</span><span
+class="i">x</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="cn">0x55555555</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&lt;&lt;</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">|</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="sy">(</span><span
+class="i">x</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="cn">0xAAAAAAAA</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&gt;&gt;</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac49b3-4"><span
+class="h">&nbsp;&nbsp;</span><span
+class="v">x</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="sy">(</span><span
+class="i">x</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="cn">0x33333333</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&lt;&lt;</span><span
+class="h"> </span><span
+class="cn">2</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">|</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="sy">(</span><span
+class="i">x</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="cn">0xCCCCCCCC</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&gt;&gt;</span><span
+class="h"> </span><span
+class="cn">2</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac49b3-5"><span
+class="h">&nbsp;&nbsp;</span><span
+class="v">x</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="sy">(</span><span
+class="i">x</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="cn">0x0F0F0F0F</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&lt;&lt;</span><span
+class="h"> </span><span
+class="cn">4</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">|</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="sy">(</span><span
+class="i">x</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="cn">0xF0F0F0F0</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&gt;&gt;</span><span
+class="h"> </span><span
+class="cn">4</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac49b3-6"><span
+class="h">&nbsp;&nbsp;</span><span
+class="v">x</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="sy">(</span><span
+class="i">x</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="cn">0x00FF00FF</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&lt;&lt;</span><span
+class="h"> </span><span
+class="cn">8</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">|</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="sy">(</span><span
+class="i">x</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="cn">0xFF00FF00</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&gt;&gt;</span><span
+class="h"> </span><span
+class="cn">8</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac49b3-7"><span
+class="h">&nbsp;&nbsp;</span><span
+class="v">x</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="sy">(</span><span
+class="i">x</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="cn">0x0000FFFF</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&lt;&lt;</span><span
+class="h"> </span><span
+class="cn">16</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">|</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="sy">(</span><span
+class="i">x</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="cn">0xFFFF0000</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&gt;&gt;</span><span
+class="h"> </span><span
+class="cn">16</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac49b3-8"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">x</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac49b3-9"><span
+class="sy">}</span></div></div></td></tr></table></div></div><p><strong>Note:</strong><br
+/> These are not the only methods for reversing bits, and not necessarily the fastest way. For more ideas/algorithms to reverse bits, please visit <a
+href="http://graphics.stanford.edu/~seander/bithacks.html#BitReverseObvious">Bit Twiddling Hacks</a>.</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="ratingblock "><div
+class="ratingheader "></div><div
+class="ratingstars "><div
+id="article_rater_813" class="ratepost gdsr-oxygen gdsr-size-24"><div
+class="starsbar gdsr-size-24"><div
+class="gdouter gdheight"><div
+id="gdr_vote_a813" style="width: 120px;" class="gdinner gdheight"></div><div
+id="gdr_stars_a813" class="gdsr_rating_as"><a
+id="gdsrX813X5X0XaXarticle_rater_813Xarticle_loader_813X10X24" title="5 / 5" class="s5" rel="nofollow"></a><a
+id="gdsrX813X4X0XaXarticle_rater_813Xarticle_loader_813X10X24" title="4 / 5" class="s4" rel="nofollow"></a><a
+id="gdsrX813X3X0XaXarticle_rater_813Xarticle_loader_813X10X24" title="3 / 5" class="s3" rel="nofollow"></a><a
+id="gdsrX813X2X0XaXarticle_rater_813Xarticle_loader_813X10X24" title="2 / 5" class="s2" rel="nofollow"></a><a
+id="gdsrX813X1X0XaXarticle_rater_813Xarticle_loader_813X10X24" title="1 / 5" class="s1" rel="nofollow"></a></div></div></div></div><div
+id="article_loader_813" style="display: none; width: 120px " class="ratingloaderarticle"><div
+class="loader radar " style="height: 24px"><div
+class="loaderinner" style="padding-top: 2px">please wait...</div></div></div></div><div
+class="ratingtext "><div
+id="gdr_text_a813">Rating: 5.0/<strong>5</strong> (19 votes cast)</div></div></div><span
+class="hreview-aggregate"><span
+class="item"><span
+class="fn">Reverse Bits</span></span>, <span
+class="rating"><span
+class="average">5.0</span> out of <span
+class="best">5</span> based on <span
+class="votes">19</span> ratings <span
+class="summary"></span></span></span></div><p
+class="postmetadata">&nbsp;</p><div
+class="alignleft"><a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html" rel="prev"><span
+class="meta-nav">&larr;</span> Lowest Common Ancestor of a Binary Tree Part II</a></div><div
+class="alignright"><a
+href="http://leetcode.com/2011/08/insert-into-a-cyclic-sorted-list.html" rel="next">Insert into a Cyclic Sorted List <span
+class="meta-nav">&rarr;</span></a></div></div></div><div
+id="comments"><h3> 39 responses to <em>Reverse Bits</em></h3><ol
+class="commentlist"><li
+class="comment even thread-even depth-1" id="comment-4958"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/d51a26a68c1504b22ad96db53f40ec95?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">john</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-4958"><span
+class="time-since">November 3, 2011</span></a></p></div><div
+class="comment-entry"><p>Can you explain the below more ? thanks.</p><p>x ^= ((1U &lt;&lt; i) | (1U &lt;&lt; j));</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_4958_c" class="gdt-size-20 gdthumbtext"> <strong
+title="4 up, 0 down">+4</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_4958_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX4958XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_4958_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_4958_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX4958XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_4958_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=4958#respond' onclick='return addComment.moveForm("comment-4958", "4958", "respond", "813")'>Reply</a></div></div><ul
+class='children'><li
+class="comment byuser comment-author-admin bypostauthor odd alt depth-2" id="comment-4959"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/admin/" rel="nofollow"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar Image" class="avatar user-8268-avatar" width="25" height="25" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/admin/" rel="nofollow">1337c0d3r</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-4959"><span
+class="time-since">November 3, 2011</span></a></p></div><div
+class="comment-entry"><p>@john:<br
+/> This line:<br
+/> x ^= ((1U < < i) | (1U << j));</p><p>simply means to toggle the ith and jth bits.<br
+/> ( ie, x = 1001,<br
+/> --> x ^= ((1U < < 1) | (1U << 3))<br
+/> --> x = 1001 ^ (1010)<br
+/> &#8211;> x = 0011 )</p><p>This is possible because xor-ing a bit with 1 will toggle the bit.</p><p>Therefore, xor-ing itself with 1 both set on the ith and jth bit (white other bits are zeroes) will toggle only the ith and jth bits.</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_4959_c" class="gdt-size-20 gdthumbtext"> <strong
+title="3 up, 0 down">+3</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_4959_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX4959XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_4959_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_4959_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX4959XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_4959_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=4959#respond' onclick='return addComment.moveForm("comment-4959", "4959", "respond", "813")'>Reply</a></div></div></li></ul></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-4978"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/d51a26a68c1504b22ad96db53f40ec95?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">john</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-4978"><span
+class="time-since">November 4, 2011</span></a></p></div><div
+class="comment-entry"><p>thanks, 1337c0d3r.</p><p>I have thought 1U&lt;&lt;j means that the number j is shifted to left one bit. It should be the number 1 shift to left j bits. That makes sense for me now.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_4978_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_4978_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX4978XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_4978_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_4978_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX4978XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_4978_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=4978#respond' onclick='return addComment.moveForm("comment-4978", "4978", "respond", "813")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-florinbunau odd alt thread-even depth-1" id="comment-6014"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/florinbunau/" rel="nofollow"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/260/f24e483300649b747015c908f21de04f-bpthumb.jpg" alt="Avatar Image" class="avatar user-260-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/florinbunau/" rel="nofollow">flo</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-6014"><span
+class="time-since">November 10, 2011</span></a></p></div><div
+class="comment-entry"><p>Thanks for the solution, never have imagined the O(log N) one.</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_6014_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_6014_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX6014XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_6014_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_6014_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX6014XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_6014_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=6014#respond' onclick='return addComment.moveForm("comment-6014", "6014", "respond", "813")'>Reply</a></div></div><ul
+class='children'><li
+class="comment even depth-2" id="comment-71195"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/75bb057cbd29646a59818f91f72986b4?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Debasis Ganguly</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-71195"><span
+class="time-since">August 15, 2013</span></a></p></div><div
+class="comment-entry"><p>The complexity for the divide-and-conquer strategy for bit reversal is O(n).<br
+/> T(n) = 2T(n/2) = 2^2T(n/2^2) = &#8230;. 2^kT(n/2^k) where 2^k = n or k = log(n)</p><p>Thus T(n) = 2^k = n, and not just simply k = log(n)</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_71195_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_71195_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX71195XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_71195_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_71195_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX71195XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_71195_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=71195#respond' onclick='return addComment.moveForm("comment-71195", "71195", "respond", "813")'>Reply</a></div></div></li></ul></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-6253"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/93c82b05997424df0edd2deb69b676e2?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Ankur</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-6253"><span
+class="time-since">November 11, 2011</span></a></p></div><div
+class="comment-entry"><p>Hi<br
+/> How abt if we do the following ..</p><p>First take the NOT of the number say y = NOT(x)</p><p>and then x^y and then subtract x from this . This can also reverse the bits say ex</p><p>X=10110001<br
+/> Y =NOT (X) = 01001110<br
+/> X^Y = 11111111<br
+/> X^Y -X =     010011110 &#8212; Answer</p><p>Is this wat is meant by reversing the bits . Please tell</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_6253_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 1 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_6253_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX6253XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_6253_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_6253_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX6253XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_6253_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=6253#respond' onclick='return addComment.moveForm("comment-6253", "6253", "respond", "813")'>Reply</a></div></div><ul
+class='children'><li
+class="comment byuser comment-author-admin bypostauthor even depth-2" id="comment-6261"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/admin/" rel="nofollow"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar Image" class="avatar user-8268-avatar" width="25" height="25" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/admin/" rel="nofollow">1337c0d3r</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-6261"><span
+class="time-since">November 11, 2011</span></a></p></div><div
+class="comment-entry"><p>Your method is inverting the bits, which can be done in one operation, ie, ~X. Reversing the bits is like reversing a string, ie: 0010 -> 0100</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_6261_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_6261_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX6261XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_6261_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_6261_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX6261XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_6261_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=6261#respond' onclick='return addComment.moveForm("comment-6261", "6261", "respond", "813")'>Reply</a></div></div></li></ul></li><li
+class="comment odd alt thread-even depth-1" id="comment-10657"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/129735e6851ee2bd13731bcbff246dba?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Sonali</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-10657"><span
+class="time-since">December 29, 2011</span></a></p></div><div
+class="comment-entry"><p>Isnt this is o(nlogn) solution instead do o(logn)</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_10657_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_10657_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX10657XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_10657_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_10657_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX10657XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_10657_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=10657#respond' onclick='return addComment.moveForm("comment-10657", "10657", "respond", "813")'>Reply</a></div></div></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-11191"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/cebeb1c0a20ae33d8ef9165246ec5008?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Balaji</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-11191"><span
+class="time-since">January 3, 2012</span></a></p></div><div
+class="comment-entry"><p>How about this &#8211; we can compare the 1st and 32nd bit, 2nd and 31st bit and so on&#8230; if they are same then no need to do anything, if they are different then flip them:</p><p>int reverse_bits(int a){<br
+/> for(i=1;i&lt;=32/2;i++){ // assuming ints are 32 bits- use sizeof(int)<br
+/> if(a&amp;1&lt;&lt;i == (a&amp;1&lt;&gt;32-i) //if ith bit and 32-i th bit are same<br
+/> continue;//no need to do any thing<br
+/> else{ // if they are different, then flip both bits<br
+/> a^1&lt;&lt;i;<br
+/> a^1&lt;&lt;32-i;<br
+/> }</p><p> }<br
+/> }</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_11191_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_11191_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX11191XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_11191_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_11191_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX11191XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_11191_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=11191#respond' onclick='return addComment.moveForm("comment-11191", "11191", "respond", "813")'>Reply</a></div></div><ul
+class='children'><li
+class="comment odd alt depth-2" id="comment-11193"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/cebeb1c0a20ae33d8ef9165246ec5008?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Balaji</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-11193"><span
+class="time-since">January 3, 2012</span></a></p></div><div
+class="comment-entry"><p>typo in the if condition:</p><p>if((a&amp;1&lt;<i>&gt;i == (a&amp;1&lt;&gt;32-i)<br
+/> (compare the number obtained by taking the i th and 32-i th bits and bringing them to 0th bit<br
+/> )</i></p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_11193_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_11193_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX11193XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_11193_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_11193_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX11193XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_11193_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=11193#respond' onclick='return addComment.moveForm("comment-11193", "11193", "respond", "813")'>Reply</a></div></div><ul
+class='children'><li
+class="comment even depth-3" id="comment-11194"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/cebeb1c0a20ae33d8ef9165246ec5008?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Balaji</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-11194"><span
+class="time-since">January 3, 2012</span></a></p></div><div
+class="comment-entry"><p>my bit shift operators are disappearing <img
+src='http://leetcode.com/wp-includes/images/smilies/icon_sad.gif' alt=':(' class='wp-smiley' /><br
+/> &#8220;typo in the if condition:</p><p>if((a&amp;1\&lt;\<i>\&gt;i == (a&amp;1\&lt;\\&gt;32-i)<br
+/> (compare the number obtained by taking the i th and 32-i th bits and bringing them to 0th bit<br
+/> )&#8221;</i></p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_11194_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_11194_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX11194XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_11194_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_11194_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX11194XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_11194_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=11194#respond' onclick='return addComment.moveForm("comment-11194", "11194", "respond", "813")'>Reply</a></div></div></li></ul></li></ul></li><li
+class="comment odd alt thread-even depth-1" id="comment-11552"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/498dfd6621e1d4ec99cd2f91c8fbec79?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">mirokuneal</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-11552"><span
+class="time-since">January 6, 2012</span></a></p></div><div
+class="comment-entry"><p>For a O(n) approach, how about using the same way to reverse a number? Like this:</p><p></p><div
+id="crayon-52a3f3eaca728" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+   unsigned int reverseBit(unsigned int x) {
+       unsigned int num = 0;
+       while( x &gt; 0) {
+           int bit = x % 2;
+           x = x &gt;&gt; 1;
+           num = num * 2 + bit;
+       }
+   }</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3f3eaca728-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca728-2">2</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca728-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca728-4">4</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca728-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca728-6">6</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca728-7">7</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca728-8">8</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3f3eaca728-1"><span
+class="h">&nbsp;&nbsp; </span><span
+class="t">unsigned</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="e">reverseBit</span><span
+class="sy">(</span><span
+class="t">unsigned</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">x</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca728-2"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class="t">unsigned</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">num</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eaca728-3"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class="st">while</span><span
+class="sy">(</span><span
+class="h"> </span><span
+class="i">x</span><span
+class="h"> </span><span
+class="o">&gt;</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca728-4"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">bit</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="i">x</span><span
+class="h"> </span><span
+class="o">%</span><span
+class="h"> </span><span
+class="cn">2</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eaca728-5"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class="v">x</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="i">x</span><span
+class="h"> </span><span
+class="o">&gt;&gt;</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca728-6"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class="v">num</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="e ">num *</span><span
+class="h"> </span><span
+class="cn">2</span><span
+class="h"> </span><span
+class="o">+</span><span
+class="h"> </span><span
+class="i">bit</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eaca728-7"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca728-8"><span
+class="h">&nbsp;&nbsp; </span><span
+class="sy">}</span></div></div></td></tr></table></div></div><p></p><p>Is there any potential problem?</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_11552_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_11552_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX11552XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_11552_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_11552_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX11552XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_11552_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=11552#respond' onclick='return addComment.moveForm("comment-11552", "11552", "respond", "813")'>Reply</a></div></div><ul
+class='children'><li
+class="comment even depth-2" id="comment-11553"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/498dfd6621e1d4ec99cd2f91c8fbec79?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">mirokuneal</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-11553"><span
+class="time-since">January 6, 2012</span></a></p></div><div
+class="comment-entry"><p>An easy-to-look version</p><p>unsigned int reverseBit(unsigned int x) {<br
+/> unsigned int num = 0;<br
+/> while( x &gt; 0) {<br
+/> int bit = x % 2;<br
+/> x = x &gt;&gt; 1;<br
+/> num = num * 2 + bit;<br
+/> }<br
+/> }</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_11553_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_11553_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX11553XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_11553_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_11553_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX11553XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_11553_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=11553#respond' onclick='return addComment.moveForm("comment-11553", "11553", "respond", "813")'>Reply</a></div></div><ul
+class='children'><li
+class="comment odd alt depth-3" id="comment-54460"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/8e889df109d80d06922716dbd48d4833?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">vq</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-54460"><span
+class="time-since">April 11, 2013</span></a></p></div><div
+class="comment-entry"><p>I just don&#8217;t understand, how the code reverse a number, is it saying, if given 115, it will return 511?</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_54460_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_54460_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX54460XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_54460_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_54460_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX54460XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_54460_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=54460#respond' onclick='return addComment.moveForm("comment-54460", "54460", "respond", "813")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-sunshi23 even depth-3" id="comment-55857"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/sunshi23/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/ee060db7e04e5f29a8a98a8ab91ed6cd?d=identicon&amp;s=25&amp;r=G" alt="Avatar Image" class="avatar user-8735-avatar" width="25" height="25" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/sunshi23/" rel="nofollow">Gordon</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-55857"><span
+class="time-since">April 17, 2013</span></a></p></div><div
+class="comment-entry"><p>Do not use x % 2 , use x &amp; 1<br
+/> Do not use num = num *2 + bit , use (num &lt;&lt; 1) &amp; bit</p><p>All bit operations, should be faster than yours.</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_55857_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_55857_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX55857XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_55857_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_55857_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX55857XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_55857_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=55857#respond' onclick='return addComment.moveForm("comment-55857", "55857", "respond", "813")'>Reply</a></div></div><ul
+class='children'><li
+class="comment odd alt depth-4" id="comment-69166"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/175e5aac57bb2126706a3f8212a5bef1?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">mattz</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-69166"><span
+class="time-since">July 29, 2013</span></a></p></div><div
+class="comment-entry"><p>I think it should be: (num &lt;&lt; 1) | bit</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_69166_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_69166_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX69166XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_69166_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_69166_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX69166XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_69166_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=69166#respond' onclick='return addComment.moveForm("comment-69166", "69166", "respond", "813")'>Reply</a></div></div></li></ul></li></ul></li></ul></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-13427"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/5ff07dcc7006a4d97a9bef2613fde7a7?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">srikanth</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-13427"><span
+class="time-since">January 24, 2012</span></a></p></div><div
+class="comment-entry"><p>Isn&#8217;t reversing equal to doing a circular shift by length/2 ?</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_13427_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_13427_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX13427XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_13427_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_13427_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX13427XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_13427_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=13427#respond' onclick='return addComment.moveForm("comment-13427", "13427", "respond", "813")'>Reply</a></div></div></li><li
+class="comment odd alt thread-even depth-1" id="comment-14192"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/7c82bcce8914128446c98a72c0618235?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Matn</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-14192"><span
+class="time-since">February 8, 2012</span></a></p></div><div
+class="comment-entry"><p>If i can&#8217;t use numbers bigger than 0xFF in the code is it still  possible to use the divide and conquer method ?</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_14192_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_14192_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX14192XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_14192_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_14192_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX14192XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_14192_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=14192#respond' onclick='return addComment.moveForm("comment-14192", "14192", "respond", "813")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-karthick even thread-odd thread-alt depth-1" id="comment-14935"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/karthick/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/de7707a1f1ca08c9eeafa635663e4c25?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-406-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/karthick/" rel="nofollow">Karthick</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-14935"><span
+class="time-since">February 22, 2012</span></a></p></div><div
+class="comment-entry"><p>I think the following method can also be used to reverse bits though I am not sure if it is fail-proof. If there are loop-holes, then I would be glad,if someone could point them out.<br
+/> Method:<br
+/> 1)Check the first and the last bit.<br
+/> 2) If they are same, continue.<br
+/> 3)Otherwise, swap them both using bitwise &#8216;OR&#8217; of &#8216;AND&#8217; correspondingly.<br
+/> 4)Continue until we get to the middle.</p><p>Code:</p><div
+id="crayon-52a3f3eaca453" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+unsigned reverse_bits(unsigned num)
+{
+	int front=31,back=0;
+	int l,r;
+	while(front&gt;back)
+	{
+		l=( num &amp; (1&lt;&lt;front) ? 1 : 0 ); // extracting the bit value at front position
+		r=( num &amp; (1&lt;&lt;back) ? 1 : 0 ); // extracting the bit value at back position
+		if(l==r) // both the bits are equal
+		{ 
+			front--; 
+			back++; 
+			continue; 
+		}
+		if(l==1) // if the left side has bit 1,set the corresponding right side as 1
+		{
+			num=(num|(1&lt;&lt;back));
+		}
+		else
+		{
+			num=(num &amp; (~(1&lt;&lt;back) ) );
+		}
+		if(r==1)
+		{
+			num=(num | (1&lt;&lt;front));
+		}
+		else
+		{
+			num=( num &amp; (~(1&lt;&lt;front) ) );
+		}
+		front--;
+		back++;
+	}
+	return num;
+}</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3f3eaca453-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca453-2">2</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca453-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca453-4">4</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca453-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca453-6">6</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca453-7">7</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca453-8">8</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca453-9">9</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca453-10">10</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca453-11">11</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca453-12">12</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca453-13">13</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca453-14">14</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca453-15">15</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca453-16">16</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca453-17">17</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca453-18">18</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca453-19">19</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca453-20">20</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca453-21">21</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca453-22">22</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca453-23">23</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca453-24">24</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca453-25">25</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca453-26">26</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca453-27">27</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca453-28">28</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca453-29">29</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca453-30">30</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca453-31">31</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca453-32">32</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca453-33">33</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eaca453-34">34</div><div
+class="crayon-num" data-line="crayon-52a3f3eaca453-35">35</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3f3eaca453-1"><span
+class="t">unsigned</span><span
+class="h"> </span><span
+class="e">reverse_bits</span><span
+class="sy">(</span><span
+class="t">unsigned</span><span
+class="h"> </span><span
+class="i">num</span><span
+class="sy">)</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca453-2"><span
+class="sy">{</span></div><div
+class="crayon-line" id="crayon-52a3f3eaca453-3"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">front</span><span
+class="o">=</span><span
+class="cn">31</span><span
+class="sy">,</span><span
+class="v">back</span><span
+class="o">=</span><span
+class="cn">0</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca453-4"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">l</span><span
+class="sy">,</span><span
+class="i">r</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eaca453-5"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">while</span><span
+class="sy">(</span><span
+class="i">front</span><span
+class="o">&gt;</span><span
+class="i">back</span><span
+class="sy">)</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca453-6"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">{</span></div><div
+class="crayon-line" id="crayon-52a3f3eaca453-7"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">l</span><span
+class="o">=</span><span
+class="sy">(</span><span
+class="h"> </span><span
+class="i">num</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="cn">1</span><span
+class="o">&lt;&lt;</span><span
+class="i">front</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">?</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="h"> </span><span
+class="o">:</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="h"> </span><span
+class="sy">)</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="c">// extracting the bit value at front position</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca453-8"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">r</span><span
+class="o">=</span><span
+class="sy">(</span><span
+class="h"> </span><span
+class="i">num</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="cn">1</span><span
+class="o">&lt;&lt;</span><span
+class="i">back</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">?</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="h"> </span><span
+class="o">:</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="h"> </span><span
+class="sy">)</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="c">// extracting the bit value at back position</span></div><div
+class="crayon-line" id="crayon-52a3f3eaca453-9"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="sy">(</span><span
+class="v">l</span><span
+class="o">==</span><span
+class="i">r</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="c">// both the bits are equal</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca453-10"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">{</span><span
+class="h"> </span></div><div
+class="crayon-line" id="crayon-52a3f3eaca453-11"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">front</span><span
+class="o">--</span><span
+class="sy">;</span><span
+class="h"> </span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca453-12"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">back</span><span
+class="o">++</span><span
+class="sy">;</span><span
+class="h"> </span></div><div
+class="crayon-line" id="crayon-52a3f3eaca453-13"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">continue</span><span
+class="sy">;</span><span
+class="h"> </span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca453-14"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3f3eaca453-15"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="sy">(</span><span
+class="v">l</span><span
+class="o">==</span><span
+class="cn">1</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="c">// if the left side has bit 1,set the corresponding right side as 1</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca453-16"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">{</span></div><div
+class="crayon-line" id="crayon-52a3f3eaca453-17"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">num</span><span
+class="o">=</span><span
+class="sy">(</span><span
+class="i">num</span><span
+class="o">|</span><span
+class="sy">(</span><span
+class="cn">1</span><span
+class="o">&lt;&lt;</span><span
+class="i">back</span><span
+class="sy">)</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca453-18"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3f3eaca453-19"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">else</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca453-20"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">{</span></div><div
+class="crayon-line" id="crayon-52a3f3eaca453-21"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">num</span><span
+class="o">=</span><span
+class="sy">(</span><span
+class="i">num</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="o">~</span><span
+class="sy">(</span><span
+class="cn">1</span><span
+class="o">&lt;&lt;</span><span
+class="i">back</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca453-22"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3f3eaca453-23"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="sy">(</span><span
+class="v">r</span><span
+class="o">==</span><span
+class="cn">1</span><span
+class="sy">)</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca453-24"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">{</span></div><div
+class="crayon-line" id="crayon-52a3f3eaca453-25"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">num</span><span
+class="o">=</span><span
+class="sy">(</span><span
+class="i">num</span><span
+class="h"> </span><span
+class="o">|</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="cn">1</span><span
+class="o">&lt;&lt;</span><span
+class="i">front</span><span
+class="sy">)</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca453-26"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3f3eaca453-27"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">else</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca453-28"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">{</span></div><div
+class="crayon-line" id="crayon-52a3f3eaca453-29"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">num</span><span
+class="o">=</span><span
+class="sy">(</span><span
+class="h"> </span><span
+class="i">num</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="o">~</span><span
+class="sy">(</span><span
+class="cn">1</span><span
+class="o">&lt;&lt;</span><span
+class="i">front</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca453-30"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3f3eaca453-31"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">front</span><span
+class="o">--</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca453-32"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">back</span><span
+class="o">++</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eaca453-33"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eaca453-34"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">num</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eaca453-35"><span
+class="sy">}</span></div></div></td></tr></table></div></div><p></p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_14935_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_14935_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX14935XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_14935_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_14935_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX14935XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_14935_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=14935#respond' onclick='return addComment.moveForm("comment-14935", "14935", "respond", "813")'>Reply</a></div></div></li><li
+class="comment odd alt thread-even depth-1" id="comment-16354"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/015250ee99583dd02994087322ece612?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">sandyfriend</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-16354"><span
+class="time-since">March 16, 2012</span></a></p></div><div
+class="comment-entry"><p>prefect list bySean Eron Anderson<br
+/> <a
+href="http://graphics.stanford.edu/~seander/bithacks.html#BitReverseObvious" rel="nofollow">http://graphics.stanford.edu/~seander/bithacks.html#BitReverseObvious</a></p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_16354_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_16354_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX16354XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_16354_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_16354_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX16354XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_16354_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=16354#respond' onclick='return addComment.moveForm("comment-16354", "16354", "respond", "813")'>Reply</a></div></div></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-17791"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/2441ad5286edab1ba8a908017656567b?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">prashanth</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-17791"><span
+class="time-since">April 5, 2012</span></a></p></div><div
+class="comment-entry"><p>int bitrevert (int a)<br
+/> {<br
+/> x= 1&lt;&lt;0;<br
+/> y = 1 &lt;&lt; 31;</p><p> while (x&lt;y)<br
+/> {<br
+/> if (a&amp;x != a&amp;y)<br
+/> {<br
+/> a= a^x;<br
+/> a=a^y;<br
+/> }</p><p> x= x&lt;&gt;1;<br
+/> }</p><p>}</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_17791_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_17791_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX17791XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_17791_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_17791_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX17791XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_17791_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=17791#respond' onclick='return addComment.moveForm("comment-17791", "17791", "respond", "813")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-karthikrajendran odd alt thread-even depth-1" id="comment-24030"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/karthikrajendran/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/d3d89de9d862bb9c01c319e3d2b863c4?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-3019-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/karthikrajendran/" rel="nofollow">Karthik Rajendran</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-24030"><span
+class="time-since">August 19, 2012</span></a></p></div><div
+class="comment-entry"><p>excellent code</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_24030_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_24030_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX24030XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_24030_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_24030_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX24030XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_24030_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=24030#respond' onclick='return addComment.moveForm("comment-24030", "24030", "respond", "813")'>Reply</a></div></div></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-26550"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/236d1f1eaae2343425e3c008037fc0fa?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Jiefu zheng</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-26550"><span
+class="time-since">October 5, 2012</span></a></p></div><div
+class="comment-entry"><p>unsigned  ReverseIntBit(unsigned  x){<br
+/> unsigned i = 1;<br
+/> unsigned j = i &lt;&lt; (sizeof(unsigned)*8-1);<br
+/> while(i &lt; j){<br
+/> x ^= (x &amp; i) ^ (x &amp; j);<br
+/> i &lt;&gt;= 1;<br
+/> }<br
+/> return x;<br
+/> }</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_26550_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_26550_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX26550XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_26550_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_26550_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX26550XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_26550_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=26550#respond' onclick='return addComment.moveForm("comment-26550", "26550", "respond", "813")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-yishan2008 odd alt thread-even depth-1" id="comment-50986"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/yishan2008/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/aefe47eac39802ad9661c10677e4b6af?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-8363-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/yishan2008/" rel="nofollow">Yi Shan</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-50986"><span
+class="time-since">March 26, 2013</span></a></p></div><div
+class="comment-entry"><p>public static uint Reverse(uint num)<br
+/> {<br
+/> uint rnum = 0;<br
+/> while (num &gt; 0)<br
+/> {<br
+/> rnum = (rnum &lt;&gt;= 1;<br
+/> }<br
+/> return rnum;<br
+/> }</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_50986_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_50986_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX50986XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_50986_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_50986_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX50986XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_50986_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=50986#respond' onclick='return addComment.moveForm("comment-50986", "50986", "respond", "813")'>Reply</a></div></div></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-53485"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/add2441a674a470560293067d886c65c?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">nishant</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-53485"><span
+class="time-since">April 6, 2013</span></a></p></div><div
+class="comment-entry"><p>#include<br
+/> using namespace std;</p><p>// flipping even bits of 32 bit number</p><p>int main()<br
+/> {<br
+/> int a = 5555;<br
+/> cout&lt;&lt;hex&lt;&lt;a&lt;&lt;endl;<br
+/> cout&lt;&lt;hex&lt;&lt; ((a&amp;(~(a &amp; 0xaaaaaaaa))) | ((~a) &amp; (0xaaaaaaaa)))&lt;&lt;endl;<br
+/> getchar();<br
+/> }</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_53485_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_53485_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX53485XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_53485_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_53485_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX53485XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_53485_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=53485#respond' onclick='return addComment.moveForm("comment-53485", "53485", "respond", "813")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-pixels89 odd alt thread-even depth-1" id="comment-58117"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/pixels89/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/731e2991f27ba41362ea9c299763db56?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-11971-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/pixels89/" rel="nofollow">Mukesh Barman</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-58117"><span
+class="time-since">April 28, 2013</span></a></p></div><div
+class="comment-entry"><p>The Divide and Conquer solution has O(nLogn) running time?</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_58117_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_58117_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX58117XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_58117_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_58117_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX58117XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_58117_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=58117#respond' onclick='return addComment.moveForm("comment-58117", "58117", "respond", "813")'>Reply</a></div></div></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-59920"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/7027cff6e23da180fd14e5e0def7b122?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">qinchen</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-59920"><span
+class="time-since">May 15, 2013</span></a></p></div><div
+class="comment-entry"><p>unsigned reverseBit(unsigned value)<br
+/> {<br
+/> unsigned answer = 0;<br
+/> unsigned i;</p><p> for (i = 1; i &gt; 0; i++)  {<br
+/> answer &lt;&gt;= 1;<br
+/> }<br
+/> return answer;<br
+/> }</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_59920_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_59920_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX59920XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_59920_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_59920_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX59920XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_59920_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=59920#respond' onclick='return addComment.moveForm("comment-59920", "59920", "respond", "813")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-foobar4210 odd alt thread-even depth-1" id="comment-65254"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/foobar4210/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/51cf714ea785b159d3d1ab08c59f99d3?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-15893-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/foobar4210/" rel="nofollow">foobar</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-65254"><span
+class="time-since">June 27, 2013</span></a></p></div><div
+class="comment-entry"><p>Here&#8217;s mine in C:</p><p></p><div
+id="crayon-52a3f3eac9e1e" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+#define MASK 0x80000000
+
+int
+reverseBits(int num)
+{
+    int reverseBitsNum = 0;
+    const int wordSizeInBits = 32;
+    const int halfWordSizeInBits = 16;
+    int rightShiftStart = 31;
+    int leftShiftStart = 1;
+
+    for (int i = 0; i &gt; i)) &gt;&gt; rightShiftStart;
+        rightShiftStart -= 2;
+    }
+    for (int i = halfWordSizeInBits; i &gt; i)) &lt;&lt; leftShiftStart;
+        leftShiftStart += 2;
+    }
+
+    return reverseBitsNum;
+}</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3f3eac9e1e-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9e1e-2">2</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9e1e-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9e1e-4">4</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9e1e-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9e1e-6">6</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9e1e-7">7</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9e1e-8">8</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9e1e-9">9</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9e1e-10">10</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9e1e-11">11</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9e1e-12">12</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9e1e-13">13</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9e1e-14">14</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9e1e-15">15</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9e1e-16">16</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9e1e-17">17</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9e1e-18">18</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9e1e-19">19</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9e1e-20">20</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3f3eac9e1e-1"><span
+class="p">#define MASK 0x80000000</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9e1e-2">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3f3eac9e1e-3"><span
+class="t">int</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9e1e-4"><span
+class="e">reverseBits</span><span
+class="sy">(</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">num</span><span
+class="sy">)</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9e1e-5"><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9e1e-6"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">reverseBitsNum</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9e1e-7"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="m">const</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">wordSizeInBits</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">32</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9e1e-8"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="m">const</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">halfWordSizeInBits</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">16</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9e1e-9"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">rightShiftStart</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">31</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9e1e-10"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">leftShiftStart</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9e1e-11">&nbsp;</div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9e1e-12"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">for</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">i</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="h"> </span><span
+class="o">&gt;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="sy">)</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&gt;&gt;</span><span
+class="h"> </span><span
+class="i">rightShiftStart</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9e1e-13"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">rightShiftStart</span><span
+class="h"> </span><span
+class="o">-</span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">2</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9e1e-14"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9e1e-15"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">for</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">i</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="i">halfWordSizeInBits</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="h"> </span><span
+class="o">&gt;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="sy">)</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&lt;&lt;</span><span
+class="h"> </span><span
+class="i">leftShiftStart</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9e1e-16"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">leftShiftStart</span><span
+class="h"> </span><span
+class="o">+</span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">2</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9e1e-17"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9e1e-18">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3f3eac9e1e-19"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">reverseBitsNum</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9e1e-20"><span
+class="sy">}</span></div></div></td></tr></table></div></div><p></p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_65254_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_65254_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX65254XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_65254_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_65254_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX65254XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_65254_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=65254#respond' onclick='return addComment.moveForm("comment-65254", "65254", "respond", "813")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-foobar4210 even thread-odd thread-alt depth-1" id="comment-65257"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/foobar4210/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/51cf714ea785b159d3d1ab08c59f99d3?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-15893-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/foobar4210/" rel="nofollow">foobar</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-65257"><span
+class="time-since">June 27, 2013</span></a></p></div><div
+class="comment-entry"><p>Sorry, the for() loops got completely messed up. Here it is again:</p><p></p><div
+id="crayon-52a3f3eac9c7d" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+#define MASK 0x80000000
+ 
+int
+reverseBits(int num)
+{
+    int reverseBitsNum = 0;
+    const int wordSizeInBits = 32;
+    const int halfWordSizeInBits = 16;
+    int rightShiftStart = 31;
+    int leftShiftStart = 1;
+
+    for (int i = 0; i &gt; i)) &gt;&gt; rightShiftStart;
+        rightShiftStart -= 2;
+    }
+    for (int i = halfWordSizeInBits; i &gt; i)) &lt;&lt; leftShiftStart;
+        leftShiftStart += 2;
+    }
+
+    return reverseBitsNum;
+}</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3f3eac9c7d-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9c7d-2">2</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9c7d-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9c7d-4">4</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9c7d-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9c7d-6">6</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9c7d-7">7</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9c7d-8">8</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9c7d-9">9</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9c7d-10">10</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9c7d-11">11</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9c7d-12">12</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9c7d-13">13</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9c7d-14">14</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9c7d-15">15</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9c7d-16">16</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9c7d-17">17</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9c7d-18">18</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9c7d-19">19</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9c7d-20">20</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3f3eac9c7d-1"><span
+class="p">#define MASK 0x80000000</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9c7d-2"><span
+class="h"> </span></div><div
+class="crayon-line" id="crayon-52a3f3eac9c7d-3"><span
+class="t">int</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9c7d-4"><span
+class="e">reverseBits</span><span
+class="sy">(</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">num</span><span
+class="sy">)</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9c7d-5"><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9c7d-6"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">reverseBitsNum</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9c7d-7"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="m">const</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">wordSizeInBits</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">32</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9c7d-8"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="m">const</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">halfWordSizeInBits</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">16</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9c7d-9"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">rightShiftStart</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">31</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9c7d-10"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">leftShiftStart</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9c7d-11">&nbsp;</div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9c7d-12"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">for</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">i</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="h"> </span><span
+class="o">&gt;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="sy">)</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&gt;&gt;</span><span
+class="h"> </span><span
+class="i">rightShiftStart</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9c7d-13"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">rightShiftStart</span><span
+class="h"> </span><span
+class="o">-</span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">2</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9c7d-14"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9c7d-15"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">for</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">i</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="i">halfWordSizeInBits</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="h"> </span><span
+class="o">&gt;</span><span
+class="h"> </span><span
+class="i">i</span><span
+class="sy">)</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&lt;&lt;</span><span
+class="h"> </span><span
+class="i">leftShiftStart</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9c7d-16"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">leftShiftStart</span><span
+class="h"> </span><span
+class="o">+</span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">2</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9c7d-17"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9c7d-18">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3f3eac9c7d-19"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">reverseBitsNum</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9c7d-20"><span
+class="sy">}</span></div></div></td></tr></table></div></div><p></p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_65257_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_65257_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX65257XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_65257_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_65257_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX65257XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_65257_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=65257#respond' onclick='return addComment.moveForm("comment-65257", "65257", "respond", "813")'>Reply</a></div></div><ul
+class='children'><li
+class="comment byuser comment-author-foobar4210 odd alt depth-2" id="comment-65258"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/foobar4210/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/51cf714ea785b159d3d1ab08c59f99d3?d=identicon&amp;s=25&amp;r=G" alt="Avatar Image" class="avatar user-15893-avatar" width="25" height="25" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/foobar4210/" rel="nofollow">foobar</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-65258"><span
+class="time-since">June 27, 2013</span></a></p></div><div
+class="comment-entry"><p>Why won&#8217;t a for loop show up properly in the</p><div
+id="crayon-52a3f3eac9b3f" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+... </textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3f3eac9b3f-1">1</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3f3eac9b3f-1"><span
+class="sy">.</span><span
+class="sy">.</span><span
+class="sy">.</span><span
+class="h"> </span></div></div></td></tr></table></div></div><p>?</p><p>#define MASK 0&#215;80000000<br
+/> int<br
+/> reverseBits(int num)<br
+/> {<br
+/> int reverseBitsNum = 0;<br
+/> const int wordSizeInBits = 32;<br
+/> const int halfWordSizeInBits = 16;<br
+/> int rightShiftStart = 31;<br
+/> int leftShiftStart = 1;</p><p> for (int i = 0; i &gt; i)) &gt;&gt; rightShiftStart;<br
+/> rightShiftStart -= 2;<br
+/> }<br
+/> for (int i = halfWordSizeInBits; i &gt; i)) &lt;&lt; leftShiftStart;<br
+/> leftShiftStart += 2;<br
+/> }</p><p> return reverseBitsNum;<br
+/> }</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_65258_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_65258_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX65258XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_65258_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_65258_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX65258XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_65258_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=65258#respond' onclick='return addComment.moveForm("comment-65258", "65258", "respond", "813")'>Reply</a></div></div><ul
+class='children'><li
+class="comment byuser comment-author-foobar4210 even depth-3" id="comment-65259"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/foobar4210/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/51cf714ea785b159d3d1ab08c59f99d3?d=identicon&amp;s=25&amp;r=G" alt="Avatar Image" class="avatar user-15893-avatar" width="25" height="25" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/foobar4210/" rel="nofollow">foobar</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-65259"><span
+class="time-since">June 27, 2013</span></a></p></div><div
+class="comment-entry"><p>Sorry folks, this is embarassing that I can&#8217;t get a simple C/C++ for loop on the thread. One last time with pseudocode:</p><p>The two loops for the reversing the bits of a 32-bit integer are:<br
+/> (1) To move (half the bits) the MSBs of the original int to the LSBs using Right Shift operations<br
+/> (2) To move (the other half of the bits) the LSBs of the original int to the MSBs using Left Shift operations</p><p>int rightShiftStart = 31; // progresses 31, 29, 27, 25, &#8230; 1<br
+/> for i = 0 to less than 16<br
+/> {<br
+/> reverseBitsNum |= (num &amp; (0&#215;80000000 &gt;&gt; i)) &gt;&gt; rightShiftStart;<br
+/> rightShiftStart -= 2;<br
+/> }</p><p>int leftShiftStart = 1; // it progresses 1, 3,  5, 7, &#8230; 31<br
+/> for (i = 16 to less than 32)<br
+/> {<br
+/> reverseBitsNum |= (num &amp; (0&#215;80000000 &gt;&gt; i)) &lt;&lt; leftShiftStart;<br
+/> leftShiftStart += 2;<br
+/> }</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_65259_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_65259_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX65259XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_65259_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_65259_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX65259XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_65259_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=65259#respond' onclick='return addComment.moveForm("comment-65259", "65259", "respond", "813")'>Reply</a></div></div></li></ul></li></ul></li><li
+class="comment byuser comment-author-rohit odd alt thread-even depth-1" id="comment-67286"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/rohit/" rel="nofollow"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/17024/f69e0ec9d021e0ceb4b912d8f1337875-bpthumb.jpg" alt="Avatar Image" class="avatar user-17024-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/rohit/" rel="nofollow">rohit</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-67286"><span
+class="time-since">July 13, 2013</span></a></p></div><div
+class="comment-entry"><p>#include</p><p>main()<br
+/> {<br
+/> int i=0;<br
+/> int num,j;<br
+/> int arr[10];<br
+/> scanf(&#8220;%d&#8221;,&amp;num);<br
+/> while(i0)<br
+/> {<br
+/> arr[i]=num%2;<br
+/> num=num/2;<br
+/> printf(&#8220;%d&#8221;,arr[i]);<br
+/> }<br
+/> }<br
+/> }</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_67286_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_67286_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX67286XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_67286_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_67286_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX67286XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_67286_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=67286#respond' onclick='return addComment.moveForm("comment-67286", "67286", "respond", "813")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-rohit even thread-odd thread-alt depth-1" id="comment-67287"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/rohit/" rel="nofollow"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/17024/f69e0ec9d021e0ceb4b912d8f1337875-bpthumb.jpg" alt="Avatar Image" class="avatar user-17024-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/rohit/" rel="nofollow">rohit</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-67287"><span
+class="time-since">July 13, 2013</span></a></p></div><div
+class="comment-entry"><p>sorry the above code is a wrong one just ignore it</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_67287_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_67287_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX67287XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_67287_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_67287_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX67287XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_67287_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=67287#respond' onclick='return addComment.moveForm("comment-67287", "67287", "respond", "813")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-sitiposit odd alt thread-even depth-1" id="comment-72173"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/sitiposit/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/ddf43539593972f9acb6faf3b465d126?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-19925-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/sitiposit/" rel="nofollow">danlior</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-72173"><span
+class="time-since">August 21, 2013</span></a></p></div><div
+class="comment-entry"><p>Here is my code (in C++) for an O(n) algorithm which reverses bits in (the binary representation of) an unsigned integer.</p><p>I&#8217;m not an expert, so I welcome any comments, suggestions and, of course, corrections. I have tested this code on a few cases and it seems to work fine. (I had to write an auxiliary function to display numbers in their binary representation).</p><p>dan</p><p></p><div
+id="crayon-52a3f3eac9789" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+void reverseBits(unsigned int &amp;n){
+
+  // reverse the bits in the binary representation of n
+  // this code generalizes readily to any unsigned type (unsigned char, unsigned int, unsigned long)
+
+  int b = 8*sizeof(unsigned int);
+  
+  unsigned int hi = 1 &lt;&lt; (b-1); // in binary, lo == 000..01 and hi = 1000..0
+  unsigned int lo = 1;
+
+  bool loBitOfn, hiBitOfn;
+
+  while (lo &lt; hi){
+    
+    loBitOfn = (n &amp; lo) != 0;
+    // loBitOfn iff the binary representation of n has a zero in the lo position
+
+    hiBitOfn = (n &amp; hi) != 0;
+    // hiBitOfn iff the binary representation of n has a zero in the hi position
+    
+    if ( hiBitOfn &amp;&amp; !loBitOfn ){
+      n -= (hi-lo); 
+      // toggle both the hi and the lo bits of n.
+      // note: hi-lo is positive and less than n so n remains nonnegative
+    }else if ( loBitOfn &amp;&amp; !hiBitOfn ){
+      n += (hi-lo);
+      // toggle both the hi and the lo bits of n.
+    }
+
+    lo &lt;&gt;= 1; // shift the (unique) 1 digit in hi one notch to the right (ie integer-divide hi by 2)
+  }
+
+}</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3f3eac9789-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9789-2">2</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9789-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9789-4">4</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9789-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9789-6">6</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9789-7">7</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9789-8">8</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9789-9">9</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9789-10">10</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9789-11">11</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9789-12">12</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9789-13">13</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9789-14">14</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9789-15">15</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9789-16">16</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9789-17">17</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9789-18">18</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9789-19">19</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9789-20">20</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9789-21">21</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9789-22">22</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9789-23">23</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9789-24">24</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9789-25">25</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9789-26">26</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9789-27">27</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9789-28">28</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9789-29">29</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9789-30">30</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9789-31">31</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac9789-32">32</div><div
+class="crayon-num" data-line="crayon-52a3f3eac9789-33">33</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3f3eac9789-1"><span
+class="t">void</span><span
+class="h"> </span><span
+class="e">reverseBits</span><span
+class="sy">(</span><span
+class="t">unsigned</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="i">n</span><span
+class="sy">)</span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9789-2">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3f3eac9789-3"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// reverse the bits in the binary representation of n</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9789-4"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// this code generalizes readily to any unsigned type (unsigned char, unsigned int, unsigned long)</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9789-5">&nbsp;</div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9789-6"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">b</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">8</span><span
+class="o">*</span><span
+class="e">sizeof</span><span
+class="sy">(</span><span
+class="t">unsigned</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9789-7"><span
+class="h">&nbsp;&nbsp;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9789-8"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">unsigned</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">hi</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="h"> </span><span
+class="o">&lt;&lt;</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">b</span><span
+class="o">-</span><span
+class="cn">1</span><span
+class="sy">)</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="c">// in binary, lo == 000..01 and hi = 1000..0</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9789-9"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">unsigned</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">lo</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9789-10">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3f3eac9789-11"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">bool</span><span
+class="h"> </span><span
+class="i">loBitOfn</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">hiBitOfn</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9789-12">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3f3eac9789-13"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">while</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">lo</span><span
+class="h"> </span><span
+class="o">&lt;</span><span
+class="h"> </span><span
+class="i">hi</span><span
+class="sy">)</span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9789-14"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9789-15"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">loBitOfn</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">n</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="i">lo</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">!=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9789-16"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// loBitOfn iff the binary representation of n has a zero in the lo position</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9789-17">&nbsp;</div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9789-18"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">hiBitOfn</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">n</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="i">hi</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">!=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9789-19"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// hiBitOfn iff the binary representation of n has a zero in the hi position</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9789-20"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9789-21"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="h"> </span><span
+class="i">hiBitOfn</span><span
+class="h"> </span><span
+class="o">&amp;&amp;</span><span
+class="h"> </span><span
+class="o">!</span><span
+class="i">loBitOfn</span><span
+class="h"> </span><span
+class="sy">)</span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9789-22"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">n</span><span
+class="h"> </span><span
+class="o">-</span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">hi</span><span
+class="o">-</span><span
+class="i">lo</span><span
+class="sy">)</span><span
+class="sy">;</span><span
+class="h"> </span></div><div
+class="crayon-line" id="crayon-52a3f3eac9789-23"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// toggle both the hi and the lo bits of n.</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9789-24"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// note: hi-lo is positive and less than n so n remains nonnegative</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9789-25"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span><span
+class="st">else</span><span
+class="h"> </span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="h"> </span><span
+class="i">loBitOfn</span><span
+class="h"> </span><span
+class="o">&amp;&amp;</span><span
+class="h"> </span><span
+class="o">!</span><span
+class="i">hiBitOfn</span><span
+class="h"> </span><span
+class="sy">)</span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9789-26"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">n</span><span
+class="h"> </span><span
+class="o">+</span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">hi</span><span
+class="o">-</span><span
+class="i">lo</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9789-27"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// toggle both the hi and the lo bits of n.</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9789-28"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9789-29">&nbsp;</div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9789-30"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">lo</span><span
+class="h"> </span><span
+class="o">&lt;&gt;</span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="c">// shift the (unique) 1 digit in hi one notch to the right (ie integer-divide hi by 2)</span></div><div
+class="crayon-line" id="crayon-52a3f3eac9789-31"><span
+class="h">&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac9789-32">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3f3eac9789-33"><span
+class="sy">}</span></div></div></td></tr></table></div></div><p></p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_72173_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_72173_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX72173XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_72173_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_72173_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX72173XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_72173_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=72173#respond' onclick='return addComment.moveForm("comment-72173", "72173", "respond", "813")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-sitiposit even thread-odd thread-alt depth-1" id="comment-72174"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/sitiposit/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/ddf43539593972f9acb6faf3b465d126?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-19925-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/sitiposit/" rel="nofollow">danlior</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-72174"><span
+class="time-since">August 21, 2013</span></a></p></div><div
+class="comment-entry"><p>The code that I posted above (not 2 minutes ago) was not posted properly. Specifically, the last few lines are wrong. I made a minor modification to the last two lines. Hopefully it will post properly.</p><p></p><div
+id="crayon-52a3f3eac958f" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+void reverseBits(unsigned int &amp;n){
+
+  // reverse the bits in the binary representation of n
+  // this code generalizes readily to any unsigned type (unsigned char, unsigned int, unsigned long)
+
+  int b = 8*sizeof(unsigned int);
+  
+  unsigned int hi = 1 &lt;&lt; (b-1); // in binary, lo == 000..01 and hi = 1000..0
+  unsigned int lo = 1;
+
+  bool loBitOfn, hiBitOfn;
+
+  while (lo &lt; hi){
+    
+    loBitOfn = (n &amp; lo) != 0;
+    // loBitOfn iff the binary representation of n has a zero in the lo position
+
+    hiBitOfn = (n &amp; hi) != 0;
+    // hiBitOfn iff the binary representation of n has a zero in the hi position
+    
+    if ( hiBitOfn &amp;&amp; !loBitOfn ){
+      n -= (hi-lo); 
+      // toggle both the hi and the lo bits of n.
+      // note: hi-lo is positive and less than n so n remains nonnegative
+    }else if ( loBitOfn &amp;&amp; !hiBitOfn ){
+      n += (hi-lo);
+      // toggle both the hi and the lo bits of n.
+    }
+
+    lo = lo &lt;&gt; 1; // shift the (unique) 1 digit in hi one notch to the right (ie integer-divide hi by 2)
+  }
+
+}</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3f3eac958f-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac958f-2">2</div><div
+class="crayon-num" data-line="crayon-52a3f3eac958f-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac958f-4">4</div><div
+class="crayon-num" data-line="crayon-52a3f3eac958f-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac958f-6">6</div><div
+class="crayon-num" data-line="crayon-52a3f3eac958f-7">7</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac958f-8">8</div><div
+class="crayon-num" data-line="crayon-52a3f3eac958f-9">9</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac958f-10">10</div><div
+class="crayon-num" data-line="crayon-52a3f3eac958f-11">11</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac958f-12">12</div><div
+class="crayon-num" data-line="crayon-52a3f3eac958f-13">13</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac958f-14">14</div><div
+class="crayon-num" data-line="crayon-52a3f3eac958f-15">15</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac958f-16">16</div><div
+class="crayon-num" data-line="crayon-52a3f3eac958f-17">17</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac958f-18">18</div><div
+class="crayon-num" data-line="crayon-52a3f3eac958f-19">19</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac958f-20">20</div><div
+class="crayon-num" data-line="crayon-52a3f3eac958f-21">21</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac958f-22">22</div><div
+class="crayon-num" data-line="crayon-52a3f3eac958f-23">23</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac958f-24">24</div><div
+class="crayon-num" data-line="crayon-52a3f3eac958f-25">25</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac958f-26">26</div><div
+class="crayon-num" data-line="crayon-52a3f3eac958f-27">27</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac958f-28">28</div><div
+class="crayon-num" data-line="crayon-52a3f3eac958f-29">29</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac958f-30">30</div><div
+class="crayon-num" data-line="crayon-52a3f3eac958f-31">31</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac958f-32">32</div><div
+class="crayon-num" data-line="crayon-52a3f3eac958f-33">33</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3f3eac958f-1"><span
+class="t">void</span><span
+class="h"> </span><span
+class="e">reverseBits</span><span
+class="sy">(</span><span
+class="t">unsigned</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="i">n</span><span
+class="sy">)</span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac958f-2">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3f3eac958f-3"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// reverse the bits in the binary representation of n</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac958f-4"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// this code generalizes readily to any unsigned type (unsigned char, unsigned int, unsigned long)</span></div><div
+class="crayon-line" id="crayon-52a3f3eac958f-5">&nbsp;</div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac958f-6"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">b</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">8</span><span
+class="o">*</span><span
+class="e">sizeof</span><span
+class="sy">(</span><span
+class="t">unsigned</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac958f-7"><span
+class="h">&nbsp;&nbsp;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac958f-8"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">unsigned</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">hi</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="h"> </span><span
+class="o">&lt;&lt;</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">b</span><span
+class="o">-</span><span
+class="cn">1</span><span
+class="sy">)</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="c">// in binary, lo == 000..01 and hi = 1000..0</span></div><div
+class="crayon-line" id="crayon-52a3f3eac958f-9"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">unsigned</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">lo</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac958f-10">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3f3eac958f-11"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">bool</span><span
+class="h"> </span><span
+class="i">loBitOfn</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">hiBitOfn</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac958f-12">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3f3eac958f-13"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">while</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">lo</span><span
+class="h"> </span><span
+class="o">&lt;</span><span
+class="h"> </span><span
+class="i">hi</span><span
+class="sy">)</span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac958f-14"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac958f-15"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">loBitOfn</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">n</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="i">lo</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">!=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac958f-16"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// loBitOfn iff the binary representation of n has a zero in the lo position</span></div><div
+class="crayon-line" id="crayon-52a3f3eac958f-17">&nbsp;</div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac958f-18"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">hiBitOfn</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">n</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="i">hi</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">!=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac958f-19"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// hiBitOfn iff the binary representation of n has a zero in the hi position</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac958f-20"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac958f-21"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="h"> </span><span
+class="i">hiBitOfn</span><span
+class="h"> </span><span
+class="o">&amp;&amp;</span><span
+class="h"> </span><span
+class="o">!</span><span
+class="i">loBitOfn</span><span
+class="h"> </span><span
+class="sy">)</span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac958f-22"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">n</span><span
+class="h"> </span><span
+class="o">-</span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">hi</span><span
+class="o">-</span><span
+class="i">lo</span><span
+class="sy">)</span><span
+class="sy">;</span><span
+class="h"> </span></div><div
+class="crayon-line" id="crayon-52a3f3eac958f-23"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// toggle both the hi and the lo bits of n.</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac958f-24"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// note: hi-lo is positive and less than n so n remains nonnegative</span></div><div
+class="crayon-line" id="crayon-52a3f3eac958f-25"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span><span
+class="st">else</span><span
+class="h"> </span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="h"> </span><span
+class="i">loBitOfn</span><span
+class="h"> </span><span
+class="o">&amp;&amp;</span><span
+class="h"> </span><span
+class="o">!</span><span
+class="i">hiBitOfn</span><span
+class="h"> </span><span
+class="sy">)</span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac958f-26"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">n</span><span
+class="h"> </span><span
+class="o">+</span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">hi</span><span
+class="o">-</span><span
+class="i">lo</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac958f-27"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// toggle both the hi and the lo bits of n.</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac958f-28"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3f3eac958f-29">&nbsp;</div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac958f-30"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">lo</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="i">lo</span><span
+class="h"> </span><span
+class="o">&lt;&gt;</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="c">// shift the (unique) 1 digit in hi one notch to the right (ie integer-divide hi by 2)</span></div><div
+class="crayon-line" id="crayon-52a3f3eac958f-31"><span
+class="h">&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac958f-32">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3f3eac958f-33"><span
+class="sy">}</span></div></div></td></tr></table></div></div><p></p><p>dan</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_72174_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_72174_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX72174XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_72174_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_72174_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX72174XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_72174_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=72174#respond' onclick='return addComment.moveForm("comment-72174", "72174", "respond", "813")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-sitiposit odd alt thread-even depth-1" id="comment-72175"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/sitiposit/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/ddf43539593972f9acb6faf3b465d126?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-19925-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/sitiposit/" rel="nofollow">danlior</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-72175"><span
+class="time-since">August 21, 2013</span></a></p></div><div
+class="comment-entry"><p>Still not posting properly &#8230; one more try:</p><p></p><div
+id="crayon-52a3f3eac926f" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+void reverseBits(unsigned int &amp;n){
+
+  // reverse the bits in the binary representation of n
+  // this code generalizes readily to any unsigned type (unsigned char, unsigned int, unsigned long)
+
+  int b = 8*sizeof(unsigned int);
+  
+  unsigned int hi = 1 &lt;&lt; (b-1); // in binary, lo == 000..01 and hi = 1000..0
+  unsigned int lo = 1;
+
+  bool loBitOfn, hiBitOfn;
+
+  while (lo &lt; hi){
+    
+    loBitOfn = (n &amp; lo) != 0;
+    // loBitOfn iff the binary representation of n has a zero in the lo position
+
+    hiBitOfn = (n &amp; hi) != 0;
+    // hiBitOfn iff the binary representation of n has a zero in the hi position
+    
+    if ( hiBitOfn &amp;&amp; !loBitOfn ){
+      n -= (hi-lo); 
+      // toggle both the hi and the lo bits of n.
+      // note: hi-lo is positive and less than n so n remains nonnegative
+    }else if ( loBitOfn &amp;&amp; !hiBitOfn ){
+      n += (hi-lo);
+      // toggle both the hi and the lo bits of n.
+    }
+
+    lo = (lo &lt;&gt; 1); 
+// shift the (unique) 1 digit in hi one notch to the right (ie integer-divide hi by 2)
+
+  }
+
+}</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3f3eac926f-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac926f-2">2</div><div
+class="crayon-num" data-line="crayon-52a3f3eac926f-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac926f-4">4</div><div
+class="crayon-num" data-line="crayon-52a3f3eac926f-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac926f-6">6</div><div
+class="crayon-num" data-line="crayon-52a3f3eac926f-7">7</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac926f-8">8</div><div
+class="crayon-num" data-line="crayon-52a3f3eac926f-9">9</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac926f-10">10</div><div
+class="crayon-num" data-line="crayon-52a3f3eac926f-11">11</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac926f-12">12</div><div
+class="crayon-num" data-line="crayon-52a3f3eac926f-13">13</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac926f-14">14</div><div
+class="crayon-num" data-line="crayon-52a3f3eac926f-15">15</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac926f-16">16</div><div
+class="crayon-num" data-line="crayon-52a3f3eac926f-17">17</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac926f-18">18</div><div
+class="crayon-num" data-line="crayon-52a3f3eac926f-19">19</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac926f-20">20</div><div
+class="crayon-num" data-line="crayon-52a3f3eac926f-21">21</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac926f-22">22</div><div
+class="crayon-num" data-line="crayon-52a3f3eac926f-23">23</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac926f-24">24</div><div
+class="crayon-num" data-line="crayon-52a3f3eac926f-25">25</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac926f-26">26</div><div
+class="crayon-num" data-line="crayon-52a3f3eac926f-27">27</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac926f-28">28</div><div
+class="crayon-num" data-line="crayon-52a3f3eac926f-29">29</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac926f-30">30</div><div
+class="crayon-num" data-line="crayon-52a3f3eac926f-31">31</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac926f-32">32</div><div
+class="crayon-num" data-line="crayon-52a3f3eac926f-33">33</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f3eac926f-34">34</div><div
+class="crayon-num" data-line="crayon-52a3f3eac926f-35">35</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3f3eac926f-1"><span
+class="t">void</span><span
+class="h"> </span><span
+class="e">reverseBits</span><span
+class="sy">(</span><span
+class="t">unsigned</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="i">n</span><span
+class="sy">)</span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac926f-2">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3f3eac926f-3"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// reverse the bits in the binary representation of n</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac926f-4"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// this code generalizes readily to any unsigned type (unsigned char, unsigned int, unsigned long)</span></div><div
+class="crayon-line" id="crayon-52a3f3eac926f-5">&nbsp;</div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac926f-6"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">b</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">8</span><span
+class="o">*</span><span
+class="e">sizeof</span><span
+class="sy">(</span><span
+class="t">unsigned</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac926f-7"><span
+class="h">&nbsp;&nbsp;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac926f-8"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">unsigned</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">hi</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="h"> </span><span
+class="o">&lt;&lt;</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">b</span><span
+class="o">-</span><span
+class="cn">1</span><span
+class="sy">)</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="c">// in binary, lo == 000..01 and hi = 1000..0</span></div><div
+class="crayon-line" id="crayon-52a3f3eac926f-9"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">unsigned</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">lo</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac926f-10">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3f3eac926f-11"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">bool</span><span
+class="h"> </span><span
+class="i">loBitOfn</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">hiBitOfn</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac926f-12">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3f3eac926f-13"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">while</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">lo</span><span
+class="h"> </span><span
+class="o">&lt;</span><span
+class="h"> </span><span
+class="i">hi</span><span
+class="sy">)</span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac926f-14"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac926f-15"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">loBitOfn</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">n</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="i">lo</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">!=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac926f-16"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// loBitOfn iff the binary representation of n has a zero in the lo position</span></div><div
+class="crayon-line" id="crayon-52a3f3eac926f-17">&nbsp;</div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac926f-18"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">hiBitOfn</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">n</span><span
+class="h"> </span><span
+class="o">&amp;</span><span
+class="h"> </span><span
+class="i">hi</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">!=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac926f-19"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// hiBitOfn iff the binary representation of n has a zero in the hi position</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac926f-20"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac926f-21"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="h"> </span><span
+class="i">hiBitOfn</span><span
+class="h"> </span><span
+class="o">&amp;&amp;</span><span
+class="h"> </span><span
+class="o">!</span><span
+class="i">loBitOfn</span><span
+class="h"> </span><span
+class="sy">)</span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac926f-22"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">n</span><span
+class="h"> </span><span
+class="o">-</span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">hi</span><span
+class="o">-</span><span
+class="i">lo</span><span
+class="sy">)</span><span
+class="sy">;</span><span
+class="h"> </span></div><div
+class="crayon-line" id="crayon-52a3f3eac926f-23"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// toggle both the hi and the lo bits of n.</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac926f-24"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// note: hi-lo is positive and less than n so n remains nonnegative</span></div><div
+class="crayon-line" id="crayon-52a3f3eac926f-25"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span><span
+class="st">else</span><span
+class="h"> </span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="h"> </span><span
+class="i">loBitOfn</span><span
+class="h"> </span><span
+class="o">&amp;&amp;</span><span
+class="h"> </span><span
+class="o">!</span><span
+class="i">hiBitOfn</span><span
+class="h"> </span><span
+class="sy">)</span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac926f-26"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">n</span><span
+class="h"> </span><span
+class="o">+</span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">hi</span><span
+class="o">-</span><span
+class="i">lo</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f3eac926f-27"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// toggle both the hi and the lo bits of n.</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac926f-28"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3f3eac926f-29">&nbsp;</div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac926f-30"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">lo</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">lo</span><span
+class="h"> </span><span
+class="o">&lt;&gt;</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">)</span><span
+class="sy">;</span><span
+class="h"> </span></div><div
+class="crayon-line" id="crayon-52a3f3eac926f-31"><span
+class="c">// shift the (unique) 1 digit in hi one notch to the right (ie integer-divide hi by 2)</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac926f-32">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3f3eac926f-33"><span
+class="h">&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f3eac926f-34">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3f3eac926f-35"><span
+class="sy">}</span></div></div></td></tr></table></div></div><p></p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_72175_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_72175_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX72175XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_72175_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_72175_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX72175XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_72175_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=72175#respond' onclick='return addComment.moveForm("comment-72175", "72175", "respond", "813")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-sitiposit even thread-odd thread-alt depth-1" id="comment-72177"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/sitiposit/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/ddf43539593972f9acb6faf3b465d126?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-19925-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/sitiposit/" rel="nofollow">danlior</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-72177"><span
+class="time-since">August 21, 2013</span></a></p></div><div
+class="comment-entry"><p>Still not posting properly&#8230; I&#8217;ll post the code one last time (really, the last time) without using the code and /code tags. Sorry for the multiple posts.</p><p>void reverseBits(unsigned int &amp;n){</p><p> // reverse the bits in the binary representation of n<br
+/> // this code generalizes readily to any unsigned type (unsigned char, unsigned int, unsigned long)</p><p> int b = 8*sizeof(unsigned int);</p><p> unsigned int hi = 1 &lt;&lt; (b-1); // in binary, lo == 000..01 and hi = 1000..0<br
+/> unsigned int lo = 1;</p><p> bool loBitOfn, hiBitOfn;</p><p> while (lo &lt; hi){</p><p> loBitOfn = (n &amp; lo) != 0;<br
+/> // loBitOfn iff the binary representation of n has a zero in the lo position</p><p> hiBitOfn = (n &amp; hi) != 0;<br
+/> // hiBitOfn iff the binary representation of n has a zero in the hi position</p><p> if ( hiBitOfn &amp;&amp; !loBitOfn ){<br
+/> n -= (hi-lo);<br
+/> // toggle both the hi and the lo bits of n.<br
+/> // note: hi-lo is positive and less than n so n remains nonnegative<br
+/> }else if ( loBitOfn &amp;&amp; !hiBitOfn ){<br
+/> n += (hi-lo);<br
+/> // toggle both the hi and the lo bits of n.<br
+/> }</p><p> lo = lo &lt;&gt; 1; // shift the (unique) 1 digit in hi one notch to the right (ie integer-divide hi by 2)<br
+/> }</p><p>}</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_72177_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_72177_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX72177XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_72177_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_72177_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX72177XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_72177_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=72177#respond' onclick='return addComment.moveForm("comment-72177", "72177", "respond", "813")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-neohe odd alt thread-even depth-1" id="comment-75788"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/neohe/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/91b886df7bea8b7f80e5435a270664d8?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-23604-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/neohe/" rel="nofollow">Neo</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-75788"><span
+class="time-since">September 26, 2013</span></a></p></div><div
+class="comment-entry"><p>nice</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_75788_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_75788_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX75788XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_75788_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_75788_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX75788XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_75788_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=75788#respond' onclick='return addComment.moveForm("comment-75788", "75788", "respond", "813")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-sharp even thread-odd thread-alt depth-1" id="comment-89647"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/sharp/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/904cb7bf5a87fadee42556774bd84495?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-28283-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/sharp/" rel="nofollow">duter</a> said on <a
+href="http://leetcode.com/2011/08/reverse-bits.html#comment-89647"><span
+class="time-since">December 2, 2013</span></a></p></div><div
+class="comment-entry"><p>good job~~~</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_89647_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_89647_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX89647XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_89647_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_89647_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX89647XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_89647_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/08/reverse-bits.html?replytocom=89647#respond' onclick='return addComment.moveForm("comment-89647", "89647", "respond", "813")'>Reply</a></div></div></li></ol></div><div
+id="respond"><h3 id="reply-title">Leave a reply <small><a
+rel="nofollow" id="cancel-comment-reply-link" href="/2011/08/reverse-bits.html#respond" style="display:none;">Cancel reply</a></small></h3><form
+action="http://leetcode.com/wp-comments-post.php" method="post" id="commentform"><div
+class="comment-avatar-box"><div
+class="avb"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /></div></div><div
+class="comment-content standard-form"><p
+class="comment-notes">Your email address will not be published. Required fields are marked <span
+class="required">*</span></p><p
+class="comment-form-author"><label
+for="author">Name<span
+class="required"> *</span></label> <input
+id="author" name="author" type="text" value="" size="30" aria-required='true' /></p><p
+class="comment-form-email"><label
+for="email">Email<span
+class="required"> *</span></label> <input
+id="email" name="email" type="text" value="" size="30" aria-required='true' /></p><p
+class="comment-form-url"><label
+for="url">Website</label><input
+id="url" name="url" type="text" value="" size="30" /></p><p
+class="form-textarea"><textarea name="comment" id="comment" cols="60" rows="10" aria-required="true"></textarea></p><p
+class="form-allowed-tags">You may use the <code>&lt;code&gt;</code> tag to embed your code.</p><p
+class="form-submit"> <input
+name="submit" type="submit" id="submit" value="Post Comment" /> <input
+type='hidden' name='comment_post_ID' value='813' id='comment_post_ID' /> <input
+type='hidden' name='comment_parent' id='comment_parent' value='0' /></p><p
+style="display: none;"><input
+type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="ef8e9b4b86" /></p></div></form></div><div
+id="trackbacks"><h3>1 trackback</h3><ul
+id="trackbacklist"><li><h5><a
+href='http://itsrough.wordpress.com/2012/10/20/must-read-problems-of-leetcode/' rel='external nofollow' class='url'>Amazon interview preparation | What I learn, I blog !</a></h5> <em>on October 23, 2012</em></li></ul></div></div></div></div><div
+id="post-dir-search" class="dir-search"><form
+role="search" method="get" id="searchform" action="http://leetcode.com/"> <input
+type="text" value="" name="s" id="s" /> <input
+type="submit" id="searchsubmit" value="Search" /></form></div><div
+id="sidebar"><div
+class="padder"></div></div></div><div
+id="push"></div></div><div
+id="footer"><div
+id="colophon"><div
+class="footer-widget"></div><div
+class="footer-widget"></div><div
+class="footer-widget"></div><div
+class="footer-widget last"></div><div
+class="clear"></div><div
+id="footer-links"><ul
+class="footer-menu"><li
+class="page_item page-item-2"><a
+href="http://leetcode.com/about">About</a></li><li
+class="page_item page-item-908"><a
+href="http://leetcode.com/activity">Activity</a></li><li
+class="page_item page-item-1466"><a
+href="http://leetcode.com/discuss">Discuss</a></li><li
+class="page_item page-item-1658"><a
+href="http://leetcode.com/donate">Donate</a></li><li
+class="page_item page-item-907"><a
+href="http://leetcode.com/members">Members</a></li><li
+class="page_item page-item-370"><a
+href="http://leetcode.com/onlinejudge">Online Judge</a></li></ul></div><div
+id="credits"><p>Copyright &copy; 2013 LeetCode &nbsp;&middot;&nbsp; <a
+href="http://leetcode.com/wp-login.php">Log in</a></p></div></div></div><div
+id="wpadminbar" class="nojq nojs" role="navigation"> <a
+class="screen-reader-shortcut" href="#wp-toolbar" tabindex="1">Skip to toolbar</a><div
+class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Top navigation toolbar." tabindex="0"><ul
+id="wp-admin-bar-root-default" class="ab-top-menu"><li
+id="wp-admin-bar-bp-login"><a
+class="ab-item"  href="http://leetcode.com/wp-login.php">Log in</a></li><li
+id="wp-admin-bar-bp-register"><a
+class="ab-item"  href="http://leetcode.com/register/">Register</a></li><li
+id="wp-admin-bar-my-account"><div
+class="ab-item ab-empty-item" ></div></li></ul></div> <a
+class="screen-reader-shortcut" href="http://leetcode.com/wp-login.php?action=logout&#038;_wpnonce=d79c4035be">Log Out</a></div><div
+class="buddyboss_log"></div> <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6849839-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script><style type="text/css">
+    .defaultCommentText { color: #a1a1a1; font-style: italic; }
+  </style><script type="text/javascript">
+    jQuery("textarea#comment, textarea#reply_text").focus(function(srcc) {
+      if (jQuery(this).val() == jQuery(this)[0].title) {
+        jQuery(this).val("");
+        jQuery(this).removeClass("defaultCommentText");
+      }
+    });
+    jQuery("textarea#comment, textarea#reply_text").blur(function() {
+      if (jQuery(this).val() == "") {
+        jQuery(this).val(jQuery(this)[0].title);
+        jQuery(this).addClass("defaultCommentText");
+      }
+    });
+    jQuery("textarea#comment, textarea#reply_text").attr('title', 'To embed your code, please use <code>your code here</code>.');
+    jQuery("textarea#comment, textarea#reply_text").blur();
+  </script></body></html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Minified using disk: basic
+Page Caching using disk: enhanced
+
+ Served from: leetcode.com @ 2013-12-07 20:22:03 by W3 Total Cache -->

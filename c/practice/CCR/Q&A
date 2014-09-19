@@ -1,0 +1,31 @@
+[Q]What the different between using scanf and gets to acquire typing characters?
+[I]
+Date:2013-12-08
+Index:CRR/1-1
+[A]The first parameter of scanf should include format indicator exclusively,not alike with printf,so can`t using scanf("Input:%s",str) as a legal sentence!.
+
+[Q]Varaiable size object may not be initialized when using code like "char a[b*3]={'\0'}"
+[I]
+Date:2013-12-09
+Index:CRR/1-5
+[A]"b * 3" won`t be known the result before compile,it isn`t a compile time constant(because before compile,no sentence will be execute).You can write #define LEN 3,then use len,because macro extend is before compile,LEN will replace by 3.Or you can just declare the array and then using memset to initialize it.
+
+[Q]Why & can use as a unary for &(a[i++]) but &(a+i++)?
+[I]
+Date:2013年 12月 10日 星期二 15:12:35 CST
+Index:CCR/2-3
+[A]
+
+[Q]gcc > stderr:
+dereferencing void * pointer
+void not ignored as it ought to be
+[I]
+Date:2013年 12月 10日 星期二 15:24:29 CST
+Index:CRR/2-3
+[A]
+
+[Q]Why can`t just free or set NULL to last element to delete it?
+[I]
+Date:2013年 12月 10日 星期二 15:53:21 CST
+Index:CCR/2-3
+[A]free indeed work for the pointer f if you use free(p),but the what,it means free(prev->next) right,now,prev->next is hanging until you explicit assign a NULL to it.

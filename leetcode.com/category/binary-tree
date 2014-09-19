@@ -1,0 +1,475 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html
+xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head
+profile="http://gmpg.org/xfn/11"><link
+rel="stylesheet" type="text/css" href="http://leetcode.com/wp-content/cache/minify/000000/fY7BDgIhDER_aBE9-EEFKpAssGm7Ufx6uyzxpodmmubNdK6Wpa-43C2EkqtxQBfV5WbdHkLfCJmt24xvhNbr_sUU8TtLK_mNwRB6rKJYKao80DP5eZir6NXGYFiADIHkGgdzrkcWQW_VcK8CL5NyTKuOIA1Mf05itvuNS8KCbGOWtLspfw2PNgq3ym0F_gA.css" media="all" /><link
+rel="stylesheet" type="text/css" href="http://leetcode.com/wp-content/cache/minify/000000/M9Qvzy9KKShKLS7WLcgvKM1JLALSxSXF-sUllTmp-uUFBQA.css" media="all" /><script type="text/javascript" src="http://leetcode.com/wp-content/cache/minify/000000/LYtRCgMhDEQvZBpKe58SNaiLG9skS-vt68J-DAzz3jxw-xysM9yxZDAnBSVvUnCztZgukJTmELApTj-ordS-4qynsze5hNuq4fuGNMRZHL3yzobxyHnGYYavJglLH5F6eCLl5UMkPX9_.js"></script><meta
+http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta
+name="viewport" content="width=device-width, initial-scale=1.0" /><title>binary tree | LeetCode</title><link
+rel="pingback" href="http://leetcode.com/xmlrpc.php" /><link
+rel="shortcut icon" href="http://leetcode.com/wp-content/themes/buddyboss-child/_inc/images/favicon.ico" type="image/x-icon"><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; Feed" href="http://leetcode.com/feed" /><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; Comments Feed" href="http://leetcode.com/comments/feed" /><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; binary tree Category Feed" href="http://leetcode.com/category/binary-tree/feed" /><link
+rel='stylesheet' id='gdsr_style_main-css'  href='http://leetcode.com/wp-content/plugins/gd-star-rating/css/gdsr.css.php?t=1366376824&#038;s=a05i05m20k20c05r05%23121620243046%23121620243240%23s1pchristmas%23s1pcrystal%23s1pdarkness%23s1poxygen%23s1goxygen_gif%23s1pplain%23s1ppumpkin%23s1psoft%23s1pstarrating%23s1pstarscape%23t1pclassical%23t1pstarrating%23t1gstarrating_gif%23lsgflower%23lsgradar&#038;o=off&#038;ver=1.9.22' type='text/css' media='all' /><script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"2.2.0","is_admin":"0","ajaxurl":"http:\/\/leetcode.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script><script type='text/javascript'>
+/* <![CDATA[ */
+var BP_DTheme = {"my_favs":"My Likes","accepted":"Accepted","rejected":"Rejected","show_all_comments":"Show all comments for this thread","show_all":"Show all","comments":"comments","close":"Close","view":"View","mark_as_fav":"Like","remove_fav":"Unlike","add_photo":"Add Photo","cancel":"Cancel","failed":"Failed","person":"person","people":"people","like":"like","likes":"likes","this_1":"this"};
+/* ]]> */
+</script><script type="text/javascript">var ajaxurl = 'http://leetcode.com/wp-admin/admin-ajax.php';</script><style type='text/css'>#sidebar span.collapsing.archives {
+        border:0;
+        padding:0; 
+        margin:0; 
+        cursor:pointer;
+} 
+
+#sidebar span.monthCount, span.yearCount {text-decoration:none; color:#333}
+#sidebar li.collapsing.archives a.self {font-weight:bold}
+#sidebar ul.collapsing.archives.list ul.collapsing.archives.list:before {content:\'\';} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives:before {content:\'\';} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives {list-style-type:none}
+#sidebar ul.collapsing.archives.list li {
+       margin:0 0 0 .8em;
+       text-indent:-1em}
+#sidebar ul.collapsing.archives.list li.collapsing.archives.item:before {content: \'\\00BB \\00A0\' !important;} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives .sym {
+   font-size:1.2em;
+   font-family:Monaco, \'Andale Mono\', \'FreeMono\', \'Courier new\', \'Courier\', monospace;
+   cursor:pointer;
+    padding-right:15px;}
+#sidebar ul.collapsing.archives.list span.collapsing.archives.collapse .sym {
+    background-image: url(/wp-content/plugins/collapsing-archives/img/list-collapse.gif);
+}
+#sidebar ul.collapsing.archives.list span.collapsing.archives.expand .sym {
+    background-image: url(/wp-content/plugins/collapsing-archives/img/list-expand.gif);
+}</style><script type="text/javascript">
+//<![CDATA[
+var gdsr_cnst_nonce = "344a153a23";
+var gdsr_cnst_ajax = "http://leetcode.com/wp-content/plugins/gd-star-rating/ajax.php";
+var gdsr_cnst_button = 1;
+var gdsr_cnst_cache = 0;
+// ]]>
+</script><!--[if IE]><style type="text/css">.ratemulti .starsbar .gdcurrent { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter: alpha(opacity=70); }</style><![endif]--><style type="text/css" media="print">#wpadminbar { display:none; }</style><style type="text/css" media="screen">
+	html { margin-top: 28px !important; }
+	* html body { margin-top: 28px !important; }
+</style><script type="text/javascript"> jQuery(document).ready( function() { jQuery("a.confirm").click( function() { if ( confirm( 'Are you sure?' ) ) return true; else return false; }); });</script></head><body
+class="archive category category-binary-tree category-7 admin-bar no-customize-support no-js buddyboss-active-pics buddyboss-active-wall admin-bar" id="bp-default"> <!--[if lte IE 6]><script src="http://leetcode.com/wp-content/themes/buddyboss/_inc/js/ie6/warning.js"></script><script>window.onload=function(){e("http://leetcode.com/wp-content/themes/buddyboss-child/_inc/js/ie6/")}</script><![endif]--><script type="text/javascript">//<![CDATA[
+(function(){var c=document.body.className;c=c.replace(/no-js/,'js');document.body.className=c;})();
+//]]></script><div
+id="top-hdr-bg"></div><div
+class="menu-bg"></div><div
+id="wrapper"><div
+id="header"><div
+class="padder"><div
+id="logo"> <a
+href="http://leetcode.com" title="Home"><img
+src="http://leetcode.com/wp-content/uploads/2012/12/leetcodelogo.png"/></a></div><div
+class="menu-bg"></div><ul
+class="sf-menu"><li
+class="page_item page-item-2"><a
+href="http://leetcode.com/about">About</a></li><li
+class="page_item page-item-908"><a
+href="http://leetcode.com/activity">Activity</a></li><li
+class="page_item page-item-1466"><a
+href="http://leetcode.com/discuss">Discuss</a></li><li
+class="page_item page-item-1658"><a
+href="http://leetcode.com/donate">Donate</a></li><li
+class="page_item page-item-907"><a
+href="http://leetcode.com/members">Members</a></li><li
+class="page_item page-item-370"><a
+href="http://leetcode.com/onlinejudge">Online Judge</a></li></ul></div></div><div
+id="container"><div
+id="content" class="two_column"><div
+class="padder"><div
+class="page" id="blog-archives" role="main"><h3 class="pagetitle">You are browsing the archive for   binary tree.</h3><div
+id="post-797" class="post-797 post type-post status-publish format-standard hentry category-binary-tree"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html" rel="bookmark" title="Permanent Link to Lowest Common Ancestor of a Binary Tree Part II">Lowest Common Ancestor of a Binary Tree Part II</a></h2><p
+class="date">July 21, 2011 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a></span></p><div
+class="entry"><blockquote><p>Given a binary tree, find the lowest common ancestor of two given nodes in the tree. Each node contains a parent pointer which links to its parent.</p></blockquote><p> <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#more-797" class="more-link">Read the rest of this entry &rarr;</a></p></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comments" title="Comment on Lowest Common Ancestor of a Binary Tree Part II">24 Comments &#187;</a></span></p></div></div><div
+id="post-790" class="post-790 post type-post status-publish format-standard hentry category-binary-tree"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html" rel="bookmark" title="Permanent Link to Lowest Common Ancestor of a Binary Tree Part I">Lowest Common Ancestor of a Binary Tree Part I</a></h2><p
+class="date">July 18, 2011 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a></span></p><div
+class="entry"><blockquote><p>Given a binary tree, find the lowest common ancestor of two given nodes in the tree.</p></blockquote><p> <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html#more-790" class="more-link">Read the rest of this entry &rarr;</a></p></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html#comments" title="Comment on Lowest Common Ancestor of a Binary Tree Part I">40 Comments &#187;</a></span></p></div></div><div
+id="post-782" class="post-782 post type-post status-publish format-standard hentry category-binary-tree"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-search-tree.html" rel="bookmark" title="Permanent Link to Lowest Common Ancestor of a Binary Search Tree (BST)">Lowest Common Ancestor of a Binary Search Tree (BST)</a></h2><p
+class="date">July 17, 2011 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a></span></p><div
+class="entry"><blockquote><p>Given a binary search tree (BST), find the lowest common ancestor of two given nodes in the BST.</p></blockquote><p> <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-search-tree.html#more-782" class="more-link">Read the rest of this entry &rarr;</a></p></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-search-tree.html#comments" title="Comment on Lowest Common Ancestor of a Binary Search Tree (BST)">21 Comments &#187;</a></span></p></div></div><div
+id="post-612" class="post-612 post type-post status-publish format-standard hentry category-binary-tree"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2011/04/construct-binary-tree-from-inorder-and-preorder-postorder-traversal.html" rel="bookmark" title="Permanent Link to Construct Binary Tree From Inorder and Preorder/Postorder Traversal">Construct Binary Tree From Inorder and Preorder/Postorder Traversal</a></h2><p
+class="date">April 20, 2011 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a></span></p><div
+class="entry"><blockquote><p>Given preorder and inorder traversal of a tree, construct the binary tree.</p></blockquote><p> <a
+href="http://leetcode.com/2011/04/construct-binary-tree-from-inorder-and-preorder-postorder-traversal.html#more-612" class="more-link">Read the rest of this entry &rarr;</a></p></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2011/04/construct-binary-tree-from-inorder-and-preorder-postorder-traversal.html#comments" title="Comment on Construct Binary Tree From Inorder and Preorder/Postorder Traversal">56 Comments &#187;</a></span></p></div></div><div
+id="post-63" class="post-63 post type-post status-publish format-standard hentry category-binary-tree category-linked-list"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2010/11/convert-binary-search-tree-bst-to.html" rel="bookmark" title="Permanent Link to Convert Binary Search Tree (BST) to Sorted Doubly-Linked List">Convert Binary Search Tree (BST) to Sorted Doubly-Linked List</a></h2><p
+class="date">November 29, 2010 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a>, <a
+href="http://leetcode.com/category/linked-list" title="View all posts in linked list" rel="category tag">linked list</a></span></p><div
+class="entry"><blockquote><p>Convert a BST to a sorted circular doubly-linked list in-place. Think of the left and right pointers as synonymous to the previous and next pointers in a doubly-linked list.</p></blockquote><p> <a
+href="http://leetcode.com/2010/11/convert-binary-search-tree-bst-to.html#more-63" class="more-link">Read the rest of this entry &rarr;</a></p></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2010/11/convert-binary-search-tree-bst-to.html#comments" title="Comment on Convert Binary Search Tree (BST) to Sorted Doubly-Linked List">27 Comments &#187;</a></span></p></div></div><div
+id="post-62" class="post-62 post type-post status-publish format-standard hentry category-binary-tree category-linked-list"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2010/11/convert-sorted-list-to-balanced-binary.html" rel="bookmark" title="Permanent Link to Convert Sorted List to Balanced Binary Search Tree (BST)">Convert Sorted List to Balanced Binary Search Tree (BST)</a></h2><p
+class="date">November 27, 2010 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a>, <a
+href="http://leetcode.com/category/linked-list" title="View all posts in linked list" rel="category tag">linked list</a></span></p><div
+class="entry"><blockquote><p>Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.</p></blockquote><p> <a
+href="http://leetcode.com/2010/11/convert-sorted-list-to-balanced-binary.html#more-62" class="more-link">Read the rest of this entry &rarr;</a></p></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2010/11/convert-sorted-list-to-balanced-binary.html#comments" title="Comment on Convert Sorted List to Balanced Binary Search Tree (BST)">51 Comments &#187;</a></span></p></div></div><div
+id="post-61" class="post-61 post type-post status-publish format-standard hentry category-binary-tree category-divide-and-conquer"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2010/11/convert-sorted-array-into-balanced.html" rel="bookmark" title="Permanent Link to Convert Sorted Array to Balanced Binary Search Tree (BST)">Convert Sorted Array to Balanced Binary Search Tree (BST)</a></h2><p
+class="date">November 25, 2010 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a>, <a
+href="http://leetcode.com/category/divide-and-conquer" title="View all posts in divide and conquer" rel="category tag">divide and conquer</a></span></p><div
+class="entry"><blockquote><p>Given an array where elements are sorted in ascending order, convert it to a height balanced BST.</p></blockquote><p> <a
+href="http://leetcode.com/2010/11/convert-sorted-array-into-balanced.html#more-61" class="more-link">Read the rest of this entry &rarr;</a></p></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2010/11/convert-sorted-array-into-balanced.html#comments" title="Comment on Convert Sorted Array to Balanced Binary Search Tree (BST)">17 Comments &#187;</a></span></p></div></div><div
+id="post-60" class="post-60 post type-post status-publish format-standard hentry category-binary-tree"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2010/11/largest-binary-search-tree-bst-in_22.html" rel="bookmark" title="Permanent Link to Largest Binary Search Tree (BST) in a Binary Tree">Largest Binary Search Tree (BST) in a Binary Tree</a></h2><p
+class="date">November 22, 2010 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a></span></p><div
+class="entry"><blockquote><p>Given a binary tree, find the largest Binary Search Tree (BST), where largest means BST with largest number of nodes in it. The largest BST may or may not include all of its descendants.</p></blockquote><p> <a
+href="http://leetcode.com/2010/11/largest-binary-search-tree-bst-in_22.html#more-60" class="more-link">Read the rest of this entry &rarr;</a></p></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2010/11/largest-binary-search-tree-bst-in_22.html#comments" title="Comment on Largest Binary Search Tree (BST) in a Binary Tree">58 Comments &#187;</a></span></p></div></div><div
+id="post-58" class="post-58 post type-post status-publish format-standard hentry category-binary-tree"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2010/11/largest-binary-search-tree-bst-in.html" rel="bookmark" title="Permanent Link to Largest Subtree Which is a Binary Search Tree (BST)">Largest Subtree Which is a Binary Search Tree (BST)</a></h2><p
+class="date">November 18, 2010 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a></span></p><div
+class="entry"><blockquote><p>Given a binary tree, find the largest subtree which is a Binary Search Tree (BST), where largest means subtree with largest number of nodes in it.</p></blockquote><p> <a
+href="http://leetcode.com/2010/11/largest-binary-search-tree-bst-in.html#more-58" class="more-link">Read the rest of this entry &rarr;</a></p></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2010/11/largest-binary-search-tree-bst-in.html#comments" title="Comment on Largest Subtree Which is a Binary Search Tree (BST)">58 Comments &#187;</a></span></p></div></div><div
+id="post-51" class="post-51 post type-post status-publish format-standard hentry category-binary-tree"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2010/10/binary-tree-post-order-traversal.html" rel="bookmark" title="Permanent Link to Binary Tree Post-Order Traversal Iterative Solution">Binary Tree Post-Order Traversal Iterative Solution</a></h2><p
+class="date">October 27, 2010 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a></span></p><div
+class="entry"><blockquote><p>Given a binary tree, print the elements in post-order iteratively without using recursion.</p></blockquote><p> <a
+href="http://leetcode.com/2010/10/binary-tree-post-order-traversal.html#more-51" class="more-link">Read the rest of this entry &rarr;</a></p></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2010/10/binary-tree-post-order-traversal.html#comments" title="Comment on Binary Tree Post-Order Traversal Iterative Solution">50 Comments &#187;</a></span></p></div></div><div
+id="post-50" class="post-50 post type-post status-publish format-standard hentry category-binary-tree"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2010/10/print-edge-nodes-boundary-of-binary.html" rel="bookmark" title="Permanent Link to Print Edge Nodes (Boundary) of a Binary Tree">Print Edge Nodes (Boundary) of a Binary Tree</a></h2><p
+class="date">October 20, 2010 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a></span></p><div
+class="entry"><blockquote><p>Print all edge nodes of a complete binary tree anti-clockwise.<br
+/> That is all the left most nodes starting at root, then the leaves left to right and finally all the rightmost nodes.<br
+/> In other words, print the boundary of the tree.</p><p>Variant: Print the same for a tree that is not complete.</p></blockquote><p> <a
+href="http://leetcode.com/2010/10/print-edge-nodes-boundary-of-binary.html#more-50" class="more-link">Read the rest of this entry &rarr;</a></p></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2010/10/print-edge-nodes-boundary-of-binary.html#comments" title="Comment on Print Edge Nodes (Boundary) of a Binary Tree">43 Comments &#187;</a></span></p></div></div><div
+id="post-43" class="post-43 post type-post status-publish format-standard hentry category-binary-tree"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2010/09/serializationdeserialization-of-binary.html" rel="bookmark" title="Permanent Link to Serialization/Deserialization of a Binary Tree">Serialization/Deserialization of a Binary Tree</a></h2><p
+class="date">September 29, 2010 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a></span></p><div
+class="entry"><blockquote><p>Design an algorithm and write code to serialize and deserialize a binary tree. Writing the tree to a file is called &#8216;serialization&#8217; and reading back from the file to reconstruct the exact same binary tree is &#8216;deserialization&#8217;.</p></blockquote><p> <a
+href="http://leetcode.com/2010/09/serializationdeserialization-of-binary.html#more-43" class="more-link">Read the rest of this entry &rarr;</a></p></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2010/09/serializationdeserialization-of-binary.html#comments" title="Comment on Serialization/Deserialization of a Binary Tree">27 Comments &#187;</a></span></p></div></div><div
+id="post-42" class="post-42 post type-post status-publish format-standard hentry category-binary-tree"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2010/09/saving-binary-search-tree-to-file.html" rel="bookmark" title="Permanent Link to Saving a Binary Search Tree to a File">Saving a Binary Search Tree to a File</a></h2><p
+class="date">September 28, 2010 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a></span></p><div
+class="entry"><blockquote><p>Describe an algorithm to save a Binary Search Tree (BST) to a file in terms of run-time and disk space complexity. You must be able to restore to the exact original BST using the saved format.</p></blockquote><p> <a
+href="http://leetcode.com/2010/09/saving-binary-search-tree-to-file.html#more-42" class="more-link">Read the rest of this entry &rarr;</a></p></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2010/09/saving-binary-search-tree-to-file.html#comments" title="Comment on Saving a Binary Search Tree to a File">26 Comments &#187;</a></span></p></div></div><div
+id="post-41" class="post-41 post type-post status-publish format-standard hentry category-binary-tree"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2010/09/how-to-pretty-print-binary-tree.html" rel="bookmark" title="Permanent Link to How to Pretty Print a Binary Tree">How to Pretty Print a Binary Tree</a></h2><p
+class="date">September 18, 2010 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a></span></p><div
+class="entry"><blockquote><p>Have you ever thought of pretty-printing a binary tree?<br
+/> <a
+href="http://leetcode.com/2010/09/how-to-pretty-print-binary-tree.html#more-41" class="more-link">Read the rest of this entry &rarr;</a></p></blockquote></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2010/09/how-to-pretty-print-binary-tree.html#comments" title="Comment on How to Pretty Print a Binary Tree">10 Comments &#187;</a></span></p></div></div><div
+id="post-40" class="post-40 post type-post status-publish format-standard hentry category-binary-tree"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2010/09/printing-binary-tree-in-zig-zag-level_18.html" rel="bookmark" title="Permanent Link to Printing a Binary Tree in Zig Zag Level-Order">Printing a Binary Tree in Zig Zag Level-Order</a></h2><p
+class="date">September 18, 2010 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a></span></p><div
+class="entry"><blockquote><p>Given a binary tree, print out the tree in zig zag level order (ie, from left to right, then right to left for the next level and alternate between). Output a newline after the end of each level. <a
+href="http://leetcode.com/2010/09/printing-binary-tree-in-zig-zag-level_18.html#more-40" class="more-link">Read the rest of this entry &rarr;</a></p></blockquote></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2010/09/printing-binary-tree-in-zig-zag-level_18.html#comments" title="Comment on Printing a Binary Tree in Zig Zag Level-Order">44 Comments &#187;</a></span></p></div></div><div
+id="post-39" class="post-39 post type-post status-publish format-standard hentry category-binary-tree"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2010/09/binary-tree-level-order-traversal-using_17.html" rel="bookmark" title="Permanent Link to Binary Tree Level-Order Traversal Using Depth First Search (DFS)">Binary Tree Level-Order Traversal Using Depth First Search (DFS)</a></h2><p
+class="date">September 17, 2010 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a></span></p><div
+class="entry"><blockquote><p>Given a binary tree, print out the tree in level order (ie, from left to right, level by level). Output a newline after the end of each level. <b>Breadth First Search (BFS) is not allowed</b>. <a
+href="http://leetcode.com/2010/09/binary-tree-level-order-traversal-using_17.html#more-39" class="more-link">Read the rest of this entry &rarr;</a></p></blockquote></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2010/09/binary-tree-level-order-traversal-using_17.html#comments" title="Comment on Binary Tree Level-Order Traversal Using Depth First Search (DFS)">18 Comments &#187;</a></span></p></div></div><div
+id="post-38" class="post-38 post type-post status-publish format-standard hentry category-binary-tree"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2010/09/printing-binary-tree-in-level-order.html" rel="bookmark" title="Permanent Link to Printing a Binary Tree in Level Order">Printing a Binary Tree in Level Order</a></h2><p
+class="date">September 16, 2010 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a></span></p><div
+class="entry"><blockquote><p>Given a binary tree, print out the tree in level order (ie, from left to right, level by level). Output a newline after the end of each level. <a
+href="http://leetcode.com/2010/09/printing-binary-tree-in-level-order.html#more-38" class="more-link">Read the rest of this entry &rarr;</a></p></blockquote></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2010/09/printing-binary-tree-in-level-order.html#comments" title="Comment on Printing a Binary Tree in Level Order">32 Comments &#187;</a></span></p></div></div><div
+id="post-37" class="post-37 post type-post status-publish format-standard hentry category-binary-tree"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2010/09/determine-if-binary-tree-is-binary.html" rel="bookmark" title="Permanent Link to Determine if a Binary Tree is a Binary Search Tree (BST)">Determine if a Binary Tree is a Binary Search Tree (BST)</a></h2><p
+class="date">September 14, 2010 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a></span></p><div
+class="entry"><blockquote><p>Write a function isBST(BinaryTree *node) to verify if a given binary tree is a Binary Search Tree (BST) or not.</p></blockquote><p> <a
+href="http://leetcode.com/2010/09/determine-if-binary-tree-is-binary.html#more-37" class="more-link">Read the rest of this entry &rarr;</a></p></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2010/09/determine-if-binary-tree-is-binary.html#comments" title="Comment on Determine if a Binary Tree is a Binary Search Tree (BST)">39 Comments &#187;</a></span></p></div></div><div
+id="post-19" class="post-19 post type-post status-publish format-standard hentry category-binary-tree"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html" rel="bookmark" title="Permanent Link to Maximum Height (Depth) of a Binary Tree">Maximum Height (Depth) of a Binary Tree</a></h2><p
+class="date">April 21, 2010 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a></span></p><div
+class="entry"><blockquote><p>Given a binary tree, find its maximum height.</p></blockquote><p> <a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#more-19" class="more-link">Read the rest of this entry &rarr;</a></p></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2010/04/maximum-height-of-binary-tree.html#comments" title="Comment on Maximum Height (Depth) of a Binary Tree">24 Comments &#187;</a></span></p></div></div><div
+id="post-8" class="post-8 post type-post status-publish format-standard hentry category-binary-tree"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle"><a
+href="http://leetcode.com/2010/03/first-on-site-technical-interview.html" rel="bookmark" title="Permanent Link to A binary tree problem &#8211; Populating next right pointers in each node">A binary tree problem &#8211; Populating next right pointers in each node</a></h2><p
+class="date">March 12, 2010 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a></span></p><div
+class="entry"><blockquote><p>Given a binary tree</p><p></p><div
+id="crayon-52a3fc146427c" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+struct Node {
+  Node* leftChild;
+  Node* rightChild;
+  Node* nextRight;
+}</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3fc146427c-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc146427c-2">2</div><div
+class="crayon-num" data-line="crayon-52a3fc146427c-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3fc146427c-4">4</div><div
+class="crayon-num" data-line="crayon-52a3fc146427c-5">5</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3fc146427c-1"><span
+class="t">struct</span><span
+class="h"> </span><span
+class="e">Node</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc146427c-2"><span
+class="h">&nbsp;&nbsp;</span><span
+class="e ">Node*</span><span
+class="h"> </span><span
+class="i">leftChild</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3fc146427c-3"><span
+class="h">&nbsp;&nbsp;</span><span
+class="e ">Node*</span><span
+class="h"> </span><span
+class="i">rightChild</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3fc146427c-4"><span
+class="h">&nbsp;&nbsp;</span><span
+class="e ">Node*</span><span
+class="h"> </span><span
+class="i">nextRight</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3fc146427c-5"><span
+class="sy">}</span></div></div></td></tr></table></div></div><p>Populate the nextRight pointers in each node.</p><p> <a
+href="http://leetcode.com/2010/03/first-on-site-technical-interview.html#more-8" class="more-link">Read the rest of this entry &rarr;</a></p></blockquote></div><p
+class="postmetadata"> <span
+class="comments"><a
+href="http://leetcode.com/2010/03/first-on-site-technical-interview.html#comments" title="Comment on A binary tree problem &#8211; Populating next right pointers in each node">58 Comments &#187;</a></span></p></div></div></div></div></div><div
+id="post-dir-search" class="dir-search"><form
+role="search" method="get" id="searchform" action="http://leetcode.com/"> <input
+type="text" value="" name="s" id="s" /> <input
+type="submit" id="searchsubmit" value="Search" /></form></div><div
+id="sidebar"><div
+class="padder"></div></div></div><div
+id="push"></div></div><div
+id="footer"><div
+id="colophon"><div
+class="footer-widget"></div><div
+class="footer-widget"></div><div
+class="footer-widget"></div><div
+class="footer-widget last"></div><div
+class="clear"></div><div
+id="footer-links"><ul
+class="footer-menu"><li
+class="page_item page-item-2"><a
+href="http://leetcode.com/about">About</a></li><li
+class="page_item page-item-908"><a
+href="http://leetcode.com/activity">Activity</a></li><li
+class="page_item page-item-1466"><a
+href="http://leetcode.com/discuss">Discuss</a></li><li
+class="page_item page-item-1658"><a
+href="http://leetcode.com/donate">Donate</a></li><li
+class="page_item page-item-907"><a
+href="http://leetcode.com/members">Members</a></li><li
+class="page_item page-item-370"><a
+href="http://leetcode.com/onlinejudge">Online Judge</a></li></ul></div><div
+id="credits"><p>Copyright &copy; 2013 LeetCode &nbsp;&middot;&nbsp; <a
+href="http://leetcode.com/wp-login.php">Log in</a></p></div></div></div><div
+id="wpadminbar" class="nojq nojs" role="navigation"> <a
+class="screen-reader-shortcut" href="#wp-toolbar" tabindex="1">Skip to toolbar</a><div
+class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Top navigation toolbar." tabindex="0"><ul
+id="wp-admin-bar-root-default" class="ab-top-menu"><li
+id="wp-admin-bar-bp-login"><a
+class="ab-item"  href="http://leetcode.com/wp-login.php">Log in</a></li><li
+id="wp-admin-bar-bp-register"><a
+class="ab-item"  href="http://leetcode.com/register/">Register</a></li><li
+id="wp-admin-bar-my-account"><div
+class="ab-item ab-empty-item" ></div></li></ul></div> <a
+class="screen-reader-shortcut" href="http://leetcode.com/wp-login.php?action=logout&#038;_wpnonce=d79c4035be">Log Out</a></div><div
+class="buddyboss_log"></div> <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6849839-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script><style type="text/css">
+    .defaultCommentText { color: #a1a1a1; font-style: italic; }
+  </style><script type="text/javascript">
+    jQuery("textarea#comment, textarea#reply_text").focus(function(srcc) {
+      if (jQuery(this).val() == jQuery(this)[0].title) {
+        jQuery(this).val("");
+        jQuery(this).removeClass("defaultCommentText");
+      }
+    });
+    jQuery("textarea#comment, textarea#reply_text").blur(function() {
+      if (jQuery(this).val() == "") {
+        jQuery(this).val(jQuery(this)[0].title);
+        jQuery(this).addClass("defaultCommentText");
+      }
+    });
+    jQuery("textarea#comment, textarea#reply_text").attr('title', 'To embed your code, please use <code>your code here</code>.');
+    jQuery("textarea#comment, textarea#reply_text").blur();
+  </script></body></html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Minified using disk: basic
+Page Caching using disk: enhanced
+
+ Served from: leetcode.com @ 2013-12-07 20:56:53 by W3 Total Cache -->

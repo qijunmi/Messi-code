@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: *?replytocom
+Disallow: /members
+Disallow: /activity
+Disallow: /wp-admin
+Disallow: /wp-includes
+Disallow: /wp-content/plugins/
+Disallow: /wp-content/cache/
+Disallow: /wp-content/themes/

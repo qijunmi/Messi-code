@@ -1,0 +1,1554 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html
+xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head
+profile="http://gmpg.org/xfn/11"><link
+rel="stylesheet" type="text/css" href="http://leetcode.com/wp-content/cache/minify/000000/fY7BDgIhDER_aBE9-EEFKpAssGm7Ufx6uyzxpodmmubNdK6Wpa-43C2EkqtxQBfV5WbdHkLfCJmt24xvhNbr_sUU8TtLK_mNwRB6rKJYKao80DP5eZir6NXGYFiADIHkGgdzrkcWQW_VcK8CL5NyTKuOIA1Mf05itvuNS8KCbGOWtLspfw2PNgq3ym0F_gA.css" media="all" /><link
+rel="stylesheet" type="text/css" href="http://leetcode.com/wp-content/cache/minify/000000/M9Qvzy9KKShKLS7WLcgvKM1JLALSxSXF-sUllTmp-uUFBQA.css" media="all" /><script type="text/javascript" src="http://leetcode.com/wp-content/cache/minify/000000/LYtrDsMgDIMvRBZN632m8BBQQeiSVBu3H532w3LsfH7g_jqTTHfHHEGNBISscsZdV6OyHkFoDgadbPSBUnNpS5bkYnrlP3Bbp3sfEAZbYkMrqSdFf8Y4_VDFZ-WAuQ1PzW0YRu8LA0lHm7_thhSXgye58hc.js"></script><meta
+http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta
+name="viewport" content="width=device-width, initial-scale=1.0" /><title>Lowest Common Ancestor of a Binary Tree Part II | LeetCode</title><link
+rel="pingback" href="http://leetcode.com/xmlrpc.php" /><link
+rel="shortcut icon" href="http://leetcode.com/wp-content/themes/buddyboss-child/_inc/images/favicon.ico" type="image/x-icon"><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; Feed" href="http://leetcode.com/feed" /><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; Comments Feed" href="http://leetcode.com/comments/feed" /><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; Lowest Common Ancestor of a Binary Tree Part II Comments Feed" href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html/feed" /><link
+rel='stylesheet' id='gdsr_style_main-css'  href='http://leetcode.com/wp-content/plugins/gd-star-rating/css/gdsr.css.php?t=1366376824&#038;s=a05i05m20k20c05r05%23121620243046%23121620243240%23s1pchristmas%23s1pcrystal%23s1pdarkness%23s1poxygen%23s1goxygen_gif%23s1pplain%23s1ppumpkin%23s1psoft%23s1pstarrating%23s1pstarscape%23t1pclassical%23t1pstarrating%23t1gstarrating_gif%23lsgflower%23lsgradar&#038;o=off&#038;ver=1.9.22' type='text/css' media='all' /><script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"2.2.0","is_admin":"0","ajaxurl":"http:\/\/leetcode.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script><script type='text/javascript'>
+/* <![CDATA[ */
+var BP_DTheme = {"my_favs":"My Likes","accepted":"Accepted","rejected":"Rejected","show_all_comments":"Show all comments for this thread","show_all":"Show all","comments":"comments","close":"Close","view":"View","mark_as_fav":"Like","remove_fav":"Unlike","add_photo":"Add Photo","cancel":"Cancel","failed":"Failed","person":"person","people":"people","like":"like","likes":"likes","this_1":"this"};
+/* ]]> */
+</script><link
+rel='prev' title='Lowest Common Ancestor of a Binary Tree Part I' href='http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html' /><link
+rel='next' title='Reverse Bits' href='http://leetcode.com/2011/08/reverse-bits.html' /><link
+rel='canonical' href='http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html' /><link
+rel='shortlink' href='http://leetcode.com/?p=797' /><script type="text/javascript">var ajaxurl = 'http://leetcode.com/wp-admin/admin-ajax.php';</script><style type='text/css'>#sidebar span.collapsing.archives {
+        border:0;
+        padding:0; 
+        margin:0; 
+        cursor:pointer;
+} 
+
+#sidebar span.monthCount, span.yearCount {text-decoration:none; color:#333}
+#sidebar li.collapsing.archives a.self {font-weight:bold}
+#sidebar ul.collapsing.archives.list ul.collapsing.archives.list:before {content:\'\';} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives:before {content:\'\';} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives {list-style-type:none}
+#sidebar ul.collapsing.archives.list li {
+       margin:0 0 0 .8em;
+       text-indent:-1em}
+#sidebar ul.collapsing.archives.list li.collapsing.archives.item:before {content: \'\\00BB \\00A0\' !important;} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives .sym {
+   font-size:1.2em;
+   font-family:Monaco, \'Andale Mono\', \'FreeMono\', \'Courier new\', \'Courier\', monospace;
+   cursor:pointer;
+    padding-right:15px;}
+#sidebar ul.collapsing.archives.list span.collapsing.archives.collapse .sym {
+    background-image: url(/wp-content/plugins/collapsing-archives/img/list-collapse.gif);
+}
+#sidebar ul.collapsing.archives.list span.collapsing.archives.expand .sym {
+    background-image: url(/wp-content/plugins/collapsing-archives/img/list-expand.gif);
+}</style><script type="text/javascript">
+//<![CDATA[
+var gdsr_cnst_nonce = "344a153a23";
+var gdsr_cnst_ajax = "http://leetcode.com/wp-content/plugins/gd-star-rating/ajax.php";
+var gdsr_cnst_button = 1;
+var gdsr_cnst_cache = 0;
+// ]]>
+</script><!--[if IE]><style type="text/css">.ratemulti .starsbar .gdcurrent { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter: alpha(opacity=70); }</style><![endif]--> <script type="text/javascript">
+    /* <![CDATA[ */				
+	jQuery.post('http://leetcode.com/wp-admin/admin-ajax.php', {action: 'wpp_update', token: '6117d36efc', id: 797}, function(data){/*alert(data);*/});
+    /* ]]> */
+</script><style type="text/css" media="print">#wpadminbar { display:none; }</style><style type="text/css" media="screen">
+	html { margin-top: 28px !important; }
+	* html body { margin-top: 28px !important; }
+</style><script type="text/javascript"> jQuery(document).ready( function() { jQuery("a.confirm").click( function() { if ( confirm( 'Are you sure?' ) ) return true; else return false; }); });</script></head><body
+class="single single-post postid-797 single-format-standard admin-bar no-customize-support no-js buddyboss-active-pics buddyboss-active-wall admin-bar" id="bp-default"> <!--[if lte IE 6]><script src="http://leetcode.com/wp-content/themes/buddyboss/_inc/js/ie6/warning.js"></script><script>window.onload=function(){e("http://leetcode.com/wp-content/themes/buddyboss-child/_inc/js/ie6/")}</script><![endif]--><script type="text/javascript">//<![CDATA[
+(function(){var c=document.body.className;c=c.replace(/no-js/,'js');document.body.className=c;})();
+//]]></script><div
+id="top-hdr-bg"></div><div
+class="menu-bg"></div><div
+id="wrapper"><div
+id="header"><div
+class="padder"><div
+id="logo"> <a
+href="http://leetcode.com" title="Home"><img
+src="http://leetcode.com/wp-content/uploads/2012/12/leetcodelogo.png"/></a></div><div
+class="menu-bg"></div><ul
+class="sf-menu"><li
+class="page_item page-item-2"><a
+href="http://leetcode.com/about">About</a></li><li
+class="page_item page-item-908"><a
+href="http://leetcode.com/activity">Activity</a></li><li
+class="page_item page-item-1466"><a
+href="http://leetcode.com/discuss">Discuss</a></li><li
+class="page_item page-item-1658"><a
+href="http://leetcode.com/donate">Donate</a></li><li
+class="page_item page-item-907"><a
+href="http://leetcode.com/members">Members</a></li><li
+class="page_item page-item-370"><a
+href="http://leetcode.com/onlinejudge">Online Judge</a></li></ul></div></div><div
+id="container"><div
+id="content" class="two_column"><div
+class="padder"><div
+class="page" id="blog-single" role="main"><div
+id="post-797" class="post-797 post type-post status-publish format-standard hentry category-binary-tree"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+rel="author" href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle">Lowest Common Ancestor of a Binary Tree Part II</h2><p
+class="date"> July 21, 2011 <span>in <a
+href="http://leetcode.com/category/binary-tree" title="View all posts in binary tree" rel="category tag">binary tree</a></span> <span
+class="post-utility alignright"></span></p><div
+class="entry"><blockquote><p>Given a binary tree, find the lowest common ancestor of two given nodes in the tree. Each node contains a parent pointer which links to its parent.</p></blockquote><p><span
+id="more-797"></span><br
+/> <strong><span
+style="color: red;">Note:</span></strong><br
+/> This is Part II of Lowest Common Ancestor of a Binary Tree. If you need to find the lowest common ancestor without parent pointers, please read <a
+href="http://www.leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html">Lowest Common Ancestor of a Binary Tree Part I</a>.<br
+/></p><pre>        _______<span style="color: #990000;">3</span>______
+       /              \
+    ___<span style="color: #990000;">5</span>__          ___<span style="color: #990000;">1</span>__
+   /      \        /      \
+   <span style="color: #990000;">6</span>      _<span style="color: #990000;">2       0       8</span>
+         /  \
+         <span style="color: #990000;">7   4</span></pre><p>If you are not so sure about the definition of lowest common ancestor (LCA), please refer to my previous post: <a
+href="http://www.leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-search-tree.html">Lowest Common Ancestor of a Binary Search Tree (BST)</a> or the definition of LCA <a
+href="http://en.wikipedia.org/wiki/Lowest_common_ancestor">here</a>. Using the tree above as an example, the LCA of nodes <span
+style="color: #990000;">5</span> and <span
+style="color: #990000;">1</span> is <span
+style="color: #990000;">3</span>. Please note that LCA for nodes <span
+style="color: #990000;">5</span> and <span
+style="color: #990000;">4</span> is <span
+style="color: #990000;">5</span>.</p><p>In my last post: <a
+href="http://www.leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html">Lowest Common Ancestor of a Binary Tree Part I</a>, we have devised a recursive solution which finds the LCA in O(<em>n</em>) time. If each node has a pointer that link to its parent, could we devise a better solution?</p><p><strong>Hint:</strong><br
+/> No recursion is needed. There is an easy solution which uses extra space. Could you eliminate the need of extra space?</p><p><strong>An easy solution<em></em>:</strong><br
+/> As we trace the two paths from both nodes up to the root, eventually it will merge into one single path. The LCA is the exact first intersection node where both paths merged into a single path. An easy solution is to use a hash table which records visited nodes as we trace both paths up to the root. Once we reached the first node which is already marked as visited, we immediately return that node as the LCA.</p><div
+id="crayon-52a3f052a6569" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+Node *LCA(Node *root, Node *p, Node *q) {
+  hash_set&lt;Node *&gt; visited;
+  while (p || q) {
+    if (p) {
+      if (!visited.insert(p).second)
+        return p; // insert p failed (p exists in the table)
+      p = p-&gt;parent;
+    }
+    if (q) {
+      if (!visited.insert(q).second)
+        return q; // insert q failed (q exists in the table)
+      q = q-&gt;parent;
+    }
+  }
+  return NULL;
+}</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3f052a6569-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6569-2">2</div><div
+class="crayon-num" data-line="crayon-52a3f052a6569-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6569-4">4</div><div
+class="crayon-num" data-line="crayon-52a3f052a6569-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6569-6">6</div><div
+class="crayon-num" data-line="crayon-52a3f052a6569-7">7</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6569-8">8</div><div
+class="crayon-num" data-line="crayon-52a3f052a6569-9">9</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6569-10">10</div><div
+class="crayon-num" data-line="crayon-52a3f052a6569-11">11</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6569-12">12</div><div
+class="crayon-num" data-line="crayon-52a3f052a6569-13">13</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6569-14">14</div><div
+class="crayon-num" data-line="crayon-52a3f052a6569-15">15</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6569-16">16</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3f052a6569-1"><span
+class="e ">Node *</span><span
+class="e">LCA</span><span
+class="sy">(</span><span
+class="e ">Node *</span><span
+class="i">root</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="e ">Node *</span><span
+class="i">p</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="e ">Node *</span><span
+class="i">q</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6569-2"><span
+class="h">&nbsp;&nbsp;</span><span
+class="i">hash_set</span><span
+class="o">&lt;</span><span
+class="e ">Node *</span><span
+class="o">&gt;</span><span
+class="h"> </span><span
+class="i">visited</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f052a6569-3"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">while</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">p</span><span
+class="h"> </span><span
+class="o">||</span><span
+class="h"> </span><span
+class="i">q</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6569-4"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">p</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line" id="crayon-52a3f052a6569-5"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="o">!</span><span
+class="v">visited</span><span
+class="sy">.</span><span
+class="e">insert</span><span
+class="sy">(</span><span
+class="i">p</span><span
+class="sy">)</span><span
+class="sy">.</span><span
+class="i">second</span><span
+class="sy">)</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6569-6"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">p</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="c">// insert p failed (p exists in the table)</span></div><div
+class="crayon-line" id="crayon-52a3f052a6569-7"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">p</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="i">p</span><span
+class="o">-&gt;</span><span
+class="r">parent</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6569-8"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3f052a6569-9"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">q</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6569-10"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="o">!</span><span
+class="v">visited</span><span
+class="sy">.</span><span
+class="e">insert</span><span
+class="sy">(</span><span
+class="i">q</span><span
+class="sy">)</span><span
+class="sy">.</span><span
+class="i">second</span><span
+class="sy">)</span></div><div
+class="crayon-line" id="crayon-52a3f052a6569-11"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">q</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="c">// insert q failed (q exists in the table)</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6569-12"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">q</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="i">q</span><span
+class="o">-&gt;</span><span
+class="r">parent</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f052a6569-13"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6569-14"><span
+class="h">&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3f052a6569-15"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="t">NULL</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6569-16"><span
+class="sy">}</span></div></div></td></tr></table></div></div><p>The run time complexity of this approach is O(<em>h</em>), where <em>h</em> is the tree&#8217;s height. The space complexity is also O(<em>h</em>), since it can mark at most 2<em>h</em> nodes.</p><p><strong>The best solution:<br
+/> </strong>A little creativity is needed here. Since we have the parent pointer, we could easily get the distance (height) of both nodes from the root. Once we knew both heights, we could subtract from one another and get the height&#8217;s difference (<em>dh</em>). If you observe carefully from the previous solution, the node which is closer to the root is always <em>dh</em> steps ahead of the deeper node. We could eliminate the need of marking visited nodes altogether. Why?</p><p>The reason is simple, if we advance the deeper node <em>dh</em> steps above, both nodes would be at the same depth. Then, we advance both nodes one level at a time. They would then eventually intersect at one node, which is the LCA of both nodes. If not, one of the node would eventually reach NULL (root&#8217;s parent), which we conclude that both nodes are not in the same tree. However, that part of code shouldn&#8217;t be reached, since the problem statement assumed that both nodes are in the same tree.</p><div
+id="crayon-52a3f052a6627" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+int getHeight(Node *p) {
+  int height = 0;
+  while (p) {
+    height++;
+    p = p-&gt;parent;
+  }
+  return height;
+}
+
+// As root-&gt;parent is NULL, we don't need to pass root in.
+Node *LCA(Node *p, Node *q) {
+  int h1 = getHeight(p);
+  int h2 = getHeight(q);
+  // swap both nodes in case p is deeper than q.
+  if (h1 &gt; h2) {
+    swap(h1, h2);
+    swap(p, q);
+  }
+  // invariant: h1 &lt;= h2.
+  int dh = h2 - h1;
+  for (int h = 0; h &lt; dh; h++)
+    q = q-&gt;parent;
+  while (p &amp;&amp; q) {
+    if (p == q) return p;
+    p = p-&gt;parent;
+    q = q-&gt;parent;
+  }
+  return NULL;  // p and q are not in the same tree
+}</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3f052a6627-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6627-2">2</div><div
+class="crayon-num" data-line="crayon-52a3f052a6627-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6627-4">4</div><div
+class="crayon-num" data-line="crayon-52a3f052a6627-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6627-6">6</div><div
+class="crayon-num" data-line="crayon-52a3f052a6627-7">7</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6627-8">8</div><div
+class="crayon-num" data-line="crayon-52a3f052a6627-9">9</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6627-10">10</div><div
+class="crayon-num" data-line="crayon-52a3f052a6627-11">11</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6627-12">12</div><div
+class="crayon-num" data-line="crayon-52a3f052a6627-13">13</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6627-14">14</div><div
+class="crayon-num" data-line="crayon-52a3f052a6627-15">15</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6627-16">16</div><div
+class="crayon-num" data-line="crayon-52a3f052a6627-17">17</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6627-18">18</div><div
+class="crayon-num" data-line="crayon-52a3f052a6627-19">19</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6627-20">20</div><div
+class="crayon-num" data-line="crayon-52a3f052a6627-21">21</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6627-22">22</div><div
+class="crayon-num" data-line="crayon-52a3f052a6627-23">23</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6627-24">24</div><div
+class="crayon-num" data-line="crayon-52a3f052a6627-25">25</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6627-26">26</div><div
+class="crayon-num" data-line="crayon-52a3f052a6627-27">27</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a6627-28">28</div><div
+class="crayon-num" data-line="crayon-52a3f052a6627-29">29</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3f052a6627-1"><span
+class="t">int</span><span
+class="h"> </span><span
+class="e">getHeight</span><span
+class="sy">(</span><span
+class="e ">Node *</span><span
+class="i">p</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6627-2"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">height</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f052a6627-3"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">while</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">p</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6627-4"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">height</span><span
+class="o">++</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f052a6627-5"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">p</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="i">p</span><span
+class="o">-&gt;</span><span
+class="r">parent</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6627-6"><span
+class="h">&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3f052a6627-7"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">height</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6627-8"><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3f052a6627-9">&nbsp;</div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6627-10"><span
+class="c">// As root-&gt;parent is NULL, we don't need to pass root in.</span></div><div
+class="crayon-line" id="crayon-52a3f052a6627-11"><span
+class="e ">Node *</span><span
+class="e">LCA</span><span
+class="sy">(</span><span
+class="e ">Node *</span><span
+class="i">p</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="e ">Node *</span><span
+class="i">q</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6627-12"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">h1</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="e">getHeight</span><span
+class="sy">(</span><span
+class="i">p</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f052a6627-13"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">h2</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="e">getHeight</span><span
+class="sy">(</span><span
+class="i">q</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6627-14"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// swap both nodes in case p is deeper than q.</span></div><div
+class="crayon-line" id="crayon-52a3f052a6627-15"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">h1</span><span
+class="h"> </span><span
+class="o">&gt;</span><span
+class="h"> </span><span
+class="i">h2</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6627-16"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="e">swap</span><span
+class="sy">(</span><span
+class="i">h1</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">h2</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f052a6627-17"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="e">swap</span><span
+class="sy">(</span><span
+class="i">p</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">q</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6627-18"><span
+class="h">&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3f052a6627-19"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// invariant: h1 &lt;= h2.</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6627-20"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">dh</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="i">h2</span><span
+class="h"> </span><span
+class="o">-</span><span
+class="h"> </span><span
+class="i">h1</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f052a6627-21"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">for</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">h</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="i">h</span><span
+class="h"> </span><span
+class="o">&lt;</span><span
+class="h"> </span><span
+class="i">dh</span><span
+class="sy">;</span><span
+class="h"> </span><span
+class="i">h</span><span
+class="o">++</span><span
+class="sy">)</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6627-22"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">q</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="i">q</span><span
+class="o">-&gt;</span><span
+class="r">parent</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f052a6627-23"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">while</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">p</span><span
+class="h"> </span><span
+class="o">&amp;&amp;</span><span
+class="h"> </span><span
+class="i">q</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6627-24"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="v">p</span><span
+class="h"> </span><span
+class="o">==</span><span
+class="h"> </span><span
+class="i">q</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">p</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f052a6627-25"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">p</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="i">p</span><span
+class="o">-&gt;</span><span
+class="r">parent</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6627-26"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">q</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="i">q</span><span
+class="o">-&gt;</span><span
+class="r">parent</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3f052a6627-27"><span
+class="h">&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a6627-28"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="t">NULL</span><span
+class="sy">;</span><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// p and q are not in the same tree</span></div><div
+class="crayon-line" id="crayon-52a3f052a6627-29"><span
+class="sy">}</span></div></div></td></tr></table></div></div><p><strong><span
+style="color: red;">Further Thoughts</span></strong>:<br
+/> Isn&#8217;t the solution above neat? It requires some creative thought and is quite subtle.</p><p>A variation of this problem which seemed to be more popular is:</p><blockquote><p>Given two singly linked lists and they both intersect at one point (ie, forming a Y shaped list). Find where the two linked lists merge.</p></blockquote><p>I am sure you know how to answer this question now <img
+src='http://leetcode.com/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /></p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="ratingblock "><div
+class="ratingheader "></div><div
+class="ratingstars "><div
+id="article_rater_797" class="ratepost gdsr-oxygen gdsr-size-24"><div
+class="starsbar gdsr-size-24"><div
+class="gdouter gdheight"><div
+id="gdr_vote_a797" style="width: 114.85714285714px;" class="gdinner gdheight"></div><div
+id="gdr_stars_a797" class="gdsr_rating_as"><a
+id="gdsrX797X5X0XaXarticle_rater_797Xarticle_loader_797X10X24" title="5 / 5" class="s5" rel="nofollow"></a><a
+id="gdsrX797X4X0XaXarticle_rater_797Xarticle_loader_797X10X24" title="4 / 5" class="s4" rel="nofollow"></a><a
+id="gdsrX797X3X0XaXarticle_rater_797Xarticle_loader_797X10X24" title="3 / 5" class="s3" rel="nofollow"></a><a
+id="gdsrX797X2X0XaXarticle_rater_797Xarticle_loader_797X10X24" title="2 / 5" class="s2" rel="nofollow"></a><a
+id="gdsrX797X1X0XaXarticle_rater_797Xarticle_loader_797X10X24" title="1 / 5" class="s1" rel="nofollow"></a></div></div></div></div><div
+id="article_loader_797" style="display: none; width: 120px " class="ratingloaderarticle"><div
+class="loader radar " style="height: 24px"><div
+class="loaderinner" style="padding-top: 2px">please wait...</div></div></div></div><div
+class="ratingtext "><div
+id="gdr_text_a797">Rating: 4.8/<strong>5</strong> (28 votes cast)</div></div></div><span
+class="hreview-aggregate"><span
+class="item"><span
+class="fn">Lowest Common Ancestor of a Binary Tree Part II</span></span>, <span
+class="rating"><span
+class="average">4.8</span> out of <span
+class="best">5</span> based on <span
+class="votes">28</span> ratings <span
+class="summary"></span></span></span></div><p
+class="postmetadata">&nbsp;</p><div
+class="alignleft"><a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html" rel="prev"><span
+class="meta-nav">&larr;</span> Lowest Common Ancestor of a Binary Tree Part I</a></div><div
+class="alignright"><a
+href="http://leetcode.com/2011/08/reverse-bits.html" rel="next">Reverse Bits <span
+class="meta-nav">&rarr;</span></a></div></div></div><div
+id="comments"><h3> 21 responses to <em>Lowest Common Ancestor of a Binary Tree Part II</em></h3><ol
+class="commentlist"><li
+class="comment even thread-even depth-1" id="comment-1738"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/77a01ceaabbfafae04269f603afc2deb?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Pankaj</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-1738"><span
+class="time-since">July 22, 2011</span></a></p></div><div
+class="comment-entry"><p>Please try to remove add if possible.<br
+/> Instead add a paypal option so that those who get benefit from your blog can support this hard work of yours <img
+src='http://leetcode.com/wp-includes/images/smilies/icon_biggrin.gif' alt=':D' class='wp-smiley' /></p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1738_c" class="gdt-size-20 gdthumbtext"> <strong
+title="3 up, 9 down">-6</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1738_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1738XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1738_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1738_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1738XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1738_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=1738#respond' onclick='return addComment.moveForm("comment-1738", "1738", "respond", "797")'>Reply</a></div></div></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-1751"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/08b10714cc9e4403d9080594edc2c927?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">maxq</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-1751"><span
+class="time-since">July 23, 2011</span></a></p></div><div
+class="comment-entry"><p>There seems to be a bug in your code?<br
+/> Please see below.</p><p>Node *LCA(Node *root, Node *p, Node *q) {<br
+/> hash_set visited;<br
+/> while (p || q) {<br
+/> if (p) {<br
+/> if (!visited.insert(p).second)<br
+/> return p; // insert p failed (p exists in the table)<br
+/> p = p-&gt;parent;<br
+/> }<br
+/> if (q) {<br
+/> if (!visited.insert(p).second)   parent;<br
+/> }<br
+/> }<br
+/> return NULL;</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1751_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1751_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1751XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1751_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1751_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1751XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1751_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=1751#respond' onclick='return addComment.moveForm("comment-1751", "1751", "respond", "797")'>Reply</a></div></div><ul
+class='children'><li
+class="comment byuser comment-author-admin bypostauthor even depth-2" id="comment-1756"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/admin/" rel="nofollow"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar Image" class="avatar user-8268-avatar" width="25" height="25" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/admin/" rel="nofollow">1337c0d3r</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-1756"><span
+class="time-since">July 23, 2011</span></a></p></div><div
+class="comment-entry"><p>Are you saying that on line 10:<br
+/> (!visited.insert(p).second)<br
+/> should be:<br
+/> (!visited.insert(q).second)</p><p>If that is, this is a mistake and thanks for pointing that out. I will correct the post later.</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1756_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1756_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1756XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1756_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1756_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1756XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1756_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=1756#respond' onclick='return addComment.moveForm("comment-1756", "1756", "respond", "797")'>Reply</a></div></div><ul
+class='children'><li
+class="comment byuser comment-author-upoffer odd alt depth-3" id="comment-14816"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/upoffer/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/640954818b157e5416b23427506f03dd?d=identicon&amp;s=25&amp;r=G" alt="Avatar Image" class="avatar user-806-avatar" width="25" height="25" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/upoffer/" rel="nofollow">Alex</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-14816"><span
+class="time-since">February 20, 2012</span></a></p></div><div
+class="comment-entry"><p>What is &#8220;second&#8221; in (!visited.insert(q).second) ?</p><p>I know in Java, for &#8220;visited.add(q)&#8221;, if q exists, it will return false. But here, what is the mean of &#8220;second&#8221; ?</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_14816_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_14816_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX14816XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_14816_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_14816_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX14816XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_14816_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=14816#respond' onclick='return addComment.moveForm("comment-14816", "14816", "respond", "797")'>Reply</a></div></div><ul
+class='children'><li
+class="comment byuser comment-author-admin bypostauthor even depth-4" id="comment-14834"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/admin/" rel="nofollow"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar Image" class="avatar user-8268-avatar" width="25" height="25" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/admin/" rel="nofollow">1337c0d3r</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-14834"><span
+class="time-since">February 20, 2012</span></a></p></div><div
+class="comment-entry"><p>The insert() function returns a pair.</p><p>The insert member function returns a pair whose bool component returns true if an insertion was make and false if the hash_set already contained an element whose key had an equivalent value in the ordering</p><p><a
+href="http://msdn.microsoft.com/en-us/library/2t5cf4t8%28v=vs.80%29.aspx" rel="nofollow">http://msdn.microsoft.com/en-us/library/2t5cf4t8%28v=vs.80%29.aspx</a></p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_14834_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_14834_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX14834XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_14834_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_14834_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX14834XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_14834_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=14834#respond' onclick='return addComment.moveForm("comment-14834", "14834", "respond", "797")'>Reply</a></div></div></li></ul></li></ul></li></ul></li><li
+class="comment odd alt thread-even depth-1" id="comment-1780"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/4bae5143216d0c560304a06da1a31739?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Chetan Sharma</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-1780"><span
+class="time-since">July 25, 2011</span></a></p></div><div
+class="comment-entry"><p>Various solution to the Y shaped linked list problem exists, one of them being:</p><p>Start traversing first list setting the next pointer to NULL in the process. Now start traversing the second list until the next pointer of a node is not NULL. At this point the current node is the intersecting node. Though this solution requires modification to the list but is more efficient as you need to traverse the list only once</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1780_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1780_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1780XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1780_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1780_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1780XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1780_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=1780#respond' onclick='return addComment.moveForm("comment-1780", "1780", "respond", "797")'>Reply</a></div></div></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-5781"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/8ee657195517286746a61274a230159f?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">fangstar</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-5781"><span
+class="time-since">November 8, 2011</span></a></p></div><div
+class="comment-entry"><p>For the Y shaped linked list problem, instead of difference in height we need to calculate the difference in length between the linked lists right?<br
+/> Then do the similar advancement on the longer length, and then iterate for a match?</p><p>TIY</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_5781_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_5781_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX5781XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_5781_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_5781_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX5781XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_5781_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=5781#respond' onclick='return addComment.moveForm("comment-5781", "5781", "respond", "797")'>Reply</a></div></div></li><li
+class="comment odd alt thread-even depth-1" id="comment-17013"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/cd3a7820c69adfd1e8c62152248343c3?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Eugene Kirpichov</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-17013"><span
+class="time-since">March 28, 2012</span></a></p></div><div
+class="comment-entry"><p>The solution is indeed neat, but I would not call it &#8220;best&#8221; in all situations. It requires at least traversing both nodes to the root, whereas the &#8220;easy&#8221; solution may stop much earlier than that.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_17013_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_17013_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX17013XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_17013_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_17013_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX17013XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_17013_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=17013#respond' onclick='return addComment.moveForm("comment-17013", "17013", "respond", "797")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-jtl09 even thread-odd thread-alt depth-1" id="comment-17813"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/jtl09/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/6aa7dbd22c8aa32fd7a10baada85f611?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-1232-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/jtl09/" rel="nofollow">景泰蓝</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-17813"><span
+class="time-since">April 5, 2012</span></a></p></div><div
+class="comment-entry"><p>Node *LCA(Node *root, Node *p, Node *q){<br
+/> Node  * q_path[MAX] , p_path[MAX];<br
+/> int qi=0, pi=0;<br
+/> while(q) { q_path[qi++]=q;  q=q-&gt;parent ;}<br
+/> while(p) { p_path[pi++]}=p; p=p-&gt;parent; }<br
+/> while(qi&gt;=0 &amp;&amp; pi&gt;=0){ if(q_path[--qi] != p_path[--pi]) return p_path[qi] ; }<br
+/> return NULL;</p><p>}</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_17813_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_17813_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX17813XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_17813_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_17813_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX17813XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_17813_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=17813#respond' onclick='return addComment.moveForm("comment-17813", "17813", "respond", "797")'>Reply</a></div></div></li><li
+class="comment odd alt thread-even depth-1" id="comment-20609"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/38c1546c859333265ba4280870b5d173?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Raja</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-20609"><span
+class="time-since">June 2, 2012</span></a></p></div><div
+class="comment-entry"><p>The LCA of 6 and 2 in the example should be 5 or 3 ? Since its lowest common ancestor &#8211; Shouldnt it be 3 ?</p><p>But the code given would give us 5 as the answer. Please clarify ?</p><p>Thanks,<br
+/> Raja.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_20609_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_20609_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX20609XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_20609_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_20609_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX20609XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_20609_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=20609#respond' onclick='return addComment.moveForm("comment-20609", "20609", "respond", "797")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-ganeshcse even thread-odd thread-alt depth-1" id="comment-22852"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/ganeshcse/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/ceb0dfca898383c4b556e11df2ba3818?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-2692-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/ganeshcse/" rel="nofollow">Ganesh R</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-22852"><span
+class="time-since">July 27, 2012</span></a></p></div><div
+class="comment-entry"><p>You are using parent.. But the actual structure of a Binary tree should be<br
+/> struct tree<br
+/> {<br
+/> struct tree *lchild;<br
+/> struct tree *rchild;<br
+/> int element;<br
+/> };</p><p>If additional varialbles or terms added, can it called a Binary tree???</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_22852_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_22852_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX22852XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_22852_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_22852_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX22852XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_22852_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=22852#respond' onclick='return addComment.moveForm("comment-22852", "22852", "respond", "797")'>Reply</a></div></div><ul
+class='children'><li
+class="comment odd alt depth-2" id="comment-23700"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/75ff917cf2bf5ca4693ab2311aff9e78?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">George</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-23700"><span
+class="time-since">August 12, 2012</span></a></p></div><div
+class="comment-entry"><p>Yes, a binary tree doesn&#8217;t stop being a binary tree if you add a pointer to the parent node. The solution provided is indeed very creative</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_23700_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_23700_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX23700XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_23700_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_23700_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX23700XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_23700_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=23700#respond' onclick='return addComment.moveForm("comment-23700", "23700", "respond", "797")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-balecooky even depth-2" id="comment-61344"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/balecooky/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/06d129f2a60d6e016ad3766257ae013d?d=identicon&amp;s=25&amp;r=G" alt="Avatar Image" class="avatar user-13626-avatar" width="25" height="25" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/balecooky/" rel="nofollow">Sumit</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-61344"><span
+class="time-since">May 26, 2013</span></a></p></div><div
+class="comment-entry"><p>@ Ganesh , I think it should be , for node structure can be modified , yet the overall structure doesn&#8217;t cease to be a binary tree , I know I had applied the exactly same approach when asked to find LCA in Univ Exams , only to score a zero <img
+src='http://leetcode.com/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> for not following the soln they had in the answer key ! Damn !!<br
+/> we may avoid swapping by using minptr=minheight(h1,h2) and then proceed as is</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_61344_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_61344_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX61344XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_61344_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_61344_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX61344XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_61344_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=61344#respond' onclick='return addComment.moveForm("comment-61344", "61344", "respond", "797")'>Reply</a></div></div></li></ul></li><li
+class="comment odd alt thread-even depth-1" id="comment-24041"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/dff072a695c538abbb29bad5a7317db5?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Daniel</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-24041"><span
+class="time-since">August 19, 2012</span></a></p></div><div
+class="comment-entry"><p>There is a better solution&#8230;<br
+/> The suggested solution is o(depth of tree), there is a solution in o(distance of two nodes).</p><p>1.Note: Once you find a common ancestor, you can find the differences between the two nodes heights, and find the lowest common ancestor.</p><p>2. In order to find a common ancesstor in o(distance) you can walk up in the tree alternately with each pointer in the following way:<br
+/> a. first you will go with the first pointer 1 step.<br
+/> b. with the second pointer 2 steps.<br
+/> c. with the first pointer 4 steps.. etc<br
+/> where in each step you compare the pointers, and you stop once they are equal.</p><p>On the iteration where the number of steps is &gt;= distance of the two nodes, you will find some common ancestor o(distance).</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_24041_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_24041_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX24041XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_24041_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_24041_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX24041XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_24041_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=24041#respond' onclick='return addComment.moveForm("comment-24041", "24041", "respond", "797")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-fireflyk even thread-odd thread-alt depth-1" id="comment-34135"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/fireflyk/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/dbf5d784503a3b9ac6a6efae5a45237b?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-6033-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/fireflyk/" rel="nofollow">Tong Liu</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-34135"><span
+class="time-since">December 30, 2012</span></a></p></div><div
+class="comment-entry"><p>it is like another question finding intersection of two linked list</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_34135_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_34135_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX34135XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_34135_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_34135_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX34135XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_34135_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=34135#respond' onclick='return addComment.moveForm("comment-34135", "34135", "respond", "797")'>Reply</a></div></div></li><li
+class="comment odd alt thread-even depth-1" id="comment-36642"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/632eb151e7a23d47140dae7537d635e0?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Raj</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-36642"><span
+class="time-since">January 21, 2013</span></a></p></div><div
+class="comment-entry"><p>COuld you please explain it.I did not understand How do we go back like p=p-&gt;parents.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_36642_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_36642_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX36642XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_36642_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_36642_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX36642XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_36642_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=36642#respond' onclick='return addComment.moveForm("comment-36642", "36642", "respond", "797")'>Reply</a></div></div></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-36782"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/4e0426e146cf5ef8ac08f0b11b282a9c?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Partha Pratim Sirker</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-36782"><span
+class="time-since">January 22, 2013</span></a></p></div><div
+class="comment-entry"><p>Although it is similar to a Y shaped linkedlist problem, the solution would involve find out the path of the nodes separately which is of O(n) operation. So in total we will do two iteration of O(n) and then O(log n) to find out the Y junction. (Assuming there is no parent pointer). I found this solution better where there is only one iteration and it is of O(n) complexity. It is done with a single post-order traversal. <a
+href="http://www.dsalgo.com/LowestCommonAncestor.php" rel="nofollow">http://www.dsalgo.com/LowestCommonAncestor.php</a></p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_36782_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_36782_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX36782XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_36782_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_36782_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX36782XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_36782_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=36782#respond' onclick='return addComment.moveForm("comment-36782", "36782", "respond", "797")'>Reply</a></div></div><ul
+class='children'><li
+class="comment odd alt depth-2" id="comment-43638"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/cb3cea410da2b5108ed22213653e859c?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">pavi</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-43638"><span
+class="time-since">February 22, 2013</span></a></p></div><div
+class="comment-entry"><p>The solution given in the link you provided and what you are talking about is similar (or exactly same) to the one given in the part 1 of this Article.<br
+/> Here&#8217;s the link:<br
+/> <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html" rel="nofollow">http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html</a></p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_43638_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_43638_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX43638XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_43638_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_43638_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX43638XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_43638_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=43638#respond' onclick='return addComment.moveForm("comment-43638", "43638", "respond", "797")'>Reply</a></div></div></li></ul></li><li
+class="comment even thread-even depth-1" id="comment-43903"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/a186c242285b942345b4d7b606939651?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Prateek Caire</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-43903"><span
+class="time-since">February 24, 2013</span></a></p></div><div
+class="comment-entry"><p>How about this one.Move one of the nodes up and delink the parent by putting null to parent pointer.Move second node up till we do not find delinked parent. That node is LCA. Solution, however, alters tree structure</p><div
+id="crayon-52a3f052a9e1d" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+MU(n)
+	while(true)
+		if(n-&gt;p == null)
+			return n
+		tn =n
+		n = n-&gt;p
+		tn-&gt;p= null
+LCA()
+	a = MU(n1)
+	b = MU(n2)
+	print b as solution</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3f052a9e1d-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a9e1d-2">2</div><div
+class="crayon-num" data-line="crayon-52a3f052a9e1d-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a9e1d-4">4</div><div
+class="crayon-num" data-line="crayon-52a3f052a9e1d-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a9e1d-6">6</div><div
+class="crayon-num" data-line="crayon-52a3f052a9e1d-7">7</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a9e1d-8">8</div><div
+class="crayon-num" data-line="crayon-52a3f052a9e1d-9">9</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3f052a9e1d-10">10</div><div
+class="crayon-num" data-line="crayon-52a3f052a9e1d-11">11</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3f052a9e1d-1"><span
+class="e">MU</span><span
+class="sy">(</span><span
+class="i">n</span><span
+class="sy">)</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a9e1d-2"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">while</span><span
+class="sy">(</span><span
+class="t">true</span><span
+class="sy">)</span></div><div
+class="crayon-line" id="crayon-52a3f052a9e1d-3"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="sy">(</span><span
+class="i">n</span><span
+class="o">-&gt;</span><span
+class="v">p</span><span
+class="h"> </span><span
+class="o">==</span><span
+class="h"> </span><span
+class="t">null</span><span
+class="sy">)</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a9e1d-4"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">n</span></div><div
+class="crayon-line" id="crayon-52a3f052a9e1d-5"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">tn</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="i">n</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a9e1d-6"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">n</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="i">n</span><span
+class="o">-&gt;</span><span
+class="i">p</span></div><div
+class="crayon-line" id="crayon-52a3f052a9e1d-7"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">tn</span><span
+class="o">-&gt;</span><span
+class="v">p</span><span
+class="o">=</span><span
+class="h"> </span><span
+class="t">null</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a9e1d-8"><span
+class="e">LCA</span><span
+class="sy">(</span><span
+class="sy">)</span></div><div
+class="crayon-line" id="crayon-52a3f052a9e1d-9"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">a</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="e">MU</span><span
+class="sy">(</span><span
+class="i">n1</span><span
+class="sy">)</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3f052a9e1d-10"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="v">b</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="e">MU</span><span
+class="sy">(</span><span
+class="i">n2</span><span
+class="sy">)</span></div><div
+class="crayon-line" id="crayon-52a3f052a9e1d-11"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">print</span><span
+class="h"> </span><span
+class="i">b</span><span
+class="h"> </span><span
+class="st">as</span><span
+class="h"> </span><span
+class="i">solution</span></div></div></td></tr></table></div></div><p></p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_43903_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_43903_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX43903XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_43903_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_43903_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX43903XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_43903_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=43903#respond' onclick='return addComment.moveForm("comment-43903", "43903", "respond", "797")'>Reply</a></div></div></li><li
+class="comment byuser comment-author-zxddxp odd alt thread-odd thread-alt depth-1" id="comment-49138"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/zxddxp/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/e7a4bc9c2adec86eb665135cbea253ec?d=identicon&amp;s=50&amp;r=G" alt="Avatar Image" class="avatar user-7909-avatar" width="50" height="50" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/zxddxp/" rel="nofollow">DaShan</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-49138"><span
+class="time-since">March 17, 2013</span></a></p></div><div
+class="comment-entry"><p>I don&#8217;t think computing the nodes&#8217; heights is necessary:</p><p>-Assuming we store the &#8220;root-to-node&#8221; path in a stack<br
+/> -Then going down to child node is represented by a stack &#8220;push&#8221;, and a backtrack is achieved by a stack pop<br
+/> -(1) After finding the 1st node, we have a stack that stores the path from the root to the 1st node<br
+/> -(2) Then we continue the traversal, by &#8220;pop&#8221;, &#8220;push&#8221;, &#8220;push&#8221;, &#8230;, until reaching the 2nd node<br
+/> -between (1) and (2), a prefix of the stack, namely from the root to the LCA, will not change<br
+/> -therefore, we can use a &#8220;watermark pointer&#8221; to maintain &#8220;the lowest element of the stack content at (1) that survives till (2) is done&#8221;.<br
+/> -Once (2) is done, the above &#8220;watermark pointer&#8221; points to the LCA.</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_49138_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_49138_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX49138XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_49138_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_49138_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX49138XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_49138_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=49138#respond' onclick='return addComment.moveForm("comment-49138", "49138", "respond", "797")'>Reply</a></div></div><ul
+class='children'><li
+class="comment byuser comment-author-janevans even depth-2" id="comment-50097"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="http://leetcode.com/members/janevans/" rel="nofollow"> <img
+src="http://www.gravatar.com/avatar/18238a733635ab0cc008d96ac062a37c?d=identicon&amp;s=25&amp;r=G" alt="Avatar Image" class="avatar user-714-avatar" width="25" height="25" /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="http://leetcode.com/members/janevans/" rel="nofollow">Siyong</a> said on <a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comment-50097"><span
+class="time-since">March 21, 2013</span></a></p></div><div
+class="comment-entry"><p>That would require extra memory.</p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_50097_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_50097_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX50097XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_50097_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_50097_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX50097XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_50097_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html?replytocom=50097#respond' onclick='return addComment.moveForm("comment-50097", "50097", "respond", "797")'>Reply</a></div></div></li></ul></li></ol></div><div
+id="respond"><h3 id="reply-title">Leave a reply <small><a
+rel="nofollow" id="cancel-comment-reply-link" href="/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#respond" style="display:none;">Cancel reply</a></small></h3><form
+action="http://leetcode.com/wp-comments-post.php" method="post" id="commentform"><div
+class="comment-avatar-box"><div
+class="avb"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /></div></div><div
+class="comment-content standard-form"><p
+class="comment-notes">Your email address will not be published. Required fields are marked <span
+class="required">*</span></p><p
+class="comment-form-author"><label
+for="author">Name<span
+class="required"> *</span></label> <input
+id="author" name="author" type="text" value="" size="30" aria-required='true' /></p><p
+class="comment-form-email"><label
+for="email">Email<span
+class="required"> *</span></label> <input
+id="email" name="email" type="text" value="" size="30" aria-required='true' /></p><p
+class="comment-form-url"><label
+for="url">Website</label><input
+id="url" name="url" type="text" value="" size="30" /></p><p
+class="form-textarea"><textarea name="comment" id="comment" cols="60" rows="10" aria-required="true"></textarea></p><p
+class="form-allowed-tags">You may use the <code>&lt;code&gt;</code> tag to embed your code.</p><p
+class="form-submit"> <input
+name="submit" type="submit" id="submit" value="Post Comment" /> <input
+type='hidden' name='comment_post_ID' value='797' id='comment_post_ID' /> <input
+type='hidden' name='comment_parent' id='comment_parent' value='0' /></p><p
+style="display: none;"><input
+type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="2384b38d6b" /></p></div></form></div><div
+id="trackbacks"><h3>3 trackbacks</h3><ul
+id="trackbacklist"><li><h5><a
+href='http://ilivetoseek.wordpress.com/2011/10/30/lowest-common-ancestor-of-a-binary-tree-with-parent-pointers/' rel='external nofollow' class='url'>Lowest Common Ancestor of a Binary Tree with Parent pointers | I Live to Seek&#8230;</a></h5> <em>on October 31, 2011</em></li><li><h5><a
+href='http://www.leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html' rel='external nofollow' class='url'>Lowest Common Ancestor of a Binary Tree Part I | LeetCode</a></h5> <em>on November 20, 2011</em></li><li><h5><a
+href='http://itsrough.wordpress.com/2012/10/20/must-read-problems-of-leetcode/' rel='external nofollow' class='url'>Must read problems of LeetCode | What I learn, I blog !</a></h5> <em>on October 20, 2012</em></li></ul></div></div></div></div><div
+id="post-dir-search" class="dir-search"><form
+role="search" method="get" id="searchform" action="http://leetcode.com/"> <input
+type="text" value="" name="s" id="s" /> <input
+type="submit" id="searchsubmit" value="Search" /></form></div><div
+id="sidebar"><div
+class="padder"></div></div></div><div
+id="push"></div></div><div
+id="footer"><div
+id="colophon"><div
+class="footer-widget"></div><div
+class="footer-widget"></div><div
+class="footer-widget"></div><div
+class="footer-widget last"></div><div
+class="clear"></div><div
+id="footer-links"><ul
+class="footer-menu"><li
+class="page_item page-item-2"><a
+href="http://leetcode.com/about">About</a></li><li
+class="page_item page-item-908"><a
+href="http://leetcode.com/activity">Activity</a></li><li
+class="page_item page-item-1466"><a
+href="http://leetcode.com/discuss">Discuss</a></li><li
+class="page_item page-item-1658"><a
+href="http://leetcode.com/donate">Donate</a></li><li
+class="page_item page-item-907"><a
+href="http://leetcode.com/members">Members</a></li><li
+class="page_item page-item-370"><a
+href="http://leetcode.com/onlinejudge">Online Judge</a></li></ul></div><div
+id="credits"><p>Copyright &copy; 2013 LeetCode &nbsp;&middot;&nbsp; <a
+href="http://leetcode.com/wp-login.php">Log in</a></p></div></div></div><div
+id="wpadminbar" class="nojq nojs" role="navigation"> <a
+class="screen-reader-shortcut" href="#wp-toolbar" tabindex="1">Skip to toolbar</a><div
+class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Top navigation toolbar." tabindex="0"><ul
+id="wp-admin-bar-root-default" class="ab-top-menu"><li
+id="wp-admin-bar-bp-login"><a
+class="ab-item"  href="http://leetcode.com/wp-login.php">Log in</a></li><li
+id="wp-admin-bar-bp-register"><a
+class="ab-item"  href="http://leetcode.com/register/">Register</a></li><li
+id="wp-admin-bar-my-account"><div
+class="ab-item ab-empty-item" ></div></li></ul></div> <a
+class="screen-reader-shortcut" href="http://leetcode.com/wp-login.php?action=logout&#038;_wpnonce=d79c4035be">Log Out</a></div><div
+class="buddyboss_log"></div> <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6849839-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script><style type="text/css">
+    .defaultCommentText { color: #a1a1a1; font-style: italic; }
+  </style><script type="text/javascript">
+    jQuery("textarea#comment, textarea#reply_text").focus(function(srcc) {
+      if (jQuery(this).val() == jQuery(this)[0].title) {
+        jQuery(this).val("");
+        jQuery(this).removeClass("defaultCommentText");
+      }
+    });
+    jQuery("textarea#comment, textarea#reply_text").blur(function() {
+      if (jQuery(this).val() == "") {
+        jQuery(this).val(jQuery(this)[0].title);
+        jQuery(this).addClass("defaultCommentText");
+      }
+    });
+    jQuery("textarea#comment, textarea#reply_text").attr('title', 'To embed your code, please use <code>your code here</code>.');
+    jQuery("textarea#comment, textarea#reply_text").blur();
+  </script></body></html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Minified using disk: basic
+Page Caching using disk: enhanced
+
+ Served from: leetcode.com @ 2013-12-07 20:06:43 by W3 Total Cache -->

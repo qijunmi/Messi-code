@@ -1,0 +1,1244 @@
+<?xml version="1.0" encoding="UTF-8"?> <rss
+version="2.0"
+xmlns:content="http://purl.org/rss/1.0/modules/content/"
+xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:atom="http://www.w3.org/2005/Atom"
+xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+><channel><title>LeetCode</title> <atom:link href="http://leetcode.com/feed" rel="self" type="application/rss+xml" /><link>http://leetcode.com</link> <description>Online Portal for IT Interview</description> <lastBuildDate>Sun, 27 Oct 2013 19:21:59 +0000</lastBuildDate> <language>en-US</language> <sy:updatePeriod>hourly</sy:updatePeriod> <sy:updateFrequency>1</sy:updateFrequency> <generator>http://wordpress.org/?v=3.5.1</generator> <item><title>Clone Graph Part I</title><link>http://leetcode.com/2012/05/clone-graph-part-i.html</link> <comments>http://leetcode.com/2012/05/clone-graph-part-i.html#comments</comments> <pubDate>Wed, 30 May 2012 17:42:50 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[Uncategorized]]></category><guid
+isPermaLink="false">http://www.leetcode.com/?p=1354</guid> <description><![CDATA[<p>Clone a graph. Input is a Node pointer. Return the Node pointer of the cloned graph.</p><p>A graph is defined below:
+struct Node {
+vector neighbors;
+}</p><p>Hint:
+There are two main ways to traverse a graph. Do you still remember them? Could you tell if the graph is directed or undirected?</p><p>Solution:
+There are two main ways to traverse a graph: Breadth-first or Depth-first. Let&#8217;s try the Breadth-first approach first, which requires a queue. For the Depth-first approach, please see Clone Graph Part II.</p><p>How does &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2012/05/clone-graph-part-i.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<blockquote><p>Clone a graph. Input is a Node pointer. Return the Node pointer of the cloned graph.<br
+/> <span
+id="more-1354"></span></p><p>A graph is defined below:<br
+/> struct Node {<br
+/> vector<Node
+*> neighbors;<br
+/> }</p></blockquote><p><strong>Hint:</strong><br
+/> There are two main ways to traverse a graph. Do you still remember them? Could you tell if the graph is directed or undirected?</p><p><strong>Solution:</strong><br
+/> There are two main ways to traverse a graph: <em>Breadth-first</em> or <em>Depth-first</em>. Let&#8217;s try the Breadth-first approach first, which requires a queue. For the Depth-first approach, please see Clone Graph Part II.</p><p>How does the breadth-first traversal works? Easy, as we pop a node off the queue, we copy each of its neighbors, and push them to the queue.</p><p>A straight forward breadth-first traversal seemed to work. But some details are still missing. For example, how do we connect the nodes of the cloned graph?</p><p>Before we continue, we first need to make sure if the graph is directed or not. If you notice how Node is defined above, it is quite obvious that the graph is a directed graph. Why?</p><p>For example, A can have a neighbor called B. Therefore, we may traverse from A to B. An undirected graph implies that B can always traverse back to A. Is it true here? No, because whether B could traverse back to A depends if one of B&#8217;s neighbor is A.</p><p>The fact that B can traverse back to A implies that the graph may contain a cycle. You must take extra care to handle this case. Imagine that you finished implementing without considering this case, and later being pointed out by your interviewer that your code has an infinite loop, yuck!</p><p>Let&#8217;s analyze this further by using the below example:</p><div
+style="text-align: center; margin-bottom: 30px;"> <a
+href="http://www.leetcode.com/wp-content/uploads/2012/05/graph.png"><img
+src="http://www.leetcode.com/wp-content/uploads/2012/05/graph.png" alt="" title="graph" width="211" height="84" class="aligncenter size-full wp-image-1365" /></a><span
+style="font-size: x-small;">A simple graph</span></div><p>Assume that the starting point of the graph is A. First, you make a copy of node A (A2), and found that A has only one neighbor B. You make a copy of B (B2) and connects A2->B2 by pushing B2 as A2&#8242;s neighbor. Next, you find that B has A as neighbor, which you have already made a copy of. Here, we have to be careful not to make a copy of A again, but to connect B2->A2 by pushing A2 as B2&#8242;s neighbor. But, how do we know if a node has already been copied?</p><p>Easy, we could use a hash table! As we copy a node, we insert it into the table. If we later find that one of a node&#8217;s neighbor is already in the table, we do not make a copy of that neighbor, but to push its neighbor&#8217;s copy to its copy instead. Therefore, the hash table would need to store a mapping of key-value pairs, where the key is a node in the original graph and its value is the node&#8217;s copy.</p><p>Let&#8217;s implement the code!</p><p></p><pre class="crayon-plain-tag">typedef unordered_map&lt;Node *, Node *&gt; Map;
+
+Node *clone(Node *graph) {
+    if (!graph) return NULL;
+
+    Map map;
+    queue&lt;Node *&gt; q;
+    q.push(graph);
+
+    Node *graphCopy = new Node();
+    map[graph] = graphCopy;
+
+    while (!q.empty()) {
+        Node *node = q.front();
+        q.pop();
+        int n = node-&gt;neighbors.size();
+        for (int i = 0; i &lt; n; i++) {
+            Node *neighbor = node-&gt;neighbors[i];
+            // no copy exists
+            if (map.find(neighbor) == map.end()) {
+                Node *p = new Node();
+                map[node]-&gt;neighbors.push_back(p);
+                map[neighbor] = p;
+                q.push(neighbor);
+            } else {     // a copy already exists
+                map[node]-&gt;neighbors.push_back(map[neighbor]);
+            }
+        }
+    }
+
+    return graphCopy;
+}</pre><p></p> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2012/05/clone-graph-part-i.html/feed</wfw:commentRss> <slash:comments>39</slash:comments> </item> <item><title>Palindrome Number</title><link>http://leetcode.com/2012/01/palindrome-number.html</link> <comments>http://leetcode.com/2012/01/palindrome-number.html#comments</comments> <pubDate>Thu, 05 Jan 2012 07:18:06 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[Uncategorized]]></category><guid
+isPermaLink="false">http://www.leetcode.com/?p=1224</guid> <description><![CDATA[<p>Determine whether an integer is a palindrome. Do this without extra space.</p><p></p><p>Online Judge
+This problem is available at <a
+href=" http://www.leetcode.com/onlinejudge">Online Judge</a>. <a
+href=" http://www.leetcode.com/onlinejudge">Head over there</a> and it will judge your solution. Currently only able to compile C++/Java code. If you are using other languages, you can still verify your solution by looking at the judge&#8217;s test cases and its expected output.</p><p>In previous posts (<a
+href="http://www.leetcode.com/2011/11/longest-palindromic-substring-part-i.html">Longest Palindromic Substring Part I</a>, <a
+href="http://www.leetcode.com/2011/11/longest-palindromic-substring-part-ii.html">Part II</a>) we have discussed multiple approaches on finding &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2012/01/palindrome-number.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<blockquote><p>Determine whether an integer is a palindrome. Do this without extra space.</p></blockquote><p><span
+id="more-1224"></span></p><p><strong><span
+style="color: red;">Online Judge</span></strong><br
+/> This problem is available at <a
+href=" http://www.leetcode.com/onlinejudge">Online Judge</a>. <a
+href=" http://www.leetcode.com/onlinejudge">Head over there</a> and it will judge your solution. Currently only able to compile C++/Java code. If you are using other languages, you can still verify your solution by looking at the judge&#8217;s test cases and its expected output.</p><p>In previous posts (<a
+href="http://www.leetcode.com/2011/11/longest-palindromic-substring-part-i.html">Longest Palindromic Substring Part I</a>, <a
+href="http://www.leetcode.com/2011/11/longest-palindromic-substring-part-ii.html">Part II</a>) we have discussed multiple approaches on finding the longest palindrome in a string. In this post we discuss ways to determine whether an integer is a palindrome. Sounds easy?</p><p><strong>Hint:</strong><br
+/> Don&#8217;t be deceived by this problem which seemed easy to solve. Also note the restriction of doing it without extra space. Think of a generic solution that is not language/platform specific. Also, consider cases where your solution might go wrong.</p><p><strong>Solution:</strong><br
+/> First, the problem statement did not specify if negative integers qualify as palindromes. Does negative integer such as -1 qualify as a palindrome? Finding out the full requirements of a problem before coding is what every programmer <i>must</i> do. For the purpose of discussion here, we define negative integers as non-palindromes.</p><p>The most intuitive approach is to first represent the integer as a string, since it is more convenient to manipulate. Although this certainly does work, it violates the restriction of not using extra space. (ie, you have to allocate <i>n</i> characters to store the reversed integer as string, where <i>n</i> is the maximum number of digits). I know, this sound like an unreasonable requirement (since it uses so little space), but don&#8217;t most interview problems have such requirements?</p><p>Another approach is to first reverse the number. If the number is the same as its reversed, then it must be a palindrome. You could reverse a number by doing the following:</p><p></p><pre class="crayon-plain-tag">int reverse(int num) {
+  assert(num &gt;= 0);   // for non-negative integers only.
+  int rev = 0;
+  while (num != 0) {
+    rev = rev * 10 + num % 10;
+    num /= 10;
+  }
+  return rev;
+}</pre><p></p><p>This seemed to work too, but did you consider the possibility that the reversed number might overflow? If it overflows, the behavior is language specific (For Java the number wraps around on overflow, but in C/C++ its behavior is undefined). Yuck.</p><p>Of course, we could avoid overflow by storing and returning a type that has larger size than int (ie, long long). However, do note that this is language specific, and the larger type might not always be available on all languages.</p><p>We could construct a better and more generic solution. One pointer is that, we must start comparing the digits somewhere. And you know there could only be two ways, either expand from the middle or compare from the two ends.</p><p>It turns out that comparing from the two ends is easier. First, compare the first and last digit. If they are not the same, it must not be a palindrome. If they are the same, chop off one digit from both ends and continue until you have no digits left, which you conclude that it must be a palindrome.</p><p>Now, getting and chopping the last digit is easy. However, getting and chopping the first digit in a generic way requires some thought. I will leave this to you as an exercise. Please think your solution out before you peek on the solution below.</p><p></p><pre class="crayon-plain-tag">bool isPalindrome(int x) {
+  if (x &lt; 0) return false;
+  int div = 1;
+  while (x / div &gt;= 10) {
+    div *= 10;
+  }        
+  while (x != 0) {
+    int l = x / div;
+    int r = x % 10;
+    if (l != r) return false;
+    x = (x % div) / 10;
+    div /= 100;
+  }
+  return true;
+}</pre><p></p><p><strong>Alternative Solution:</strong><br
+/> Credits go to <font
+color="red"><strong><a
+href="http://www.leetcode.com/2012/01/palindrome-number.html#comment-11400">Dev</a></strong></font> who suggested a recursive solution (if extra stack space does not count as extra space), which is pretty neat too.</p><p></p><pre class="crayon-plain-tag">bool isPalindrome(int x, int &amp;y) {
+  if (x &lt; 0) return false;
+  if (x == 0) return true;
+  if (isPalindrome(x/10, y) &amp;&amp; (x%10 == y%10)) {
+    y /= 10;
+    return true;
+  } else {
+    return false;
+  }
+}
+bool isPalindrome(int x) {
+  return isPalindrome(x, x);
+}</pre><p></p> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2012/01/palindrome-number.html/feed</wfw:commentRss> <slash:comments>113</slash:comments> </item> <item><title>Longest Palindromic Substring Part II</title><link>http://leetcode.com/2011/11/longest-palindromic-substring-part-ii.html</link> <comments>http://leetcode.com/2011/11/longest-palindromic-substring-part-ii.html#comments</comments> <pubDate>Mon, 21 Nov 2011 07:07:38 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[string]]></category><guid
+isPermaLink="false">http://www.leetcode.com/?p=993</guid> <description><![CDATA[<p>Given a string S, find the longest palindromic substring in S.</p><p>Note:
+This is Part II of the article: <a
+href="http://www.leetcode.com/2011/11/longest-palindromic-substring-part-i.html">Longest Palindromic Substring</a>. Here, we describe an algorithm (Manacher&#8217;s algorithm) which finds the longest palindromic substring in linear time. Please read <a
+href="http://www.leetcode.com/2011/11/longest-palindromic-substring-part-i.html">Part I</a> for more background information.In my <a
+href="http://www.leetcode.com/2011/11/longest-palindromic-substring-part-i.html">previous post</a> we discussed a total of four different methods, among them there&#8217;s a pretty simple algorithm with O(N2) run time and constant space complexity. Here, we discuss an algorithm that runs &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2011/11/longest-palindromic-substring-part-ii.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<blockquote><p>Given a string S, find the longest palindromic substring in S.</p></blockquote><p><strong><span
+style="color: red;">Note:</span></strong><br
+/> This is Part II of the article: <a
+href="http://www.leetcode.com/2011/11/longest-palindromic-substring-part-i.html">Longest Palindromic Substring</a>. Here, we describe an algorithm (Manacher&#8217;s algorithm) which finds the longest palindromic substring in linear time. Please read <a
+href="http://www.leetcode.com/2011/11/longest-palindromic-substring-part-i.html">Part I</a> for more background information.<br
+/> <span
+id="more-993"></span><br
+/> In my <a
+href="http://www.leetcode.com/2011/11/longest-palindromic-substring-part-i.html">previous post</a> we discussed a total of four different methods, among them there&#8217;s a pretty simple algorithm with O(N<sup>2</sup>) run time and constant space complexity. Here, we discuss an algorithm that runs in O(N) time and O(N) space, also known as Manacher&#8217;s algorithm.</p><p><strong>Hint:</strong><br
+/> Think how you would improve over the simpler O(N<sup>2</sup>) approach. Consider the worst case scenarios. The worst case scenarios are the inputs with multiple palindromes overlapping each other. For example, the inputs: &#8220;aaaaaaaaa&#8221; and &#8220;cabcbabcbabcba&#8221;. In fact, we could take advantage of the palindrome&#8217;s symmetric property and avoid some of the unnecessary computations.</p><p><strong>An O(N) Solution (Manacher&#8217;s Algorithm):</strong><br
+/> First, we transform the input string, S, to another string T by inserting a special character &#8216;#&#8217; in between letters. The reason for doing so will be immediately clear to you soon.</p><p>For example: S = &#8220;abaaba&#8221;, T = &#8220;#a#b#a#a#b#a#&#8221;.</p><p>To find the longest palindromic substring, we need to expand around each T<sub>i</sub> such that T<sub>i-d</sub> &#8230; T<sub>i+d</sub> forms a palindrome. You should immediately see that <em>d</em> is the length of the palindrome itself centered at T<sub>i</sub>.</p><p>We store intermediate result in an array P, where P[ i ] equals to the length of the palindrome centers at T<sub>i</sub>. The longest palindromic substring would then be the maximum element in P.</p><p>Using the above example, we populate P as below (from left to right):</p><pre class="hiblock">T = # a # b # a # a # b # a #
+P = 0 1 0 3 0 1 6 1 0 3 0 1 0</pre><p>Looking at P, we immediately see that the longest palindrome is &#8220;abaaba&#8221;, as indicated by P<sub>6</sub> = 6.</p><p>Did you notice by inserting special characters (#) in between letters, both palindromes of odd and even lengths are handled graciously? (Please note: This is to demonstrate the idea more easily and is not necessarily needed to code the algorithm.)</p><p>Now, imagine that you draw an imaginary vertical line at the center of the palindrome &#8220;abaaba&#8221;. Did you notice the numbers in P are symmetric around this center? That&#8217;s not only it, try another palindrome &#8220;aba&#8221;, the numbers also reflect similar symmetric property. Is this a coincidence? The answer is yes and no. This is only true subjected to a condition, but anyway, we have great progress, since we can eliminate recomputing part of P[ i ]&#8216;s.</p><p>Let us move on to a slightly more sophisticated example with more some overlapping palindromes, where S = &#8220;babcbabcbaccba&#8221;.</p><div
+style="text-align: center; margin-bottom: 30px;"><a
+href="http://www.leetcode.com/wp-content/uploads/2011/11/palindrome_table10.png"><img
+class="size-full wp-image-1014" title="palindrome_table10" src="http://www.leetcode.com/wp-content/uploads/2011/11/palindrome_table10.png" alt="" width="640" height="99" /></a><br
+/> <span
+style="font-size: x-small;">Above image shows T transformed from S = &#8220;babcbabcbaccba&#8221;. Assumed that you reached a state where table P is partially completed. The solid vertical line indicates the center (C) of the palindrome &#8220;abcbabcba&#8221;. The two dotted vertical line indicate its left (L) and right (R) edges respectively. You are at index i and its mirrored index around C is i&#8217;. How would you calculate P[ i ] efficiently? </span></div><p>Assume that we have arrived at index i = 13, and we need to calculate P[ 13 ] (indicated by the question mark ?). We first look at its mirrored index i&#8217; around the palindrome&#8217;s center C, which is index i&#8217; = 9.</p><div
+style="text-align: center; margin-bottom: 30px;"><a
+href="http://www.leetcode.com/wp-content/uploads/2011/11/palindrome_table11.png"><img
+class="size-full wp-image-1015" title="palindrome_table11" src="http://www.leetcode.com/wp-content/uploads/2011/11/palindrome_table11.png" alt="" width="640" height="99" /></a><br
+/> <span
+style="font-size: x-small;">The two green solid lines above indicate the covered region by the two palindromes centered at i and i&#8217;. We look at the mirrored index of i around C, which is index i&#8217;. P[ i' ] = P[ 9 ] = 1. It is clear that P[ i ] must also be 1, due to the symmetric property of a palindrome around its center. </span></div><p>As you can see above, it is very obvious that P[ i ] = P[ i' ] = 1, which must be true due to the symmetric property around a palindrome&#8217;s center. In fact, all three elements after C follow the symmetric property (that is, P[ 12 ] = P[ 10 ] = 0, P[ 13 ] = P[ 9 ] = 1, P[ 14 ] = P[ 8 ] = 0).</p><div
+style="text-align: center; margin-bottom: 30px;"><a
+href="http://www.leetcode.com/wp-content/uploads/2011/11/palindrome_table4.png"><img
+class="size-full wp-image-1004" title="palindrome_table4" src="http://www.leetcode.com/wp-content/uploads/2011/11/palindrome_table4.png" alt="" width="640" height="99" /></a><br
+/> <span
+style="font-size: x-small;">Now we are at index i = 15, and its mirrored index around C is i&#8217; = 7. Is P[ 15 ] = P[ 7 ] = 7? </span></div><p>Now we are at index i = 15. What&#8217;s the value of <nobr>P[ i ]</nobr>? If we follow the symmetric property, the value of <nobr>P[ i ]</nobr> should be the same as P[ i' ] = 7. But this is wrong. If we expand around the center at T<sub>15</sub>, it forms the palindrome &#8220;a#b#c#b#a&#8221;, which is actually shorter than what is indicated by its symmetric counterpart. Why?</p><div
+style="text-align: center; margin-bottom: 30px;"><a
+href="http://www.leetcode.com/wp-content/uploads/2011/11/palindrome_table5.png"><img
+class="size-full wp-image-1006" title="palindrome_table5" src="http://www.leetcode.com/wp-content/uploads/2011/11/palindrome_table5.png" alt="" width="640" height="99" /></a><br
+/> <span
+style="font-size: x-small;">Colored lines are overlaid around the center at index i and i&#8217;. Solid green lines show the region that must match for both sides due to symmetric property around C. Solid red lines show the region that might not match for both sides. Dotted green lines show the region that crosses over the center. </span></div><p>It is clear that the two substrings in the region indicated by the two solid green lines must match exactly. Areas across the center (indicated by dotted green lines) must also be symmetric. Notice carefully that P[ i ' ] is 7 and it expands all the way across the left edge (L) of the palindrome (indicated by the solid red lines), which does not fall under the symmetric property of the palindrome anymore. All we know is <nobr>P[ i ]</nobr> &ge; 5, and to find the real value of P[ i ] we have to do character matching by expanding past the right edge (R). In this case, since P[ 21 ] &ne; P[ 1 ], we conclude that P[ i ] = 5.</p><p>Let&#8217;s summarize the key part of this algorithm as below:</p><div
+class="hiblock"><strong>if</strong> P[ i' ] &le; R &#8211; i,<br
+/> <strong>then </strong>P[ i ] &larr; P[ i' ]<br
+/> <strong>else </strong>P[ i ] &ge; P[ i' ]. (Which we have to expand past the right edge (R) to find P[ i ].</div><p>See how elegant it is? If you are able to grasp the above summary fully, you already obtained the essence of this algorithm, which is also the hardest part.</p><p>The final part is to determine when should we move the position of C together with R to the right, which is easy:</p><div
+class="hiblock"> If the palindrome centered at i does expand past R, we update C to i, (the center of this new palindrome), and extend R to the new palindrome&#8217;s right edge.</div><p>In each step, there are two possibilities. If P[ i ] &le; R &#8211; i, we set P[ i ] to P[ i' ] which takes exactly one step. Otherwise we attempt to change the palindrome&#8217;s center to i by expanding it starting at the right edge, R. Extending R (the inner while loop) takes at most a total of N steps, and positioning and testing each centers take a total of N steps too. Therefore, this algorithm guarantees to finish in at most 2*N steps, giving a linear time solution.</p><p></p><pre class="crayon-plain-tag">// Transform S into T.
+// For example, S = &quot;abba&quot;, T = &quot;^#a#b#b#a#$&quot;.
+// ^ and $ signs are sentinels appended to each end to avoid bounds checking
+string preProcess(string s) {
+  int n = s.length();
+  if (n == 0) return &quot;^$&quot;;
+  string ret = &quot;^&quot;;
+  for (int i = 0; i &lt; n; i++)
+    ret += &quot;#&quot; + s.substr(i, 1);
+
+  ret += &quot;#$&quot;;
+  return ret;
+}
+
+string longestPalindrome(string s) {
+  string T = preProcess(s);
+  int n = T.length();
+  int *P = new int[n];
+  int C = 0, R = 0;
+  for (int i = 1; i &lt; n-1; i++) {
+    int i_mirror = 2*C-i; // equals to i' = C - (i-C)
+    
+    P[i] = (R &gt; i) ? min(R-i, P[i_mirror]) : 0;
+    
+    // Attempt to expand palindrome centered at i
+    while (T[i + 1 + P[i]] == T[i - 1 - P[i]])
+      P[i]++;
+
+    // If palindrome centered at i expand past R,
+    // adjust center based on expanded palindrome.
+    if (i + P[i] &gt; R) {
+      C = i;
+      R = i + P[i];
+    }
+  }
+
+  // Find the maximum element in P.
+  int maxLen = 0;
+  int centerIndex = 0;
+  for (int i = 1; i &lt; n-1; i++) {
+    if (P[i] &gt; maxLen) {
+      maxLen = P[i];
+      centerIndex = i;
+    }
+  }
+  delete[] P;
+  
+  return s.substr((centerIndex - 1 - maxLen)/2, maxLen);
+}</pre><p></p><p><strong><span
+style="color: red">Note:</span></strong><br
+/> This algorithm is definitely non-trivial and you won&#8217;t be expected to come up with such algorithm during an interview setting. However, I do hope that you enjoy reading this article and hopefully it helps you in understanding this interesting algorithm. You deserve a pat if you have gone this far! <img
+src='http://leetcode.com/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /></p><p><strong><span
+style="color: red">Further Thoughts:</span></strong></p><ul><li>In fact, there exists a sixth solution to this problem &#8212; Using suffix trees. However, it is not as efficient as this one (run time O(N log N) and more overhead for building suffix trees) and is more complicated to implement. If you are interested, read Wikipedia&#8217;s article about <a
+href="http://en.wikipedia.org/wiki/Longest_palindromic_substring">Longest Palindromic Substring</a>.</li><li>What if you are required to find the longest palindromic subsequence? (Do you know the difference between substring and subsequence?)</li></ul><p><strong><span
+style="color: red">Useful Links:</span></strong><br
+/> &raquo; <a
+href="http://www.felix021.com/blog/read.php?2040">Manacher&#8217;s Algorithm O(N) 时间求字符串的最长回文子串</a> (Best explanation if you can read Chinese)<br
+/> &raquo; <a
+href="http://zhuhongcheng.wordpress.com/2009/08/02/a-simple-linear-time-algorithm-for-finding-longest-palindrome-sub-string/">A simple linear time algorithm for finding longest palindrome sub-string</a><br
+/> &raquo; <a
+href="http://johanjeuring.blogspot.com/2007/08/finding-palindromes.html">Finding Palindromes</a><br
+/> &raquo; <a
+href="http://www.akalin.cx/longest-palindrome-linear-time">Finding the Longest Palindromic Substring in Linear Time</a><br
+/> &raquo; <a
+href="http://en.wikipedia.org/wiki/Longest_palindromic_substring">Wikipedia: Longest Palindromic Substring</a></p> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2011/11/longest-palindromic-substring-part-ii.html/feed</wfw:commentRss> <slash:comments>80</slash:comments> </item> <item><title>Longest Palindromic Substring Part I</title><link>http://leetcode.com/2011/11/longest-palindromic-substring-part-i.html</link> <comments>http://leetcode.com/2011/11/longest-palindromic-substring-part-i.html#comments</comments> <pubDate>Sun, 20 Nov 2011 15:04:12 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[dynamic programming]]></category> <category><![CDATA[string]]></category><guid
+isPermaLink="false">http://www.leetcode.com/?p=951</guid> <description><![CDATA[<p>Given a string S, find the longest palindromic substring in S.</p><p> This interesting problem has been featured in the famous <a
+href="http://challenge.greplin.com/">Greplin programming challenge</a>, and is asked quite often in the interviews. Why? Because this problem can be attacked in so many ways. There are five different solutions that I am aware of. Are you up to the challenge?</p><p>Head over to <a
+href="http://www.leetcode.com/onlinejudge">Online Judge</a> to solve it now! (you may submit either C++ or Java solution)</p><p>Hint:
+First, make sure you understand &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2011/11/longest-palindromic-substring-part-i.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<blockquote><p>Given a string S, find the longest palindromic substring in S.</p></blockquote><p><span
+id="more-951"></span><br
+/> This interesting problem has been featured in the famous <a
+href="http://challenge.greplin.com/">Greplin programming challenge</a>, and is asked quite often in the interviews. Why? Because this problem can be attacked in so many ways. There are five different solutions that I am aware of. Are you up to the challenge?</p><p>Head over to <strong><a
+href="http://www.leetcode.com/onlinejudge">Online Judge</a></strong> to solve it now! (you may submit either C++ or Java solution)</p><p><strong>Hint:</strong><br
+/> First, make sure you understand what a palindrome means. A palindrome is a string which reads the same in both directions. For example, &#8220;aba&#8221; is a palindome, &#8220;abc&#8221; is not.</p><p><strong>A common mistake:</strong><br
+/> Some people will be tempted to come up with a quick solution, which is unfortunately flawed (however can be corrected easily):</p><div
+class="hiblock"> Reverse S and become S&#8217;. Find the <a
+href="http://en.wikipedia.org/wiki/Longest_common_substring">longest common substring</a> between S and S&#8217;, which must also be the longest palindromic substring.</div><p>This seemed to work, let&#8217;s see some examples below.</p><p>For example,<br
+/> S = &#8220;caba&#8221;, S&#8217; = &#8220;abac&#8221;.<br
+/> The longest common substring between S and S&#8217; is &#8220;aba&#8221;, which is the answer.</p><p>Let&#8217;s try another example:<br
+/> S = &#8220;abacdfgdcaba&#8221;, S&#8217; = &#8220;abacdgfdcaba&#8221;.<br
+/> The longest common substring between S and S&#8217; is &#8220;abacd&#8221;. Clearly, this is not a valid palindrome.</p><p>We could see that the longest common substring method fails when there exists <em>a reversed copy of a non-palindromic substring in some other part of S</em>. To rectify this, each time we find a longest common substring candidate, we check if the substring&#8217;s indices are the same as the reversed substring&#8217;s original indices. If it is, then we attempt to update the longest palindrome found so far; if not, we skip this and find the next candidate.</p><p>This gives us a O(N<sup>2</sup>) DP solution which uses O(N<sup>2</sup>) space (could be improved to use O(N) space). Please read more about Longest Common Substring <a
+href="http://en.wikipedia.org/wiki/Longest_common_substring">here</a>.</p><p><strong>Brute force solution, O(N<sup>3</sup>):</strong><br
+/> The obvious brute force solution is to pick all possible starting and ending positions for a substring, and verify if it is a palindrome. There are a total of C(N, 2) such substrings (excluding the trivial solution where a character itself is a palindrome).</p><p>Since verifying each substring takes O(N) time, the run time complexity is O(N<sup>3</sup>).</p><p><strong>Dynamic programming solution, O(N<sup>2</sup>) time and O(N<sup>2</sup>) space:</strong><br
+/> To improve over the brute force solution from a DP approach, first think how we can avoid unnecessary re-computation in validating palindromes. Consider the case &#8220;ababa&#8221;. If we already knew that &#8220;bab&#8221; is a palindrome, it is obvious that &#8220;ababa&#8221; must be a palindrome since the two left and right end letters are the same.</p><p>Stated more formally below:</p><div
+class="hiblock">Define P[ i, j ] ← true <strong>iff</strong> the substring S<sub>i</sub> &#8230; S<sub>j</sub> is a palindrome, otherwise false.</div><p>Therefore,</p><div
+class="hiblock">P[ i, j ] ← ( P[ i+1, j-1 ] <strong>and</strong> S<sub>i</sub> = S<sub>j</sub> )</div><p>The base cases are:</p><div
+class="hiblock">P[ i, i ] ← true<br
+/> P[ i, i+1 ] ← ( S<sub>i</sub> = S<sub>i+1</sub> )</div><p>This yields a straight forward DP solution, which we first initialize the one and two letters palindromes, and work our way up finding all three letters palindromes, and so on&#8230; </p><p>This gives us a run time complexity of O(N<sup>2</sup>) and uses O(N<sup>2</sup>) space to store the table.</p><pre class="crayon-plain-tag">string longestPalindromeDP(string s) {
+  int n = s.length();
+  int longestBegin = 0;
+  int maxLen = 1;
+  bool table[1000][1000] = {false};
+  for (int i = 0; i &lt; n; i++) {
+    table[i][i] = true;
+  }
+  for (int i = 0; i &lt; n-1; i++) {
+    if (s[i] == s[i+1]) {
+      table[i][i+1] = true;
+      longestBegin = i;
+      maxLen = 2;
+    }
+  }
+  for (int len = 3; len &lt;= n; len++) {
+    for (int i = 0; i &lt; n-len+1; i++) {
+      int j = i+len-1;
+      if (s[i] == s[j] &amp;&amp; table[i+1][j-1]) {
+        table[i][j] = true;
+        longestBegin = i;
+        maxLen = len;
+      }
+    }
+  }
+  return s.substr(longestBegin, maxLen);
+}</pre><p></p><p><strong>Additional exercise:</strong><br
+/> Could you improve the above space complexity further and how?</p><p><strong>A simpler approach, O(N<sup>2</sup>) time and O(1) space:</strong><br
+/> In fact, we could solve it in O(N<sup>2</sup>) time without any extra space.</p><p>We observe that a palindrome mirrors around its center. Therefore, a palindrome can be expanded from its center, and there are only 2N-1 such centers.</p><p>You might be asking why there are 2N-1 but not N centers? The reason is the center of a palindrome can be in between two letters. Such palindromes have even number of letters (such as &#8220;abba&#8221;) and its center are between the two &#8216;b&#8217;s.</p><p>Since expanding a palindrome around its center could take O(N) time, the overall complexity is O(N<sup>2</sup>).</p><p></p><pre class="crayon-plain-tag">string expandAroundCenter(string s, int c1, int c2) {
+  int l = c1, r = c2;
+  int n = s.length();
+  while (l &gt;= 0 &amp;&amp; r &lt;= n-1 &amp;&amp; s[l] == s[r]) {
+    l--;
+    r++;
+  }
+  return s.substr(l+1, r-l-1);
+}
+
+string longestPalindromeSimple(string s) {
+  int n = s.length();
+  if (n == 0) return &quot;&quot;;
+  string longest = s.substr(0, 1);  // a single char itself is a palindrome
+  for (int i = 0; i &lt; n-1; i++) {
+    string p1 = expandAroundCenter(s, i, i);
+    if (p1.length() &gt; longest.length())
+      longest = p1;
+
+    string p2 = expandAroundCenter(s, i, i+1);
+    if (p2.length() &gt; longest.length())
+      longest = p2;
+  }
+  return longest;
+}</pre><p></p><p><strong><span
+style="color: red">Further Thoughts:</span></strong><br
+/> Does an O(N) solution exist? You bet! However, it is not trivial and requires some very clever observation. The O(N) solution is explained in my <a
+href="http://www.leetcode.com/2011/11/longest-palindromic-substring-part-ii.html">next post</a>.</p><p><strong><span
+style="color: red">&raquo; Continue reading</span> <a
+href="http://www.leetcode.com/2011/11/longest-palindromic-substring-part-ii.html">Longest Palindromic Substring Part II.</a></strong></p> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2011/11/longest-palindromic-substring-part-i.html/feed</wfw:commentRss> <slash:comments>60</slash:comments> </item> <item><title>Regular Expression Matching</title><link>http://leetcode.com/2011/09/regular-expression-matching.html</link> <comments>http://leetcode.com/2011/09/regular-expression-matching.html#comments</comments> <pubDate>Thu, 01 Sep 2011 09:47:08 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[backtracking]]></category> <category><![CDATA[string]]></category><guid
+isPermaLink="false">http://www.ihas1337code.com/?p=877</guid> <description><![CDATA[<p>Implement regular expression matching with support for &#8216;.&#8217; and &#8216;*&#8217;.</p><p></p> &#8216;.&#8217; Matches any single character.
+&#8216;*&#8217; Matches zero or more of the preceding element.</p><p>The matching should cover the entire input string (not partial).</p><p>The function prototype should be:
+bool isMatch(const char *s, const char *p)</p><p>Some examples:
+isMatch(&#8220;aa&#8221;,&#8221;a&#8221;) → false
+isMatch(&#8220;aa&#8221;,&#8221;aa&#8221;) → true
+isMatch(&#8220;aaa&#8221;,&#8221;aa&#8221;) → false
+isMatch(&#8220;aa&#8221;, &#8220;a*&#8221;) → true
+isMatch(&#8220;aa&#8221;, &#8220;.*&#8221;) → true
+isMatch(&#8220;ab&#8221;, &#8220;.*&#8221;) → true
+isMatch(&#8220;aab&#8221;, &#8220;c*a*b&#8221;) → true</p><p>Online Judge
+This problem is available at <a
+href=" http://www.leetcode.com/onlinejudge">Online Judge</a>. <a
+href=" http://www.leetcode.com/onlinejudge">Head over there</a> and it will judge your solution. &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2011/09/regular-expression-matching.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<blockquote><p>Implement regular expression matching with support for &#8216;.&#8217; and &#8216;*&#8217;.</p></blockquote><p><span
+id="more-877"></span></p><div
+class="hiblock">&#8216;.&#8217; Matches any single character.<br
+/> &#8216;*&#8217; Matches zero or more of the preceding element.</p><p>The matching should cover the <strong>entire</strong> input string (not partial).</p><p>The function prototype should be:<br
+/> bool isMatch(const char *s, const char *p)</p><p>Some examples:<br
+/> isMatch(&#8220;aa&#8221;,&#8221;a&#8221;) → false<br
+/> isMatch(&#8220;aa&#8221;,&#8221;aa&#8221;) → true<br
+/> isMatch(&#8220;aaa&#8221;,&#8221;aa&#8221;) → false<br
+/> isMatch(&#8220;aa&#8221;, &#8220;a*&#8221;) → true<br
+/> isMatch(&#8220;aa&#8221;, &#8220;.*&#8221;) → true<br
+/> isMatch(&#8220;ab&#8221;, &#8220;.*&#8221;) → true<br
+/> isMatch(&#8220;aab&#8221;, &#8220;c*a*b&#8221;) → true</p></div><p><strong><span
+style="color: red;">Online Judge</span></strong><br
+/> This problem is available at <a
+href=" http://www.leetcode.com/onlinejudge">Online Judge</a>. <a
+href=" http://www.leetcode.com/onlinejudge">Head over there</a> and it will judge your solution. Currently only able to compile C++/Java code. If you are using other languages, you can still verify your solution by looking at the judge&#8217;s test cases and its expected output.</p><p><strong>Background:</strong><br
+/> It might seem deceptively easy even you know the general idea, but programming it correctly with all the details require careful thought.</p><p><strong><span
+style="color: red; text-decoration: underline;">Edit:</span></strong><br
+/> It seems that some readers are confused about why the regex pattern &#8220;.*&#8221; matches the string &#8220;ab&#8221;. &#8220;.*&#8221; means repeat the <em>preceding</em> element 0 or more times. Here, the <em>&#8220;preceding&#8221;</em> element is the <strong>dot</strong> character in the <em>pattern</em>, which can match any characters. Therefore, the regex pattern &#8220;.*&#8221; allows the dot to be repeated any number of times, which matches any string (even an empty string).</p><p><strong>Hints:</strong><br
+/> Think carefully how you would do matching of &#8216;*&#8217;. Please note that &#8216;*&#8217; in regular expression is <em>different </em>from wildcard matching, as we match the previous character 0 or more times. But, how many times? If you are stuck, recursion is your friend.</p><p>This problem is a tricky one. Due to the huge number of edge cases, many people would write lengthy code and have numerous bugs on their first try. Try your best getting your code correct first, then refactor mercilessly to as clean and concise as possible!</p><p
+style="text-align: center; font-size: x-small;"><a
+href="http://www.leetcode.com/wp-content/uploads/2011/08/DFAsmall.png"><img
+class="aligncenter size-full wp-image-892" title="DFAsmall" src="http://www.leetcode.com/wp-content/uploads/2011/08/DFAsmall.png" alt="" width="307" height="215" /></a><br
+/> A sample diagram of a deterministic finite state automata (DFA). DFAs are useful for doing lexical analysis and pattern matching. An example is UNIX&#8217;s grep tool. Please note that this post does not attempt to descibe a solution using DFA.</p><p><strong>Solution:</strong><br
+/> This looks just like a straight forward string matching, isn&#8217;t it? Couldn&#8217;t we just match the pattern and the input string character by character? The question is, how to match a &#8216;*&#8217;?</p><p>A natural way is to use a greedy approach; that is, we attempt to match the previous character as many as we can. Does this work? Let us look at some examples.</p><p><em>s</em> = &#8220;abbbc&#8221;, <em>p</em> = &#8220;ab*c&#8221;<br
+/> Assume we have matched the first &#8216;a&#8217; on both <em>s</em> and <em>p</em>. When we see &#8220;b*&#8221; in <em>p</em>, we skip all b&#8217;s in <em>s</em>. Since the last &#8216;c&#8217; matches on both side, they both match.</p><p><em>s</em> = &#8220;ac&#8221;, <em>p</em> = &#8220;ab*c&#8221;<br
+/> After the first &#8216;a&#8217;, we see that there is no b&#8217;s to skip for &#8220;b*&#8221;. We match the last &#8216;c&#8217; on both side and conclude that they both match.</p><p>It seems that being greedy is good. But how about this case?</p><p><em>s</em> = &#8220;abbc&#8221;, <em>p</em> = &#8220;ab*bbc&#8221;<br
+/> When we see &#8220;b*&#8221; in <em>p</em>, we would have skip all b&#8217;s in s. They both should match, but we have no more b&#8217;s to match. Therefore, the greedy approach fails in the above case.</p><p>One might be tempted to think of a quick workaround. How about counting the number of consecutive b&#8217;s in <em>s</em>? If it is smaller or equal to the number of consecutive b&#8217;s after &#8220;b*&#8221; in <em>p</em>, we conclude they both match and continue from there. For the opposite, we conclude there is not a match.</p><p>This seem to solve the above problem, but how about this case:<br
+/> <em>s</em> = &#8220;abcbcd&#8221;, <em>p</em> = &#8220;a.*c.*d&#8221;</p><p>Here, &#8220;.*&#8221; in <em>p</em> means repeat &#8216;.&#8217; 0 or more times. Since &#8216;.&#8217; can match any character, it is not clear how many times &#8216;.&#8217; should be repeated. Should the &#8216;c&#8217; in <em>p</em> matches the first or second &#8216;c&#8217; in <em>s</em>? Unfortunately, there is no way to tell without using some kind of exhaustive search.</p><p>We need some kind of backtracking mechanism such that when a matching fails, we return to the last successful matching state and attempt to match more characters in <em>s</em> with &#8216;*&#8217;. This approach leads naturally to recursion.</p><p>The recursion mainly breaks down elegantly to the following two cases:</p><div
+class="hiblock"><ol><li>If the next character of <em>p</em> is <strong>NOT</strong> &#8216;*&#8217;, then it must match the current character of <em>s</em>. Continue pattern matching with the next character of both <em>s</em> and <em>p</em>.</li><li>If the next character of <em>p</em> is &#8216;*&#8217;, then we do a brute force exhaustive matching of 0, 1, or more repeats of current character of <em>p</em>&#8230; Until we could not match any more characters.</li></ol></div><p>You would need to consider the base case carefully too. That would be left as an exercise to the reader. <img
+src='http://leetcode.com/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /></p><p>Below is the extremely concise code (Excluding comments and asserts, it&#8217;s about 10 lines of code).</p><pre class="crayon-plain-tag">bool isMatch(const char *s, const char *p) {
+  assert(s &amp;&amp; p);
+  if (*p == '\0') return *s == '\0';
+
+  // next char is not '*': must match current character
+  if (*(p+1) != '*') {
+    assert(*p != '*');
+    return ((*p == *s) || (*p == '.' &amp;&amp; *s != '\0')) &amp;&amp; isMatch(s+1, p+1);
+  }
+  // next char is '*'
+  while ((*p == *s) || (*p == '.' &amp;&amp; *s != '\0')) {
+    if (isMatch(s, p+2)) return true;
+    s++;
+  }
+  return isMatch(s, p+2);
+}</pre><p><strong><span
+style="color: red;">Further Thoughts:</span></strong><br
+/> Some extra exercises to this problem:</p><div
+class="hiblock"><ol><li>If you think carefully, you can exploit some cases that the above code runs in exponential complexity. Could you think of some examples? How would you make the above code more efficient?</li><li>Try to implement partial matching instead of full matching. In addition, add &#8216;^&#8217; and &#8216;$&#8217; to the rule. &#8216;^&#8217; matches the starting position within the string, while &#8216;$&#8217; matches the ending position of the string.</li><li>Try to implement wildcard matching where &#8216;*&#8217; means any sequence of zero or more characters.</li></ol></div><p>For the interested reader, real world regular expression matching (such as the grep tool) are usually implemented by applying formal language theory. To understand more about it, you may read <a
+href="http://swtch.com/~rsc/regexp/regexp1.html">this article</a>.</p> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2011/09/regular-expression-matching.html/feed</wfw:commentRss> <slash:comments>83</slash:comments> </item> <item><title>Insert into a Cyclic Sorted List</title><link>http://leetcode.com/2011/08/insert-into-a-cyclic-sorted-list.html</link> <comments>http://leetcode.com/2011/08/insert-into-a-cyclic-sorted-list.html#comments</comments> <pubDate>Sat, 13 Aug 2011 04:28:03 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[linked list]]></category><guid
+isPermaLink="false">http://www.ihas1337code.com/?p=846</guid> <description><![CDATA[<p>Given a node from a cyclic linked list which has been sorted, write a function to insert a value into the list such that it remains a cyclic sorted list. The given node can be any single node in the list.</p><p> EDIT:
+Thanks to dear readers <a
+href="http://www.leetcode.com/2011/08/insert-into-a-cyclic-sorted-list.html#comment-2190">Saurabh</a> and <a
+href="http://www.leetcode.com/2011/08/insert-into-a-cyclic-sorted-list.html#comment-10447">reader</a> who pointed out my mistake. When the list has only one value, inserting a different value would be handled by case 3), not case 1). Besides, I believe I did not &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2011/08/insert-into-a-cyclic-sorted-list.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<blockquote><p>Given a node from a cyclic linked list which has been sorted, write a function to insert a value into the list such that it remains a cyclic sorted list. The given node can be any single node in the list.</p></blockquote><p><span
+id="more-846"></span><br
+/> <b><font
+color="red"><u>EDIT:</u></font></b><br
+/> Thanks to dear readers <b><a
+href="http://www.leetcode.com/2011/08/insert-into-a-cyclic-sorted-list.html#comment-2190"><font
+color="red">Saurabh</font></a></b> and <b><a
+href="http://www.leetcode.com/2011/08/insert-into-a-cyclic-sorted-list.html#comment-10447"><font
+color="red">reader</font></a></b> who pointed out my mistake. When the list has only one value, inserting a different value would be handled by case 3), <strong><u>not</u></strong> case 1). Besides, I believe I did not explain &#8220;What is a cyclic sorted list&#8221; nicely, as this had caused some confusion. Imagine you have a sorted list, but its tail points back to its head. In other words, the list must have a minimum node, continue in a non-descending order, and eventually points back to this minimum node itself. And the only way to access the list is via aNode, which can point to any node in the list and <strong>does not</strong> necessarily point to the minimum node.</p><p>First, it is important that you understand what a cyclic linked list is. A cyclic linked list differs from a normal linked list in that its tail node points back to its head node instead of NULL.</p><p>This problem seems a little tricky because the given node is not necessarily the list&#8217;s head (ie, the node that has the smallest element). It shouldn&#8217;t take you too long to come up with an idea, but beware. There are hidden traps around the corner and you are bound to make some mistakes if you are not careful in your thoughts.</p><p
+style="text-align: center;"><a
+href="http://www.leetcode.com/wp-content/uploads/2011/08/cyclic_list1.png"><img
+class="aligncenter size-full wp-image-862" title="cyclic_list1" src="http://www.leetcode.com/wp-content/uploads/2011/08/cyclic_list1.png" alt="" width="316" height="68" /></a><small>A cyclic sorted linked list. Note that the tail is pointing back to its head. The only reference to the list is a given node which can be any node in the list. Let&#8217;s say that you need to insert 4 into the list.</small></p><p
+style="text-align: center;"><p
+style="text-align: center;"><a
+href="http://www.leetcode.com/wp-content/uploads/2011/08/cyclic_list2.png"><img
+class="aligncenter size-full wp-image-863" title="cyclic_list2" src="http://www.leetcode.com/wp-content/uploads/2011/08/cyclic_list2.png" alt="" width="425" height="68" /></a><small>This is how the cyclic list becomes after inserting 4. Note that the cyclic linked list remained in sorted order.</small></p><p
+style="text-align: center;"><p><strong>Hints:</strong><br
+/> It is best to list all kinds of cases first before you jump into coding. Then, it is much easier to reduce the number of cases your code need to handle by combining some of them into a more generic case. Try to also list down all possible edge cases if you have time. You might discover a bug before you even start coding!</p><p><strong>Solution:</strong><br
+/> Basically, you would have a loop that traverse the cyclic sorted list and find the point where you insert the value (Let&#8217;s assume the value being inserted called <em>x</em>). You would only need to consider the following three cases:</p><div
+class="hiblock"><ol><li><strong>prev&rarr;val &le; <em>x</em> &le; current&rarr;val:</strong></li><dl><dd>Insert between prev and current.</dd></dl><li><strong><em>x</em> is the maximum or minimum value in the list: </strong><dl><dd>Insert before the head. (ie, the head has the smallest value and its prev&rarr;val > head&rarr;val.</dd></dl></li><li><strong>Traverses back to the starting point:</strong><dl><dd>Insert before the starting point.</dd></dl></li></ol></div><p>Most people have no problem getting case 1) working, while case 2) is easy to miss or being handled incorrectly. Case 3), on the other hand is more subtle and is not immediately clear what kind of test cases would hit this condition. It seemed that case 1) and 2) should take care of all kinds of cases and case 3) is not needed. Think again&#8230; How can you be sure of that? Could you come up with one case where it hits case 3)?</p><dl><dt>Q: What if the list has only one value?</dt><dd>A: <del
+datetime="2011-12-28T10:03:26+00:00" style="color:red">Handled by case 1)</del>. Handled by case 3).</dd><dt>Q: What if the list is passed in as NULL?</dt><dd>A: Then handle this special case by creating a new node pointing back to itself and return.</dd><dt>Q: What if the list contains all duplicates?</dt><dd>A: Then it has been handled by case 3).</dd></dl><p>Below is the code. You could combine both negation of case 1) and case 2) in the while loop&#8217;s condition, but I prefer to use break statements here to illustrate the above idea clearer.</p><pre class="crayon-plain-tag">void insert(Node *&amp; aNode, int x) {
+  if (!aNode) {
+    aNode = new Node(x);
+    aNode-&gt;next = aNode;
+    return;
+  }
+
+  Node *p = aNode;
+  Node *prev = NULL;
+  do {
+    prev = p;
+    p = p-&gt;next;
+    if (x &lt;= p-&gt;data &amp;&amp; x &gt;= prev-&gt;data) break;   // For case 1)
+    if ((prev-&gt;data &gt; p-&gt;data) &amp;&amp; (x &lt; p-&gt;data || x &gt; prev-&gt;data)) break; // For case 2)
+  } while (p != aNode);   // when back to starting point, then stop. For case 3)
+
+  Node *newNode = new Node(x);
+  newNode-&gt;next = p;
+  prev-&gt;next = newNode;
+}</pre><p></p> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2011/08/insert-into-a-cyclic-sorted-list.html/feed</wfw:commentRss> <slash:comments>51</slash:comments> </item> <item><title>Reverse Bits</title><link>http://leetcode.com/2011/08/reverse-bits.html</link> <comments>http://leetcode.com/2011/08/reverse-bits.html#comments</comments> <pubDate>Sat, 06 Aug 2011 22:16:50 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[bit operations]]></category><guid
+isPermaLink="false">http://www.ihas1337code.com/?p=813</guid> <description><![CDATA[<p>Reverse bits of an unsigned integer.</p><p> There are several methods of reversing the bits of an unsigned integer. Here, we devise an algorithm using the XOR swap trick, and then optimize it using a divide and conquer methodology.</p><p>Hint:
+How do you swap the ith bit with the jth bit? Try to figure out if you could use the XOR operation to do it.</p><p>The XOR swap trick:
+Reversing bits could be done by swapping the n/2 least significant bits with its most significant bits. &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2011/08/reverse-bits.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<blockquote><p>Reverse bits of an unsigned integer.</p></blockquote><p><span
+id="more-813"></span><br
+/> There are several methods of reversing the bits of an unsigned integer. Here, we devise an algorithm using the XOR swap trick, and then optimize it using a divide and conquer methodology.</p><p><strong>Hint:</strong><br
+/> How do you swap the i<sup>th</sup> bit with the j<sup>th</sup> bit? Try to figure out if you could use the XOR operation to do it.</p><p><strong>The XOR swap trick:</strong><br
+/> Reversing bits could be done by swapping the n/2 least significant bits with its most significant bits. The trick is to implement a function called swapBits(i, j), which swaps the i<sup>th</sup> bit with the j<sup>th</sup> bit. If you still remember how XOR operation works: 0 ^ 0 == 0, 1 ^ 1 == 0, 0 ^ 1 == 1, and 1 ^ 0 == 1.</p><p>We only need to perform the swap when the i<sup>th</sup> bit and the j<sup>th</sup> bit are different. To test if two bits are different, we could use the XOR operation. Then, we need to toggle both i<sup>th</sup> and j<sup>th</sup> bits. We could apply the XOR operation again. By XOR-ing the i<sup>th</sup> and j<sup>th</sup> bit with 1, both bits are toggled.</p><pre class="crayon-plain-tag">typedef unsigned int uint;
+uint swapBits(uint x, uint i, uint j) {
+  uint lo = ((x &gt;&gt; i) &amp; 1);
+  uint hi = ((x &gt;&gt; j) &amp; 1);
+  if (lo ^ hi) {
+    x ^= ((1U &lt;&lt; i) | (1U &lt;&lt; j));
+  }
+  return x;
+}
+
+uint reverseXor(uint x) {
+  uint n = sizeof(x) * 8;
+  for (uint i = 0; i &lt; n/2; i++) {
+    x = swapBits(x, i, n-i-1);
+  }
+  return x;
+}</pre><p>The run time complexity using the XOR trick to reverse bits is O(<em>n</em>), where <em>n</em> is the total number of bits in an unsigned integer.</p><p><strong>The divide and conquer approach:<br
+/> </strong>Remember how merge sort works? Let us use an example of <em>n</em> == 8 (one byte) to see how this works:</p><pre>      01101001
+    /         \
+   0110      1001
+  /   \     /   \
+ 01   10   10   01
+ /\   /\   /\   /\
+0 1  1 0  1 0  0 1</pre><p>The first step is to swap all odd and even bits. After that swap consecutive pairs of bits, and so on&#8230;</p><p>Therefore, only a total of log(n) operations are necessary.</p><p>The below code shows a specific case where <em>n</em> == 32, but it could be easily adapted to larger <em>n</em>&#8216;s as well.</p><pre class="crayon-plain-tag">uint reverseMask(uint x) {
+  assert(sizeof(x) == 4); // special case: only works for 4 bytes (32 bits).
+  x = ((x &amp; 0x55555555) &lt;&lt; 1) | ((x &amp; 0xAAAAAAAA) &gt;&gt; 1);
+  x = ((x &amp; 0x33333333) &lt;&lt; 2) | ((x &amp; 0xCCCCCCCC) &gt;&gt; 2);
+  x = ((x &amp; 0x0F0F0F0F) &lt;&lt; 4) | ((x &amp; 0xF0F0F0F0) &gt;&gt; 4);
+  x = ((x &amp; 0x00FF00FF) &lt;&lt; 8) | ((x &amp; 0xFF00FF00) &gt;&gt; 8);
+  x = ((x &amp; 0x0000FFFF) &lt;&lt; 16) | ((x &amp; 0xFFFF0000) &gt;&gt; 16);
+  return x;
+}</pre><p><strong>Note:</strong><br
+/> These are not the only methods for reversing bits, and not necessarily the fastest way. For more ideas/algorithms to reverse bits, please visit <a
+href="http://graphics.stanford.edu/~seander/bithacks.html#BitReverseObvious">Bit Twiddling Hacks</a>.</p> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2011/08/reverse-bits.html/feed</wfw:commentRss> <slash:comments>40</slash:comments> </item> <item><title>Lowest Common Ancestor of a Binary Tree Part II</title><link>http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html</link> <comments>http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html#comments</comments> <pubDate>Thu, 21 Jul 2011 14:28:33 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[binary tree]]></category><guid
+isPermaLink="false">http://www.ihas1337code.com/?p=797</guid> <description><![CDATA[<p>Given a binary tree, find the lowest common ancestor of two given nodes in the tree. Each node contains a parent pointer which links to its parent.</p><p> Note:
+This is Part II of Lowest Common Ancestor of a Binary Tree. If you need to find the lowest common ancestor without parent pointers, please read <a
+href="http://www.leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html">Lowest Common Ancestor of a Binary Tree Part I</a>.</p> _______3______
+/    &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<blockquote><p>Given a binary tree, find the lowest common ancestor of two given nodes in the tree. Each node contains a parent pointer which links to its parent.</p></blockquote><p><span
+id="more-797"></span><br
+/> <strong><span
+style="color: red;">Note:</span></strong><br
+/> This is Part II of Lowest Common Ancestor of a Binary Tree. If you need to find the lowest common ancestor without parent pointers, please read <a
+href="http://www.leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html">Lowest Common Ancestor of a Binary Tree Part I</a>.<br
+/></p><pre>        _______<span style="color: #990000;">3</span>______
+       /              \
+    ___<span style="color: #990000;">5</span>__          ___<span style="color: #990000;">1</span>__
+   /      \        /      \
+   <span style="color: #990000;">6</span>      _<span style="color: #990000;">2       0       8</span>
+         /  \
+         <span style="color: #990000;">7   4</span></pre><p>If you are not so sure about the definition of lowest common ancestor (LCA), please refer to my previous post: <a
+href="http://www.leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-search-tree.html">Lowest Common Ancestor of a Binary Search Tree (BST)</a> or the definition of LCA <a
+href="http://en.wikipedia.org/wiki/Lowest_common_ancestor">here</a>. Using the tree above as an example, the LCA of nodes <span
+style="color: #990000;">5</span> and <span
+style="color: #990000;">1</span> is <span
+style="color: #990000;">3</span>. Please note that LCA for nodes <span
+style="color: #990000;">5</span> and <span
+style="color: #990000;">4</span> is <span
+style="color: #990000;">5</span>.</p><p>In my last post: <a
+href="http://www.leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html">Lowest Common Ancestor of a Binary Tree Part I</a>, we have devised a recursive solution which finds the LCA in O(<em>n</em>) time. If each node has a pointer that link to its parent, could we devise a better solution?</p><p><strong>Hint:</strong><br
+/> No recursion is needed. There is an easy solution which uses extra space. Could you eliminate the need of extra space?</p><p><strong>An easy solution<em></em>:</strong><br
+/> As we trace the two paths from both nodes up to the root, eventually it will merge into one single path. The LCA is the exact first intersection node where both paths merged into a single path. An easy solution is to use a hash table which records visited nodes as we trace both paths up to the root. Once we reached the first node which is already marked as visited, we immediately return that node as the LCA.</p><pre class="crayon-plain-tag">Node *LCA(Node *root, Node *p, Node *q) {
+  hash_set&lt;Node *&gt; visited;
+  while (p || q) {
+    if (p) {
+      if (!visited.insert(p).second)
+        return p; // insert p failed (p exists in the table)
+      p = p-&gt;parent;
+    }
+    if (q) {
+      if (!visited.insert(q).second)
+        return q; // insert q failed (q exists in the table)
+      q = q-&gt;parent;
+    }
+  }
+  return NULL;
+}</pre><p>The run time complexity of this approach is O(<em>h</em>), where <em>h</em> is the tree&#8217;s height. The space complexity is also O(<em>h</em>), since it can mark at most 2<em>h</em> nodes.</p><p><strong>The best solution:<br
+/> </strong>A little creativity is needed here. Since we have the parent pointer, we could easily get the distance (height) of both nodes from the root. Once we knew both heights, we could subtract from one another and get the height&#8217;s difference (<em>dh</em>). If you observe carefully from the previous solution, the node which is closer to the root is always <em>dh</em> steps ahead of the deeper node. We could eliminate the need of marking visited nodes altogether. Why?</p><p>The reason is simple, if we advance the deeper node <em>dh</em> steps above, both nodes would be at the same depth. Then, we advance both nodes one level at a time. They would then eventually intersect at one node, which is the LCA of both nodes. If not, one of the node would eventually reach NULL (root&#8217;s parent), which we conclude that both nodes are not in the same tree. However, that part of code shouldn&#8217;t be reached, since the problem statement assumed that both nodes are in the same tree.</p><pre class="crayon-plain-tag">int getHeight(Node *p) {
+  int height = 0;
+  while (p) {
+    height++;
+    p = p-&gt;parent;
+  }
+  return height;
+}
+
+// As root-&gt;parent is NULL, we don't need to pass root in.
+Node *LCA(Node *p, Node *q) {
+  int h1 = getHeight(p);
+  int h2 = getHeight(q);
+  // swap both nodes in case p is deeper than q.
+  if (h1 &gt; h2) {
+    swap(h1, h2);
+    swap(p, q);
+  }
+  // invariant: h1 &lt;= h2.
+  int dh = h2 - h1;
+  for (int h = 0; h &lt; dh; h++)
+    q = q-&gt;parent;
+  while (p &amp;&amp; q) {
+    if (p == q) return p;
+    p = p-&gt;parent;
+    q = q-&gt;parent;
+  }
+  return NULL;  // p and q are not in the same tree
+}</pre><p><strong><span
+style="color: red;">Further Thoughts</span></strong>:<br
+/> Isn&#8217;t the solution above neat? It requires some creative thought and is quite subtle.</p><p>A variation of this problem which seemed to be more popular is:</p><blockquote><p>Given two singly linked lists and they both intersect at one point (ie, forming a Y shaped list). Find where the two linked lists merge.</p></blockquote><p>I am sure you know how to answer this question now <img
+src='http://leetcode.com/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /></p> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html/feed</wfw:commentRss> <slash:comments>24</slash:comments> </item> <item><title>Lowest Common Ancestor of a Binary Tree Part I</title><link>http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html</link> <comments>http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html#comments</comments> <pubDate>Tue, 19 Jul 2011 01:12:45 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[binary tree]]></category><guid
+isPermaLink="false">http://www.ihas1337code.com/?p=790</guid> <description><![CDATA[<p>Given a binary tree, find the lowest common ancestor of two given nodes in the tree.</p><p></p> _______3______
+/              \
+___5__          ___1__
+/      \        /     &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<blockquote><p>Given a binary tree, find the lowest common ancestor of two given nodes in the tree.</p></blockquote><p><span
+id="more-790"></span><br
+/></p><pre>        _______<span style="color: #990000;">3</span>______
+       /              \
+    ___<span style="color: #990000;">5</span>__          ___<span style="color: #990000;">1</span>__
+   /      \        /      \
+   <span style="color: #990000;">6</span>      _<span style="color: #990000;">2       0       8</span>
+         /  \
+         <span style="color: #990000;">7   4</span></pre><p>If you are not so sure about the definition of lowest common ancestor (LCA), please refer to my previous post: <a
+href="http://www.leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-search-tree.html">Lowest Common Ancestor of a Binary Search Tree (BST)</a> or the definition of LCA <a
+href="http://en.wikipedia.org/wiki/Lowest_common_ancestor">here</a>. Using the tree above as an example, the LCA of nodes <strong><span
+style="color: #990000;">5</span></strong> and <strong><span
+style="color: #990000;">1</span></strong> is <strong><span
+style="color: #990000;">3</span></strong>. Please note that LCA for nodes <strong><span
+style="color: #990000;">5</span> </strong>and <strong><span
+style="color: #990000;">4</span> </strong>is <strong><span
+style="color: #990000;">5</span></strong>.</p><p><strong>Hint:</strong><br
+/> Top-down or bottom-up? Consider both approaches and see which one is more efficient.</p><p><strong>A Top-Down Approach (Worst case O(n<sup>2</sup>) ):</strong><br
+/> Let&#8217;s try the top-down approach where we traverse the nodes from the top to the bottom. First, if the current node is one of the two nodes, it must be the LCA of the two nodes. If not, we count the number of nodes that matches either p or q in the left subtree (which we call <em>totalMatches</em>). If <em>totalMatches </em>equals 1, then we know the right subtree will contain the other node. Therefore, the current node must be the LCA. If <em>totalMatches </em>equals 2, we know that both nodes are contained in the left subtree, so we traverse to its left child. Similar with the case where <em>totalMatches </em>equals 0 where we traverse to its right child.</p><pre class="crayon-plain-tag">// Return #nodes that matches P or Q in the subtree.
+int countMatchesPQ(Node *root, Node *p, Node *q) {
+  if (!root) return 0;
+  int matches = countMatchesPQ(root-&gt;left, p, q) + countMatchesPQ(root-&gt;right, p, q);
+  if (root == p || root == q)
+    return 1 + matches;
+  else
+    return matches;
+}
+
+Node *LCA(Node *root, Node *p, Node *q) {
+  if (!root || !p || !q) return NULL;
+  if (root == p || root == q) return root;
+  int totalMatches = countMatchesPQ(root-&gt;left, p, q);
+  if (totalMatches == 1)
+    return root;
+  else if (totalMatches == 2)
+    return LCA(root-&gt;left, p, q);
+  else /* totalMatches == 0 */
+    return LCA(root-&gt;right, p, q);
+}</pre><p>What is the run time complexity of this top-down approach?</p><p>First, just for fun, we assume that the tree contains <em>n</em> nodes and is balanced (with its height equals to log(<em>n</em>) ). In this case, the run time complexity would be O(<em>n</em>). Most people would guess a higher ordered complexity than O(<em>n</em>) due to the function <em>countMatchesPQ</em>() traverses the same nodes over and over again. Notice that the tree is balanced, you cut off half of the nodes you need to traverse in each recursive call of <em>LCA</em>() function. The proof that the complexity is indeed O(<em>n</em>) is left as an exercise to the reader.</p><p>What if the tree is not necessarily balanced? Then in the worst case the complexity could go up to O(<em>n</em><sup>2</sup>). Why? Could you come up with such case? (Hint: The tree might be a degenerate tree).</p><p><strong>A Bottom-up Approach (Worst case O(<em>n</em>) ):<br
+/> </strong>Using a bottom-up approach, we can improve over the top-down approach by  avoiding traversing the same nodes over and over again.</p><p>We traverse from the bottom, and once we reach a node which matches one of the two nodes, we pass it up to its parent. The parent would then test its left and right subtree if each contain one of  the two nodes. If yes, then the parent must be the LCA and we pass its parent up to the root. If not, we pass the lower node which contains either one of the two nodes (if the left or right subtree contains either p or q), or NULL (if both the left and right subtree does not contain either p or q) up.</p><p>Sounds complicated? Surprisingly the code appears to be much simpler than the top-down one.</p><pre class="crayon-plain-tag">Node *LCA(Node *root, Node *p, Node *q) {
+  if (!root) return NULL;
+  if (root == p || root == q) return root;
+  Node *L = LCA(root-&gt;left, p, q);
+  Node *R = LCA(root-&gt;right, p, q);
+  if (L &amp;&amp; R) return root;  // if p and q are on both sides
+  return L ? L : R;  // either one of p,q is on one side OR p,q is not in L&amp;R subtrees
+}</pre><p><strong>Notes:<br
+/> </strong>The LCA problem had been studied extensively by many computer scientists. There exists efficient algorithms for finding LCA in constant time after initial processing of the tree in linear time. For the adventurous reader, please read this article for more details: <a
+href="http://www.topcoder.com/tc?module=Static&#038;d1=tutorials&#038;d2=lowestCommonAncestor">Range Minimum Query and Lowest Common Ancestor in Topcoder</a>.</p><p><strong><span
+style="color: red;">Further Thoughts</span></strong>:<br
+/> What if each node in the binary tree has a link to its parent? Could you devise a non-recursive approach without using extra space?</p><p><strong><span
+style="color: red">&raquo; Continue reading</span> <a
+href="http://www.leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html">Lowest Common Ancestor of a Binary Tree Part II.</a></strong></p> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html/feed</wfw:commentRss> <slash:comments>40</slash:comments> </item> <item><title>Lowest Common Ancestor of a Binary Search Tree (BST)</title><link>http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-search-tree.html</link> <comments>http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-search-tree.html#comments</comments> <pubDate>Sun, 17 Jul 2011 10:24:11 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[binary tree]]></category><guid
+isPermaLink="false">http://www.ihas1337code.com/?p=782</guid> <description><![CDATA[<p>Given a binary search tree (BST), find the lowest common ancestor of two given nodes in the BST.</p><p></p> _______6______
+/              \
+___2__          ___8__
+/      \        /   &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-search-tree.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<blockquote><p>Given a binary search tree (BST), find the lowest common ancestor of two given nodes in the BST.</p></blockquote><p><span
+id="more-782"></span><br
+/></p><pre>        _______<span style="color: #990000;">6</span>______
+       /              \
+    ___<span style="color: #990000;">2</span>__          ___<span style="color: #990000;">8</span>__
+   /      \        /      \
+   <span style="color: #990000;">0</span>      _<span style="color: #990000;">4       7       9</span>
+         /  \
+         <span style="color: #990000;">3   5</span></pre><p>Using the above tree as an example, the lowest common ancestor (LCA) of nodes <span
+style="color: #990000;">2</span> and <span
+style="color: #990000;">8</span> is <span
+style="color: #990000;">6</span>. But how about LCA of nodes <span
+style="color: #990000;">2</span> and <span
+style="color: #990000;">4</span>? Should it be <span
+style="color: #990000;">6</span> or <span
+style="color: #990000;">2</span>?</p><p>According to the <a
+href="http://en.wikipedia.org/wiki/Least_common_ancestor">definition of LCA on  Wikipedia</a>: &#8220;The lowest common ancestor is defined between two nodes <em>v</em> and <em>w</em> as the lowest node in T that has both <em>v</em> and <em>w</em> as descendants (where we allow a node to be a descendant of itself).&#8221; Since a node can be a descendant of itself, the LCA of <span
+style="color: #990000;">2</span> and <span
+style="color: #990000;">4</span> should be <span
+style="color: #990000;">2</span>, according to this definition.</p><p><strong>Hint:</strong><br
+/> A top-down walk from the root of the tree is enough.</p><p><strong>Solution:</strong><br
+/> There&#8217;s only three cases you need to consider.</p><div
+class="hiblock"><ol><li>Both nodes are to the left of the tree.</li><li>Both nodes are to the right of the tree.</li><li>One node is on the left while the other is on the right.</li></ol></div><p>For case 1), the LCA must be in its left subtree. Similar with case 2), LCA must be in its right subtree. For case 3), the current node must be the LCA.</p><p>Therefore, using a top-down approach, we traverse to the left/right subtree depends on the case of 1) or 2), until we reach case 3), which we concludes that we have found the LCA.</p><p>A careful reader might notice that we forgot to handle one extra case. What if the node itself is equal to one of the two nodes? This is the exact case from our earlier example! (The LCA of <span
+style="color: #990000;">2</span> and <span
+style="color: #990000;">4</span> should be <span
+style="color: #990000;">2</span>). Therefore, we add case number 4):</p><div
+class="hiblock">4. When the current node equals to either of the two nodes, this node must be the LCA too.</div><p>The run time complexity is O(<em>h</em>), where <em>h</em> is the height of the BST. Translating this idea to code is straightforward (Note that we handle case 3) and 4) in the else statement to save us some extra typing <img
+src='http://leetcode.com/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' /> ):</p><pre class="crayon-plain-tag">Node *LCA(Node *root, Node *p, Node *q) {
+  if (!root || !p || !q) return NULL;
+  if (max(p-&gt;data, q-&gt;data) &lt; root-&gt;data)
+    return LCA(root-&gt;left, p, q);
+  else if (min(p-&gt;data, q-&gt;data) &gt; root-&gt;data)
+    return LCA(root-&gt;right, p, q);
+  else
+    return root;
+}</pre><p>You should realize quickly that the above code contains tail recursion. Converting the above function to an iterative one is left as an exercise to the reader.</p><p><strong><span
+style="color: red;">Further Thoughts</span></strong>:<br
+/> What if you are required to find the LCA of a binary tree (not a BST)? Check out my next post: <a
+href="http://www.leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html">Lowest Common Ancestor of a Binary Tree Part I</a> to find out how.</p> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-search-tree.html/feed</wfw:commentRss> <slash:comments>21</slash:comments> </item> <item><title>A Distance Maximizing Problem</title><link>http://leetcode.com/2011/05/a-distance-maximizing-problem.html</link> <comments>http://leetcode.com/2011/05/a-distance-maximizing-problem.html#comments</comments> <pubDate>Thu, 19 May 2011 09:10:12 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[Uncategorized]]></category><guid
+isPermaLink="false">http://www.ihas1337code.com/?p=765</guid> <description><![CDATA[<p>Given an array A of integers, find the maximum of j-i subjected to the constraint of A[i] < A[j].</p><p> Hint:
+This problem seemed easy, maybe because it is easy to understand. But is it straightforward to solve? If you are thinking of a straightforward solution, think again. Try to come up with a solution with run time complexity of O(n log n). Can you do better than that?</p><p>Solution:</p><p
+style="text-align: center;"><a
+href="http://www.leetcode.com/wp-content/uploads/2011/05/height_bars.gif"></a>Visualization of the problem using n vertical lines. The ith line&#8217;s height &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2011/05/a-distance-maximizing-problem.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<blockquote><p>Given an array A of integers, find the maximum of j-i subjected to the constraint of A[i] < A[j].</p></blockquote><p><span
+id="more-765"></span><br
+/> <strong>Hint:</strong><br
+/> This problem seemed easy, maybe because it is easy to understand. But is it straightforward to solve? If you are thinking of a straightforward solution, think again. Try to come up with a solution with run time complexity of O(n log n). Can you do better than that?</p><p><strong>Solution:</strong></p><p
+style="text-align: center;"><a
+href="http://www.leetcode.com/wp-content/uploads/2011/05/height_bars.gif"><img
+class="aligncenter size-full wp-image-774" title="height_bars" src="http://www.leetcode.com/wp-content/uploads/2011/05/height_bars.gif" alt="" width="633" height="287" /></a><small>Visualization of the problem using <em>n</em> vertical lines. The i<sup>th</sup> line&#8217;s height is represented by A[i], assuming A[i] is positive.</small></p><p>We are able to visualize the above problem better by drawing <em>n</em> vertical lines, where the height of i<sup>th</sup> line corresponds to the i<sup>th</sup> element in A. We first assume that all elements in A are positive integers, but later it can be expanded to non-positive integers as well. Now, unless the elements in A forms a strictly non-increasing order, there must exist a pair of (i, j) such that A[i] < A[j], and i < j. Therefore, the above problem is equivalent of finding the maximum distance between two vertical lines, where the left line must be shorter than the right line.</p><p><strong>Brute Force O(N<sup>2</sup>)</strong><br
+/> The straightforward brute force way is to find the shortest line (the starting index, i), then try to look toward the right side (the ending index, j) and find a taller line with the furthest distance. Record the distance (j-i)and repeat with the next shortest line. Clearly, this is an O(N<sup>2</sup>) algorithm and we can do better.</p><p><strong>Sorting O(N log N)</strong></p><p
+style="text-align: center;"><a
+href="http://www.leetcode.com/wp-content/uploads/2011/05/sorted_bar_lines1.gif"><img
+class="aligncenter size-full wp-image-776" title="sorted_bar_lines" src="http://www.leetcode.com/wp-content/uploads/2011/05/sorted_bar_lines1.gif" alt="" width="676" height="337" /></a> <small>Above diagram shows <em>n</em> lines sorted according its heights. Lines with same heights are sorted using its original index. We will also need to keep track of each line&#8217;s original index in order to calculate the distance later. Finally, we build a table by scanning the lines&#8217; original index from right to left once.</small></p><p>By sorting the lines according to its height, we can achieve better run time complexity. Notice that once we sorted the lines, we are able to find the maximum distance in O(N) time. For each possible original starting index i, we find the original ending index j, which is the maximum among all j&#8217;s where A[j] > A[i]. To enable the quick search for the maximum, we can build a look up table in O(N) time by scanning from right to left once. For example, we start with index i = 4, which is the shortest line. We know the maximum of all original indices to the right is 7, therefore max distance = 7 &#8211; 4 = 3. For the next line which original index is 3, the max distance = 7 &#8211; 3 = 4. Now, we must skip over the duplicates and reach the line with its original index 1. Here, we must be careful to skip over all duplicate heights which are not part of the solution because not satisfying the constraint A[j] > A[i]. Therefore, the max distance for this case = 2 &#8211; 1 = 1.</p><p><strong>Best Solution O(N)</strong></p><p
+style="text-align: center;"><a
+href="http://www.leetcode.com/wp-content/uploads/2011/05/height_bars_start.gif"></a><a
+href="http://www.leetcode.com/wp-content/uploads/2011/05/height_bars_start1.gif"><img
+class="aligncenter size-full wp-image-778" title="height_bars_start" src="http://www.leetcode.com/wp-content/uploads/2011/05/height_bars_start1.gif" alt="" width="626" height="356" /></a><small>Given two indices a and b, where would you rather choose as a potential starting point?</small></p><p>Credits for the best O(N) solution goes to <strong><span
+style="text-decoration: underline;">darksteel</span></strong>, which I first learned this neat method from him. <a
+href="http://www.leetcode.com/2011/05/a-distance-maximizing-problem.html#comment-1122">Anonymous</a> is the only reader who is able to solve this correctly using the same idea, great job!</p><p>Solving this problem efficiently requires some clever observations to eliminate all unnecessary comparisons. It is non obvious to me at first if there exists an O(N) algorithm for this problem.</p><p>Please look at the above diagram carefully, and ask yourself if you would choose index a or b as a potential starting point. Clearly, you would never choose index b as the starting point. Why?</p><p>Assume that choosing index b as the starting point, the max distance is j-b, where A[j] > A[b]. Now, since a < b and A[a] is not taller than A[b] which implies that A[j] > A[a], we can form a farther distance by choosing a as the starting index. Therefore, we cannot choose b as the starting point as this forms a contradiction.</p><p>Generally, we want to choose only starting points with no such lines that are shorter to its left side. From the diagram above, only lines of index 0, 1, 3, 4 are valid starting points.</p><p>Once we gather all valid starting points by scanning once from left to right, we are able to obtain the maximum distance by scanning backwards.</p><p>It is obvious that if the ending point is less than the shortest starting point, then it won&#8217;t be a valid solution for all other starting points. Therefore, we scan from right to left until we meet the first ending point that satisfies the condition. Then, we proceed to the next shortest starting point, and continue on from the previous ending point. Using this strategy, we would guarantee that we are able to find the maximum distance in O(N) running time.</p><p><strong>To be continued&#8230;</strong></p> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2011/05/a-distance-maximizing-problem.html/feed</wfw:commentRss> <slash:comments>84</slash:comments> </item> <item><title>Longest Substring Without Repeating Characters</title><link>http://leetcode.com/2011/05/longest-substring-without-repeating-characters.html</link> <comments>http://leetcode.com/2011/05/longest-substring-without-repeating-characters.html#comments</comments> <pubDate>Mon, 16 May 2011 10:39:32 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[string]]></category><guid
+isPermaLink="false">http://www.ihas1337code.com/?p=753</guid> <description><![CDATA[<p>Given a string, find the length of the longest substring without repeating characters. For example, the longest substring without repeating letters for &#8220;abcabcbb&#8221; is &#8220;abc&#8221;, which the length is 3. For &#8220;bbbbb&#8221; the longest substring is &#8220;b&#8221;, with the length of 1.</p><p> Hint:
+Is there a better way other than brute force? Consider the kind of data structure that can improve the run time complexity. An ideal solution requires only a one-time linear scan.</p><p>Online Judge
+This problem is available at <a
+href=" http://www.leetcode.com/onlinejudge">Online &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2011/05/longest-substring-without-repeating-characters.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<blockquote><p>Given a string, find the length of the longest substring without repeating characters. For example, the longest substring without repeating letters for &#8220;abcabcbb&#8221; is &#8220;abc&#8221;, which the length is 3. For &#8220;bbbbb&#8221; the longest substring is &#8220;b&#8221;, with the length of 1.</p></blockquote><p><span
+id="more-753"></span><br
+/> <strong>Hint:</strong><br
+/> Is there a better way other than brute force? Consider the kind of data structure that can improve the run time complexity. An ideal solution requires only a one-time linear scan.</p><p><strong><span
+style="color: red;">Online Judge</span></strong><br
+/> This problem is available at <a
+href=" http://www.leetcode.com/onlinejudge">Online Judge</a>. <a
+href=" http://www.leetcode.com/onlinejudge">Head over there</a> and it will judge your solution. Currently only able to compile C++ code. If you are using other languages, you can still verify your solution by looking at the judge&#8217;s test cases and its expected output.</p><p><strong>Solution:</strong><br
+/> How can we can look up if a character had existed in the substring instantaneously? The answer is using a simple table to store the characters that have appeared. Make sure you communicate with your interviewer if the string can have characters other than &#8216;a&#8217;-'z&#8217;. (ie, Digits? Upper case letter? Does it contain ASCII characters only? Or even unicode character sets?)</p><p>As you traverse through the string, update by using its ASCII value as index to the table. If the string only contains &#8216;a&#8217;-'z&#8217;, you could save space by using a table of size 26 only. Assuming c is the character, then c-&#8217;a&#8217; will give you a value of 0-25 which can be used to index the table directly.</p><p>The next question is to ask yourself what happens when you found a repeated character? For example, if the string is &#8220;abcdcedf&#8221;, what happens when you reach the second appearance of &#8216;c&#8217;?</p><p>When you have found a repeated character (let&#8217;s say at index <em>j</em>), it means that the current substring (excluding the repeated character of course) is a potential maximum, so update the maximum if necessary. It also means that the repeated character must have appeared before at an index <em>i</em>, where <em>i</em> is less than <em>j</em>.</p><p>Since you know that all substrings that start before or at index <em>i</em> would be less than your current maximum, you can safely start to look for the next substring with head which starts exactly at index <em>i</em>+1.</p><p>Therefore, you would need two indices to record the head and the tail of the current substring. Since i and j both traverse at most <em>n</em> steps, the worst case would be 2<em>n</em> steps, which the run time complexity must be O(<em>n</em>).</p><p>Below is the implementation in C++. Beware of the common mistake of not updating the maximum after the main loop, which is easy to forget.</p><pre class="crayon-plain-tag">int lengthOfLongestSubstring(string s) {
+  int n = s.length();
+  int i = 0, j = 0;
+  int maxLen = 0;
+  bool exist[256] = { false };
+  while (j &lt; n) {
+    if (exist[s[j]]) {
+      maxLen = max(maxLen, j-i);
+      while (s[i] != s[j]) {
+        exist[s[i]] = false;
+        i++;
+      }
+      i++;
+      j++;
+    } else {
+      exist[s[j]] = true;
+      j++;
+    }
+  }
+  maxLen = max(maxLen, n-i);
+  return maxLen;
+}</pre><p></p> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2011/05/longest-substring-without-repeating-characters.html/feed</wfw:commentRss> <slash:comments>65</slash:comments> </item> <item><title>Determine If Two Rectangles Overlap</title><link>http://leetcode.com/2011/05/determine-if-two-rectangles-overlap.html</link> <comments>http://leetcode.com/2011/05/determine-if-two-rectangles-overlap.html#comments</comments> <pubDate>Thu, 12 May 2011 09:27:08 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[Uncategorized]]></category><guid
+isPermaLink="false">http://www.ihas1337code.com/?p=729</guid> <description><![CDATA[<p>Given two axis-aligned rectangles A and B. Write a function to determine if the two rectangles overlap.</p><p> Hint:
+If you are coming up with a complicated set of conditionals, you might think too hard. There is an easier way. Try to think in the opposite direction.</p><p><a
+href="http://www.leetcode.com/wp-content/uploads/2011/05/overlap_rect1.gif"></a></p><p
+style="text-align: center;">Two overlapping rectangles. A rectangle can be defined by its upper left and lower right corner.</p><p>Solution:
+Assume that the two rectangles are given as point (P1, P2) and (P3, P4) respectively. One direct way to &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2011/05/determine-if-two-rectangles-overlap.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<blockquote><p>Given two axis-aligned rectangles A and B. Write a function to determine if the two rectangles overlap.</p></blockquote><p><span
+id="more-729"></span><br
+/> <strong>Hint:</strong><br
+/> If you are coming up with a complicated set of conditionals, you might think too hard. There is an easier way. Try to think in the opposite direction.</p><p><a
+href="http://www.leetcode.com/wp-content/uploads/2011/05/overlap_rect1.gif"><img
+class="aligncenter size-full wp-image-746" title="overlap_rect1" src="http://www.leetcode.com/wp-content/uploads/2011/05/overlap_rect1.gif" alt="" width="309" height="217" /></a></p><p
+style="text-align: center;"><small>Two overlapping rectangles. A rectangle can be defined by its upper left and lower right corner.</small></p><p><strong>Solution:</strong><br
+/> Assume that the two rectangles are given as point (P1, P2) and (P3, P4) respectively. One direct way to attempt this problem is when two rectangles overlap, one rectangle&#8217;s corner point(s) must contain in the other rectangle. Do keep in mind of the following cases:</p><p
+style="text-align: center;"><a
+href="http://www.leetcode.com/wp-content/uploads/2011/05/overlap_rect2.gif"><img
+title="overlap_rect2" src="http://www.leetcode.com/wp-content/uploads/2011/05/overlap_rect2.gif" alt="" width="269" height="237" /></a> <a
+href="http://www.leetcode.com/wp-content/uploads/2011/05/overlap_rect3.gif"></a> <a
+href="http://www.leetcode.com/wp-content/uploads/2011/05/overlap_rect3.gif"><img
+title="overlap_rect3" src="http://www.leetcode.com/wp-content/uploads/2011/05/overlap_rect3.gif" alt="" width="227" height="144" /></a></p><p
+style="text-align: center;"><small>More overlapping rectangles cases to consider.</small></p><p>As you can see, the conditionals can be pretty complicated as there are a total eight of them. Can we simplify it further?</p><p>A much easier and better approach would be to think from the opposite. How about asking yourself how the two rectangles <em>cannot</em> overlap each other? Two rectangles do not overlap when one is above/below, or to the left/right of the other rectangle.</p><p>The condition&#8217;s expression is:</p><pre class="hiblock">! ( P2.y < P3.y || P1.y > P4.y || P2.x < P3.x || P1.x > P4.x )</pre><p>Using <a
+href="http://en.wikipedia.org/wiki/De_Morgan%27s_laws#Negation_of_a_disjunction">De Morgan&#8217;s law</a>, we can further simplify the above expression to:</p><pre class="hiblock">( P2.y = P3.y &#038;&#038; P1.y = P4.y &#038;&#038; P2.x = P3.x &#038;&#038; P1.x = P4.x )</pre><p><strong><font
+color="red">Further Thoughts:</font></strong></p><ul><li>What if the two rectangles are not necessarily axis-aligned? (That is, the rectangles can be rotated around its center at a certain angle.) Solving this problem requires more Math and understanding of linear algebra, so if you&#8217;re interested see my post on: <a
+href="http://www.leetcode.com/2010/04/how-to-determine-if-point-is-inside.html">How to determine if a point is inside a rectangle</a>.</li><li>Given a list of rectangles, how would you determine the set of overlapping rectangles efficiently? Why would this be useful? Imagine you have a number of windows opened on your desktop. The operating system would need to know the overlapped windows in order to repaint the dirty region as windows are being moved around.</li></ul> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2011/05/determine-if-two-rectangles-overlap.html/feed</wfw:commentRss> <slash:comments>24</slash:comments> </item> <item><title>Construct Binary Tree From Inorder and Preorder/Postorder Traversal</title><link>http://leetcode.com/2011/04/construct-binary-tree-from-inorder-and-preorder-postorder-traversal.html</link> <comments>http://leetcode.com/2011/04/construct-binary-tree-from-inorder-and-preorder-postorder-traversal.html#comments</comments> <pubDate>Wed, 20 Apr 2011 11:30:20 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[binary tree]]></category><guid
+isPermaLink="false">http://www.ihas1337code.com/?p=612</guid> <description><![CDATA[<p>Given preorder and inorder traversal of a tree, construct the binary tree.</p><p> Hint:
+A good way to attempt this question is to work backwards. Approach this question by drawing a binary tree, then list down its preorder and inorder traversal. As most binary tree problems, you want to solve this recursively.</p><p>About Duplicates:
+In this solution, we will assume that duplicates are not allowed in the binary tree. Why?</p><p>Consider the following case:</p> preorder = {7, 7}
+inorder = {7, 7}<p>We can construct the following trees which &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2011/04/construct-binary-tree-from-inorder-and-preorder-postorder-traversal.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<blockquote><p>Given preorder and inorder traversal of a tree, construct the binary tree.</p></blockquote><p><span
+id="more-612"></span><br
+/> <strong>Hint:</strong><br
+/> A good way to attempt this question is to work backwards. Approach this question by drawing a binary tree, then list down its preorder and inorder traversal. As most binary tree problems, you want to solve this recursively.</p><p><strong>About Duplicates:</strong><br
+/> In this solution, we will assume that duplicates are not allowed in the binary tree. Why?</p><p>Consider the following case:</p><pre>preorder = {<span style="color: maroon">7</span>, <span style="color: maroon">7</span>}
+inorder = {<span style="color: maroon">7</span>, <span style="color: maroon">7</span>}</pre><p>We can construct the following trees which are both perfectly valid solutions.</p><pre>  <span style="color: maroon">7</span>                     <span style="color: maroon">7</span>
+ /           <strong>or</strong>          \
+<span style="color: maroon">7</span>                         <span style="color: maroon">7</span></pre><p>Clearly, there would be ambiguity in constructing the tree if duplicates were allowed.</p><p><strong>Solution:</strong><br
+/> Let us look at this example tree.</p><pre>        _______<span style="color: maroon">7</span>______
+       /              \
+    __<span style="color: maroon">10</span>__          ___<span style="color: maroon">2</span>
+   /      \        /
+   <span style="color: maroon">4</span>       <span style="color: maroon">3</span>      _<span style="color: maroon">8</span>
+            \    /
+             <span style="color: maroon">1</span>  <span style="color: maroon">11</span></pre><p>The preorder and inorder traversals for the binary tree above is:</p><pre>preorder = {<span style="color: maroon">7</span>,<span style="color: maroon">10</span>,<span style="color: maroon">4</span>,<span style="color: maroon">3</span>,<span style="color: maroon">1</span>,<span style="color: maroon">2</span>,<span style="color: maroon">8</span>,<span style="color: maroon">11</span>}
+inorder = {<span style="color: maroon">4</span>,<span style="color: maroon">10</span>,<span style="color: maroon">3</span>,<span style="color: maroon">1</span>,<span style="color: maroon">7</span>,<span style="color: maroon">11</span>,<span style="color: maroon">8</span>,<span style="color: maroon">2</span>}</pre><p>The crucial observation to this problem is <em>the tree&#8217;s root always coincides with the first element in preorder traversal</em>. This must be true because in preorder traversal you always traverse the root node before its children. The root node&#8217;s value appear to be <strong><span
+style="color: maroon">7</span></strong> from the binary tree above.</p><p>We easily find that <strong><span
+style="color: maroon">7</span></strong> appears as the 4<sup>th</sup> index in the inorder sequence. (Notice that earlier we assumed that duplicates are not allowed in the tree, so there would be no ambiguity). For inorder traversal, we visit the left subtree first, then root node, and followed by the right subtree. Therefore, all elements left of <strong><span
+style="color: maroon">7</span></strong> must be in the left subtree and all elements to the right must be in the right subtree.</p><p>We see a clear recursive pattern from the above observation. After creating the root node (<strong><span
+style="color: maroon">7</span></strong>), we construct its left and right subtree from inorder traversal of {<span
+style="color: maroon">4</span>, <span
+style="color: maroon">10</span>, <span
+style="color: maroon">3</span>, <span
+style="color: maroon">1</span>} and {<span
+style="color: maroon">11</span>, <span
+style="color: maroon">8</span>, <span
+style="color: maroon">2</span>} respectively. We also need its corresponding preorder traversal which could be found in a similar fashion. If you remember, preorder traversal follows the sequence of root node, left subtree and followed by right subtree. Therefore, the left and right subtree&#8217;s postorder traversal must be {<span
+style="color: maroon">10</span>, <span
+style="color: maroon">4</span>, <span
+style="color: maroon">3</span>, <span
+style="color: maroon">1</span>} and {<span
+style="color: maroon">2</span>, <span
+style="color: maroon">8</span>, <span
+style="color: maroon">11</span>} respectively. Since the left and right subtree are binary trees in their own right, we can solve recursively!</p><p>We left out some details on how we search the root value&#8217;s index in the inorder sequence. How about a simple <em>linear search</em>? If we assume that the constructed binary tree is always balanced, then we can guarantee the run time complexity to be O(<em>N</em> log <em>N</em>), where <em>N</em> is the number of nodes. However, this is not necessarily the case and the constructed binary tree can be skewed to the left/right, which has the worst complexity of O(<em>N</em><sup>2</sup>).</p><p>A more efficient way is to eliminate the search by using an efficient look-up mechanism such as <em>hash table</em>. By hashing an element&#8217;s value to its corresponding index in the inorder sequence, we can do look-ups in constant time. Now, we need only O(<em>N</em>) time to construct the tree, which theoretically is the most efficient way.</p><p>For illustration purpose, the below code uses a simple array for table look-up, which is restricted to elements of 0 to 255 only. You should be able to extend it easily to use a hash table.</p><pre class="crayon-plain-tag">const int MAX = 256;
+// a fast lookup for inorder's element -&gt; index
+// binary tree's element must be in the range of [0, MAX-1]
+int mapIndex[MAX];
+void mapToIndices(int inorder[], int n) {
+  for (int i = 0; i &lt; n; i++) {
+    assert(0 &lt;= inorder[i] &amp;&amp; inorder[i] &lt;= MAX-1);
+    mapIndex[inorder[i]] = i;
+  }
+}
+
+// precondition: mapToIndices must be called before entry
+Node *buildInorderPreorder(int in[], int pre[], int n, int offset) {
+  assert(n &gt;= 0);
+  if (n == 0) return NULL;
+  int rootVal = pre[0];
+  int i = mapIndex[rootVal]-offset;  // the divider's index
+  Node *root = new Node(rootVal);
+  root-&gt;left = buildInorderPreorder(in, pre+1, i, offset);
+  root-&gt;right = buildInorderPreorder(in+i+1, pre+i+1, n-i-1, offset+i+1);
+  return root;
+}</pre><p>Now, if we are given<em> inorder and postorder</em> traversal, can we construct the binary tree?</p><p>The answer is yes, using very similar approach as above. Below is the code:</p><pre class="crayon-plain-tag">// precondition: mapToIndices must be called before entry
+Node *buildInorderPostorder(int in[], int post[], int n, int offset) {
+  assert(n &gt;= 0);
+  if (n == 0) return NULL;
+  int rootVal = post[n-1];
+  int i = mapIndex[rootVal]-offset;  // the divider's index
+  Node *root = new Node(rootVal);
+  root-&gt;left = buildInorderPostorder(in, post, i, offset);
+  root-&gt;right = buildInorderPostorder(in+i+1, post+i, n-i-1, offset+i+1);
+  return root;
+}</pre><p><strong><span
+style="color: red">Further Thoughts:</span></strong></p><ol><li>If we are given <em>preorder and postorder</em> traversal, can we construct the binary tree? Why or why not?</li><li>Given<em> preorder, inorder, and postorder</em> traversal, how can you verify if these traversals are referring to the <em>exact same</em> binary tree?</li><li>Remember from my earlier post: <a
+href="http://www.leetcode.com/2010/09/serializationdeserialization-of-binary.html">Serialization/Deserialization of a Binary Tree</a>? It is trivial to see this as an alternative method to serialize/deserialize a binary tree. <img
+src='http://leetcode.com/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /></li></ol> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2011/04/construct-binary-tree-from-inorder-and-preorder-postorder-traversal.html/feed</wfw:commentRss> <slash:comments>56</slash:comments> </item> <item><title>The Painter&#8217;s Partition Problem Part II</title><link>http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html</link> <comments>http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html#comments</comments> <pubDate>Thu, 07 Apr 2011 05:19:18 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[binary search]]></category><guid
+isPermaLink="false">http://www.ihas1337code.com/?p=538</guid> <description><![CDATA[<p>Note:
+This is Part II of the article: <a
+href="http://www.leetcode.com/2011/04/the-painters-partition-problem.html">The Painter&#8217;s Partition Problem</a>. Please read <a
+href="http://www.leetcode.com/2011/04/the-painters-partition-problem.html">Part I</a> for more background information.</p><p>You have to paint N boards of length {A0, A1, A2 … AN-1}. There are K painters available and you are also given how much time a painter takes to paint 1 unit of board. You have to get this job done as soon as possible under the constraints that any painter will only paint continuous sections of board, say &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<p><span
+style="color: red"><strong>Note:</strong></span><br
+/> This is Part II of the article: <a
+href="http://www.leetcode.com/2011/04/the-painters-partition-problem.html">The Painter&#8217;s Partition Problem</a>. Please read <a
+href="http://www.leetcode.com/2011/04/the-painters-partition-problem.html">Part I</a> for more background information.<br
+/> <span
+id="more-538"></span></p><blockquote><p>You have to paint N boards of length {A<sub>0</sub>, A<sub>1</sub>, A<sub>2</sub> … A<sub>N-1</sub>}. There are <em>K</em> painters available and you are also given how much time a painter takes to paint 1 unit of board. You have to get this job done as soon as possible under the constraints that any painter will only paint continuous sections of board, say board {2, 3, 4} or only board {1} or nothing but not board {2, 4, 5}.</p></blockquote><p>In my <a
+href="http://www.leetcode.com/2011/04/the-painters-partition-problem.html">previous post</a> we talked about how to use the power of <a
+href="http://www.leetcode.com/category/dynamic-programming">Dynamic Programming</a> (DP) to solve a fairly difficult problem. Although the DP approach is pretty neat, it uses an extra O(<em>kN</em>) space. In this post, we introduce an algorithm without extra space and runs in the order of O(<em>N</em> log <em>c</em>) time, where <em>c</em> is the sum of all elements in A.</p><p><strong>Hint:</strong><br
+/> Try to think how to apply Binary Search indirectly to solve this problem. First, it does not require A to be sorted in any way. Second, if you sort A, the constraint that the painter must paint continuous sections of board does not necessarily hold anymore. Think carefully: What if you have a maximum board length in mind such that no painter can exceed this value?</p><p><strong>Solution:</strong><br
+/> Assume that you are assigning continuous section of board to each painter such that its total length must not exceed a predefined maximum, cost<sub>max</sub>. Then, you are able to find the number of painters that is required, <em>x</em>. Following are some key observations:</p><div
+class="hiblock"><ol><li>The lowest possible value for cost<sub>max</sub> must be the maximum element in A (name this as <strong>lo</strong>).</li><li>The highest possible value for cost<sub>max</sub> must be the entire sum of A, (name this as <strong>hi</strong>).</li><li>As cost<sub>max</sub> increases, <em>x</em> decreases. The opposite also holds true.</li></ol></div><p>Now, the question translates directly into:</p><div
+class="hiblock">How do we use binary search to find the minimum of cost<sub>max</sub> while satisfying the condition <em>x</em> = <em>k</em>? The search space will be the range of [<strong>lo</strong>, <strong>hi</strong>].</div><p>Let us study using the example below to understand how this works:</p><pre>Assume that A = { 100, 200, 300, 400, 500, 600, 700, 800, 900 }, 
+and k = 3.</pre><p>Since <em>k</em> is positive, we know that the highest possible cost<sub>max </sub>must be the sum of A, 4500. (ie, assigning all boards to one painter).</p><p>The lowest possible cost<sub>max</sub> must be the largest element in A, 900. This requires a total of six painters &#8212; The first painter paints {100, 200, 300}, second painter paints {400, 500} while the rest of them paints one board each).</p><p>Below is a simple conceptual illustration of how the search space looks like, with its corresponding <em>x</em> value (the required number of painters) pointing to cost<sub>max</sub>.</p><pre>900        ...       4500
+ &uarr;                     &uarr;
+x=6                   x=1</pre><p>Note that <em>x</em> decreases while cost<sub>max</sub> increases.<br
+/> We want to find the minimum of cost<sub>max</sub> under the constraint of <em>x</em> = <em>k</em>.</p><pre>900  ...  2700  ...  4500
+ &uarr;          &uarr;          &uarr;
+x=6        x=2        x=1</pre><p>We choose the middle element, 2700, and find its corresponding <em>x</em>, which is 2.<br
+/> Since <em>x</em> = <em>k</em> (which equals to 3), we can find a better minimum (ie, the real solution) in the lower half.<br
+/> Therefore, we discard the upper half and continue searching in the lower half.</p><pre>900  ...  1800  ...  2700
+ &uarr;          &uarr;          &uarr;
+x=6        x=3        x=2</pre><p>The middle element now is 1800 and its corresponding <em>x</em> is 3, which is still = <em>k</em>.<br
+/> We discard the upper half again and continue searching in the lower half.</p><pre>900  ...  1350  ...  1800
+ &uarr;          &uarr;          &uarr;
+x=6        x=5        x=3</pre><p>This time, the middle element is 1350 and its corresponding <em>x</em> is 5, which is > <em>k</em>.<br
+/> We have to discard the lower half <strong>including the middle element itself</strong>, since <em>x</em> > <em>k</em> in that region (ie, no valid solution).<br
+/> Here, read the phrase in bold <strong>&#8220;</strong><strong>including the middle element itself</strong><strong>&#8220;</strong> again, as this is extremely important to maintain the invariant. Why?<br
+/> Yes, that means the lower half <strong>including </strong>the value 1350 would be discarded.<br
+/> We continue searching in the upper half (ie, in the range of [1351, 1800]).</p><p>&#8230;</p><p>After multiple successions of halving the search space, the final answer is 1700, and its corresponding <em>x</em> is 3. This is also the minimum of cost<sub>max</sub> while maintaining the requirement <em>x</em> = <em>k</em>.</p><p>The complexity of this algorithm is <em>O</em>(<em>N</em> log (<strong> &sum; </strong>A<sub>i</sub> )), which is quite efficient. Furthermore, it does not require any extra space, unlike the DP solution which requires <em>O</em>(<em>kN</em>) space. This solution is also easier to code. Just be very careful while writing code for any variation of binary search, and think through all the corner cases while you code.</p><pre class="crayon-plain-tag">int getMax(int A[], int n) {
+  int max = INT_MIN;
+  for (int i = 0; i &lt; n; i++) {
+     if (A[i] &gt; max) max = A[i];
+  }
+  return max;
+}
+
+int getSum(int A[], int n) {
+  int total = 0;
+  for (int i = 0; i &lt; n; i++)
+    total += A[i];
+  return total;
+}
+
+int getRequiredPainters(int A[], int n, int maxLengthPerPainter) {
+  int total = 0, numPainters = 1;
+  for (int i = 0; i &lt; n; i++) {
+    total += A[i];
+    if (total &gt; maxLengthPerPainter) {
+      total = A[i];
+      numPainters++;
+    }
+  }
+  return numPainters;
+}
+
+int partition(int A[], int n, int k) {
+  int lo = getMax(A, n);
+  int hi = getSum(A, n);
+
+  while (lo &lt; hi) {
+    int mid = lo + (hi-lo)/2;
+    int requiredPainters = getRequiredPainters(A, n, mid);
+    if (requiredPainters &lt;= k)
+      hi = mid;
+    else
+      lo = mid+1;
+  }
+  return lo;
+}</pre><p><strong>Additional Reference:</strong><br
+/> <a
+href="http://www.topcoder.com/tc?module=Static&#038;d1=tutorials&#038;d2=binarySearch">TopCoder&#8217;s Tutorial on Binary Search</a></p><p><span
+style="color: red"><strong>Further Thoughts:</strong></span><br
+/> The above binary search solution has a run time complexity of O(N log ( &sum; Ai )). What impact would the term ? Ai (ie, the search space) have over the run time itself? What if the search space is extremely large?</p><p>As you may have known, binary search is extremely fast. For example, binary search in a range of one million elements requires no more than 20 iterations. Here, we explore an alternative solution which reduces the search space even further. (Thanks to an id grass for the idea)</p><p>The idea is to first build a cumulative sum array B, where B[j] = &sum;{i=0..j} Ai. We know that we must allocate one of the amount found in B[j] to the first painter. Since the elements in B is in increasing order, we can apply binary search in B to answer the following question:</p><div
+class="hiblock">Find the index j such that B[j] fails to satisfy the condition while B[j+1] satisfy.</div><p>Finally, we can set lo = B[j] and hi = B[j+1], and apply the same binary search from method 1 from above.</p><p>Using the above example:</p><pre>A = { 100, 200, 300, 400, 500, 600, 700, 800, 900 }, and k = 3.</pre><p>We build the cumulative array B:</p><pre>B = { 100, 300, 600, 1000, 1500, 2100, 2800, 3600, 4500 }</pre><p>After we apply binary search, we are able to find that B[4] = 1500, B[5] = 2100, because for costmax = 1500, x = 4; while costmax = 2100, x =3.</p><p>Time required: O(N log N)</p><p>Then, we set lo = 1500 and hi = 2100, then apply binary search to find in that range.</p><p>Time required: O(N log (B[j+1]-B[j]) ) = O(N log A[j+1]).</p><p>Therefore, the worst case run time complexity = O(N log N + N log max(A) )</p> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2011/04/the-painters-partition-problem-part-ii.html/feed</wfw:commentRss> <slash:comments>25</slash:comments> </item> <item><title>The Painter&#8217;s Partition Problem Part I</title><link>http://leetcode.com/2011/04/the-painters-partition-problem.html</link> <comments>http://leetcode.com/2011/04/the-painters-partition-problem.html#comments</comments> <pubDate>Tue, 05 Apr 2011 10:43:00 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[dynamic programming]]></category><guid
+isPermaLink="false">http://www.ihas1337code.com/?p=516</guid> <description><![CDATA[<p>You have to paint N boards of length {A0, A1, A2 … AN-1}. There are K painters available and you are also given how much time a painter takes to paint 1 unit of board. You have to get this job done as soon as possible under the constraints that any painter will only paint continuous sections of board, say board {2, 3, 4} or only board {1} or nothing but not board {2, 4, 5}.</p><p> This is a problem which &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2011/04/the-painters-partition-problem.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<blockquote><p>You have to paint N boards of length {A<sub>0</sub>, A<sub>1</sub>, A<sub>2</sub> … A<sub>N-1</sub>}. There are <em>K</em> painters available and you are also given how much time a painter takes to paint 1 unit of board. You have to get this job done as soon as possible under the constraints that any painter will only paint continuous sections of board, say board {2, 3, 4} or only board {1} or nothing but not board {2, 4, 5}.</p></blockquote><p><span
+id="more-516"></span><br
+/> This is a problem which is fairly difficult. Try your very best to really think through it. You will improve your problem solving technique by struggling through it!</p><p>It turns out that this problem is the same as &#8220;<a
+href="http://www.topcoder.com/stat?c=problem_statement&#038;pm=1901&#038;rd=4650">FairWorkload</a>&#8221; from TopCoder&#8217;s division 1 level 2 problem in SRM 169. If you find the problem statement above is difficult to understand, head over to <a
+href="http://www.topcoder.com/stat?c=problem_statement&#038;pm=1901&#038;rd=4650">TopCoder&#8217;s FairWorkload problem statement</a> for a clearer description with examples. This problem is an interesting problem because it has several approaches, which I will outline them one by one here.</p><p>For most people, the first natural approach is to brute force. Let&#8217;s look at an example where you have nine boards, each of length 100, and you have three painters. How would you divide the boards?</p><p>Very easy, just divide it into three equal-sized partitions!</p><pre>100 100 100 | 100 100 100 | 100 100 100</pre><p>But what if the boards are of different lengths? If we just divide the boards into three equal-sized partitions, the below configuration would be divided as:</p><pre>100 200 300 | 400 500 600 | 700 800 900</pre><p>The above allocation is clearly not appropriate, as it is extremely unfair to the third painter. The third painter has to paint 2400 units while the first painter paints only 600 units! The fairest possible way to divide the boards among the three painters should be:</p><pre>100 200 300 400 500 | 600 700 | 800 900</pre><p>In this way, the largest board to paint is 1700 units whilst the smallest board to paint is 1300 units. Compared to the previous allocation, this allocation allows painting to finish faster because the maximum over the partitions has decreased from 2400 to 1700 units.</p><p>Now that we understand the problem better, we can re-state the above problem as follow:</p><div
+class="hiblock">Given an array of non-negative integers A and a positive integer <em>k</em>, we want to:<br
+/> Divide A into <em>k</em> or fewer partitions,<br
+/> such that the maximum sum over all the partitions is minimized.</div><p>By now, I am sure a handful of people would start thinking a heuristic approach to solve this problem. How about just computing the average size of a partition (ie, &sum;{<em>i</em>=0..<em>n</em>-1} A<sub>i</sub> / <em>k</em>) and try to match each partition as closely to the average as possible? Although this <em>seemed</em> to work for the above examples, there is no way you could evaluate all possibilities systematically and thus do not always produce the correct solution.</p><p>A more systematic way is to use the brute force approach to evaluate all possibilities. However, brute force in this case is not as straight forward as it used to be. Stop for awhile and think how you would do an exhaustive search for all possibilities. (Hint: Try to think recursively)</p><p>Recursion can be utilized to solve this problem easily. Imagine that we already have (<em>k</em>-1) partitions in place (the left partition) and we are trying to put the last separator (the (<em>k</em>-1)th separator). What are the possible locations to put the last separator? It must lie somewhere between the (<em>j</em>-1)th and <em>j</em>th element, where 1 = <em>j</em> = <em>n</em>. Once we have the last separator in place, we have completed all <em>k</em> partitions. The cost of this partition arrangement can be readily calculated as the larger of the two quantities below:</p><pre>    i) The cost of the last partition, <strong>&sum;</strong>{<em>i</em>=<em>j</em>..<em>n</em>-1} A<sub>i</sub>
+   ii) The cost of the largest partition formed to the left of <em>j</em>
+       (ie, the left partition = { A<sub>0</sub>, A<sub>1</sub>, ..., A<sub>j-1</sub> } ).</pre><p>Now, how do we find ii)? It turns out that we want to place the remaining (<em>k</em>-2) separators such that the left partition is divided as fairly as possible, which leads to another valid sub-problem itself. Therefore, we can solve it recursively!</p><p>By defining M[<em>n</em>, <em>k</em>] as the optimum cost of a partition arrangement with <em>n</em> total blocks from the first block and <em>k</em> partitions, the recurrence relation can be stated as follow:</p><pre>                <span style="font-size: 10px"> n </span>               <span style="font-size: 10px">n-1</span>
+M[n, k] = min { max { M[j, k-1], <span style="font-size: 20px"><strong>&sum;</strong></span> A<sub>i</sub> } }
+                <span style="font-size: 10px">j=1</span>               <span style="font-size: 10px">i=j</span></pre><p>The base cases are:</p><pre>M[1, k] = A<sub>0</sub>
+          <span style="font-size: 10px">n-1</span>
+M[n, 1] = <span style="font-size: 20px"><strong>&sum;</strong></span> A<sub>i
+</sub>          <span style="font-size: 10px">i=0</span></pre><p>Therefore, the brute force solution can then be coded directly from the recurrence relation above:</p><pre class="crayon-plain-tag">int sum(int A[], int from, int to) {
+  int total = 0;
+  for (int i = from; i &lt;= to; i++)
+    total += A[i];
+  return total;
+}
+
+int partition(int A[], int n, int k) {
+  if (k == 1)
+    return sum(A, 0, n-1);
+  if (n == 1)
+    return A[0];
+
+  int best = INT_MAX;
+  for (int j = 1; j &lt;= n; j++)
+    best = min(best, max(partition(A, j, k-1), sum(A, j, n-1)));
+
+  return best;
+}</pre><p>As you already knew, the brute force solution is definitely not very efficient. It is exponential in run time complexity due to re-computation of the same values over and over again. We can do much better by caching our results in a <em>k</em>x<em>N</em> table utilizing Dynamic programming (DP). The table has to be constructed in a way such that the sub-problems are calculated first in a bottom-up fashion.</p><p>Each entry in the table needs <em>O</em>(<em>N</em><sup>2</sup>) time to calculate. This is due to the summation term (<strong>&sum;</strong>{i=j..n-1} A<sub>i</sub>) needs <em>O</em>(<em>N</em>) time, and on top of that you need to find the minimum across all partitions which increases the complexity by an order to O(<em>N</em><sup>2</sup>). Since there are a total of <em>kN</em> entries in the table, the overall run time complexity has to be <em>O</em>(<em>k</em><em>N</em><sup>3</sup>).</p><p>It is easy to further reduce the complexity down to <em>O</em>(<em>kN</em><sup>2</sup>). The extra calculation of the summation term (<strong>&sum;</strong>{i=j..n-1} A<sub>i</sub>) can be easily avoided by caching the results using an array that stores cumulative sums.</p><p>Below is the DP solution with <em>O</em>(<em>kN</em><sup>2</sup>) run time and using <em>O</em>(<em>kN</em>) space complexity.</p><pre class="crayon-plain-tag">const int MAX_N = 100;
+int findMax(int A[], int n, int k) {
+  int M[MAX_N+1][MAX_N+1] = {0};
+  int cum[MAX_N+1] = {0};
+  for (int i = 1; i &lt;= n; i++)
+    cum[i] = cum[i-1] + A[i-1];
+
+  for (int i = 1; i &lt;= n; i++)
+    M[i][1] = cum[i];
+  for (int i = 1; i &lt;= k; i++)
+    M[1][i] = A[0];
+
+  for (int i = 2; i &lt;= k; i++) {
+    for (int j = 2; j &lt;= n; j++) {
+      int best = INT_MAX;
+      for (int p = 1; p &lt;= j; p++) {
+        best = min(best, max(M[p][i-1], cum[j]-cum[p]));
+      }
+      M[j][i] = best;
+    }
+  }
+  return M[n][k];
+}</pre><p><strong><span
+style="color: red">Follow up:</span></strong><br
+/> Could you think of another non DP algorithm which doesn&#8217;t requires any extra space?</p><p><strong><span
+style="color: red">» Continue reading</span> <a
+href="http://www.leetcode.com/2011/04/the-painters-partition-problem-part-ii.html">Part II: The Painter&#8217;s Partition Problem.</a></strong></p> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2011/04/the-painters-partition-problem.html/feed</wfw:commentRss> <slash:comments>29</slash:comments> </item> <item><title>Median of Two Sorted Arrays</title><link>http://leetcode.com/2011/03/median-of-two-sorted-arrays.html</link> <comments>http://leetcode.com/2011/03/median-of-two-sorted-arrays.html#comments</comments> <pubDate>Mon, 28 Mar 2011 09:23:01 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[Uncategorized]]></category><guid
+isPermaLink="false">http://www.ihas1337code.com/?p=463</guid> <description><![CDATA[<p>There are two sorted arrays A and B of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).</p><p> Note:
+Please head over to this <a
+href="http://www2.myoops.org/course_material/mit/NR/rdonlyres/Electrical-Engineering-and-Computer-Science/6-046JFall-2005/30C68118-E436-4FE3-8C79-6BAFBB07D935/0/ps9sol.pdf">MIT handout</a> for a much better solution, although their solution does not deal with some special cases, which is easy to fix. Please consult <a
+href="http://www.leetcode.com/2011/03/median-of-two-sorted-arrays.html#comment-1053">Sophie&#8217;s solution</a> which fixes these special cases easily. Although my solution below works, it is too complicated.</p><p>Online Judge
+This problem &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2011/03/median-of-two-sorted-arrays.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<blockquote><p>There are two sorted arrays A and B of size <em>m</em> and <em>n</em> respectively. Find the median of the two sorted arrays. The overall run time complexity should be <em>O</em>(log (<em>m</em>+<em>n</em>)).</p></blockquote><p><span
+id="more-463"></span><br
+/> <strong><span
+style="color: red;">Note:</span></strong><br
+/> Please head over to this <a
+href="http://www2.myoops.org/course_material/mit/NR/rdonlyres/Electrical-Engineering-and-Computer-Science/6-046JFall-2005/30C68118-E436-4FE3-8C79-6BAFBB07D935/0/ps9sol.pdf">MIT handout</a> for a much better solution, although their solution does not deal with some special cases, which is easy to fix. Please consult <a
+href="http://www.leetcode.com/2011/03/median-of-two-sorted-arrays.html#comment-1053">Sophie&#8217;s solution</a> which fixes these special cases easily. Although my solution below works, it is too complicated.</p><p><strong><span
+style="color: red;">Online Judge</span></strong><br
+/> This problem is available at <a
+href=" http://www.leetcode.com/onlinejudge">Online Judge</a>. <a
+href=" http://www.leetcode.com/onlinejudge">Head over there</a> and it will judge your solution. Currently only able to compile C++ code. If you are using other languages, you can still verify your solution by looking at the judge&#8217;s test cases and its expected output.</p><p><strong>Solution:</strong><br
+/> If you search this problem on <a
+href="http://www.google.com/search?q=median+of+two+sorted+arrays&#038;ie=utf-8&#038;oe=utf-8&#038;aq=t&#038;rls=org.mozilla:en-US:official&#038;client=firefox-a">Google</a>, you will find tons of hits. However, most of them deal with the special case where m == n, and even so their code are <a
+href="http://geeksforgeeks.org/?p=2105">filled with bugs</a>. The <a
+href="http://www.amazon.com/Introduction-Algorithms-CD-Rom-Thomas-Cormen/dp/0072970545/ref=sr_1_1?ie=UTF8&#038;qid=1301046297&#038;sr=8-1">CLRS</a> book has this problem as exercise in section 9.3-8, however it also assumes the case where <em>m</em> == <em>n</em>. <a
+href="http://www2.myoops.org/course_material/mit/NR/rdonlyres/Electrical-Engineering-and-Computer-Science/6-046JFall-2005/30C68118-E436-4FE3-8C79-6BAFBB07D935/0/ps9sol.pdf">The only reliable solution</a> I found on the web which deals with the generic case also seemed incorrect, as their definition of the median is the single middle element (although their approach of using binary search is pretty neat). According to the definition of the <a
+href="http://en.wikipedia.org/wiki/Median">median</a>, if (<em>m</em> + <em>n</em>) is even, then the median should be the mean of the two middle numbers.</p><p>If you read my previous post: <a
+href="http://www.leetcode.com/2011/01/find-k-th-smallest-element-in-union-of.html">Find the k-th Smallest Element in the Union of Two Sorted Arrays</a>, you know that this problem is somewhat similar. In fact, the problem of finding the median of two sorted arrays when (<em>m</em> + <em>n</em>) is odd can be thought of solving the special case where k=(<em>m</em>+<em>n</em>)/2. Although we can still apply the finding k-th smallest algorithm twice to find the two middle numbers when (<em>m</em> + <em>n</em>) is even, it is no more a desirable solution due to inefficiency.</p><p>You might ask: Why not adapt the previous solution to this problem? After all, the previous algorithm solves a more general case. Well, I&#8217;ve tried that and I didn&#8217;t consider the previous solution is easily adaptable to this problem. The main reason is because when (<em>m</em> + <em>n</em>) is even, the two middle elements might be located in the same array. This complicates the algorithm and many special cases have to be dealt in a case by case basis.</p><p>Similar to finding the k-th smallest, the divide and conquer method is a natural approach to this problem. First, we choose A<sub>i</sub> and B<sub>j</sub> (the middle elements of A and B) where i and j are defined as m/2 and n/2. We made an observation that if A<sub>i</sub> <= B<sub>j</sub>, then the median must be somewhere between A<sub>i</sub> and B<sub>j</sub> (inclusive). Therefore, we could dispose a total of <em>i</em> elements from left of Ai and a total of n-j-1 elements to the right of B<sub>j</sub>. Please take extra caution not to dispose A<sub>i</sub> or B<sub>j</sub>, as we might need two middle values to calculate the median (it might also be possible that the two middle values are both in the same array). The case where A<sub>i</sub> > B<sub>j</sub> is similar.</p><p
+style="text-align: center;"><a
+href="http://www.leetcode.com/wp-content/uploads/2011/03/twoarrays.gif"><img
+class="aligncenter size-full wp-image-467" src="http://www.leetcode.com/wp-content/uploads/2011/03/twoarrays.gif" alt="" width="389" height="127" /></a><span
+style="font-size: 80%;">Two sorted arrays A and B. i is chosen as m/2 and j is chosen as n/2. A<sub>i</sub> and B<sub>j</sub> are middle elements of A and B. If A<sub>i</sub> < B<sub>j</sub>, then the median must be between A<sub>i</sub> and B<sub>j</sub> (inclusive). Similarly with the opposite.</span></p><p>The main idea illustrated above is mostly right, however there is one more important invariant we have to maintain. It is entirely possible that the number of elements being disposed from each array is different. Look at the example above: If A<sub>i</sub> <= B<sub>j</sub>, two elements to the left of A<sub>i</sub> and three elements to the right of B<sub>j</sub> are being disposed. Notice that this is no longer a valid sub-problem, as both sub-array&#8217;s median is no longer the original median.</p><p>Therefore, an important invariant we have to maintain is:</p><pre>The number of elements being disposed from each array must be the same.</pre><p>This could be easily achieved by choosing the number of elements to dispose from each array to be (<strong><span
+style="color: red;">Warning</span></strong>: The below condition fails to handle an edge case, for more details see the <strong><span
+style="color: red;">EDIT</span></strong> section below):</p><pre>k = min(i, n-j-1) when A<sub>i</sub> <= B<sub>j</sub>.                   <--- <strong>1(a)</strong>
+k = min(m-i-1, j) when A<sub>i</sub> > B<sub>j</sub>.                    <--- <strong>1(b)</strong></pre><p>Figuring out how to subdivide the problem is actually the easy part. The hard part is figuring out the base case. (ie, when should we stop subdividing?)</p><p>It is obvious that when <em>m</em>=1 or <em>n</em>=1, you must treat it as a special base case, or else it would end up in an infinite loop. The hard part is reasoning why <em>m</em>=2 or <em>n</em>=2 requires special case handling as well. (Hint: The two middle elements might be in the same array.)</p><p>Finally, implementing the above idea turns out to be an extremely tricky coding exercise. Before looking at the solution below, try to challenge yourself by coding the algorithm.</p><p>If you have a more elegant code to this problem, I would love to hear from you!</p><p><strong><span
+style="text-decoration: underline;"><span
+style="color: red;">EDIT:</span></span></strong><br
+/> Thanks to <a
+href="http://www.leetcode.com/2011/03/median-of-two-sorted-arrays.html#comment-674">Algorist</a> for being the first person who points out a bug. (For more details, read <a
+href="http://www.leetcode.com/2011/03/median-of-two-sorted-arrays.html#comment-674">his comment</a>). The bug is caused by some edge cases that are not handled in the base case.</p><p>Shortly after I fixed that bug, I discovered another edge case myself which my previous code failed to handle.</p><p>An example of one of the edge cases is:</p><pre>A = { 1, 2, 4, 8, 9, 10 }
+B = { 3, 5, 6, 7 }</pre><p>The above conditions ( <strong>1(a)</strong>, <strong>1(b)</strong> ) fails to handle the above edge case, which returns <strong>5</strong> as the median while the correct answer should be <strong>5.5</strong>.</p><p>The reason is because the number 5 is discarded in the first iteration, while it should be considered in the final evaluation step of the median. To resolve this edge case, we have to be careful not to discard the neighbor element when its size is even. Here are the corrected condition<em></em>s ( <strong>2(a)</strong>,<strong> 2(b)</strong>, <strong>2(c)</strong>, <strong>2(d)</strong> ) for <em>k</em> which resolves this edge case.</p><pre>k = min(i-1, n-j-1) when A<sub>i</sub> <= B<sub>j</sub> and m is even.   <--- <strong>2(a)</strong>
+k = min(i, n-j-1)   when A<sub>i</sub> <= B<sub>j</sub> and m is odd.    <--- <strong>2(b)</strong>
+k = min(m-i-1, j-1) when A<sub>i</sub> > B<sub>j</sub>  and n is even.   <--- <strong>2(c)</strong>
+k = min(m-i-1, j)   when A<sub>i</sub> > B<sub>j</sub>  and n is odd.    <--- <strong>2(d)</strong></pre><p>Below is the bug-free code after going through a lengthy rigorous testing of all possible edge cases. (Not for the faint of heart!)</p><pre class="crayon-plain-tag">double findMedianBaseCase(int med, int C[], int n) {
+  if (n == 1)
+    return (med+C[0])/2.0;
+
+  if (n % 2 == 0) {
+    int a = C[n/2 - 1], b = C[n/2];
+    if (med &lt;= a)
+      return a;
+    else if (med &lt;= b)
+      return med;
+    else /* med &gt; b */
+      return b;
+  } else {
+    int a = C[n/2 - 1], b = C[n/2], c = C[n/2 + 1];
+    if (med &lt;= a)
+      return (a+b) / 2.0;
+    else if (med &lt;= c)
+      return (med+b) / 2.0;
+    else /* med &gt; c */
+      return (b+c) / 2.0;
+  }
+}
+
+double findMedianBaseCase2(int med1, int med2, int C[], int n) {
+  if (n % 2 == 0) {
+    int a = (((n/2-2) &gt;= 0) ? C[n/2 - 2] : INT_MIN);
+    int b = C[n/2 - 1], c = C[n/2];
+    int d = (((n/2 + 1) &lt;= n-1) ? C[n/2 + 1] : INT_MAX);
+    if (med2 &lt;= b)
+      return (b+max(med2,a)) / 2.0;
+    else if (med1 &lt;= b)
+      return (b+min(med2,c)) / 2.0;
+    else if (med1 &gt;= c)
+      return (c+min(med1,d)) / 2.0;
+    else if (med2 &gt;= c)
+      return (c+max(med1,b)) / 2.0;
+    else  /* a &lt; med1 &lt;= med2 &lt; b */
+      return (med1+med2) / 2.0;
+  } else {
+    int a = C[n/2 - 1], b = C[n/2], c = C[n/2 + 1];
+    if (med1 &gt;= b)
+      return min(med1, c);
+    else if (med2 &lt;= b)
+      return max(med2, a);
+    else  /* med1 &lt; b &lt; med2 */
+      return b;
+  }
+}
+
+double findMedianSingleArray(int A[], int n) {
+  assert(n &gt; 0);
+  return ((n%2 == 1) ? A[n/2] : (A[n/2-1]+A[n/2])/2.0);
+}
+
+double findMedianSortedArrays(int A[], int m, int B[], int n) {
+  assert(m+n &gt;= 1);
+  if (m == 0)
+    return findMedianSingleArray(B, n);
+  else if (n == 0)
+    return findMedianSingleArray(A, m);
+  else if (m == 1)
+    return findMedianBaseCase(A[0], B, n);
+  else if (n == 1)
+    return findMedianBaseCase(B[0], A, m);
+  else if (m == 2)
+    return findMedianBaseCase2(A[0], A[1], B, n);
+  else if (n == 2)
+    return findMedianBaseCase2(B[0], B[1], A, m);
+
+  int i = m/2, j = n/2, k;
+  if (A[i] &lt;= B[j]) {
+    k = ((m%2 == 0) ? min(i-1, n-j-1) : min(i, n-j-1));
+    assert(k &gt; 0);
+    return findMedianSortedArrays(A+k, m-k, B, n-k);
+  } else {
+    k = ((n%2 == 0) ? min(m-i-1, j-1) : min(m-i-1, j));
+    assert(k &gt; 0);
+    return findMedianSortedArrays(A, m-k, B+k, n-k);
+  }
+}</pre><p><strong><span
+style="color: red;">EDIT2:</span></strong><br
+/> A reader <a
+href="http://www.leetcode.com/2011/03/median-of-two-sorted-arrays.html#comment-771">buried.shopno</a> had managed to code the solution more elegantly! I especially like how medianOfThree and medianOfFour were implemented. For more details, read his comment <a
+href="http://www.leetcode.com/2011/03/median-of-two-sorted-arrays.html#comment-771">below</a>. Great job!</p><p><strong><span
+style="color: red;">Further thoughts:</span></strong><br
+/> A reader <a
+href="http://www.leetcode.com/2011/03/median-of-two-sorted-arrays.html#comment-687">nimin98</a> suggested that the base case can be handled by simply doing a direct merge. In other words, we have to merge the short array (containing either one or two elements) with the longer array (pick the four elements near the middle. Deciding which four is another tricky business because of multiple special cases). <a
+href="http://www.leetcode.com/2011/03/median-of-two-sorted-arrays.html#comment-687">nimin98&#8242;s code</a> has few bugs in the handling of base case.</p><p>In general, The above approaches (including mine) to handle the base case are not recommended due to tricky implementation. How about Binary Search? We can use binary search to find the correct position to insert elements from the shorter array into the longer array, thus completing the merge (You don&#8217;t have to *<em>actually</em>* insert it, recording its index should be suffice).</p> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2011/03/median-of-two-sorted-arrays.html/feed</wfw:commentRss> <slash:comments>112</slash:comments> </item> <item><title>Coins in a Line</title><link>http://leetcode.com/2011/02/coins-in-line.html</link> <comments>http://leetcode.com/2011/02/coins-in-line.html#comments</comments> <pubDate>Wed, 09 Feb 2011 10:24:00 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[dynamic programming]]></category><guid
+isPermaLink="false">http://ihas1337code.org/?p=83</guid> <description><![CDATA[<p>There are n coins in a line. (Assume n is even). Two players take turns to take a coin from one of the ends of the line until there are no more coins left. The player with the larger amount of money wins.</p><ol><li>Would you rather go first or second? Does it matter?</li><li>Assume that you go first, describe an algorithm to compute the maximum amount of money you can win.</li></ol><p> This is an interesting problem itself, and different solutions from multiple perspectives &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2011/02/coins-in-line.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<blockquote><p>There are <em>n</em> coins in a line. (Assume <em>n</em> is even). Two players take turns to take a coin from one of the ends of the line until there are no more coins left. The player with the larger amount of money wins.</p><ol><li>Would you rather go first or second? Does it matter?</li><li>Assume that you go first, describe an algorithm to compute the maximum amount of money you can win.</li></ol></blockquote><p><span
+id="more-83"></span><br
+/> This is an interesting problem itself, and different solutions from multiple perspectives are provided in this post.</p><div
+class="separator" style="clear: both; text-align: center;"><a
+style="margin-left: 1em; margin-right: 1em;" href="http://1.bp.blogspot.com/_UElib2WLeDE/TVJ1kloofTI/AAAAAAAACdQ/SMgDB3scuFE/s1600/american_coins.jpg"><img
+src="http://1.bp.blogspot.com/_UElib2WLeDE/TVJ1kloofTI/AAAAAAAACdQ/SMgDB3scuFE/s1600/american_coins.jpg" border="0" alt="" /></a></div><div
+style="text-align: center;"><span
+style="font-size: x-small;"><a
+href="http://en.wikipedia.org/wiki/Coins_of_the_United_States_dollar">U.S. coins</a> in various denominations in a line. Two players take turn to pick a coin from one of the ends until no more coins are left. Whoever with the larger amount of money wins.</span></div><p><strong>Hints:</strong><br
+/> If you go first, is there a strategy you can follow which prevents you from losing? Try to consider how it matters when the number of coins are odd vs. even.</p><p><strong>Solution for (1):</strong><br
+/> Going first will guarantee that you will not lose. By following the strategy below, you will always win the game (or get a possible tie).</p><div
+class="hiblock"><ul><li>Count the sum of all coins that are odd-numbered. (Call this <strong>X</strong>)</li><li>Count the sum of all coins that are even-numbered. (Call this <strong>Y</strong>)</li><li>If <strong>X</strong> > <strong>Y</strong>, take the left-most coin first. Choose all odd-numbered coins in subsequent moves.</li><li>If <strong>X</strong> < <strong>Y</strong>, take the right-most coin first. Choose all even-numbered coins in subsequent moves.</li><li>If <strong>X</strong> == <strong>Y</strong>, you will guarantee to get a tie if you stick with taking only even-numbered/odd-numbered coins.</li></ul></div><p>You might be wondering how you can always choose odd-numbered/even-numbered coins. Let me illustrate this using an example where you have 10 coins:</p><p>If you take the coin numbered 1 (the left-most coin), your opponent can only have the choice of taking coin numbered 2 or 10 (which are both even-numbered coins). On the other hand, if you choose to take the coin numbered 10 (the right-most coin), your opponent can only take coin numbered 1 or 9 (which are odd-numbered coins).</p><p>Notice that the total number of coins change from even to odd and vice-versa when player takes turn each time. Therefore, by going first and depending on the coin you choose, you are essentially forcing your opponent to take either only even-numbered or odd-numbered coins.</p><p>Now that you have found a non-losing strategy, could you compute the maximum amount of money you can win?</p><p><strong>Hints:</strong><br
+/> One misconception is to think that the above non-losing strategy would generate the maximum amount of money as well. This is probably incorrect. Could you find a counter example? (You might need at least 6 coins to find a counter example).</p><p>Assume that you are finding the maximum amount of money in a certain range (ie, from coins numbered i to j, inclusive). Could you express it as a recursive formula? Find ways to make it as efficient as possible.</p><p><strong>Solution for (2):</strong><br
+/> Although the simple strategy illustrated in <strong>Solution (1)</strong> guarantees you not to lose, it does not guarantee that it is optimal in any way.</p><p>Here, we use a good counter example to better see why this is so. Assume the coins are laid out as below:</p><pre><strong>{ 3, 2, 2, 3, 1, 2 }</strong></pre><p>Following our previous non-losing strategy, we would count the sum of odd-numbered coins, <strong>X</strong> = 3 + 2 + 1 = <strong>6</strong>, and the sum of even-numbered coins, <strong>Y</strong> = 2 + 3 + 2 = <strong>7</strong>. As <strong>Y</strong> > <strong>X</strong>, we would take the last coin first and end up winning with the total amount of <strong>7</strong> by taking only even-numbered coins.</p><p>However, let us try another way by taking the first coin (valued at 3, denote by <strong>(3)</strong>) instead. The opponent is left with two possible choices, the left coin <strong>(2)</strong> and the right coin <strong>(2)</strong>, both valued at 2. No matter which coin the opponent chose, you can always take the other coin <strong>(2)</strong> next and the configuration of the coins becomes: <strong>{ 2, 3, 1 }</strong>. Now, the coin in the middle <strong>(3)</strong> would be yours to keep for sure. Therefore, you win the game by a total amount of 3 + 2 + 3 = <strong>8</strong>, which proves that the previous non-losing strategy is not necessarily optimal.</p><p>To solve this problem in an optimal way, we need to find efficient means in enumerating all possibilities. This is when <a
+href="http://www.leetcode.com/search/label/dynamic%20programming">Dynamic Programming</a> (DP) kicks in and become so powerful that you start to feel magical.</p><p>First, we would need some observations to establish a recurrence relation, which is essential as our first step in solving DP problems.</p><div
+class="separator" style="clear: both; text-align: center;"><a
+style="margin-left: 1em; margin-right: 1em;" href="http://4.bp.blogspot.com/_UElib2WLeDE/TVJNJgjHawI/AAAAAAAACdI/phIGr-4o_JM/s1600/coins.png"><img
+src="http://4.bp.blogspot.com/_UElib2WLeDE/TVJNJgjHawI/AAAAAAAACdI/phIGr-4o_JM/s400/coins.png" border="0" alt="" width="400" height="66" /></a></div><div
+style="text-align: center;"><span
+style="font-size: x-small;">The remaining coins are { A<sub>i</sub> &#8230; A<sub>j</sub> } and it is your turn. Let P(i, j) denotes the maximum amount of money you can get. Should you choose A<sub>i</sub> or A<sub>j</sub>?</span></div><p>Assume that P(i, j) denotes the maximum amount of money you can win when the remaining coins are { A<sub>i</sub>, &#8230;, A<sub>j</sub> }, and it is your turn now. You have two choices, either take A<sub>i</sub> or A<sub>j</sub>. First, let us focus on the case where you take A<sub>i</sub>, so that the remaining coins become { A<sub>i+1</sub> &#8230; A<sub>j</sub> }. Since the opponent is as smart as you, he must choose the best way that yields the maximum for him, where the maximum amount he can get is denoted by P(i+1, j).</p><p>Therefore, if you choose A<sub>i</sub>, the maximum amount you can get is:</p><pre>P<sub>1</sub> = Sum{A<sub>i</sub> ... A<sub>j</sub>} - P(i+1, j)</pre><p>Similarly, if you choose A<sub>j</sub>, the maximum amount you can get is:</p><pre>P<sub>2</sub> = Sum{A<sub>i</sub> ... A<sub>j</sub>} - P(i, j-1)</pre><p>Therefore,</p><pre>P(<em>i</em>, <em>j</em>) = max { P<sub>1</sub>, P<sub>2</sub> }
+        = max { Sum{A<sub>i</sub> ... A<sub>j</sub>} - P(i+1, j),
+                Sum{A<sub>i</sub> ... A<sub>j</sub>} - P(i, j-1) }</pre><p>In fact, we are able to simplify the above relation further to (Why?):</p><pre>P(i, j) = Sum{A<sub>i</sub> ... A<sub>j</sub>} - min { P(i+1, j), P(i, j-1) }</pre><p>Although the above recurrence relation is easy to understand, we need to compute the value of Sum{A<sub>i</sub> &#8230; A<sub>j</sub>} in each step, which is not very efficient. To avoid this problem, we can store values of Sum{A<sub>i</sub> &#8230; A<sub>j</sub>} in a table and avoid re-computations by computing in a certain order. Try to figure this out by yourself. (Hint: You would first compute P(1,1), P(2,2), &#8230; P(<em>n</em>, <em>n</em>) and work your way up).</p><p><strong>A Better Solution:</strong><br
+/> There is another solution which does not rely on computing and storing results of Sum{A<sub>i</sub> &#8230; A<sub>j</sub>}, therefore is more efficient in terms of time and space. Let us rewind back to the case where you take A<sub>i</sub>, and the remaining coins become { A<sub>i+1</sub> &#8230; A<sub>j</sub> }.</p><div
+class="separator" style="clear: both; text-align: center;"><a
+style="margin-left: 1em; margin-right: 1em;" href="http://4.bp.blogspot.com/_UElib2WLeDE/TVJUaw3myeI/AAAAAAAACdM/-zYRDclcIlI/s1600/coins2.png"><img
+src="http://4.bp.blogspot.com/_UElib2WLeDE/TVJUaw3myeI/AAAAAAAACdM/-zYRDclcIlI/s400/coins2.png" border="0" alt="" width="400" height="67" /></a></div><div
+style="text-align: center;"><span
+style="font-size: x-small;">You took </span><span
+style="font-size: x-small;">A<sub>i</sub></span><span
+style="font-size: x-small;"> from the coins { </span><span
+style="font-size: x-small;">A<sub>i</sub></span><span
+style="font-size: x-small;"> &#8230; </span><span
+style="font-size: x-small;">A<sub>j</sub></span><span
+style="font-size: x-small;"> }. The opponent will choose either </span><span
+style="font-size: x-small;">A<sub>i+1</sub></span><span
+style="font-size: x-small;"> or </span><span
+style="font-size: x-small;">A<sub>j</sub></span><span
+style="font-size: x-small;">. Which one would he choose?</span></div><p>Let us look one extra step ahead this time by considering the two coins the opponent will possibly take, A<sub>i+1</sub> and A<sub>j</sub>. If the opponent takes A<sub>i+1</sub>, the remaining coins are { A<sub>i+2</sub> &#8230; A<sub>j</sub> }, which our maximum is denoted by P(i+2, j). On the other hand, if the opponent takes A<sub>j</sub>, our maximum is P(i+1, j-1). Since the opponent is as smart as you, he would have chosen the choice that yields the minimum amount to you.</p><p>Therefore, the maximum amount you can get when you choose A<sub>i</sub> is:</p><pre>P<sub>1</sub> = A<sub>i</sub> + min { P(i+2, j), P(i+1, j-1) }</pre><p>Similarly, the maximum amount you can get when you choose A<sub>j</sub> is:</p><pre>P<sub>2</sub> = A<sub>j</sub> + min { P(i+1, j-1), P(i, j-2) }</pre><p>Therefore,</p><pre>P(i, j) = max { P<sub>1</sub>, P<sub>2</sub> }
+        = max { A<sub>i</sub> + min { P(i+2, j),   P(i+1, j-1) },
+                A<sub>j</sub> + min { P(i+1, j-1), P(i,   j-2) } }</pre><p>Although the above recurrence relation could be implemented in few lines of code, its complexity is exponential. The reason is that each recursive call branches into a total of four separate recursive calls, and it could be <em>n</em> levels deep from the very first call). Memoization provides an efficient way by avoiding re-computations using intermediate results stored in a table. Below is the code which runs in <em>O</em>(<em>n</em><sup>2</sup>) time and takes <em>O</em>(<em>n</em><sup>2</sup>) space.</p><p><span
+style="color: red;"><strong>Edit:</strong></span><br
+/> Updated code with a new function <em>printMoves </em>which prints out all the moves you and the opponent make (assuming both of you are taking the coins in an optimal way).</p><pre class="crayon-plain-tag">const int MAX_N = 100;
+
+void printMoves(int P[][MAX_N], int A[], int N) {
+  int sum1 = 0, sum2 = 0;
+  int m = 0, n = N-1;
+  bool myTurn = true;
+  while (m &lt;= n) {
+    int P1 = P[m+1][n]; // If take A[m], opponent can get...
+    int P2 = P[m][n-1]; // If take A[n]
+    cout &lt;&lt; (myTurn ? &quot;I&quot; : &quot;You&quot;) &lt;&lt; &quot; take coin no. &quot;;
+    if (P1 &lt;= P2) {
+      cout &lt;&lt; m+1 &lt;&lt; &quot; (&quot; &lt;&lt; A[m] &lt;&lt; &quot;)&quot;;
+      m++;
+    } else {
+      cout &lt;&lt; n+1 &lt;&lt; &quot; (&quot; &lt;&lt; A[n] &lt;&lt; &quot;)&quot;;
+      n--;
+    }
+    cout &lt;&lt; (myTurn ? &quot;, &quot; : &quot;.\n&quot;);
+    myTurn = !myTurn;
+  }
+  cout &lt;&lt; &quot;\nThe total amount of money (maximum) I get is &quot; &lt;&lt; P[0][N-1] &lt;&lt; &quot;.\n&quot;;
+}
+
+int maxMoney(int A[], int N) {
+  int P[MAX_N][MAX_N] = {0};
+  int a, b, c;
+  for (int i = 0; i &lt; N; i++) {
+    for (int m = 0, n = i; n &lt; N; m++, n++) {
+      assert(m &lt; N); assert(n &lt; N);
+      a = ((m+2 &lt;= N-1)             ? P[m+2][n] : 0);
+      b = ((m+1 &lt;= N-1 &amp;&amp; n-1 &gt;= 0) ? P[m+1][n-1] : 0);
+      c = ((n-2 &gt;= 0)               ? P[m][n-2] : 0);
+      P[m][n] = max(A[m] + min(a,b),
+                    A[n] + min(b,c));
+    }
+  }
+  printMoves(P, A, N);
+  return P[0][N-1];
+}</pre><p><span
+style="color: red;"><strong>Further Thoughts:</strong></span><br
+/> Assume that your opponent is so dumb that you are able to manipulate him into choosing the coins you want him to choose. Now, what is the maximum possible amount of money you can win?</p> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2011/02/coins-in-line.html/feed</wfw:commentRss> <slash:comments>50</slash:comments> </item> <item><title>Find the k-th Smallest Element in the Union of Two Sorted Arrays</title><link>http://leetcode.com/2011/01/find-k-th-smallest-element-in-union-of.html</link> <comments>http://leetcode.com/2011/01/find-k-th-smallest-element-in-union-of.html#comments</comments> <pubDate>Thu, 27 Jan 2011 09:43:00 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[binary search]]></category><guid
+isPermaLink="false">http://ihas1337code.org/?p=76</guid> <description><![CDATA[<p>Given two sorted arrays A, B of size m and n respectively. Find the k-th smallest element in the union of A and B. You can assume that there are no duplicate elements.</p><p> Thanks to an <a
+href="http://www.leetcode.com/2011/01/sliding-window-maximum.html?showComment=1296084234466#c2660564749129817681">anonymous reader</a> who posted this question.</p><p>I would have to admit that this problem is pretty tricky to solve. Like most difficult problems, it requires some pretty clever observations to solve in a neat way.</p><p>The trivial way, O(m+n):Merge both arrays and the k-th smallest element &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2011/01/find-k-th-smallest-element-in-union-of.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<blockquote><p>Given two sorted arrays A, B of size <i>m</i> and <i>n</i> respectively. Find the k-th smallest element in the union of A and B. You can assume that there are no duplicate elements.</p></blockquote><p><span
+id="more-76"></span><br
+/> Thanks to an <a
+href="http://www.leetcode.com/2011/01/sliding-window-maximum.html?showComment=1296084234466#c2660564749129817681">anonymous reader</a> who posted this question.</p><p>I would have to admit that this problem is pretty tricky to solve. Like most difficult problems, it requires some pretty clever observations to solve in a neat way.</p><p><b>The trivial way, <i>O</i>(<i>m</i>+<i>n</i>):</b><br
+/>Merge both arrays and the k-th smallest element could be accessed directly. Merging would require extra space of <i>O</i>(<i>m</i>+<i>n</i>). The linear run time is pretty good, but could we improve it even further?</p><p><b>A better way, <i>O</i>(<i>k</i>):</b><br
+/>There is an improvement from the above method, thanks to readers who suggested this. (See comments below by <a
+href="http://www.leetcode.com/2011/01/find-k-th-smallest-element-in-union-of.html?showComment=1296141596487#c7400073356635703229">Martin</a> for an implementation). Using two pointers, you can traverse both arrays without actually merging them, thus without the extra space. Both pointers are initialized to point to head of A and B respectively, and the pointer that has the <del
+datetime="2012-07-09T21:25:07+00:00">larger</del> <ins
+datetime="2012-07-09T21:25:07+00:00">smaller (thanks to a reader for this correction)</ins> of the two is incremented one step. The k-th smallest is obtained by traversing a total of <i>k</i> steps. This algorithm is very similar to <a
+href="http://www.leetcode.com/2010/03/here-is-phone-screening-question-from.html">finding intersection of two sorted arrays</a>.</p><p><b>The best solution, but non-trivial, <i>O</i>(lg <i>m</i> + lg <i>n</i>):</b><br
+/>Although the above solution is an improvement both in run time and space complexity, it only works well for small values of <i>k</i>, and thus is still in linear run time. Could we improve the run time further?</p><p>The above logarithmic complexity gives us one important hint. Binary search is a great example of achieving logarithmic complexity by halving its search space in each iteration. Therefore, to achieve the complexity of <i>O</i>(lg<i> m</i> + lg <i>n</i>), we must halved the search space of A and B in each iteration.</p><p>We try to approach this tricky problem by comparing middle elements of A and B, which we identify as A<sub>i</sub> and B<sub>j</sub>. If A<sub>i</sub> is between B<sub>j</sub> and B<sub>j-1</sub>, we have just found the <i>i</i>+<i>j</i>+1 smallest element. Why? Therefore, if we choose <i>i</i> and <i>j</i> such that<i> i</i>+<i>j</i> = <i>k</i>-1, we are able to find the k-th smallest element. This is an important invariant that we must maintain for the correctness of this algorithm.</p><p>Summarizing the above,<div
+class="hiblock">Maintaining the invariant<br
+/><i> i </i>+ <i>j</i> = <i>k</i> &#8211; 1,</p><p>If B<sub>j-1</sub> < A<sub>i</sub> < B<sub>j</sub>, then A<sub>i</sub> must be the k-th smallest,<br
+/>or else if A<sub>i-1</sub> < B<sub>j</sub> < A<sub>i</sub>, then B<sub>j</sub> must be the k-th smallest.</div><p>If one of the above conditions are satisfied, we are done. If not, we will use <i>i</i> and <i>j</i> as the pivot index to subdivide the arrays. But how? Which portion should we discard? How about A<sub>i</sub> and B<sub>j</sub> itself?</p><p>We make an observation that when A<sub>i</sub> < B<sub>j</sub>, then it must be true that A<sub>i</sub> < B<sub>j-1</sub>. On the other hand, if B<sub>j</sub> < A<sub>i</sub>, then B<sub>j</sub> < A<sub>i-1</sub>. Why?</p><p>Using the above relationship, it becomes clear that when A<sub>i</sub> < B<sub>j</sub>, A<sub>i</sub> and its lower portion could never be the k-th smallest element. So do B<sub>j</sub> and its upper portion. Therefore, we could conveniently discard A<sub>i</sub> with its lower portion and B<sub>j</sub> with its upper portion.</p><p>If you are still not convince why the above argument is true, try drawing blocks representing elements in A and B. Try visualize inserting blocks of A up to A<sub>i</sub> in front of B<sub>j-1</sub>. You could easily see that no elements in the inserted blocks would ever be the k-th smallest. For the latter, you might want to keep the invariant <i>i</i> + <i>j</i> = <i>k</i> &#8211; 1 in mind to reason why B<sub>j</sub> and its upper portion could never be the k-th smallest.</p><p>On the other hand, the case for A<sub>i</sub> > B<sub>j</sub> is just the other way around. Easy.</p><p>Below is the code and I have inserted lots of assertion (highly recommended programming style by the way) to help you understand the code. Note that the below code is an example of <a
+href="http://en.wikipedia.org/wiki/Tail_recursion">tail recursion</a>, so you could technically convert it to an iterative method in a straightforward manner. However, I would leave it as it is, since this is how I derive the solution and it seemed more natural to be expressed in a recursive manner.</p><p>Another side note is regarding the choices of <i>i</i> and <i>j</i>. The below code would subdivide both arrays using its array sizes as weights. The reason is it might be able to guess the k-th element quicker (as long as the A and B is not differed in an extreme way; ie, all elements in A are smaller than B). If you are wondering, yes, you could choose <i>i</i> to be A&#8217;s middle. In theory, you could choose any values for <i>i</i> and <i>j</i> as long as the invariant <i>i</i>+<i>j</i> = <i>k</i>-1 is satisfied.</p><p></p><pre class="crayon-plain-tag">int findKthSmallest(int A[], int m, int B[], int n, int k) {
+  assert(m &gt;= 0); assert(n &gt;= 0); assert(k &gt; 0); assert(k &lt;= m+n);
+  
+  int i = (int)((double)m / (m+n) * (k-1));
+  int j = (k-1) - i;
+
+  assert(i &gt;= 0); assert(j &gt;= 0); assert(i &lt;= m); assert(j &lt;= n);
+  // invariant: i + j = k-1
+  // Note: A[-1] = -INF and A[m] = +INF to maintain invariant
+  int Ai_1 = ((i == 0) ? INT_MIN : A[i-1]);
+  int Bj_1 = ((j == 0) ? INT_MIN : B[j-1]);
+  int Ai   = ((i == m) ? INT_MAX : A[i]);
+  int Bj   = ((j == n) ? INT_MAX : B[j]);
+
+  if (Bj_1 &lt; Ai &amp;&amp; Ai &lt; Bj)
+    return Ai;
+  else if (Ai_1 &lt; Bj &amp;&amp; Bj &lt; Ai)
+    return Bj;
+
+  assert((Ai &gt; Bj &amp;&amp; Ai_1 &gt; Bj) || 
+         (Ai &lt; Bj &amp;&amp; Ai &lt; Bj_1));
+
+  // if none of the cases above, then it is either:
+  if (Ai &lt; Bj)
+    // exclude Ai and below portion
+    // exclude Bj and above portion
+    return findKthSmallest(A+i+1, m-i-1, B, j, k-i-1);
+  else /* Bj &lt; Ai */
+    // exclude Ai and above portion
+    // exclude Bj and below portion
+    return findKthSmallest(A, i, B+j+1, n-j-1, k-j-1);
+}</pre><p></p> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2011/01/find-k-th-smallest-element-in-union-of.html/feed</wfw:commentRss> <slash:comments>90</slash:comments> </item> <item><title>Sliding Window Maximum</title><link>http://leetcode.com/2011/01/sliding-window-maximum.html</link> <comments>http://leetcode.com/2011/01/sliding-window-maximum.html#comments</comments> <pubDate>Wed, 26 Jan 2011 02:25:00 +0000</pubDate> <dc:creator>1337c0d3r</dc:creator> <category><![CDATA[Uncategorized]]></category><guid
+isPermaLink="false">http://ihas1337code.org/?p=75</guid> <description><![CDATA[<p>A long array A[] is given to you. There is a sliding window of size w which is moving from the very left of the array to the very right. You can only see the w numbers in the window. Each time the sliding window moves rightwards by one position. Following is an example:
+The array is [1 3 -1 -3 5 3 6 7], and w is 3.</p> Window position            &#160;<span
+class="readmore"><a
+href="http://leetcode.com/2011/01/sliding-window-maximum.html">[read more &#8594;]</a></span>]]></description> <content:encoded><![CDATA[<blockquote><p>A long array A[] is given to you. There is a sliding window of size <em>w</em> which is moving from the very left of the array to the very right. You can only see the <em>w</em> numbers in the window. Each time the sliding window moves rightwards by one position. Following is an example:<br
+/> The array is [1 3 -1 -3 5 3 6 7], and <em>w</em> is 3.</p><pre>Window position                Max
+---------------               -----
+[1  3  -1] -3  5  3  6  7       3
+ 1 [3  -1  -3] 5  3  6  7       3
+ 1  3 [-1  -3  5] 3  6  7       5
+ 1  3  -1 [-3  5  3] 6  7       5
+ 1  3  -1  -3 [5  3  6] 7       6
+ 1  3  -1  -3  5 [3  6  7]      7</pre><p><strong>Input</strong>: A long array A[], and a window width w<br
+/> <strong>Output</strong>: An array B[], B[i] is the maximum value of from A[i] to A[i+w-1]<br
+/> <strong>Requirement</strong>: Find a good optimal way to get B[i]</p></blockquote><p><span
+id="more-75"></span></p><p>The obvious brute force solution with run time complexity of <em>O</em>(<em>nw</em>) is definitely not efficient enough. Every time the window is moved, you have to search for a total of <em>w</em> elements in the window.</p><p>A <a
+href="http://en.wikipedia.org/wiki/Heap_%28data_structure%29">heap</a> data structure quickly comes to mind. We could boost the run time to approximately <em>O</em>(<em>n</em> lg <em>w</em>) (Note that I said approximately because the size of the heap changes constantly and averages about <em>w</em>). Insert operation takes <em>O</em>(lg <em>w</em>) time, where <em>w</em> is the size of the heap. However, getting the maximum value is cheap, it merely takes constant time as the maximum value is always kept in the root (head) of the heap.</p><p>As the window slides to the right, some elements in the heap might not be valid anymore (range is outside of the current window). How should you remove them? You would need to be somewhat careful here. Since you only remove elements that are out of the window&#8217;s range, you would need to keep track of the elements&#8217; indices too.</p><p><del>Note that as <em>n</em> grows larger, the term lg <em>w</em> is pretty insignificant compared to <em>n</em>, and thus the overall complexity approximates to <em>O</em>(<em>n</em>).</del> (<strong><span
+style="color: red;">Edit:</span></strong> In fact, the correct run time complexity should be O(<em>n</em> log <em>n</em>). If A is sorted, then the inner while loop will never run. This is due to the next element (which is larger) being pushed to the queue&#8217;s top as the new maximum. (Thanks to my readers <a
+href="http://www.leetcode.com/2011/01/sliding-window-maximum.html#comment-726"><strong><span
+style="color: red;">anonymous</span></strong></a> and <strong><span
+style="color: red;">faircoin</span></strong> who pointed out this.)</p><pre class="crayon-plain-tag">typedef pair&lt;int, int&gt; Pair;
+void maxSlidingWindow(int A[], int n, int w, int B[]) {
+  priority_queue&lt;Pair&gt; Q;
+  for (int i = 0; i &lt; w; i++)
+    Q.push(Pair(A[i], i));
+  for (int i = w; i &lt; n; i++) {
+    Pair p = Q.top();
+    B[i-w] = p.first;
+    while (p.second &lt;= i-w) {
+      Q.pop();
+      p = Q.top();
+    }
+    Q.push(Pair(A[i], i));
+  }
+  B[n-w] = Q.top().first;
+}</pre><p>You might be wondering: Is there a better way of doing this without using a heap? How about using a <a
+href="http://en.wikipedia.org/wiki/Double-ended_queue">double-ended queue</a>? (A linked list should be fine too)</p><p>The double-ended queue is the perfect data structure for this problem. It supports insertion/deletion from the front and back. The trick is to find a way such that the largest element in the window would always appear in the front of the queue. How would you maintain this requirement as you push and pop elements in and out of the queue?</p><p>Besides, you might notice that there are some redundant elements in the queue that we shouldn&#8217;t even consider about. For example, if the current queue has the elements: [10 5 3], and a new element in the window has the element 11. Now, we could have emptied the queue without considering elements 10, 5, and 3, and insert only element 11 into the queue.</p><p>A natural way most people would think is to try to maintain the queue size the same as the window&#8217;s size. Try to break away from this thought and try to think outside of the box. Removing redundant elements and storing only elements that need to be considered in the queue is the key to achieve the efficient O(<em>n</em>) solution below.</p><pre class="crayon-plain-tag">void maxSlidingWindow(int A[], int n, int w, int B[]) {
+  deque&lt;int&gt; Q;
+  for (int i = 0; i &lt; w; i++) {
+    while (!Q.empty() &amp;&amp; A[i] &gt;= A[Q.back()])
+      Q.pop_back();
+    Q.push_back(i);
+  }
+  for (int i = w; i &lt; n; i++) {
+    B[i-w] = A[Q.front()];
+    while (!Q.empty() &amp;&amp; A[i] &gt;= A[Q.back()])
+      Q.pop_back();
+    while (!Q.empty() &amp;&amp; Q.front() &lt;= i-w)
+      Q.pop_front();
+    Q.push_back(i);
+  }
+  B[n-w] = A[Q.front()];
+}</pre><p>The above algorithm could be proven to have run time complexity of O(<em>n</em>). This is because each element in the list is being inserted and then removed <strong>at most once</strong>. Therefore, the total number of insert + delete operations is 2<em>n</em>.</p> ]]></content:encoded> <wfw:commentRss>http://leetcode.com/2011/01/sliding-window-maximum.html/feed</wfw:commentRss> <slash:comments>65</slash:comments> </item> </channel> </rss>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Minified using disk: basic
+Page Caching using disk: enhanced
+
+ Served from: leetcode.com @ 2013-12-07 20:55:50 by W3 Total Cache -->

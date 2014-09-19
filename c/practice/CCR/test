@@ -1,0 +1,8 @@
+1-5.c: In function ‘main’:
+1-5.c:30:2: error: variable-sized object may not be initialized
+1-5.c:30:2: warning: excess elements in array initializer [enabled by default]
+1-5.c:30:2: warning: (near initialization for ‘result’) [enabled by default]
+1-5.c: In function ‘main’:
+1-5.c:30:2: error: variable-sized object may not be initialized
+1-5.c:30:2: warning: excess elements in array initializer [enabled by default]
+1-5.c:30:2: warning: (near initialization for ‘result’) [enabled by default]

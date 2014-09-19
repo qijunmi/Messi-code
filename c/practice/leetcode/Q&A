@@ -1,0 +1,13 @@
+[Q]What the different between int *a and int &a??
+[I]
+Date:2013年 12月 09日 星期一 15:13:26 CST
+Source:leetcode/Palindrome.
+[A]int &a is a c++ code,means reference of a,there is no concepet of reference in c,reference should always refer to an object,it can`t be null and can`t be alter to refer to another object!
+
+[Q]Divide and Conquer using in reverse a bit??
+[I]
+Date:2013年 12月 09日 星期一 19:13:46 CST
+Index:leetcode/reversebit
+Note:The page offer further info!!!
+[A]
+

@@ -1,0 +1,1958 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html
+xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head
+profile="http://gmpg.org/xfn/11"><link
+rel="stylesheet" type="text/css" href="http://leetcode.com/wp-content/cache/minify/000000/fY7BDgIhDER_aBE9-EEFKpAssGm7Ufx6uyzxpodmmubNdK6Wpa-43C2EkqtxQBfV5WbdHkLfCJmt24xvhNbr_sUU8TtLK_mNwRB6rKJYKao80DP5eZir6NXGYFiADIHkGgdzrkcWQW_VcK8CL5NyTKuOIA1Mf05itvuNS8KCbGOWtLspfw2PNgq3ym0F_gA.css" media="all" /><link
+rel="stylesheet" type="text/css" href="http://leetcode.com/wp-content/cache/minify/000000/M9Qvzy9KKShKLS7WLcgvKM1JLALSxSXF-sUllTmp-uUFBQA.css" media="all" /><script type="text/javascript" src="http://leetcode.com/wp-content/cache/minify/000000/LYtrDsMgDIMvRBZN632m8BBQQeiSVBu3H532w3LsfH7g_jqTTHfHHEGNBISscsZdV6OyHkFoDgadbPSBUnNpS5bkYnrlP3Bbp3sfEAZbYkMrqSdFf8Y4_VDFZ-WAuQ1PzW0YRu8LA0lHm7_thhSXgye58hc.js"></script><meta
+http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta
+name="viewport" content="width=device-width, initial-scale=1.0" /><title>Nuts in an Oasis | LeetCode</title><link
+rel="pingback" href="http://leetcode.com/xmlrpc.php" /><link
+rel="shortcut icon" href="http://leetcode.com/wp-content/themes/buddyboss-child/_inc/images/favicon.ico" type="image/x-icon"><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; Feed" href="http://leetcode.com/feed" /><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; Comments Feed" href="http://leetcode.com/comments/feed" /><link
+rel="alternate" type="application/rss+xml" title="LeetCode &raquo; Nuts in an Oasis Comments Feed" href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html/feed" /><link
+rel='stylesheet' id='gdsr_style_main-css'  href='http://leetcode.com/wp-content/plugins/gd-star-rating/css/gdsr.css.php?t=1366376824&#038;s=a05i05m20k20c05r05%23121620243046%23121620243240%23s1pchristmas%23s1pcrystal%23s1pdarkness%23s1poxygen%23s1goxygen_gif%23s1pplain%23s1ppumpkin%23s1psoft%23s1pstarrating%23s1pstarscape%23t1pclassical%23t1pstarrating%23t1gstarrating_gif%23lsgflower%23lsgradar&#038;o=off&#038;ver=1.9.22' type='text/css' media='all' /><script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"2.2.0","is_admin":"0","ajaxurl":"http:\/\/leetcode.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script><script type='text/javascript'>
+/* <![CDATA[ */
+var BP_DTheme = {"my_favs":"My Likes","accepted":"Accepted","rejected":"Rejected","show_all_comments":"Show all comments for this thread","show_all":"Show all","comments":"comments","close":"Close","view":"View","mark_as_fav":"Like","remove_fav":"Unlike","add_photo":"Add Photo","cancel":"Cancel","failed":"Failed","person":"person","people":"people","like":"like","likes":"likes","this_1":"this"};
+/* ]]> */
+</script><link
+rel='prev' title='Studious Student Problem Analysis' href='http://leetcode.com/2011/01/studious-student-problem-analysis.html' /><link
+rel='next' title='Sliding Window Maximum' href='http://leetcode.com/2011/01/sliding-window-maximum.html' /><link
+rel='canonical' href='http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html' /><link
+rel='shortlink' href='http://leetcode.com/?p=74' /><script type="text/javascript">var ajaxurl = 'http://leetcode.com/wp-admin/admin-ajax.php';</script><style type='text/css'>#sidebar span.collapsing.archives {
+        border:0;
+        padding:0; 
+        margin:0; 
+        cursor:pointer;
+} 
+
+#sidebar span.monthCount, span.yearCount {text-decoration:none; color:#333}
+#sidebar li.collapsing.archives a.self {font-weight:bold}
+#sidebar ul.collapsing.archives.list ul.collapsing.archives.list:before {content:\'\';} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives:before {content:\'\';} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives {list-style-type:none}
+#sidebar ul.collapsing.archives.list li {
+       margin:0 0 0 .8em;
+       text-indent:-1em}
+#sidebar ul.collapsing.archives.list li.collapsing.archives.item:before {content: \'\\00BB \\00A0\' !important;} 
+#sidebar ul.collapsing.archives.list li.collapsing.archives .sym {
+   font-size:1.2em;
+   font-family:Monaco, \'Andale Mono\', \'FreeMono\', \'Courier new\', \'Courier\', monospace;
+   cursor:pointer;
+    padding-right:15px;}
+#sidebar ul.collapsing.archives.list span.collapsing.archives.collapse .sym {
+    background-image: url(/wp-content/plugins/collapsing-archives/img/list-collapse.gif);
+}
+#sidebar ul.collapsing.archives.list span.collapsing.archives.expand .sym {
+    background-image: url(/wp-content/plugins/collapsing-archives/img/list-expand.gif);
+}</style><script type="text/javascript">
+//<![CDATA[
+var gdsr_cnst_nonce = "344a153a23";
+var gdsr_cnst_ajax = "http://leetcode.com/wp-content/plugins/gd-star-rating/ajax.php";
+var gdsr_cnst_button = 1;
+var gdsr_cnst_cache = 0;
+// ]]>
+</script><!--[if IE]><style type="text/css">.ratemulti .starsbar .gdcurrent { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter: alpha(opacity=70); }</style><![endif]--> <script type="text/javascript">
+    /* <![CDATA[ */				
+	jQuery.post('http://leetcode.com/wp-admin/admin-ajax.php', {action: 'wpp_update', token: '6117d36efc', id: 74}, function(data){/*alert(data);*/});
+    /* ]]> */
+</script><style type="text/css" media="print">#wpadminbar { display:none; }</style><style type="text/css" media="screen">
+	html { margin-top: 28px !important; }
+	* html body { margin-top: 28px !important; }
+</style><script type="text/javascript"> jQuery(document).ready( function() { jQuery("a.confirm").click( function() { if ( confirm( 'Are you sure?' ) ) return true; else return false; }); });</script></head><body
+class="single single-post postid-74 single-format-standard admin-bar no-customize-support no-js buddyboss-active-pics buddyboss-active-wall admin-bar" id="bp-default"> <!--[if lte IE 6]><script src="http://leetcode.com/wp-content/themes/buddyboss/_inc/js/ie6/warning.js"></script><script>window.onload=function(){e("http://leetcode.com/wp-content/themes/buddyboss-child/_inc/js/ie6/")}</script><![endif]--><script type="text/javascript">//<![CDATA[
+(function(){var c=document.body.className;c=c.replace(/no-js/,'js');document.body.className=c;})();
+//]]></script><div
+id="top-hdr-bg"></div><div
+class="menu-bg"></div><div
+id="wrapper"><div
+id="header"><div
+class="padder"><div
+id="logo"> <a
+href="http://leetcode.com" title="Home"><img
+src="http://leetcode.com/wp-content/uploads/2012/12/leetcodelogo.png"/></a></div><div
+class="menu-bg"></div><ul
+class="sf-menu"><li
+class="page_item page-item-2"><a
+href="http://leetcode.com/about">About</a></li><li
+class="page_item page-item-908"><a
+href="http://leetcode.com/activity">Activity</a></li><li
+class="page_item page-item-1466"><a
+href="http://leetcode.com/discuss">Discuss</a></li><li
+class="page_item page-item-1658"><a
+href="http://leetcode.com/donate">Donate</a></li><li
+class="page_item page-item-907"><a
+href="http://leetcode.com/members">Members</a></li><li
+class="page_item page-item-370"><a
+href="http://leetcode.com/onlinejudge">Online Judge</a></li></ul></div></div><div
+id="container"><div
+id="content" class="two_column"><div
+class="padder"><div
+class="page" id="blog-single" role="main"><div
+id="post-74" class="post-74 post type-post status-publish format-standard hentry category-uncategorized"><div
+class="author-box"> <img
+src="http://leetcode.com/wp-content/uploads/avatars/8268/2ffa5b26dd039dec008aa06ddae07ec0-bpthumb.jpg" alt="Avatar of 1337c0d3r" class="avatar user-8268-avatar" width="50" height="50" /><p>by <a
+rel="author" href="http://leetcode.com/members/admin/" title="1337c0d3r">1337c0d3r</a></p></div><div
+class="post-content"><h2 class="posttitle">Nuts in an Oasis</h2><p
+class="date"> January 20, 2011 <span>in <a
+href="http://leetcode.com/category/uncategorized" title="View all posts in Uncategorized" rel="category tag">Uncategorized</a></span> <span
+class="post-utility alignright"></span></p><div
+class="entry"><blockquote><p>A pile of nuts is in an oasis, across a desert from a town. The pile contains &#8216;N&#8217; kg of nuts, and the town is &#8216;D&#8217; kilometers away from the pile.</p><p>The goal of this problem is to write a program that will compute &#8216;X&#8217;, the maximum amount of nuts that can be transported to the town.</p><p>The nuts are transported by a horse drawn cart that is initially next to the pile of nuts. The cart can carry at most &#8216;C&#8217; kilograms of nuts at any one time. The horse uses the nuts that it is carrying as fuel. It consumes &#8216;F&#8217; kilograms of nuts per kilometer traveled regardless of how much weight it is carrying in the cart. The horse can load and unload the cart without using up any nuts.</p><p>Your program should have a function that takes as input 4 real numbers D,N,F,C and returns one real number: &#8216;X&#8217;</p></blockquote><p><span
+id="more-74"></span></p><p><a
+href="http://1.bp.blogspot.com/_UElib2WLeDE/TTgUzam3d-I/AAAAAAAACcg/G0eUEO98J-s/s1600/desert-oasis-photos21.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"></a><div
+class="separator" style="clear: both; text-align: center;"><a
+href="http://1.bp.blogspot.com/_UElib2WLeDE/TTgVVmGJYPI/AAAAAAAACck/5PFVfpPJkAM/s1600/desert-oasis-photos.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img
+border="0" height="266" src="http://1.bp.blogspot.com/_UElib2WLeDE/TTgVVmGJYPI/AAAAAAAACck/5PFVfpPJkAM/s400/desert-oasis-photos.jpg" width="400" /></a></div><div
+style="text-align: center;"><span
+style="font-size: x-small;">A desert oasis. Simply breathtaking.</span></div><p>Our first natural approach to this problem is to use a greedy approach. Since you have a cart with a maximum capacity of <i>C</i>, it would be rather stupid to not fit in as many nuts as possible into the cart. And there you have it, how about this simple approach: &#8220;If <i>N</i> = <i>C</i>, we could just fit all nuts into the cart and transport all of them in one trip; otherwise if <i>N</i> > <i>C</i>, fit in <i>C</i> kg nuts into the cart, travel to the destination, go back and fetch more nuts back, until there is no more nuts left. This yields the following equation:</p><div
+class="separator" style="clear: both; text-align: center;"><a
+href="http://4.bp.blogspot.com/_UElib2WLeDE/TTgH8pvqzQI/AAAAAAAACcY/JD9J3mQsbkE/s1600/sumX.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img
+border="0" src="http://4.bp.blogspot.com/_UElib2WLeDE/TTgH8pvqzQI/AAAAAAAACcY/JD9J3mQsbkE/s1600/sumX.JPG" /></a></div><div
+style="text-align: center;"><span
+style="font-size: x-small;">The sum of <i>X</i> is the sum of two terms. The math symbol with the upper square bracket is the <a
+href="http://en.wikipedia.org/wiki/Floor_and_ceiling_functions">ceiling function</a>.</span></div><p>* Note that the last trip (the right term) must be handled specially as it requires only one single trip!</p><div
+class="separator" style="clear: both; text-align: center;"><a
+href="http://3.bp.blogspot.com/_UElib2WLeDE/TTgVs9LKNyI/AAAAAAAACco/JRcTgfEO1Wg/s1600/DSC6382.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img
+border="0" height="265" src="http://3.bp.blogspot.com/_UElib2WLeDE/TTgVs9LKNyI/AAAAAAAACco/JRcTgfEO1Wg/s400/DSC6382.jpg" width="400" /></a></div><div
+style="text-align: center;"><span
+style="font-size: x-small;">Our poor horse (or donkey) has to pull the cart over the desert, could this be possible? Or die of hunger if there is no nuts in the cart.</span></div><p>Sharp readers might spot a flaw in the reasoning above. We might not want to go back to transport the last round of nuts, since it might consume more than the nuts transported. Besides, what happens when <i>C</i> <<i> FD</i>? Then, halfway down the trip our poor horse would have died of hunger!</p><p>Well, does that mean if <i>C</i> < <i>FD</i>, there&#8217;s no solution? How can you prove so? If there is a solution, how would your algorithm handle such cases? Worst still, even if <i>C</i> > <i>FD</i>, the above method does not necessarily yield the maximum <i>X</i> (Try to find a counter example!).</p><p>For such cases where <i>C</i> < <i>FD</i>, we definitely need to somehow subdivide the total distance (ie, choose a point somewhere in between as a transit), but the question remains:<div
+class="hiblock">How and where should we subdivide?</div><p>Here is where things might get a little hairy. Most people might be wondering if <a
+href="http://www.leetcode.com/search/label/dynamic%20programming">Dynamic Programming (DP)</a> is really needed to find the division point that yields the maximum. It turns out this problem is highly recursive in nature and with one important observation, the derivation of the recursive formula is actually not that difficult (No DP involved though).</p><div
+class="hiblock"><ul><li>The most important observation is the rate of consumption remain <b>constant </b>no matter how you subdivide the distance, as long as the number of trips required is the same.</li><li>Since we are consuming the nuts at a constant rate, eventually we will reach one such transit point where just enough nuts are consumed such that transporting nuts to the next transit point requires <b>one less round trip</b>.</li></ul></div><p>Let&#8217;s use a concrete example to illustrate the observation above. Assume <i>N</i> = 100, <i>D</i> = 20, <i>C</i> = 50, <i>F</i> = 1. Since <i>N</i>/<i>C</i> = 100/50 = 2, it requires 1 round trip + 1 last trip = a total of <b>3 trips</b> to transport from point <b>A</b> to point <b>B</b>. Assume point <b>B</b> is our transit point, and the total consumption cost is <b>50 kg</b> nuts. Point <b>B</b> could be derived mathematically, which is approximately <b>16.67 km</b> (from point <b>A</b>). Point <b>B</b> must be the first transit point in order to maximize <i>X</i>, since from the next transit onwards you save yourself one full round trip!</p><p>Although we have found point <b>B</b>, we are still not quite done yet. We still need to find point <b>C</b>, point <b>D</b>, &#8230; until it reaches the destination. Since finding point <b>C</b> is just the exact same problem as the original problem (of course, with values of <i>N</i> and <i>D</i> changed), the rest could be solved in a recursive manner.</p><p>Continuing from the above example, we found that point <b>B</b> is <b>16.67 km </b>from point <b>A</b>, which means there is about <b>3.33 km </b>left to the destination, and right at point B we have a total of <b>50 kg </b>of nuts to transport. Since we have to transport the remaining nuts directly to the destination (we could not subdivide again, since there are only <b>50 kg </b>nuts remaining), the maximum <i>X</i> for the above example is: 50 &#8211; 3.33 * 1 = <b>46.67 kg</b>.</p><p>Remember, every time you state a solution as a recursive formula, you must also provide the base case! Without the base case the recursion would never end. The base case is trivial to prove, as illustrated in the code below.</p><p>Please take note that the above example uses a case where <i>N</i> is divisible by <i>C</i>. You would have to figure out the case where <i>N</i> is not divisible by <i>C</i>, too (which should be straight forward once you understand the key observation). This would be left as an exercise to the reader. <img
+border="0" src="http://4.bp.blogspot.com/_UElib2WLeDE/TK7aJSBFXSI/AAAAAAAACW8/5f8CRD5dJ8o/s1600/smiley.jpg" style="padding: 0px;" /></p><p>Below is the full code for the solution. Deriving the mathematical formula seemed to be more tricky than I initially thought and is error prone if you&#8217;re not careful. I believe with slight modification: ie, introducing additional variables to be passed in the recursive function, the math derivation complexity could be reduced. Anyhow, my advice is to start with easy examples (like the case where <i>N</i> is divisible by <i>C</i>, and gradually apply to more complicated examples) as you visualize the formula in your head.</p><div
+style="color: red;"><u><b>Edit:</b></u></div><p>Updated code with better comments and added case to handle where it might run out of fuel.</p><p></p><div
+id="crayon-52a3ea4970c43" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+double getMaxNuts(double N, double D, double C, double F) {
+  // base case:
+  // We have the capacity to carry all nuts,
+  // so fetch all the nuts in one trip
+  if (N &lt;= C) {
+      double nutsAtDestination = N - D*F;
+      return (nutsAtDestination &gt;= 0.0) ?
+              nutsAtDestination :
+              0.0;    // out of fuel!
+  }
+  
+  // # trips you would travel back and forth
+  int numTrips = 2*(ceil(N/C) - 1) + 1;
+  // how many nuts you consume per km
+  double costPerKm = numTrips * F;
+  // remaining weight of nuts after consumption
+  double remainingNuts = C*(ceil(N/C) - 1.0);
+  // this is the distance you are able to travel before you
+  // reach ONE LESS round trip fetching nuts
+  // derived from eq: N - costPerKm * traveled = remainingNuts
+  double traveled = (N - remainingNuts) / costPerKm;
+  
+  // we are able to travel greater (or equal) than the remaining
+  // distance, so fetch the nuts right to the destination
+  if (traveled &gt;= D)
+      return N - D*costPerKm;
+  
+  // calculate recursively as we travel ONE less round trip now.
+  return getMaxNuts(remainingNuts, D-traveled, C, F);
+}</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3ea4970c43-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea4970c43-2">2</div><div
+class="crayon-num" data-line="crayon-52a3ea4970c43-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea4970c43-4">4</div><div
+class="crayon-num" data-line="crayon-52a3ea4970c43-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea4970c43-6">6</div><div
+class="crayon-num" data-line="crayon-52a3ea4970c43-7">7</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea4970c43-8">8</div><div
+class="crayon-num" data-line="crayon-52a3ea4970c43-9">9</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea4970c43-10">10</div><div
+class="crayon-num" data-line="crayon-52a3ea4970c43-11">11</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea4970c43-12">12</div><div
+class="crayon-num" data-line="crayon-52a3ea4970c43-13">13</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea4970c43-14">14</div><div
+class="crayon-num" data-line="crayon-52a3ea4970c43-15">15</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea4970c43-16">16</div><div
+class="crayon-num" data-line="crayon-52a3ea4970c43-17">17</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea4970c43-18">18</div><div
+class="crayon-num" data-line="crayon-52a3ea4970c43-19">19</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea4970c43-20">20</div><div
+class="crayon-num" data-line="crayon-52a3ea4970c43-21">21</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea4970c43-22">22</div><div
+class="crayon-num" data-line="crayon-52a3ea4970c43-23">23</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea4970c43-24">24</div><div
+class="crayon-num" data-line="crayon-52a3ea4970c43-25">25</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea4970c43-26">26</div><div
+class="crayon-num" data-line="crayon-52a3ea4970c43-27">27</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea4970c43-28">28</div><div
+class="crayon-num" data-line="crayon-52a3ea4970c43-29">29</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea4970c43-30">30</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3ea4970c43-1"><span
+class="t">double</span><span
+class="h"> </span><span
+class="e">getMaxNuts</span><span
+class="sy">(</span><span
+class="t">double</span><span
+class="h"> </span><span
+class="i">N</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="t">double</span><span
+class="h"> </span><span
+class="i">D</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="t">double</span><span
+class="h"> </span><span
+class="i">C</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="t">double</span><span
+class="h"> </span><span
+class="i">F</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea4970c43-2"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// base case:</span></div><div
+class="crayon-line" id="crayon-52a3ea4970c43-3"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// We have the capacity to carry all nuts,</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea4970c43-4"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// so fetch all the nuts in one trip</span></div><div
+class="crayon-line" id="crayon-52a3ea4970c43-5"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">N</span><span
+class="h"> </span><span
+class="o">&lt;=</span><span
+class="h"> </span><span
+class="i">C</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea4970c43-6"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="t">double</span><span
+class="h"> </span><span
+class="v">nutsAtDestination</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="i">N</span><span
+class="h"> </span><span
+class="o">-</span><span
+class="h"> </span><span
+class="e ">D*</span><span
+class="i">F</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3ea4970c43-7"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">nutsAtDestination</span><span
+class="h"> </span><span
+class="o">&gt;=</span><span
+class="h"> </span><span
+class="cn">0.0</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">?</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea4970c43-8"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">nutsAtDestination</span><span
+class="h"> </span><span
+class="o">:</span></div><div
+class="crayon-line" id="crayon-52a3ea4970c43-9"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="cn">0.0</span><span
+class="sy">;</span><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// out of fuel!</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea4970c43-10"><span
+class="h">&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3ea4970c43-11"><span
+class="h">&nbsp;&nbsp;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea4970c43-12"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// # trips you would travel back and forth</span></div><div
+class="crayon-line" id="crayon-52a3ea4970c43-13"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="v">numTrips</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="cn">2</span><span
+class="o">*</span><span
+class="sy">(</span><span
+class="e">ceil</span><span
+class="sy">(</span><span
+class="i">N</span><span
+class="o">/</span><span
+class="i">C</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">-</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">+</span><span
+class="h"> </span><span
+class="cn">1</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea4970c43-14"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// how many nuts you consume per km</span></div><div
+class="crayon-line" id="crayon-52a3ea4970c43-15"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">double</span><span
+class="h"> </span><span
+class="v">costPerKm</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="e ">numTrips *</span><span
+class="h"> </span><span
+class="i">F</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea4970c43-16"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// remaining weight of nuts after consumption</span></div><div
+class="crayon-line" id="crayon-52a3ea4970c43-17"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">double</span><span
+class="h"> </span><span
+class="v">remainingNuts</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="e ">C*</span><span
+class="sy">(</span><span
+class="e">ceil</span><span
+class="sy">(</span><span
+class="i">N</span><span
+class="o">/</span><span
+class="i">C</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">-</span><span
+class="h"> </span><span
+class="cn">1.0</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea4970c43-18"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// this is the distance you are able to travel before you</span></div><div
+class="crayon-line" id="crayon-52a3ea4970c43-19"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// reach ONE LESS round trip fetching nuts</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea4970c43-20"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// derived from eq: N - costPerKm * traveled = remainingNuts</span></div><div
+class="crayon-line" id="crayon-52a3ea4970c43-21"><span
+class="h">&nbsp;&nbsp;</span><span
+class="t">double</span><span
+class="h"> </span><span
+class="v">traveled</span><span
+class="h"> </span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">N</span><span
+class="h"> </span><span
+class="o">-</span><span
+class="h"> </span><span
+class="i">remainingNuts</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">/</span><span
+class="h"> </span><span
+class="i">costPerKm</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea4970c43-22"><span
+class="h">&nbsp;&nbsp;</span></div><div
+class="crayon-line" id="crayon-52a3ea4970c43-23"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// we are able to travel greater (or equal) than the remaining</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea4970c43-24"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// distance, so fetch the nuts right to the destination</span></div><div
+class="crayon-line" id="crayon-52a3ea4970c43-25"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">traveled</span><span
+class="h"> </span><span
+class="o">&gt;=</span><span
+class="h"> </span><span
+class="i">D</span><span
+class="sy">)</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea4970c43-26"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">N</span><span
+class="h"> </span><span
+class="o">-</span><span
+class="h"> </span><span
+class="e ">D*</span><span
+class="i">costPerKm</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3ea4970c43-27"><span
+class="h">&nbsp;&nbsp;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea4970c43-28"><span
+class="h">&nbsp;&nbsp;</span><span
+class="c">// calculate recursively as we travel ONE less round trip now.</span></div><div
+class="crayon-line" id="crayon-52a3ea4970c43-29"><span
+class="h">&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="e">getMaxNuts</span><span
+class="sy">(</span><span
+class="i">remainingNuts</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">D</span><span
+class="o">-</span><span
+class="i">traveled</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">C</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">F</span><span
+class="sy">)</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea4970c43-30"><span
+class="sy">}</span></div></div></td></tr></table></div></div><p></p><div
+style="display: none">VN:F [1.9.22_1171]</div><div
+class="ratingblock "><div
+class="ratingheader "></div><div
+class="ratingstars "><div
+id="article_rater_74" class="ratepost gdsr-oxygen gdsr-size-24"><div
+class="starsbar gdsr-size-24"><div
+class="gdouter gdheight"><div
+id="gdr_vote_a74" style="width: 72px;" class="gdinner gdheight"></div><div
+id="gdr_stars_a74" class="gdsr_rating_as"><a
+id="gdsrX74X5X0XaXarticle_rater_74Xarticle_loader_74X10X24" title="5 / 5" class="s5" rel="nofollow"></a><a
+id="gdsrX74X4X0XaXarticle_rater_74Xarticle_loader_74X10X24" title="4 / 5" class="s4" rel="nofollow"></a><a
+id="gdsrX74X3X0XaXarticle_rater_74Xarticle_loader_74X10X24" title="3 / 5" class="s3" rel="nofollow"></a><a
+id="gdsrX74X2X0XaXarticle_rater_74Xarticle_loader_74X10X24" title="2 / 5" class="s2" rel="nofollow"></a><a
+id="gdsrX74X1X0XaXarticle_rater_74Xarticle_loader_74X10X24" title="1 / 5" class="s1" rel="nofollow"></a></div></div></div></div><div
+id="article_loader_74" style="display: none; width: 120px " class="ratingloaderarticle"><div
+class="loader radar " style="height: 24px"><div
+class="loaderinner" style="padding-top: 2px">please wait...</div></div></div></div><div
+class="ratingtext "><div
+id="gdr_text_a74">Rating: 3.0/<strong>5</strong> (8 votes cast)</div></div></div><span
+class="hreview-aggregate"><span
+class="item"><span
+class="fn">Nuts in an Oasis</span></span>, <span
+class="rating"><span
+class="average">3.0</span> out of <span
+class="best">5</span> based on <span
+class="votes">8</span> ratings <span
+class="summary"></span></span></span></div><p
+class="postmetadata">&nbsp;</p><div
+class="alignleft"><a
+href="http://leetcode.com/2011/01/studious-student-problem-analysis.html" rel="prev"><span
+class="meta-nav">&larr;</span> Studious Student Problem Analysis</a></div><div
+class="alignright"><a
+href="http://leetcode.com/2011/01/sliding-window-maximum.html" rel="next">Sliding Window Maximum <span
+class="meta-nav">&rarr;</span></a></div></div></div><div
+id="comments"><h3> 33 responses to <em>Nuts in an Oasis</em></h3><ol
+class="commentlist"><li
+class="comment even thread-even depth-1" id="comment-386"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Anonymous</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-386"><span
+class="time-since">January 21, 2011</span></a></p></div><div
+class="comment-entry"><p>1337,<br
+/>may be I am being dumb (and I only read the question part not your solution) but the horse consumes fuel in the return trip as well right? But the question does not clarify that &#8211;</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_386_c" class="gdt-size-20 gdthumbtext"> <strong
+title="1 up, 0 down">+1</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_386_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX386XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_386_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_386_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX386XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_386_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=386#respond' onclick='return addComment.moveForm("comment-386", "386", "respond", "74")'>Reply</a></div></div></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-387"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">1337c0d3r</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-387"><span
+class="time-since">January 21, 2011</span></a></p></div><div
+class="comment-entry"><p>@Anonymous:<br
+/>Yes, that&#39;s a hidden implication in the question.</p><p>&quot;It consumes &#39;F&#39; kilograms of nuts per kilometer traveled regardless of how much weight it is carrying in the cart.&quot;</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_387_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_387_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX387XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_387_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_387_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX387XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_387_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=387#respond' onclick='return addComment.moveForm("comment-387", "387", "respond", "74")'>Reply</a></div></div></li><li
+class="comment even thread-even depth-1" id="comment-389"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Anonymous</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-389"><span
+class="time-since">January 22, 2011</span></a></p></div><div
+class="comment-entry"><p>how to get this?<br
+/>// remaining weight of nuts after consumption<br
+/> double remainingNuts = C*(ceil(N/C) &#8211; 1.0);</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_389_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_389_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX389XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_389_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_389_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX389XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_389_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=389#respond' onclick='return addComment.moveForm("comment-389", "389", "respond", "74")'>Reply</a></div></div></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-392"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Raynor</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-392"><span
+class="time-since">January 24, 2011</span></a></p></div><div
+class="comment-entry"><p>I think there is a bug in your reasoning. Suppose  N = 101(only changed part), D = 20, C = 50, F = 1 the answer should be still 46.67 because you really CAN&#39;T use the extra one unit of nuts. But your code give 46.87 as answer. This is because you assume all of nuts at starting point should be transfered, however this is not always the case.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_392_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_392_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX392XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_392_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_392_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX392XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_392_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=392#respond' onclick='return addComment.moveForm("comment-392", "392", "respond", "74")'>Reply</a></div></div></li><li
+class="comment even thread-even depth-1" id="comment-393"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">1337c0d3r</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-393"><span
+class="time-since">January 24, 2011</span></a></p></div><div
+class="comment-entry"><p>@Raynor:<br
+/>The answer should be 46.87. This is because 100kgs of nuts could be transported to the first transit point which is 0.2km from the start point (with the consumption of 1kg nuts).</p><p>Therefore, if you choose to abandon that 1kg of nuts, you are transporting 0.2km less :/</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_393_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_393_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX393XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_393_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_393_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX393XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_393_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=393#respond' onclick='return addComment.moveForm("comment-393", "393", "respond", "74")'>Reply</a></div></div></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-394"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">1337c0d3r</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-394"><span
+class="time-since">January 24, 2011</span></a></p></div><div
+class="comment-entry"><p>@Anonymous:<br
+/>The basic idea is to try to get the remainingNuts to be divisible by C, while being as large as possible (must be less than N).</p><p>For example, if N = 100, C = 50, then remainingNuts = 50.</p><p>If N = 101, C = 50, then remainingNuts = 100.</p><p>That is, you try to carry the nuts as much as possible until the next trip you carry the nuts with ONE less round trip.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_394_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_394_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX394XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_394_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_394_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX394XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_394_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=394#respond' onclick='return addComment.moveForm("comment-394", "394", "respond", "74")'>Reply</a></div></div><ul
+class='children'><li
+class="comment even depth-2" id="comment-636"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/7b729197fa9b629e66a420ab48ecb293?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">junvi</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-636"><span
+class="time-since">March 18, 2011</span></a></p></div><div
+class="comment-entry"><p>Can you tell more why  remainingNuts should  be divisible by C</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_636_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_636_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX636XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_636_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_636_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX636XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_636_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=636#respond' onclick='return addComment.moveForm("comment-636", "636", "respond", "74")'>Reply</a></div></div></li></ul></li><li
+class="comment odd alt thread-even depth-1" id="comment-395"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Rya</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-395"><span
+class="time-since">January 24, 2011</span></a></p></div><div
+class="comment-entry"><p>Hi, Can you please explain how you get the remainingNuts in the program !</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_395_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_395_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX395XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_395_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_395_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX395XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_395_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=395#respond' onclick='return addComment.moveForm("comment-395", "395", "respond", "74")'>Reply</a></div></div></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-396"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Rya</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-396"><span
+class="time-since">January 24, 2011</span></a></p></div><div
+class="comment-entry"><p>I got it ! Thanks !</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_396_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_396_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX396XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_396_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_396_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX396XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_396_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=396#respond' onclick='return addComment.moveForm("comment-396", "396", "respond", "74")'>Reply</a></div></div></li><li
+class="comment odd alt thread-even depth-1" id="comment-431"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Leon</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-431"><span
+class="time-since">January 31, 2011</span></a></p></div><div
+class="comment-entry"><p>Will this work?</p><p>X f(D,N,F,C)<br
+/>{<br
+/> if(min(N,c)&lt;=F*D) return 0;</p><p> return min(C,N)-F*D+f1(D,N-min(C,N),F,C);<br
+/>}</p><p>x f1(D,N,F,C)<br
+/>{<br
+/> if(min(N,C)&lt;=2*F*D) return 0;<br
+/> return min(C,N)-2*F*D + f1(D, N-min(C,N), F,C);<br
+/>}</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_431_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_431_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX431XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_431_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_431_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX431XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_431_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=431#respond' onclick='return addComment.moveForm("comment-431", "431", "respond", "74")'>Reply</a></div></div></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-433"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Anonymous</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-433"><span
+class="time-since">February 2, 2011</span></a></p></div><div
+class="comment-entry"><p>For pratical reason, I think other than D, the rest params should be integer. I have solved it using DP (I tested both programs with various data points and get back the same value). Yours is much neater and faster. It would be difficult to get all these ironed out though. So I kept my DP solution because it is easier to follow.</p><p>Thank you for the solution.</p><p>Here is my version</p><p>int GetMaxNuts(int N /*# of nuts*/, int D/*distance*/, int C /*carry each round*/, int F /*fuel per km*/)<br
+/>{<br
+/> int* x = new int[D+1];<br
+/> int* lastStop = new int[D+1];<br
+/> int round = 2*((N-1)/C +1) &#8211; 1; //total one way trip. last -1 is because we don&#39;t need to go back after the last trip<br
+/> for (int i=0; i&lt;=D; i++)<br
+/> {<br
+/> x[i] = N-round*i*F;<br
+/> lastStop[i] = 0;<br
+/> }</p><p> for(int i=2; i&lt;=D; i++)<br
+/> {<br
+/> for(int j=1; j 0 ? x[D] : 0;<br
+/>}</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_433_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_433_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX433XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_433_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_433_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX433XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_433_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=433#respond' onclick='return addComment.moveForm("comment-433", "433", "respond", "74")'>Reply</a></div></div></li><li
+class="comment odd alt thread-even depth-1" id="comment-434"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">1337c0d3r</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-434"><span
+class="time-since">February 2, 2011</span></a></p></div><div
+class="comment-entry"><p>@Anonymous:<br
+/>Is it possible to modify your code to work for real numbers? Because the question specified that N, D, C, and F are all real numbers.</p><p>By the way Blogger has problem with pasting codes in the comment section, you can try pasting somewhere like pastebin.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_434_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_434_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX434XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_434_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_434_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX434XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_434_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=434#respond' onclick='return addComment.moveForm("comment-434", "434", "respond", "74")'>Reply</a></div></div></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-437"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Anonymous</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-437"><span
+class="time-since">February 5, 2011</span></a></p></div><div
+class="comment-entry"><p>If [a1,a2,a3...,an,b1,b2...bn] is given input change this to [a1,b1,a2,b2.....an,bn] , solution should be in-place. Can you use divide and conquer to do it?</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_437_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_437_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX437XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_437_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_437_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX437XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_437_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=437#respond' onclick='return addComment.moveForm("comment-437", "437", "respond", "74")'>Reply</a></div></div></li><li
+class="comment odd alt thread-even depth-1" id="comment-438"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Akash</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-438"><span
+class="time-since">February 6, 2011</span></a></p></div><div
+class="comment-entry"><p>@Anonymous:<br
+/>Please visit for answer to ur question. <a
+href="http://tech-queries.blogspot.com/2008/11/arranging-sequence.html#comment-993459116043978949" rel="nofollow">http://tech-queries.blogspot.com/2008/11/arranging-sequence.html#comment-993459116043978949</a></p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_438_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_438_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX438XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_438_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_438_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX438XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_438_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=438#respond' onclick='return addComment.moveForm("comment-438", "438", "respond", "74")'>Reply</a></div></div></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-699"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/fca187bc61e22f8f6467c5d70ce3ab33?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Sachin</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-699"><span
+class="time-since">April 1, 2011</span></a></p></div><div
+class="comment-entry"><p>I am confused by your definition of &#8220;transit point&#8221;. It is like at this transit point, horse will unload the cart in between the way with just enough nuts left so that it can reach the oasis again and fill up the cart to its capacity. Later on, it&#8217;ll pick up the nuts from the way on its way back ?</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_699_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_699_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX699XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_699_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_699_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX699XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_699_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=699#respond' onclick='return addComment.moveForm("comment-699", "699", "respond", "74")'>Reply</a></div></div></li><li
+class="comment odd alt thread-even depth-1" id="comment-751"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/dc39a98142a283b62de38e6958834f3a?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Anonymous</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-751"><span
+class="time-since">April 7, 2011</span></a></p></div><div
+class="comment-entry"><p>Yes, the transit point is the point where the horse will unload the cart.  Consider the case where C &lt; FD, e.g. C = 50, F = 1, D = 51.  You can&#039;t transport the nuts in one trip because your horse will starve to death along the way.  Does that mean you have no solution?  Not necesarily; it depends on your value of N.  Continuing with this example, if you had 53 nuts then you could take 50 nuts a distance of 1 meter (consuming 1 along the way), drop off 48, return (consuming another 1 on the return trip), take another trip with 3 nuts to the transit point (consuming 1 along the way), pickup the 48 nuts at the transit point, and now you can transport 50 to the destination.</p><p>So if C is 50, you want to ask &quot;How far can I move the nuts such that I can make one trip carrying 50 nuts to the destination?&quot;  I.E. &quot;What is the furthest transit point I can choose where I can end up with 50 nuts at that transit point?&quot;</p><p>If you work through the example given, you can see that for the transit point as 16.67, you can get 50 nuts to the 16.67 point by using the spare 50 nuts that you have.  If N was 99 instead of 100, then you would be able to get 50 nuts to some point slightly less than 16.67 using the 49 spare nuts you have.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_751_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_751_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX751XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_751_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_751_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX751XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_751_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=751#respond' onclick='return addComment.moveForm("comment-751", "751", "respond", "74")'>Reply</a></div></div></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-960"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/eec4f5e47c59ecf670da4e7d08df33df?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">hangyu</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-960"><span
+class="time-since">May 2, 2011</span></a></p></div><div
+class="comment-entry"><p>Hi, is this right?</p><p> // remaining weight of nuts after consumption<br
+/> double remainingNuts = C*(ceil(N/C) &#8211; 1.0);</p><p>How can you get this?</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_960_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_960_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX960XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_960_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_960_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX960XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_960_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=960#respond' onclick='return addComment.moveForm("comment-960", "960", "respond", "74")'>Reply</a></div></div></li><li
+class="comment odd alt thread-even depth-1" id="comment-1310"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/41026e0fa44fe2aa9e6af3fc4169f902?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Sean</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-1310"><span
+class="time-since">June 17, 2011</span></a></p></div><div
+class="comment-entry"><p>Nice job in designing and explaining your solution! I can understand the logic of your solution, but I still not convinced your solution gives the maximal possible value. Can you give the proof of correctness to make your post complete and perfect? Thanks!</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_1310_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_1310_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX1310XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1310_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_1310_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX1310XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_1310_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=1310#respond' onclick='return addComment.moveForm("comment-1310", "1310", "respond", "74")'>Reply</a></div></div></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-2731"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/3b286f8569aa43ff3147755d1fdce740?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Simon</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-2731"><span
+class="time-since">September 13, 2011</span></a></p></div><div
+class="comment-entry"><p>For the example you gave, when N=100, C=50, D=20, F=1, this is my solution which gave totally different results with yours.</p><p>First, my first transit point A is at 10KM. The horse carries 80kg nuts to B. So 70kg nuts are left when it reaches B, and 20kg nuts left at the starting point. Then, the horse carries 10kg back to the starting point and leaves 60kg nuts in B. After it goes back, it carries the rest of 20kg to B with 10kg transported to B. So there are total 70kg nuts at B. Finally, it transports all rest 70kg to the end point by traveling 10km. Therefore, it finally transports 60kg to the end point.</p><p>However, you get 46.67, which is not maximum.</p><p>Anywhere wrong here?</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_2731_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_2731_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX2731XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_2731_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_2731_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX2731XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_2731_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=2731#respond' onclick='return addComment.moveForm("comment-2731", "2731", "respond", "74")'>Reply</a></div></div><ul
+class='children'><li
+class="comment odd alt depth-2" id="comment-2732"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/3b286f8569aa43ff3147755d1fdce740?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Simon</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-2732"><span
+class="time-since">September 13, 2011</span></a></p></div><div
+class="comment-entry"><p>Sorry, I&#8217;m wrong. I forgot the constraints that each time, the horse can only carry up to Ckg nuts.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_2732_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_2732_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX2732XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_2732_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_2732_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX2732XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_2732_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=2732#respond' onclick='return addComment.moveForm("comment-2732", "2732", "respond", "74")'>Reply</a></div></div></li></ul></li><li
+class="comment even thread-even depth-1" id="comment-2990"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/ea3d8fed7e7e5fc0f5158199c3f5c8f6?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Nathan W.</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-2990"><span
+class="time-since">September 24, 2011</span></a></p></div><div
+class="comment-entry"><p>I think this isn&#8217;t a programming question, but rather one for testing if you can cover all the corner cases.<br
+/> Here is my solution, straightforward arithmetic, without any recursion.</p><p></p><div
+id="crayon-52a3ea49762d8" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+// assume all integers
+int maxNutsBack(int N, int C, int D, int F) 
+{
+    // not worth it, can't even afford the initial 1-way trip, note possibly N &lt; C
+    if (min(C, N) &lt;= F*D)  {
+        return 0;
+    }
+
+    // stop, can&amp;#039;t afford a following round-trip, or not enough nuts
+    if (min(C, N) &lt;= 2*F*D || N  2*F*D) { 
+        netW += (N - C)%C - 2*F*D;
+    }
+
+    return netW;
+}</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3ea49762d8-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea49762d8-2">2</div><div
+class="crayon-num" data-line="crayon-52a3ea49762d8-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea49762d8-4">4</div><div
+class="crayon-num" data-line="crayon-52a3ea49762d8-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea49762d8-6">6</div><div
+class="crayon-num" data-line="crayon-52a3ea49762d8-7">7</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea49762d8-8">8</div><div
+class="crayon-num" data-line="crayon-52a3ea49762d8-9">9</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea49762d8-10">10</div><div
+class="crayon-num" data-line="crayon-52a3ea49762d8-11">11</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea49762d8-12">12</div><div
+class="crayon-num" data-line="crayon-52a3ea49762d8-13">13</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea49762d8-14">14</div><div
+class="crayon-num" data-line="crayon-52a3ea49762d8-15">15</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3ea49762d8-1"><span
+class="c">// assume all integers</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea49762d8-2"><span
+class="t">int</span><span
+class="h"> </span><span
+class="e">maxNutsBack</span><span
+class="sy">(</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">N</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">C</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">D</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">F</span><span
+class="sy">)</span><span
+class="h"> </span></div><div
+class="crayon-line" id="crayon-52a3ea49762d8-3"><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea49762d8-4"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// not worth it, can't even afford the initial 1-way trip, note possibly N &lt; C</span></div><div
+class="crayon-line" id="crayon-52a3ea49762d8-5"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="e">min</span><span
+class="sy">(</span><span
+class="i">C</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">N</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&lt;=</span><span
+class="h"> </span><span
+class="e ">F*</span><span
+class="i">D</span><span
+class="sy">)</span><span
+class="h">&nbsp;&nbsp;</span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea49762d8-6"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3ea49762d8-7"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea49762d8-8">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3ea49762d8-9"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// stop, can&amp;#039;t afford a following round-trip, or not enough nuts</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea49762d8-10"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="e">min</span><span
+class="sy">(</span><span
+class="i">C</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">N</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&lt;=</span><span
+class="h"> </span><span
+class="cn">2</span><span
+class="o">*</span><span
+class="e ">F*</span><span
+class="i">D</span><span
+class="h"> </span><span
+class="o">||</span><span
+class="h"> </span><span
+class="i">N</span><span
+class="h">&nbsp;&nbsp;</span><span
+class="cn">2</span><span
+class="o">*</span><span
+class="e ">F*</span><span
+class="i">D</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span><span
+class="h"> </span></div><div
+class="crayon-line" id="crayon-52a3ea49762d8-11"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">netW</span><span
+class="h"> </span><span
+class="o">+</span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">N</span><span
+class="h"> </span><span
+class="o">-</span><span
+class="h"> </span><span
+class="i">C</span><span
+class="sy">)</span><span
+class="o">%</span><span
+class="i">C</span><span
+class="h"> </span><span
+class="o">-</span><span
+class="h"> </span><span
+class="cn">2</span><span
+class="o">*</span><span
+class="e ">F*</span><span
+class="i">D</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea49762d8-12"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3ea49762d8-13">&nbsp;</div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea49762d8-14"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">netW</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3ea49762d8-15"><span
+class="sy">}</span></div></div></td></tr></table></div></div><p></p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_2990_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_2990_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX2990XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_2990_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_2990_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX2990XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_2990_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=2990#respond' onclick='return addComment.moveForm("comment-2990", "2990", "respond", "74")'>Reply</a></div></div></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-2991"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/ea3d8fed7e7e5fc0f5158199c3f5c8f6?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Nathan W.</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-2991"><span
+class="time-since">September 24, 2011</span></a></p></div><div
+class="comment-entry"><p>Oops, my code got eaten partially. Why there isn&#8217;t a preview function?</p><p></p><div
+id="crayon-52a3ea49760d3" class="crayon-syntax crayon-theme-github crayon-font-consolas crayon-os-pc print-yes" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; float: none; clear: both; font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-plain-wrap"><textarea wrap="off" class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 13px !important; line-height: 16px !important;">
+// assume all integers
+int maxNutsBack(int N, int C, int D, int F) 
+{
+    // not worth it, can't even afford the initial 1-way trip, note possibly N &lt; C
+    if (min(C, N) &lt;= F*D)  {
+        return 0;
+    }
+
+    // stop, can&amp;#039;t afford a following round-trip, or not enough nuts
+    if (min(C, N) &lt;= 2*F*D || N  2*F*D) { 
+        netW += (N - C)%C - 2*F*D;
+    }
+
+    return netW;
+}</textarea></div><div
+class="crayon-main" style=""><table
+class="crayon-table"><tr
+class="crayon-row"><td
+class="crayon-nums " data-settings="hide"><div
+class="crayon-nums-content" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-num" data-line="crayon-52a3ea49760d3-1">1</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea49760d3-2">2</div><div
+class="crayon-num" data-line="crayon-52a3ea49760d3-3">3</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea49760d3-4">4</div><div
+class="crayon-num" data-line="crayon-52a3ea49760d3-5">5</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea49760d3-6">6</div><div
+class="crayon-num" data-line="crayon-52a3ea49760d3-7">7</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea49760d3-8">8</div><div
+class="crayon-num" data-line="crayon-52a3ea49760d3-9">9</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea49760d3-10">10</div><div
+class="crayon-num" data-line="crayon-52a3ea49760d3-11">11</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea49760d3-12">12</div><div
+class="crayon-num" data-line="crayon-52a3ea49760d3-13">13</div><div
+class="crayon-num crayon-striped-num" data-line="crayon-52a3ea49760d3-14">14</div><div
+class="crayon-num" data-line="crayon-52a3ea49760d3-15">15</div></div></td><td
+class="crayon-code"><div
+class="crayon-pre" style="font-size: 13px !important; line-height: 16px !important;"><div
+class="crayon-line" id="crayon-52a3ea49760d3-1"><span
+class="c">// assume all integers</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea49760d3-2"><span
+class="t">int</span><span
+class="h"> </span><span
+class="e">maxNutsBack</span><span
+class="sy">(</span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">N</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">C</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">D</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="t">int</span><span
+class="h"> </span><span
+class="i">F</span><span
+class="sy">)</span><span
+class="h"> </span></div><div
+class="crayon-line" id="crayon-52a3ea49760d3-3"><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea49760d3-4"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// not worth it, can't even afford the initial 1-way trip, note possibly N &lt; C</span></div><div
+class="crayon-line" id="crayon-52a3ea49760d3-5"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="e">min</span><span
+class="sy">(</span><span
+class="i">C</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">N</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&lt;=</span><span
+class="h"> </span><span
+class="e ">F*</span><span
+class="i">D</span><span
+class="sy">)</span><span
+class="h">&nbsp;&nbsp;</span><span
+class="sy">{</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea49760d3-6"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="cn">0</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3ea49760d3-7"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea49760d3-8">&nbsp;</div><div
+class="crayon-line" id="crayon-52a3ea49760d3-9"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="c">// stop, can&amp;#039;t afford a following round-trip, or not enough nuts</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea49760d3-10"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">if</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="e">min</span><span
+class="sy">(</span><span
+class="i">C</span><span
+class="sy">,</span><span
+class="h"> </span><span
+class="i">N</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="o">&lt;=</span><span
+class="h"> </span><span
+class="cn">2</span><span
+class="o">*</span><span
+class="e ">F*</span><span
+class="i">D</span><span
+class="h"> </span><span
+class="o">||</span><span
+class="h"> </span><span
+class="i">N</span><span
+class="h">&nbsp;&nbsp;</span><span
+class="cn">2</span><span
+class="o">*</span><span
+class="e ">F*</span><span
+class="i">D</span><span
+class="sy">)</span><span
+class="h"> </span><span
+class="sy">{</span><span
+class="h"> </span></div><div
+class="crayon-line" id="crayon-52a3ea49760d3-11"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="i">netW</span><span
+class="h"> </span><span
+class="o">+</span><span
+class="o">=</span><span
+class="h"> </span><span
+class="sy">(</span><span
+class="i">N</span><span
+class="h"> </span><span
+class="o">-</span><span
+class="h"> </span><span
+class="i">C</span><span
+class="sy">)</span><span
+class="o">%</span><span
+class="i">C</span><span
+class="h"> </span><span
+class="o">-</span><span
+class="h"> </span><span
+class="cn">2</span><span
+class="o">*</span><span
+class="e ">F*</span><span
+class="i">D</span><span
+class="sy">;</span></div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea49760d3-12"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="sy">}</span></div><div
+class="crayon-line" id="crayon-52a3ea49760d3-13">&nbsp;</div><div
+class="crayon-line crayon-striped-line" id="crayon-52a3ea49760d3-14"><span
+class="h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+class="st">return</span><span
+class="h"> </span><span
+class="i">netW</span><span
+class="sy">;</span></div><div
+class="crayon-line" id="crayon-52a3ea49760d3-15"><span
+class="sy">}</span></div></div></td></tr></table></div></div><p></p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_2991_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_2991_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX2991XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_2991_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_2991_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX2991XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_2991_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=2991#respond' onclick='return addComment.moveForm("comment-2991", "2991", "respond", "74")'>Reply</a></div></div></li><li
+class="comment even thread-even depth-1" id="comment-2992"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/ea3d8fed7e7e5fc0f5158199c3f5c8f6?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Nathan W.</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-2992"><span
+class="time-since">September 24, 2011</span></a></p></div><div
+class="comment-entry"><p>Buggy wiki, last try.</p><p>// assume all integers<br
+/> int maxNutsBack(int N, int C, int D, int F)<br
+/> {<br
+/> // not worth it, can&#8217;t even afford the initial 1-way trip, note possibly N &lt; C<br
+/> if (min(C, N) &lt;= F*D)  {<br
+/> return 0;<br
+/> }</p><p> // stop, can&#039;t afford a following round-trip, or not enough nuts<br
+/> if (min(C, N) &lt;= 2*F*D || N  2*F*D) {<br
+/> netW += (N &#8211; C)%C &#8211; 2*F*D;<br
+/> }</p><p> return netW;<br
+/> }</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_2992_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_2992_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX2992XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_2992_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_2992_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX2992XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_2992_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=2992#respond' onclick='return addComment.moveForm("comment-2992", "2992", "respond", "74")'>Reply</a></div></div></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-2993"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/ea3d8fed7e7e5fc0f5158199c3f5c8f6?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Nathan W.</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-2993"><span
+class="time-since">September 24, 2011</span></a></p></div><div
+class="comment-entry"><p>// assume all integers<br
+/> int maxNutsBack(int N, int C, int D, int F)<br
+/> {<br
+/> // not worth it, can&#8217;t even afford the initial 1-way trip, note possibly N &lt; C<br
+/> if (min(C, N) &lt;= F*D)  {<br
+/> return 0;<br
+/> }</p><p> // stop, can&#039;t afford a following round-trip, or not enough nuts<br
+/> if (min(C, N) &lt;= 2*F*D || N  2*F*D) {<br
+/> netW += (N &#8211; C)%C &#8211; 2*F*D;<br
+/> }</p><p> return netW;<br
+/> }</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_2993_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_2993_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX2993XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_2993_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_2993_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX2993XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_2993_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=2993#respond' onclick='return addComment.moveForm("comment-2993", "2993", "respond", "74")'>Reply</a></div></div></li><li
+class="comment even thread-even depth-1" id="comment-3250"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/b7c55a1555affb25e6463a13f38bdb7f?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Genghis</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-3250"><span
+class="time-since">October 4, 2011</span></a></p></div><div
+class="comment-entry"><p>Correct me if I am wrong, I considered transit point to be exactly at distance 1 Km from the previous transit point. For transit from A to B, let Na = number of nuts at A, Nb = number of nuts at B left, then Nb = Na(1 &#8211; 2F/C) + F.<br
+/> For the example that you have considered, this one is giving around 56 nuts left at 20 Km.</p><p>How is this answer wrong ? Even if it is wrong, how do you prove the approach that you have taken will give you the maximum nuts.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_3250_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_3250_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX3250XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_3250_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_3250_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX3250XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_3250_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=3250#respond' onclick='return addComment.moveForm("comment-3250", "3250", "respond", "74")'>Reply</a></div></div></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-3400"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/93f99b183d39f6776fb1ea15cf537c9b?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">siv</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-3400"><span
+class="time-since">October 10, 2011</span></a></p></div><div
+class="comment-entry"><p>Hi,</p><p>Could you please explain how did you come to this equation<br
+/> // remaining weight of nuts after consumption<br
+/> double remainingNuts = C*(ceil(N/C) &#8211; 1.0);</p><p>Thanks in advance<br
+/> Siv</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_3400_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_3400_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX3400XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_3400_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_3400_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX3400XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_3400_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=3400#respond' onclick='return addComment.moveForm("comment-3400", "3400", "respond", "74")'>Reply</a></div></div></li><li
+class="comment even thread-even depth-1" id="comment-6374"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/b31c7b71fb45fb1c268ce41fd4b374ca?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">guoguo</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-6374"><span
+class="time-since">November 12, 2011</span></a></p></div><div
+class="comment-entry"><p>&#8220;Hi,</p><p>Could you please explain how did you come to this equation<br
+/> // remaining weight of nuts after consumption<br
+/> double remainingNuts = C*(ceil(N/C) – 1.0);</p><p>Thanks in advance<br
+/> Siv&#8221;</p><p>I have the same question. Could you explain it a little bit?<br
+/> Thank you so much.</p><p>guoguo</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_6374_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_6374_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX6374XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_6374_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_6374_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX6374XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_6374_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=6374#respond' onclick='return addComment.moveForm("comment-6374", "6374", "respond", "74")'>Reply</a></div></div><ul
+class='children'><li
+class="comment odd alt depth-2" id="comment-10175"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/dfd538c4b5b72b1276b9869aa342a80e?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Amol</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-10175"><span
+class="time-since">December 24, 2011</span></a></p></div><div
+class="comment-entry"><p>I think this should be double remainingNuts = N &#8211; C*(ceil(N/C) &#8211; 1.0); instead.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_10175_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_10175_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX10175XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_10175_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_10175_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX10175XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_10175_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=10175#respond' onclick='return addComment.moveForm("comment-10175", "10175", "respond", "74")'>Reply</a></div></div><ul
+class='children'><li
+class="comment even depth-3" id="comment-10179"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/dfd538c4b5b72b1276b9869aa342a80e?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Amol</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-10179"><span
+class="time-since">December 24, 2011</span></a></p></div><div
+class="comment-entry"><p>Got equation is coming from this observation above&#8230;<br
+/> &#8220;Since we are consuming the nuts at a constant rate, eventually we will reach one such transit point where just enough nuts are consumed such that transporting nuts to the next transit point requires one less round trip.&#8221;</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_10179_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_10179_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX10179XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_10179_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_10179_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX10179XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_10179_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=10179#respond' onclick='return addComment.moveForm("comment-10179", "10179", "respond", "74")'>Reply</a></div></div></li></ul></li></ul></li><li
+class="comment odd alt thread-odd thread-alt depth-1" id="comment-19035"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/0092a22de606e8d13f868c475adea3d4?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">johny</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-19035"><span
+class="time-since">May 1, 2012</span></a></p></div><div
+class="comment-entry"><p>Hi 1337,</p><p>Could you elaborate a bit more on the rationale behind the key idea: try to get the remainingNuts to be divisible by C, while being as large as possible (must be less than N)?</p><p>1. Why must remainingNuts be divisible by C?<br
+/> 2. Why must remainingNuts be as large as possible while less than N?</p><p>Thanks!<br
+/> johny</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_19035_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_19035_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX19035XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_19035_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_19035_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX19035XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_19035_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=19035#respond' onclick='return addComment.moveForm("comment-19035", "19035", "respond", "74")'>Reply</a></div></div></li><li
+class="comment even thread-even depth-1" id="comment-73306"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://1.gravatar.com/avatar/1984d8f83956d6ee55108f42308bf04c?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Dahai Xu</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-73306"><span
+class="time-since">September 2, 2013</span></a></p></div><div
+class="comment-entry"><p>I think this problem is a waste of time since it is too flexible. 1) Assume B is a first (intermediate) transit point, why should I bring all the nuts to B first? How about dropping partial before B, partial after B? 2) If N = 110, C=50, why should I transport 50 twice then 10 for the third trip? Maybe 40,40,30 division is a better choice? 4 real numbers D,N,F,C basically make this problem intractable.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_73306_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_73306_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX73306XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_73306_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_73306_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX73306XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_73306_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=73306#respond' onclick='return addComment.moveForm("comment-73306", "73306", "respond", "74")'>Reply</a></div></div><ul
+class='children'><li
+class="comment odd alt depth-2" id="comment-79254"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/ae89669881db337ac9dbb24979635ff8?s=25&amp;d=identicon&amp;r=G' class='avatar avatar-25 photo' height='25' width='25' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">Brady Fang</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-79254"><span
+class="time-since">October 24, 2013</span></a></p></div><div
+class="comment-entry"><p>If N = 110, C = 50, D = 20, F = 1, basically, you will take 5 trips of 2 km to point B (the first transit point), where you will have N = 100 kg to transport.</p><p>From point B, you will take 3 trips of 16.67 km to point C (the second transit point), where you will have N = 50 kg to transport.</p><p>From point C, you will take the final trip of 1.33 km to the destination point, where you will have N = 48.67 kg nuts!</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_79254_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_79254_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX79254XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_79254_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_79254_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX79254XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_79254_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=79254#respond' onclick='return addComment.moveForm("comment-79254", "79254", "respond", "74")'>Reply</a></div></div></li></ul></li><li
+class="comment even thread-odd thread-alt depth-1" id="comment-84574"><div
+class="comment-avatar-box"><div
+class="avb"> <a
+href="" rel="nofollow"> <img
+alt='' src='http://0.gravatar.com/avatar/ecd4588b81c6d121e3d99c8522e241bc?s=50&amp;d=identicon&amp;r=G' class='avatar avatar-50 photo' height='50' width='50' /> </a></div></div><div
+class="comment-content"><div
+class="comment-meta"><p> <a
+href="" rel="nofollow">fwlx</a> said on <a
+href="http://leetcode.com/2011/01/nuts-in-oasis-interview-question-from.html#comment-84574"><span
+class="time-since">November 18, 2013</span></a></p></div><div
+class="comment-entry"><p>I&#8217;m trying to explain more towards the  calculation of &#8220;remainingNuts&#8221;<br
+/> 1. There is a pre-assumption that we should take all nuts to move but not leave any on the way.(Someone may be abot to prove this)<br
+/> Based on above condition, at the start point, the needed trips is constant to move nuts to a position, which equals to N_TRIPS = (2*(ceil(N/C)-1) + 1), so the consumption rate is constant which equals F * N_TRIPS</p><p>In order to get an optimized result, we need to make the 2ed phase&#8217;s trip number smaller, but how to make it smaller? After move some distance, the total weight is smaller, so  if we make the total nuts weight divisible by C, then the next phase will be smaller.</p><p>For example<br
+/> N(120), C(50) D(100), F(1) then the 1st stage to move all nuts to the 1st transit requires 2*(ceil(120/50) -1) + 1 = 5 trips with consumption rate as 5*F nuts/kilometer</p><p>Per the rule, the 1st stage should only consume 20nuts, then it will make the 2ed stage only requires 2*(ceil(100/50) -1) + 1 = 3 trips. The consumption rate will reduce to 3*F nuts/kilometer.</p><p>In one word, we need to reduce the consumption rate as much as possible.</p><div
+style="display: none">VA:F [1.9.22_1171]</div><div
+class="thumblock "><div
+class="ratingtext "><div
+id="gdsr_thumb_text_84574_c" class="gdt-size-20 gdthumbtext"> <strong
+title="0 up, 0 down">0</strong></div></div><span
+title="Vote Up (This comment is useful)"><div
+id="gdsr_thumb_84574_c_up" class="gdt-size-20 gdthumb gdup"><a
+id="gdsrX84574XupXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_84574_c_loader_up" style="display: none; width: 20px " class="ratingloader loadup"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><span
+title="Vote Down (This comment is not useful)"><div
+id="gdsr_thumb_84574_c_dw" class="gdt-size-20 gdthumb gddw"><a
+id="gdsrX84574XdwXcX46X20XY" class="gdt-starrating" rel="nofollow"></a></div><div
+id="gdsr_thumb_84574_c_loader_dw" style="display: none; width: 20px " class="ratingloader loaddw"><div
+class="loader thumb radar" style="width: 20px; height: 20px;"></div></div></span><div
+class="raterclear"></div></div></div><div
+class="comment-options"> <a
+class='comment-reply-link' href='/2011/01/nuts-in-oasis-interview-question-from.html?replytocom=84574#respond' onclick='return addComment.moveForm("comment-84574", "84574", "respond", "74")'>Reply</a></div></div></li></ol></div><div
+id="respond"><h3 id="reply-title">Leave a reply <small><a
+rel="nofollow" id="cancel-comment-reply-link" href="/2011/01/nuts-in-oasis-interview-question-from.html#respond" style="display:none;">Cancel reply</a></small></h3><form
+action="http://leetcode.com/wp-comments-post.php" method="post" id="commentform"><div
+class="comment-avatar-box"><div
+class="avb"> <img
+alt='' src='http://0.gravatar.com/avatar/?d=identicon&amp;s=50' class='avatar avatar-50 photo avatar-default' height='50' width='50' /></div></div><div
+class="comment-content standard-form"><p
+class="comment-notes">Your email address will not be published. Required fields are marked <span
+class="required">*</span></p><p
+class="comment-form-author"><label
+for="author">Name<span
+class="required"> *</span></label> <input
+id="author" name="author" type="text" value="" size="30" aria-required='true' /></p><p
+class="comment-form-email"><label
+for="email">Email<span
+class="required"> *</span></label> <input
+id="email" name="email" type="text" value="" size="30" aria-required='true' /></p><p
+class="comment-form-url"><label
+for="url">Website</label><input
+id="url" name="url" type="text" value="" size="30" /></p><p
+class="form-textarea"><textarea name="comment" id="comment" cols="60" rows="10" aria-required="true"></textarea></p><p
+class="form-allowed-tags">You may use the <code>&lt;code&gt;</code> tag to embed your code.</p><p
+class="form-submit"> <input
+name="submit" type="submit" id="submit" value="Post Comment" /> <input
+type='hidden' name='comment_post_ID' value='74' id='comment_post_ID' /> <input
+type='hidden' name='comment_parent' id='comment_parent' value='0' /></p><p
+style="display: none;"><input
+type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="ed7cac5b49" /></p></div></form></div><div
+id="trackbacks"><h3>1 trackback</h3><ul
+id="trackbacklist"><li><h5><a
+href='http://www.mashengjun.info/?p=217' rel='external nofollow' class='url'>Nuts in an Oasis: An Interview Question from Amazon / Google | 口├人人│의 Blog</a></h5> <em>on July 24, 2011</em></li></ul></div></div></div></div><div
+id="post-dir-search" class="dir-search"><form
+role="search" method="get" id="searchform" action="http://leetcode.com/"> <input
+type="text" value="" name="s" id="s" /> <input
+type="submit" id="searchsubmit" value="Search" /></form></div><div
+id="sidebar"><div
+class="padder"></div></div></div><div
+id="push"></div></div><div
+id="footer"><div
+id="colophon"><div
+class="footer-widget"></div><div
+class="footer-widget"></div><div
+class="footer-widget"></div><div
+class="footer-widget last"></div><div
+class="clear"></div><div
+id="footer-links"><ul
+class="footer-menu"><li
+class="page_item page-item-2"><a
+href="http://leetcode.com/about">About</a></li><li
+class="page_item page-item-908"><a
+href="http://leetcode.com/activity">Activity</a></li><li
+class="page_item page-item-1466"><a
+href="http://leetcode.com/discuss">Discuss</a></li><li
+class="page_item page-item-1658"><a
+href="http://leetcode.com/donate">Donate</a></li><li
+class="page_item page-item-907"><a
+href="http://leetcode.com/members">Members</a></li><li
+class="page_item page-item-370"><a
+href="http://leetcode.com/onlinejudge">Online Judge</a></li></ul></div><div
+id="credits"><p>Copyright &copy; 2013 LeetCode &nbsp;&middot;&nbsp; <a
+href="http://leetcode.com/wp-login.php">Log in</a></p></div></div></div><div
+id="wpadminbar" class="nojq nojs" role="navigation"> <a
+class="screen-reader-shortcut" href="#wp-toolbar" tabindex="1">Skip to toolbar</a><div
+class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Top navigation toolbar." tabindex="0"><ul
+id="wp-admin-bar-root-default" class="ab-top-menu"><li
+id="wp-admin-bar-bp-login"><a
+class="ab-item"  href="http://leetcode.com/wp-login.php">Log in</a></li><li
+id="wp-admin-bar-bp-register"><a
+class="ab-item"  href="http://leetcode.com/register/">Register</a></li><li
+id="wp-admin-bar-my-account"><div
+class="ab-item ab-empty-item" ></div></li></ul></div> <a
+class="screen-reader-shortcut" href="http://leetcode.com/wp-login.php?action=logout&#038;_wpnonce=d79c4035be">Log Out</a></div><div
+class="buddyboss_log"></div> <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6849839-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script><style type="text/css">
+    .defaultCommentText { color: #a1a1a1; font-style: italic; }
+  </style><script type="text/javascript">
+    jQuery("textarea#comment, textarea#reply_text").focus(function(srcc) {
+      if (jQuery(this).val() == jQuery(this)[0].title) {
+        jQuery(this).val("");
+        jQuery(this).removeClass("defaultCommentText");
+      }
+    });
+    jQuery("textarea#comment, textarea#reply_text").blur(function() {
+      if (jQuery(this).val() == "") {
+        jQuery(this).val(jQuery(this)[0].title);
+        jQuery(this).addClass("defaultCommentText");
+      }
+    });
+    jQuery("textarea#comment, textarea#reply_text").attr('title', 'To embed your code, please use <code>your code here</code>.');
+    jQuery("textarea#comment, textarea#reply_text").blur();
+  </script></body></html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Minified using disk: basic
+Page Caching using disk: enhanced
+
+ Served from: leetcode.com @ 2013-12-07 19:40:57 by W3 Total Cache -->
